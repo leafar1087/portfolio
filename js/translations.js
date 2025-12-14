@@ -24,18 +24,21 @@ const translations = {
             p2: "Currently pursuing my Master's at CEU San Pablo Madrid, I combine deep technical knowledge in Blue Team Operations and Threat Hunting with rigorous academic insight. My goal is to apply this unique blend of operational grit and strategic oversight to the private sector."
         },
         expertise: {
-            title: "The Triad of Expertise",
+            title: "Expertise 360 Security Profile",
             card1: {
-                title: "Cybersecurity & Operations",
-                items: ["Incident Response", "Blue Team Ops", "Zero Trust Architecture", "Threat Hunting"]
+                title: "SecDevOps & Engineering",
+                subtitle: "\"Secure by Design\"",
+                items: ["CI/CD Pipeline Security (GitHub Actions)", "Infrastructure as Code (Terraform/Ansible)", "Security Architecture", "Python & Bash Automation"]
             },
             card2: {
-                title: "GRC & Auditing",
-                items: ["ISO 27001 Implementation", "ENS Compliance", "GDPR / LOPD", "IT Risk Management"]
+                title: "Governance & Strategy",
+                subtitle: "\"Aligned with Business\"",
+                items: ["ISO 27001 & ENS (Esquema Nacional de Seguridad)", "IT Risk Management & Compliance", "Security Awareness & Technical Training", "Team Leadership & Mentoring"]
             },
             card3: {
-                title: "Leadership & Academia",
-                items: ["IT Project Management", "University Teaching", "Team Leadership", "Strategic Planning"]
+                title: "Threat Operations",
+                subtitle: "\"Active Defense\"",
+                items: ["Advanced Incident Response", "SIEM Engineering & Log Analysis", "Threat Hunting & Intelligence", "Zero Trust Architecture"]
             }
         },
         experience: {
@@ -210,18 +213,21 @@ const translations = {
             p2: "Actualmente cursando mi Máster en CEU San Pablo Madrid, combino un profundo conocimiento técnico en Operaciones Blue Team y Threat Hunting con una rigurosa visión académica. Mi objetivo es aplicar esta mezcla única de determinación operativa y supervisión estratégica al sector privado."
         },
         expertise: {
-            title: "La Tríada de Expertise",
+            title: "Perfil de Seguridad 360",
             card1: {
-                title: "Ciberseguridad y Operaciones",
-                items: ["Respuesta a Incidentes", "Blue Team Ops", "Arquitectura Zero Trust", "Threat Hunting"]
+                title: "SecDevOps & Engineering",
+                subtitle: "\"Secure by Design\"",
+                items: ["CI/CD Pipeline Security (GitHub Actions)", "Infrastructure as Code (Terraform/Ansible)", "Security Architecture", "Python & Bash Automation"]
             },
             card2: {
-                title: "GRC y Auditoría",
-                items: ["Implementación ISO 27001", "Cumplimiento ENS", "GDPR / LOPD", "Gestión de Riesgos TI"]
+                title: "Governance & Strategy",
+                subtitle: "\"Aligned with Business\"",
+                items: ["ISO 27001 & ENS (Esquema Nacional de Seguridad)", "IT Risk Management & Compliance", "Security Awareness & Technical Training", "Team Leadership & Mentoring"]
             },
             card3: {
-                title: "Liderazgo y Academia",
-                items: ["Gestión de Proyectos TI", "Docencia Universitaria", "Liderazgo de Equipos", "Planificación Estratégica"]
+                title: "Threat Operations",
+                subtitle: "\"Active Defense\"",
+                items: ["Advanced Incident Response", "SIEM Engineering & Log Analysis", "Threat Hunting & Intelligence", "Zero Trust Architecture"]
             }
         },
         experience: {
