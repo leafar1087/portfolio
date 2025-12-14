@@ -13,7 +13,7 @@ const translations = {
             intro: "Hi, I specialize in",
             title: "Securing Critical Infrastructure.",
             location: "Based in Madrid",
-            subtitle: "Through Strategy, Compliance, and Advanced Operations.",
+            subtitle: "Through Development, Governance, and Cybersecurity Operations.",
             desc: "From National Police IT Leadership to European Cybersecurity Strategy. I bridge the gap between technical operations and executive governance.",
             btnExpertise: "View Expertise",
             btnCv: "Download CV"
@@ -202,7 +202,7 @@ const translations = {
             intro: "Hola, me especializo en",
             title: "Proteger Infraestructuras Críticas.",
             location: "Ubicado en Madrid",
-            subtitle: "Mediante Estrategia, Cumplimiento y Operaciones Avanzadas.",
+            subtitle: "Mediante Desarrollo, Cumplimiento y Operaciones de Ciberseguridad.",
             desc: "Desde el Liderazgo TI en la Policía Nacional hasta la Estrategia de Ciberseguridad Europea. Conecto las operaciones técnicas con la gobernanza ejecutiva.",
             btnExpertise: "Ver Expertise",
             btnCv: "Descargar CV"
