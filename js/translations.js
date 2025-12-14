@@ -216,18 +216,18 @@ const translations = {
             title: "Perfil de Seguridad 360",
             card1: {
                 title: "SecDevOps & Engineering",
-                subtitle: "\"Secure by Design\"",
-                items: ["CI/CD Pipeline Security (GitHub Actions)", "Infrastructure as Code (Terraform/Ansible)", "Security Architecture", "Python & Bash Automation"]
+                subtitle: "\"Seguridad desde el Diseño\"",
+                items: ["Seguridad en Pipelines CI/CD (GitHub Actions)", "Infraestructura como Código (Terraform/Ansible)", "Arquitectura de Seguridad", "Automatización con Python y Bash"]
             },
             card2: {
-                title: "Governance & Strategy",
-                subtitle: "\"Aligned with Business\"",
-                items: ["ISO 27001 & ENS (Esquema Nacional de Seguridad)", "IT Risk Management & Compliance", "Security Awareness & Technical Training", "Team Leadership & Mentoring"]
+                title: "Gobernanza y Estrategia",
+                subtitle: "\"Alineado con el Negocio\"",
+                items: ["ISO 27001 y ENS (Esquema Nacional de Seguridad)", "Gestión de Riesgos TI y Cumplimiento", "Concienciación y Formación Técnica", "Liderazgo de Equipos y Mentoría"]
             },
             card3: {
-                title: "Threat Operations",
-                subtitle: "\"Active Defense\"",
-                items: ["Advanced Incident Response", "SIEM Engineering & Log Analysis", "Threat Hunting & Intelligence", "Zero Trust Architecture"]
+                title: "Operaciones de Amenazas",
+                subtitle: "\"Defensa Activa\"",
+                items: ["Respuesta a Incidentes Avanzada", "Ingeniería SIEM y Análisis de Logs", "Threat Hunting e Inteligencia", "Arquitectura Zero Trust"]
             }
         },
         experience: {
