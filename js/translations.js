@@ -6,6 +6,7 @@ const translations = {
             experience: "Experience",
             academy: "Academy",
             blog: "Blog",
+            article: "Article",
             contact: "Contact",
             resume: "Download CV"
         },
@@ -195,6 +196,7 @@ const translations = {
             experience: "Experiencia",
             academy: "Academia",
             blog: "Blog",
+            article: "Artículo",
             contact: "Contacto",
             resume: "Descargar CV"
         },

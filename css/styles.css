@@ -121,7 +121,7 @@ ul {
   font-weight: 700;
 }
 
-.btn-filled:hover, 
+.btn-filled:hover,
 .nav-links .btn-filled:hover {
   opacity: 0.9;
   color: var(--bg-navy); /* Keep text dark on hover */
@@ -758,7 +758,7 @@ ul {
     font-size: 60px;
   }
   .hero-subtitle {
-     font-size: 40px;
+    font-size: 40px;
   }
 }
 
@@ -813,35 +813,35 @@ ul {
   }
 
   .img-wrapper {
-      margin-bottom: 50px; /* Fix overlap with next section due to absolute border */
+    margin-bottom: 50px; /* Fix overlap with next section due to absolute border */
   }
-  
+
   /* Start stacking grids on tablets */
-  .expertise-grid, 
+  .expertise-grid,
   .academy-grid {
-      grid-template-columns: 1fr; 
-      gap: 30px;
+    grid-template-columns: 1fr;
+    gap: 30px;
   }
 
   /* Increased spacing for Lead Magnet on Mobile/Tablet */
   .lead-magnet {
-      padding: 80px 30px;
+    padding: 80px 30px;
   }
   .lead-title {
-      margin-bottom: 25px;
+    margin-bottom: 25px;
   }
   .lead-desc {
-      margin-bottom: 40px;
+    margin-bottom: 40px;
   }
   .lead-form {
-      gap: 20px;
+    gap: 20px;
   }
 }
 
 /* Mobile ( < 576px ) */
 @media (max-width: 575.98px) {
   .container {
-     padding: 0 25px; /* Tighter padding for very small screens */
+    padding: 0 25px; /* Tighter padding for very small screens */
   }
 
   .hero-title {
@@ -849,31 +849,31 @@ ul {
   }
 
   .hero-subtitle {
-     font-size: clamp(20px, 5vw, 24px);
+    font-size: clamp(20px, 5vw, 24px);
   }
 
   /* Optimize Lead Magnet for Mobile */
   .lead-form {
-      flex-direction: column;
-      align-items: stretch;
-      gap: 20px; /* Ensure gap is consistent */
+    flex-direction: column;
+    align-items: stretch;
+    gap: 20px; /* Ensure gap is consistent */
   }
-  
+
   .lead-input,
   .lead-form .btn {
-      width: 100%;
-      margin: 0;
+    width: 100%;
+    margin: 0;
   }
 
   /* Explicitly enforce spacing for small mobile screens */
   .lead-magnet {
-      padding: 80px 30px;
+    padding: 80px 30px;
   }
   .lead-title {
-      margin-bottom: 25px;
+    margin-bottom: 25px;
   }
   .lead-desc {
-      margin-bottom: 40px;
+    margin-bottom: 40px;
   }
 }
 
@@ -886,4 +886,137 @@ ul {
     opacity: 1;
     transform: translateX(0);
   }
+}
+
+/* =========================================
+   Dynamic Article Styles
+   ========================================= */
+.article-container {
+  max-width: 800px; /* Optimal reading width */
+  margin: 0 auto;
+  min-height: 60vh;
+}
+
+.article-container h1 {
+  font-size: clamp(32px, 5vw, 48px);
+  color: var(--teal);
+  margin-bottom: 30px;
+  line-height: 1.2;
+}
+
+.article-container h2 {
+  font-size: 28px;
+  color: var(--lightest-slate);
+  margin-top: 40px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid var(--light-navy);
+  padding-bottom: 10px;
+}
+
+.article-container h3 {
+  font-size: 22px;
+  color: var(--lightest-slate);
+  margin-top: 30px;
+  margin-bottom: 15px;
+}
+
+.article-container p {
+  margin-bottom: 20px;
+  color: var(--slate);
+  font-size: 18px;
+  line-height: 1.8;
+}
+
+.article-container strong {
+  color: var(--lightest-slate);
+  font-weight: 700;
+}
+
+.article-container a {
+  color: var(--teal);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.article-container a:hover {
+  color: var(--white);
+}
+
+.article-container ul,
+.article-container ol {
+  margin-bottom: 25px;
+  padding-left: 20px;
+}
+
+.article-container ul li {
+  position: relative;
+  padding-left: 20px;
+  margin-bottom: 10px;
+  color: var(--slate);
+}
+
+.article-container ul li::before {
+  content: "▹";
+  position: absolute;
+  left: 0;
+  color: var(--teal);
+}
+
+.article-container ol li {
+  list-style-type: decimal;
+  margin-left: 20px;
+  padding-left: 5px;
+  color: var(--slate);
+}
+
+.article-container blockquote {
+  border-left: 2px solid var(--teal);
+  background-color: var(--light-navy);
+  padding: 20px;
+  margin: 30px 0;
+  border-radius: 0 4px 4px 0;
+  font-style: italic;
+  color: var(--light-slate);
+}
+
+.article-container code {
+  font-family: "Roboto Mono", monospace;
+  color: var(--teal);
+  background-color: var(--light-navy);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.9em;
+}
+
+.article-container pre {
+  background-color: var(--light-navy);
+  padding: 20px;
+  border-radius: 4px;
+  overflow-x: auto;
+  margin: 30px 0;
+  border: 1px solid var(--lightest-navy);
+}
+
+.article-container pre code {
+  background-color: transparent;
+  padding: 0;
+  color: var(--light-slate);
+  font-size: 14px;
+}
+
+.article-container img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 4px;
+  margin: 30px 0;
+  border: 1px solid var(--lightest-navy);
+}
+
+.loading-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 300px;
+  color: var(--teal);
 }

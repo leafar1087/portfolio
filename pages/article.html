@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rafael Pérez Llorca - Article</title>
+    <meta
+      name="description"
+      content="Technical article on Cybersecurity, Blue Team Operations, and GRC."
+    />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Roboto+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://unpkg.com/feather-icons"></script>
+
+    <!-- Libs for Markdown and Security -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.0.6/purify.min.js"></script>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="../css/styles.css" />
+    
+    <!-- Article Loader Script -->
+    <script src="../js/article-loader.js" defer></script>
+  </head>
+  <body>
+    <header class="header">
+      <nav class="nav container">
+        <div class="logo">
+          <a href="../index.html">Rafael Pérez Llorca</a>
+        </div>
+        <ul class="nav-links">
+          <li><a href="../index.html#about" data-i18n="nav.about">About</a></li>
+          <li><a href="../index.html#expertise" data-i18n="nav.expertise">Expertise</a></li>
+          <li><a href="../index.html#experience" data-i18n="nav.experience">Experience</a></li>
+          <li><a href="academy.html" style="display: flex; align-items: center; color: var(--teal);"><span data-i18n="nav.academy">Academy</span><span class="glowing-dot"></span></a></li>
+          <li><a href="article.html" data-i18n="nav.article" class="active">Article</a></li>
+          <li><a href="../index.html#contact" data-i18n="nav.contact">Contact</a></li>
+          <li id="lang-toggle-li"><button id="lang-toggle" class="btn btn-outline" style="padding: 5px 10px; font-size: 12px; margin-left: 0;">ES</button></li>
+          <li><a href="../assets/cv_rperez.pdf" target="_blank" class="btn btn-filled" data-i18n="nav.resume">Resume</a></li>
+        </ul>
+        <div class="hamburger">
+          <i data-feather="menu"></i>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+       <!-- Container for the dynamic article content -->
+       <article class="article-container container section-padding" id="article-container">
+           <div class="loading-state">
+               <span class="glowing-dot" style="width: 10px; height: 10px;"></span>
+               <p style="font-family: 'Roboto Mono'; margin-top: 10px;">Loading Payload...</p>
+           </div>
+       </article>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="footer-socials">
+          <a href="https://www.linkedin.com/in/rperezll/" target="_blank" aria-label="LinkedIn"><i data-feather="linkedin"></i></a>
+          <a href="mailto:email@example.com" aria-label="Email"><i data-feather="mail"></i></a>
+        </div>
+        <div class="footer-links">
+          <a href="privacy.html" data-i18n="footer.privacy">Privacy Policy</a>
+          <a href="legal.html" data-i18n="footer.legal">Legal Notice</a>
+        </div>
+        <div class="footer-copyright">
+          <p data-i18n="footer.rights">&copy; 2025 Rafael Pérez Llorca. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="../js/translations.js"></script>
+    <script src="../js/script.js"></script>
+    <script>
+      feather.replace();
+    </script>
+  </body>
+</html>

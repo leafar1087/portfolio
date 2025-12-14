@@ -1,0 +1,50 @@
+[
+    {
+        "id": "test-automation",
+        "date": "2025-12-14",
+        "en": {
+            "title": "Automation with Python and Cloudflare Pages",
+            "description": "How I configured my CI/CD pipeline to deploy this portfolio automatically.",
+            "tags": [
+                "DevOps",
+                "Python",
+                "CI/CD"
+            ],
+            "author": "Rafael Pérez Llorca"
+        },
+        "es": {
+            "title": "Automatización con Python y Cloudflare Pages",
+            "description": "Cómo configuré mi pipeline CI/CD para desplegar este portafolio automáticamente.",
+            "tags": [
+                "DevOps",
+                "Python",
+                "CI/CD"
+            ],
+            "author": "Rafael Pérez Llorca"
+        }
+    },
+    {
+        "id": "security-test",
+        "date": "2025-12-13",
+        "en": {
+            "title": "Proof of Concept: Security and Sanitization",
+            "description": "Cross-Site Scripting (XSS) injection test.",
+            "tags": [
+                "Security",
+                "XSS",
+                "Sanitization"
+            ],
+            "author": "Rafael Pérez Llorca"
+        },
+        "es": {
+            "title": "Prueba de Concepto: Seguridad y sanitización",
+            "description": "Prueba de inyección de código malicioso.",
+            "tags": [
+                "Security",
+                "XSS",
+                "Sanitization"
+            ],
+            "author": "Rafael Pérez Llorca"
+        }
+    }
+]
