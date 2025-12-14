@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rafael Pérez Llorca - Ciberseguridad</title>
+    <meta
+      name="description"
+      content="Portfolio of a Cybersecurity Engineer specializing in Critical Infrastructure, GRC, and Blue Team Operations."
+    />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Roboto+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
+    />
+    <script src="https://unpkg.com/feather-icons"></script>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <header class="header">
+      <nav class="nav container">
+        <div class="logo">
+          <!--<a href="#">&lt;Rafael.Sec /&gt;</a>-->
+          <a href="#">Rafael Pérez Llorca</a>
+        </div>
+        <ul class="nav-links">
+          <li><a href="#about" data-i18n="nav.about">About</a></li>
+          <li><a href="#expertise" data-i18n="nav.expertise">Expertise</a></li>
+          <li><a href="#experience" data-i18n="nav.experience">Experience</a></li>
+          <li><a href="pages/academy.html" class="active" style="display: flex; align-items: center; color: var(--teal);"><span data-i18n="nav.academy">Academy</span><span class="glowing-dot"></span></a></li>
+          <li><a href="pages/blog.html" data-i18n="nav.blog">Blog</a></li>
+          <li><a href="index.html#contact" data-i18n="nav.contact">Contact</a></li>
+          <li id="lang-toggle-li"><button id="lang-toggle" class="btn btn-outline" style="padding: 5px 10px; font-size: 12px; margin-left: 0;">ES</button></li>
+          <li><a href="#" class="btn btn-filled" data-i18n="nav.resume">Resume</a></li>
+        </ul>
+        <div class="hamburger">
+          <i data-feather="menu"></i>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <!-- Hero Section -->
+      <section id="hero" class="hero container">
+        <div class="hero-content">
+          <p class="hero-intro" data-i18n="hero.intro">Hi, I specialize in</p>
+          <h1 class="hero-title" data-i18n="hero.title">Securing Critical Infrastructure.</h1>
+          <!--<p style="color: var(--teal); font-family: 'Roboto Mono', monospace; margin-top: 5px; margin-bottom: 5px;" data-i18n="hero.location">Based in Madrid</p>-->
+          <h2 class="hero-subtitle" data-i18n="hero.subtitle">
+            Through Strategy, Compliance, and Advanced Operations.
+          </h2>
+          <p class="hero-desc" data-i18n="hero.desc">
+            From National Police IT Leadership to European Cybersecurity
+            Strategy. I bridge the gap between technical operations and
+            executive governance.
+          </p>
+          <div class="hero-btns">
+            <a href="#expertise" class="btn btn-primary" data-i18n="hero.btnExpertise">View Expertise</a>
+            <a href="#" class="btn btn-outline" data-i18n="hero.btnCv">Download CV</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- About Section -->
+      <section id="about" class="about container section-padding">
+        <h2 class="section-title" data-i18n="about.title">About Me</h2>
+        <div class="about-content">
+          <div class="about-text">
+            <p data-i18n="about.p1">
+              With over 10 years of experience in the Public Sector,
+              specifically within the National Police of Perú, I have led critical IT
+              interoperability initiatives and managed national-scale data
+              security projects.
+            </p>
+            <p data-i18n="about.p2">
+              Currently pursuing my Master's at CEU San Pablo Madrid, I combine
+              deep technical knowledge in Blue Team Operations and Threat
+              Hunting with rigorous academic insight. My goal is to apply
+              this unique blend of operational grit and strategic oversight to the
+              private sector.
+            </p>
+          </div>
+          <div class="about-img">
+                    <div class="img-wrapper">
+                        <img src="./images/foto_perfil.png" alt="Senior Cybersecurity Engineer Profile Picture">
+                    </div>
+                </div>
+        </div>
+      </section>
+
+      <!-- Triad of Expertise -->
+      <section id="expertise" class="expertise container section-padding">
+        <h2 class="section-title" data-i18n="expertise.title">The Triad of Expertise</h2>
+        <div class="expertise-grid">
+          <!-- Column 1 -->
+          <div class="expertise-card">
+            <div class="card-icon"><i data-feather="terminal"></i></div>
+            <h3 data-i18n="expertise.card1.title">Cybersecurity & Operations</h3>
+            <ul id="expertise-list-1">
+              <li>Incident Response</li>
+              <li>Blue Team Ops</li>
+              <li>Zero Trust Architecture</li>
+              <li>Threat Hunting</li>
+            </ul>
+          </div>
+          <!-- Column 2 -->
+          <div class="expertise-card">
+            <div class="card-icon"><i data-feather="check-square"></i></div>
+            <h3 data-i18n="expertise.card2.title">GRC & Auditing</h3>
+            <ul id="expertise-list-2">
+              <li>ISO 27001 Implementation</li>
+              <li>ENS Compliance</li>
+              <li>GDPR / LOPD</li>
+              <li>IT Risk Management</li>
+            </ul>
+          </div>
+          <!-- Column 3 -->
+          <div class="expertise-card">
+            <div class="card-icon"><i data-feather="users"></i></div>
+            <h3 data-i18n="expertise.card3.title">Leadership & Academia</h3>
+            <ul id="expertise-list-3">
+              <li>IT Project Management</li>
+              <li>University Teaching</li>
+              <li>Team Leadership</li>
+              <li>Strategic Planning</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Experience Timeline -->
+      <section id="experience" class="experience container section-padding">
+        <h2 class="section-title" data-i18n="experience.title">Experience Timeline</h2>
+        <div class="timeline">
+                <!-- Job 1: Postgraduate Professor -->
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3 class="role" data-i18n="experience.job1.role">Postgraduate Professor</h3>
+                        <span class="company" data-i18n="experience.job1.company">Universidad César Vallejo</span>
+                        <p class="timeline-date" data-i18n="experience.job1.date">Sept 2025 - Present</p>
+                        <ul class="timeline-list" id="experience-list-1">
+                            <!-- Filled by JS -->
+                        </ul>
+                    </div>
+                </div>
+                <!-- Job 2: IT Project Manager & Cibersecurity Strategy -->
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3 class="role" data-i18n="experience.job2.role">IT Project Manager & Cybersecurity Strategy</h3>
+                        <span class="company" data-i18n="experience.job2.company">Policía Nacional del Perú</span>
+                        <p class="timeline-date" data-i18n="experience.job2.date">Jan 2024 - Oct 2025</p>
+                        <ul class="timeline-list" id="experience-list-2">
+                             <!-- Filled by JS -->
+                        </ul>
+                    </div>
+                </div>
+                <!-- Job 3: Section Chief of Data Interoperability -->
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3 class="role" data-i18n="experience.job3.role">Section Chief of Data Interoperability</h3>
+                        <span class="company" data-i18n="experience.job3.company">Policía Nacional del Perú</span>
+                        <p class="timeline-date" data-i18n="experience.job3.date">Jan 2023 - Dec 2023</p>
+                        <ul class="timeline-list" id="experience-list-3">
+                             <!-- Filled by JS -->
+                        </ul>
+                    </div>
+                </div>
+                <!-- Job 4: Lead Technical -->
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3 class="role" data-i18n="experience.job4.role">Lead Technical</h3>
+                        <span class="company" data-i18n="experience.job4.company">Policía Nacional del Perú</span>
+                        <p class="timeline-date" data-i18n="experience.job4.date">Nov 2016 - Dec 2022</p>
+                        <ul class="timeline-list" id="experience-list-4">
+                             <!-- Filled by JS -->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+      </section>
+
+      <!-- Tech Stack -->
+      <section id="tech-stack" class="tech-stack container section-padding">
+        <h2 class="section-title" data-i18n="tech.title">Technical Arsenal</h2>
+        <div class="tech-grid">
+          <!-- Development & Data -->
+          <div class="tech-item">
+            <i class="devicon-python-plain"></i><span>Python</span>
+          </div>
+          <div class="tech-item">
+            <i class="devicon-fastapi-plain"></i><span>FastAPI</span>
+          </div>
+          <div class="tech-item">
+            <i class="devicon-microsoftsqlserver-plain"></i><span>SQL Server</span>
+          </div>
+          <div class="tech-item">
+            <i class="devicon-postgresql-plain"></i><span>PostgreSQL</span>
+          </div>
+          <div class="tech-item">
+            <i class="devicon-azure-plain"></i><span>Azure AI</span>
+          </div>
+          <div class="tech-item">
+            <i data-feather="bar-chart-2"></i><span>Power BI</span>
+          </div>
+
+          <!-- Security Operations -->
+          <div class="tech-item">
+            <i data-feather="shield"></i><span>Wazuh</span>
+          </div>
+          <div class="tech-item">
+            <i data-feather="lock"></i><span>Fortinet</span>
+          </div>
+          <div class="tech-item">
+            <i data-feather="cloud"></i><span>Cloudflare</span>
+          </div>
+          <div class="tech-item">
+            <i data-feather="activity"></i><span>Wireshark</span>
+          </div>
+          <div class="tech-item">
+            <i data-feather="search"></i><span>Volatility</span>
+          </div>
+          
+          <!-- Compliance & Standards (Conceptually represented) -->
+           <div class="tech-item">
+            <i data-feather="file-text"></i><span>ISO/NIST</span>
+          </div>
+        </div>
+      </section>
+
+
+
+      <!-- Lead Magnet Section -->
+      <section id="lead-magnet" class="lead-magnet container section-padding">
+        <div class="lead-magnet-content">
+            <h2 class="lead-title" data-i18n="leadMagnet.title">Ready to Elevate Your Professional Profile?</h2>
+            <p class="lead-desc" data-i18n="leadMagnet.desc">Access practical, specialized training in Cybersecurity and Tech. Get certified and stand out in the job market.</p>
+            <div class="lead-cta" style="display: flex; justify-content: center;">
+                <a href="pages/academy.html" class="btn btn-primary" data-i18n="leadMagnet.btn" style="padding: 15px 30px; font-size: 16px;">View All Courses</a>
+            </div>
+        </div>
+      </section>
+
+      <!-- Contact Section -->
+      <section id="contact" class="contact container section-padding">
+        <h2 class="section-title" data-i18n="contact.title">Get In Touch</h2>
+        <p class="contact-desc" data-i18n="contact.desc">
+          I am currently open to opportunities in the European banking,
+          government, and consultancy sectors.
+        </p>
+        <div class="contact-buttons">
+          <a href="mailto:email@example.com" class="btn btn-primary big-btn" data-i18n="contact.btnContact"
+            >Contact Me</a
+          >
+          <a
+            href="https://www.linkedin.com/in/rperezll/"
+            target="_blank"
+            class="btn btn-outline big-btn"
+          >
+            <i data-feather="linkedin"></i> LinkedIn
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="footer-socials">
+          <a href="https://www.linkedin.com/in/rperezll/" target="_blank" aria-label="LinkedIn"><i data-feather="linkedin"></i></a>
+          <a href="mailto:email@example.com" aria-label="Email"><i data-feather="mail"></i></a>
+        </div>
+        <div class="footer-links">
+          <a href="pages/privacy.html" data-i18n="footer.privacy">Privacy Policy</a>
+          <a href="pages/legal.html" data-i18n="footer.legal">Legal Notice</a>
+        </div>
+        <div class="footer-copyright">
+          <p data-i18n="footer.rights">&copy; 2025 Rafael Pérez Llorca. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="js/translations.js"></script>
+    <script src="js/script.js"></script>
+    <script>
+      feather.replace();
+    </script>
+  </body>
+</html>

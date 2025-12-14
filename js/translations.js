@@ -1,0 +1,374 @@
+const translations = {
+    en: {
+        nav: {
+            about: "About",
+            expertise: "Expertise",
+            experience: "Experience",
+            academy: "Academy",
+            blog: "Blog",
+            contact: "Contact",
+            resume: "Download CV"
+        },
+        hero: {
+            intro: "Hi, I specialize in",
+            title: "Securing Critical Infrastructure.",
+            location: "Based in Madrid",
+            subtitle: "Through Strategy, Compliance, and Advanced Operations.",
+            desc: "From National Police IT Leadership to European Cybersecurity Strategy. I bridge the gap between technical operations and executive governance.",
+            btnExpertise: "View Expertise",
+            btnCv: "Download CV"
+        },
+        about: {
+            title: "About Me",
+            p1: "With over 10 years of experience in the Public Sector, specifically within the National Police, I have led critical IT interoperability initiatives and managed national-scale data security projects.",
+            p2: "Currently pursuing my Master's at CEU San Pablo Madrid, I combine deep technical knowledge in Blue Team Operations and Threat Hunting with rigorous academic insight. My goal is to apply this unique blend of operational grit and strategic oversight to the private sector."
+        },
+        expertise: {
+            title: "The Triad of Expertise",
+            card1: {
+                title: "Cybersecurity & Operations",
+                items: ["Incident Response", "Blue Team Ops", "Zero Trust Architecture", "Threat Hunting"]
+            },
+            card2: {
+                title: "GRC & Auditing",
+                items: ["ISO 27001 Implementation", "ENS Compliance", "GDPR / LOPD", "IT Risk Management"]
+            },
+            card3: {
+                title: "Leadership & Academia",
+                items: ["IT Project Management", "University Teaching", "Team Leadership", "Strategic Planning"]
+            }
+        },
+        experience: {
+            title: "Experience Timeline",
+            job1: {
+                role: "Postgraduate Professor",
+                company: "Universidad César Vallejo",
+                date: "Sept 2025 - Present",
+                items: [
+                   "Teaching 'Cyberattack Mitigation and Containment' using NIST, CIS Controls, and MITRE ATT&CK frameworks.",
+                   "Integrating theory and practice through real-world incident analysis and collaborative projects.",
+                   "Promoting a strategic vision of organizational resilience and crisis management."
+                ]
+            },
+            job2: {
+                role: "IT Project Manager & Cybersecurity Strategy",
+                company: "Policía Nacional del Perú",
+                date: "Jan 2024 - Oct 2025",
+                items: [
+                    "Led strategic tech projects to modernize police operations and secure mission-critical information.",
+                    "Implemented security policies aligned with ISO 27001 and international standards.",
+                    "Managed hybrid teams and budgets, ensuring delivery of high-social-impact systems."
+                ]
+            },
+            job3: {
+                role: "Section Chief of Data Interoperability",
+                company: "Policía Nacional del Perú",
+                date: "Jan 2023 - Dec 2023",
+                items: [
+                    "Managed the Institutional Interoperability Platform ensuring secure G2G data exchange.",
+                    "Defined security standards for API contracts (authentication and encryption).",
+                    "Implemented audit trails and access controls for sensitive databases (No Repudiation)."
+                ]
+            },
+            job4: {
+                role: "Lead Technical",
+                company: "Policía Nacional del Perú",
+                date: "Nov 2016 - Dec 2022",
+                items: [
+                    "Led the development of critical digital products like the National Missing Persons Search System.",
+                    "Implemented DevSecOps culture with strict security validations (input sanitization, error handling).",
+                    "Acted as main technical liaison between dev teams, infrastructure, and Product Owners."
+                ]
+            }
+        },
+        tech: {
+            title: "Technical Arsenal"
+        },
+        leadMagnet: {
+             title: "Ready to Elevate Your Professional Profile?",
+             desc: "Access practical, specialized training in Cybersecurity and Tech. Get certified and stand out in the job market.",
+             btn: "View All Courses"
+        },
+        academy: {
+            title: "Cyber Academy",
+            subtitle: "Executive & Technical Training for the Modern Era.",
+            card1: {
+                title: "SQL for Auditors",
+                desc: "Master data queries to detect anomalies and validate integrity without relying on tools.",
+                badge: "Technical"
+            },
+            card2: {
+                 title: "Cybersecurity Governance",
+                 desc: "Align IT operations with business strategy and compliance frameworks (ISO, ENS).",
+                 badge: "Management"
+            },
+            card3: {
+                title: "Threat Hunting 101",
+                desc: "Proactive search for cyber threats that evade existing security solutions.",
+                badge: "Operations"
+            },
+            btnStart: "Start Learning"
+        },
+        blog: {
+            title: "Technical Blog",
+            subtitle: "Insights on Security, Auditing, and Operations.",
+            readMore: "Read Article",
+            article1: {
+                tag: "Auditing",
+                title: "Auditing SQL Server for Anomalies",
+                excerpt: "How to use T-SQL to identify unauthorized access patterns without external tools."
+            },
+            article2: {
+                tag: "Blue Team",
+                title: "Defending Against Ransomware in 2025",
+                excerpt: "Strategies for critical infrastructure protection beyond the perimeter."
+            },
+            article3: {
+                tag: "Governance",
+                title: "Implementing ENS in Public Sector",
+                excerpt: "Lessons learned from deploying the National Security Scheme in a police environment."
+            }
+        },
+        contact: {
+            title: "Get In Touch",
+            desc: "I am currently open to opportunities in the Spanish banking, government, and consultancy sectors.",
+            btnContact: "Contact Me"
+        },
+        footer: {
+            rights: "&copy; 2025 Rafael Pérez Llorca. All rights reserved.",
+            privacy: "Privacy Policy",
+            legal: "Legal Notice"
+        },
+        privacyPage: {
+            title: "Privacy Policy",
+            section1: {
+                title: "1. DATA CONTROLLER",
+                text: "Personal data collected through this website will be processed by Rafael Pérez Llorca, based in Madrid, Spain. Contact: leafar1087@gmail.com."
+            },
+            section2: {
+                title: "2. PURPOSE OF PROCESSING",
+                intro: "We process the information you provide for the following purposes:",
+                item1: "<strong>Professional Contact:</strong> To respond to recruitment inquiries, job proposals, or consulting requests.",
+                item2: "<strong>Academy & Training:</strong> To manage your registration in 'Waitlists' for technical courses (e.g., SQL for Auditors) and notify you when they become available."
+            },
+            section3: {
+                title: "3. LEGAL BASIS",
+                text: "The legal basis for processing your data is your express consent, granted when submitting a contact form or joining a waitlist."
+            },
+            section4: {
+                title: "4. DATA RECIPIENTS",
+                text: "Data will not be shared with third parties unless legally required. However, for training management, external platforms (such as Hotmart or Udemy) may be used as data processors under their own privacy policies."
+            },
+            section5: {
+                title: "5. YOUR RIGHTS",
+                text: "You have the right to access, rectify, and delete your data, as well as to limit its processing, by sending an email to leafar1087@gmail.com."
+            }
+        },
+        legalPage: {
+            title: "Legal Notice",
+            section1: {
+                title: "1. WEBSITE OWNER",
+                intro: "In compliance with the duty of information set forth in Article 10 of Law 34/2002, of July 11, on Information Society Services and Electronic Commerce, the following is stated:",
+                owner: "Owner:",
+                address: "Address:",
+                email: "Contact Email:",
+                activity: "Activity:",
+                activityValue: "Engineering Services, Cybersecurity Consulting, and Training."
+            },
+            section2: {
+                title: "2. PURPOSE",
+                text: "This website is a professional and academic portfolio. Its objective is to showcase the owner's experience in Cybersecurity, Auditing, and Teaching, as well as to offer access to specialized training ('Academy')."
+            },
+            section3: {
+                title: "3. INTELLECTUAL PROPERTY",
+                text: "All contents of the website (texts, project images, design, and source code) are the exclusive property of Rafael Pérez Llorca or third parties who have authorized their use, being protected by Intellectual Property legislation. Reproduction or commercial use without express authorization is prohibited."
+            }
+        }
+    },
+    es: {
+        nav: {
+            about: "Sobre Mí",
+            expertise: "Expertise",
+            experience: "Experiencia",
+            academy: "Academia",
+            blog: "Blog",
+            contact: "Contacto",
+            resume: "Descargar CV"
+        },
+        hero: {
+            intro: "Hola, me especializo en",
+            title: "Proteger Infraestructuras Críticas.",
+            location: "Ubicado en Madrid",
+            subtitle: "Mediante Estrategia, Cumplimiento y Operaciones Avanzadas.",
+            desc: "Desde el Liderazgo TI en la Policía Nacional hasta la Estrategia de Ciberseguridad Europea. Conecto las operaciones técnicas con la gobernanza ejecutiva.",
+            btnExpertise: "Ver Expertise",
+            btnCv: "Descargar CV"
+        },
+        about: {
+            title: "Sobre Mí",
+            p1: "Con más de 10 años de experiencia en el Sector Público, específicamente en la Policía Nacional del Perú, he liderado iniciativas críticas de interoperabilidad TI y gestionado proyectos de seguridad de datos a escala nacional.",
+            p2: "Actualmente cursando mi Máster en CEU San Pablo Madrid, combino un profundo conocimiento técnico en Operaciones Blue Team y Threat Hunting con una rigurosa visión académica. Mi objetivo es aplicar esta mezcla única de determinación operativa y supervisión estratégica al sector privado."
+        },
+        expertise: {
+            title: "La Tríada de Expertise",
+            card1: {
+                title: "Ciberseguridad y Operaciones",
+                items: ["Respuesta a Incidentes", "Blue Team Ops", "Arquitectura Zero Trust", "Threat Hunting"]
+            },
+            card2: {
+                title: "GRC y Auditoría",
+                items: ["Implementación ISO 27001", "Cumplimiento ENS", "GDPR / LOPD", "Gestión de Riesgos TI"]
+            },
+            card3: {
+                title: "Liderazgo y Academia",
+                items: ["Gestión de Proyectos TI", "Docencia Universitaria", "Liderazgo de Equipos", "Planificación Estratégica"]
+            }
+        },
+        experience: {
+            title: "Cronología de Experiencia",
+            job1: {
+                role: "Docente de Posgrado",
+                company: "Universidad César Vallejo",
+                date: "Sept 2025 - Actualidad",
+                items: [
+                   "Enseñanza de 'Mitigación y Contención de Ciberataques' bajo marcos NIST, CIS Controls y MITRE ATT&CK.",
+                   "Integración de teoría y práctica mediante análisis de incidentes reales y proyectos colaborativos.",
+                   "Promoción de una visión estratégica de la resiliencia organizacional y gestión de crisis."
+                ]
+            },
+            job2: {
+                role: "Jefe de Proyectos TI & Estrategia de Ciberseguridad",
+                company: "Policía Nacional del Perú",
+                date: "Ene 2024 - Oct 2025",
+                items: [
+                    "Liderazgo de proyectos estratégicos para modernizar la operatividad policial y blindar información crítica.",
+                    "Implementación de políticas alineadas a ISO 27001 y estándares internacionales.",
+                    "Gestión de equipos híbridos y presupuestos para sistemas de alto impacto social."
+                ]
+            },
+            job3: {
+                role: "Líder de Interoperabilidad y Operaciones de Datos",
+                company: "Policía Nacional del Perú",
+                date: "Ene 2023 - Dic 2023",
+                items: [
+                    "Gestión de la Plataforma de Interoperabilidad Institucional para intercambio seguro G2G.",
+                    "Definición de estándares de seguridad para contratos API (autenticación y cifrado).",
+                    "Implementación de auditoría y control de acceso a bases de datos sensibles (No Repudiación)."
+                ]
+            },
+            job4: {
+                role: "Jefe del Equipo Técnico (Lead Technical)",
+                company: "Policía Nacional del Perú",
+                date: "Nov 2016 - Dic 2022",
+                items: [
+                    "Liderazgo en el desarrollo de productos críticos como el Sistema Nacional de Búsqueda de Personas Desaparecidas.",
+                    "Implementación de cultura DevSecOps con validaciones de seguridad estrictas.",
+                    "Enlace técnico principal entre equipos de desarrollo, infraestructura y Product Owners."
+                ]
+            }
+        },
+        tech: {
+            title: "Arsenal Técnico"
+        },
+        leadMagnet: {
+             title: "¿Listo para potenciar tu perfil profesional?",
+             desc: "Accede a formación práctica y especializada en Ciberseguridad y Tecnología. Certifícate y destaca en el mercado laboral.",
+             btn: "Ver Todos los Cursos"
+        },
+        academy: {
+            title: "Cyber Academy",
+            subtitle: "Formación Ejecutiva y Técnica para la Era Moderna.",
+             card1: {
+                title: "SQL para Auditores",
+                desc: "Domina las consultas de datos para detectar anomalías y validar integridad sin depender de herramientas.",
+                badge: "Técnico"
+            },
+            card2: {
+                 title: "Gobernanza de Ciberseguridad",
+                 desc: "Alinea las operaciones de TI con la estrategia empresarial y marcos de cumplimiento (ISO, ENS).",
+                 badge: "Gestión"
+            },
+            card3: {
+                title: "Threat Hunting 101",
+                desc: "Búsqueda proactiva de ciberamenazas que evaden las soluciones de seguridad existentes.",
+                badge: "Operaciones"
+            },
+            btnStart: "Empezar a Aprender"
+        },
+        blog: {
+            title: "Blog Técnico",
+            subtitle: "Insights sobre Seguridad, Auditoría y Operaciones.",
+            readMore: "Leer Artículo",
+            article1: {
+                tag: "Auditoría",
+                title: "Auditando SQL Server en busca de Anomalías",
+                excerpt: "Cómo usar T-SQL para identificar patrones de acceso no autorizado sin herramientas externas."
+            },
+            article2: {
+                tag: "Blue Team",
+                title: "Defensa contra Ransomware en 2025",
+                excerpt: "Estrategias para la protección de infraestructuras críticas más allá del perímetro."
+            },
+            article3: {
+                tag: "Gobernanza",
+                title: "Implementando el ENS en el Sector Público",
+                excerpt: "Lecciones aprendidas del despliegue del Esquema Nacional de Seguridad en un entorno policial."
+            }
+        },
+        contact: {
+            title: "Contacto",
+            desc: "Actualmente estoy abierto a oportunidades en los sectores bancario, gubernamental y de consultoría en España.",
+            btnContact: "Contáctame"
+        },
+        footer: {
+            rights: "&copy; 2025 Rafael Pérez Llorca. Todos los derechos reservados.",
+            privacy: "Política de Privacidad",
+            legal: "Aviso Legal"
+        },
+        privacyPage: {
+            title: "Política de Privacidad",
+             section1: {
+                title: "1. RESPONSABLE DEL TRATAMIENTO",
+                text: "Los datos personales recogidos a través de este sitio web serán tratados por Rafael Pérez Llorca, con domicilio en Madrid, España. Contacto: leafar1087@gmail.com."
+            },
+            section2: {
+                title: "2. FINALIDAD DEL TRATAMIENTO",
+                intro: "Tratamos la información que nos facilita con las siguientes finalidades:",
+                item1: "<strong>Contacto Profesional:</strong> Para responder a consultas de selección, propuestas laborales o solicitudes de consultoría.",
+                item2: "<strong>Academia y Formación:</strong> Para gestionar su inscripción en 'Listas de Espera' para cursos técnicos (ej. SQL para Auditores) y notificarle cuando estén disponibles."
+            },
+            section3: {
+                title: "3. BASE LEGAL",
+                text: "La base legal para el tratamiento de sus datos es su consentimiento expreso, otorgado al enviar un formulario de contacto o unirse a una lista de espera."
+            },
+            section4: {
+                title: "4. DESTINATARIOS DE DATOS",
+                text: "Los datos no se cederán a terceros salvo obligación legal. No obstante, para la gestión de la formación se podrán utilizar plataformas externas (como Hotmart o Udemy) como encargados del tratamiento bajo sus propias políticas de privacidad."
+            },
+            section5: {
+                title: "5. SUS DERECHOS",
+                text: "Usted tiene derecho a acceder, rectificar y suprimir sus datos, así como a limitar su tratamiento, enviando un correo electrónico a leafar1087@gmail.com."
+            }
+        },
+        legalPage: {
+            title: "Aviso Legal",
+            section1: {
+                title: "1. TITULAR DE LA WEB",
+                intro: "En cumplimiento del deber de información recogido en el artículo 10 de la Ley 34/2002, de 11 de julio, de Servicios de la Sociedad de la Información y del Comercio Electrónico, se indica:",
+                owner: "Titular:",
+                address: "Domicilio:",
+                email: "Email de contacto:",
+                activity: "Actividad:",
+                activityValue: "Servicios de Ingeniería, Consultoría de Ciberseguridad y Formación."
+            },
+            section2: {
+                title: "2. OBJETO",
+                text: "El presente sitio web tiene carácter de portafolio profesional y académico. Su objetivo es mostrar la experiencia del titular en Ciberseguridad, Auditoría y Docencia, así como ofrecer acceso a formación especializada ('Academy')."
+            },
+            section3: {
+                title: "3. PROPIEDAD INTELECTUAL",
+                text: "Todos los contenidos del sitio web (textos, imágenes de proyectos, diseño y código fuente) son titularidad exclusiva de Rafael Pérez Llorca o de terceros que han autorizado su uso, estando protegidos por la legislación sobre Propiedad Intelectual. Queda prohibida la reproducción o uso comercial sin autorización expresa."
+            }
+        }
+    }
+};
