@@ -1,48 +1,53 @@
 document.addEventListener('DOMContentLoaded', async () => {
+    // --- CONFIGURATION & SELECTORS ---
     const container = document.getElementById('article-container');
+    const langToggleBtn = document.getElementById('lang-toggle');
     const params = new URLSearchParams(window.location.search);
     const articleId = params.get('id');
-    const langToggleBtn = document.getElementById('lang-toggle');
-    
-    // Initialize Language: Default to 'en' or sync with main script if possible (requires shared state, assuming 'en' reset for now)
-    let currentLang = 'en';
 
-    // Global Post Cache
+    // --- STATE MANAGEMENT ---
+    // Single Source of Truth: LocalStorage. Default to 'en' if not set.
+    let currentLang = localStorage.getItem('portfolio_lang') || 'en';
     let allPosts = [];
 
     // --- INITIALIZATION ---
+    updateLanguageUI(); // Ensure button text matches state on load
     await loadContent();
 
     // --- EVENT LISTENERS ---
     if (langToggleBtn) {
-        langToggleBtn.addEventListener('click', () => {
-            // Toggle Logic is handled by script.js for the UI button text
-            // We just need to sync our state and re-render
-            const newLang = langToggleBtn.innerText === 'EN' ? 'es' : 'en'; // If button says EN, current is ES? 
-            // Wait. In script.js: langToggleBtn.innerText = lang === 'en' ? 'ES' : 'EN';
-            // So if button says 'ES', current is 'en'. Clicking it changes to 'es', button becomes 'EN'.
-            // Therefore:
-            currentLang = langToggleBtn.innerText === 'ES' ? 'es' : 'en'; // Logic synced with what happens AFTER click handled by script.js? 
-            // Actually, we can just check the button state after a small delay or implement our own toggle logic parallel to script.js
-            // SAFER: Read the button text, which indicates the TARGET language.
-            // But script.js runs first.
-            // Let's assume script.js toggles it. IF script.js toggles text to EN, it means we are now in ES.
+        langToggleBtn.addEventListener('click', (e) => {
+            e.preventDefault(); // Prevent conflicts if script.js is also listening (optional)
             
-            // To allow script.js to finish its update:
-            setTimeout(() => {
-                // If button says 'EN', it means we are in Spanish mode (button offers switch to English)
-                // If button says 'ES', it means we are in English mode.
-                const btnText = langToggleBtn.innerText;
-                currentLang = btnText === 'EN' ? 'es' : 'en'; 
-                loadContent(); // Re-render
-            }, 50);
+            // Toggle Logic
+            currentLang = currentLang === 'en' ? 'es' : 'en';
+            
+            // Save to Storage
+            localStorage.setItem('portfolio_lang', currentLang);
+            
+            // Update UI & Content
+            updateLanguageUI();
+            loadContent();
         });
     }
 
+    // Helper to sync Button Text (Independent of script.js to be safe)
+    function updateLanguageUI() {
+        if(langToggleBtn) {
+            // If current is EN, button should offer ES switch, and vice versa
+            // Or just show current. Let's assume button shows TARGET language:
+            langToggleBtn.innerText = currentLang === 'en' ? 'ES' : 'EN';
+        }
+    }
+
     async function loadContent() {
+        // Clear container mostly for re-renders on lang switch
+        container.innerHTML = ''; 
+
         // State 1: No ID Provided -> LIST ARTICLES (The Index)
         if (!articleId) {
             try {
+                // Cache strategy: only fetch if empty
                 if (allPosts.length === 0) {
                     const response = await fetch('../posts.json');
                     if (!response.ok) throw new Error("Could not load post index");
@@ -68,9 +73,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                 </div>
             `;
 
-            // Fetch the single markdown file (always the Standard ID)
             const fetchUrl = `../posts/${articleId}.md`;
-            
             const response = await fetch(fetchUrl);
             
             if (!response.ok) {
@@ -81,52 +84,59 @@ document.addEventListener('DOMContentLoaded', async () => {
             const { content, metadata } = parseFrontmatter(markdownText);
             
             // --- BILINGUAL CONTENT SPLITTING ---
-            // We expect a separator like "<!-- es -->" to divide EN (top) and ES (bottom)
+            // Separator: 
             const separatorRegex = /<!--\s*es\s*-->/i;
             const parts = content.split(separatorRegex);
             
             let finalContent = parts[0]; // Default to EN
-            if (currentLang === 'es' && parts.length > 1) {
-                finalContent = parts[1];
-            } else if (currentLang === 'es') {
-                // Warning if Spanish requested but not found? Or just show English?
-                // Let's prepend a small warning
-                finalContent = "> **[SYSTEM WARNING]: Translation not available. Displaying original data.**\n\n" + finalContent;
+            
+            if (currentLang === 'es') {
+                if (parts.length > 1) {
+                    finalContent = parts[1];
+                } else {
+                    // Fallback Warning
+                    finalContent = "> **[SYSTEM WARNING]: Translation not available. Displaying original data.**\n\n" + finalContent;
+                }
             }
 
+            // Parse Markdown
             const rawHtml = marked.parse(finalContent);
 
-            // SECURITY ENHANCEMENT: Prevent Reverse Tabnabbing
-            // Hook to force secure attributes on external links
+            // --- SECURITY CORE (YOUR "KILLER FEATURE") ---
+            // Prevent Reverse Tabnabbing via Hook
             DOMPurify.addHook('afterSanitizeAttributes', function (node) {
-                // If the tag is a link (<a>) and has target="_blank"
                 if ('target' in node && node.getAttribute('target') === '_blank') {
-                    // Force secure relationship: noopener noreferrer
                     node.setAttribute('rel', 'noopener noreferrer');
                 }
             });
 
-            // Sanitize allowing 'target' (safe because our Hook protected it)
             const cleanHtml = DOMPurify.sanitize(rawHtml, {
-                ADD_ATTR: ['target'] // Allow target attribute
+                ADD_ATTR: ['target'] 
             });
+
+            // Navigation Text
+            const backText = currentLang === 'en' ? 'RETURN TO INDEX' : 'VOLVER AL ÍNDICE';
 
             container.innerHTML = `
                 <div style="margin-bottom: 30px;">
-                    <a href="article.html" class="btn btn-outline" style="font-size: 12px;">&lt; // ${currentLang === 'en' ? 'RETURN TO INDEX' : 'VOLVER AL ÍNDICE'}</a>
+                    <a href="article.html" class="btn btn-outline" style="font-family: 'Roboto Mono'; font-size: 12px;">&lt; // ${backText}</a>
                 </div>
-                ${cleanHtml}
+                <div class="article-content">
+                    ${cleanHtml}
+                </div>
             `;
 
-            // Update Page Title
+            // Update Page Title dynamically
             let docTitle = "";
             if (currentLang === 'es' && metadata.title_es) {
                 docTitle = metadata.title_es;
             } else {
                 docTitle = metadata.title || (finalContent.match(/^#\s+(.+)$/m)?.[1]);
             }
-            
             if (docTitle) document.title = `${docTitle} - Rafael Pérez Llorca`;
+
+            // Syntax Highlighting (if you use Highlight.js or Prism later)
+            // if(window.hljs) hljs.highlightAll();
 
         } catch (error) {
             renderTerminalState({
@@ -139,6 +149,8 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
     }
 
+    // --- HELPER FUNCTIONS ---
+
     function parseFrontmatter(text) {
         const frontmatterRegex = /^---\s*\n([\s\S]*?)\n---\s*\n/;
         const match = text.match(frontmatterRegex);
@@ -149,9 +161,8 @@ document.addEventListener('DOMContentLoaded', async () => {
                 if (parts.length >= 2) {
                     const key = parts[0].trim();
                     let value = parts.slice(1).join(':').trim();
-                    if ((value.startsWith('"') && value.endsWith('"')) || (value.startsWith("'") && value.endsWith("'"))) {
-                        value = value.slice(1, -1);
-                    }
+                    // Remove quotes if present
+                    value = value.replace(/^["'](.*)["']$/, '$1');
                     metadata[key] = value;
                 }
             });
@@ -161,12 +172,13 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 
     function renderPostList(posts) {
-        // Filter/Map posts for the current language
-        // Since posts.json is grouped by ID, we check if the ID has the current lang
-        
+        // Sort by date (optional, newest first)
+        // posts.sort((a, b) => new Date(b.date) - new Date(a.date));
+
         let rows = posts.map(post => {
-            const meta = post[currentLang] || post['en'] || post['es']; // Fallback chain
-            if (!meta) return ''; // Skip if absolutely no data
+            // Intelligence to pick the right metadata based on lang
+            const meta = post[currentLang] || post['en'] || post['es']; 
+            if (!meta) return ''; 
 
             return `
             <div class="terminal-row" style="margin-bottom: 20px; border-bottom: 1px dashed var(--light-slate); padding-bottom: 15px;">
@@ -176,8 +188,8 @@ document.addEventListener('DOMContentLoaded', async () => {
                     </a>
                     <span style="font-family: 'Roboto Mono'; font-size: 12px; color: var(--slate);">${post.date || ''}</span>
                 </div>
-                <p style="color: var(--slate); font-size: 14px; margin-left: 20px; margin-bottom: 0;">${meta.description || ''}</p>
-                 ${meta.tags ? `<div style="margin-left: 20px; margin-top: 5px;">${meta.tags.map(tag => `<span style="font-size: 10px; border: 1px solid var(--slate); padding: 2px 5px; margin-right: 5px; border-radius: 3px; color: var(--slate);">${tag}</span>`).join('')}</div>` : ''}
+                <p style="color: var(--slate); font-size: 14px; margin-left: 20px; margin-bottom: 5px;">${meta.description || ''}</p>
+                 ${meta.tags ? `<div style="margin-left: 20px;">${meta.tags.map(tag => `<span style="font-family: 'Roboto Mono'; font-size: 10px; border: 1px solid var(--slate); padding: 2px 6px; margin-right: 5px; border-radius: 3px; color: var(--teal);">${tag}</span>`).join('')}</div>` : ''}
             </div>
             `;
         }).join('');
@@ -197,7 +209,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             <style>
                 @keyframes blink { 0% { opacity: 0; } 50% { opacity: 1; } 100% { opacity: 0; } }
                 .blink { animation: blink 1s infinite; }
-                .terminal-row a:hover { text-decoration: underline !important; color: var(--white) !important; }
+                .terminal-row a:hover { color: var(--white) !important; text-decoration: none; border-bottom: 1px solid var(--teal); }
             </style>
         `;
         if(window.feather) feather.replace();

@@ -67,7 +67,7 @@ By not having a live SQL database or running PHP server:
 Want to see the complete automation script? It's available in my public repository:
 
 <a href="https://github.com/leafar1087/portfolio/blob/main/build_index.py" target="_blank" class="btn">
-   Ver código en GitHub
+   View code on GitHub
 </a>
 
 <!-- es -->

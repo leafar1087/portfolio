@@ -1,5 +1,29 @@
 [
     {
+        "id": "python-port-scanner",
+        "date": "2026-01-08",
+        "en": {
+            "title": "Building a Port Scanner with Python",
+            "description": "Creating a custom security tool to audit local networks using Python Sockets.",
+            "tags": [
+                "Python",
+                "NetSec",
+                "Scripting"
+            ],
+            "author": "Rafael Pérez Llorca"
+        },
+        "es": {
+            "title": "Construyendo un Escáner de Puertos con Python",
+            "description": "Creando una herramienta de seguridad personalizada para auditar redes locales usando Python Sockets.",
+            "tags": [
+                "Python",
+                "NetSec",
+                "Scripting"
+            ],
+            "author": "Rafael Pérez Llorca"
+        }
+    },
+    {
         "id": "test-automation",
         "date": "2025-12-14",
         "en": {
