@@ -62,7 +62,7 @@ except socket.error:
 
 As a Cybersecurity Specialist, relying solely on one type of tool is a mistake. We must know when to code and when to use established software.
 
-### When to use Custom Scripts (The "Hacker" Approach)
+### When to use Custom Scripts
 
 - Stealth & Evasion: Standard tools like Nmap have recognizable signatures that are easily blocked by IDS/IPS. A custom Python script can mimic legitimate traffic.
 
@@ -70,7 +70,7 @@ As a Cybersecurity Specialist, relying solely on one type of tool is a mistake. 
 
 - Learning: To deeply understand the protocol.
 
-### When NOT to use them (The "Forensic" Approach)
+### When NOT to use them
 
 - Legal Proceedings & Forensics: In a court of law, evidence collected with a custom script can be dismissed. The opposing counsel can argue the tool is not validated or audited.
 
