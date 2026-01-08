@@ -35,16 +35,25 @@
           <!--<a href="#">&lt;Rafael.Sec /&gt;</a>-->
           <a href="#">Rafael Pérez Llorca</a>
         </div>
+        
         <ul class="nav-links">
-          <li><a href="#about" data-i18n="nav.about">About</a></li>
-          <li><a href="#expertise" data-i18n="nav.expertise">Expertise</a></li>
-          <li><a href="#experience" data-i18n="nav.experience">Experience</a></li>
-          <li><a href="pages/academy.html" class="active" style="display: flex; align-items: center; color: var(--teal);"><span data-i18n="nav.academy">Academy</span><span class="glowing-dot"></span></a></li>
-          <li><a href="pages/article.html" data-i18n="nav.article">Article</a></li>
-          <li><a href="index.html#contact" data-i18n="nav.contact">Contact</a></li>
-          <li id="lang-toggle-li"><button id="lang-toggle" class="btn btn-outline" style="padding: 5px 10px; font-size: 12px; margin-left: 0;">ES</button></li>
-          <li><a href="./assets/cv_rperez.pdf" target="_blank" class="btn btn-filled" data-i18n="nav.resume">Resume</a></li>
+          <li><a href="#about"><span data-i18n="nav.about">About</span><span class="glowing-dot"></span></a></li>
+          <li><a href="#expertise"><span data-i18n="nav.expertise">Expertise</span><span class="glowing-dot"></span></a></li>
+          <li><a href="#experience"><span data-i18n="nav.experience">Experience</span><span class="glowing-dot"></span></a></li>
+          <li><a href="pages/academy.html"><span data-i18n="nav.academy">Academy</span><span class="glowing-dot"></span></a></li>
+          <li><a href="pages/article.html"><span data-i18n="nav.article">Article</span><span class="glowing-dot"></span></a></li>
+          <li><a href="index.html#contact"><span data-i18n="nav.contact">Contact</span><span class="glowing-dot"></span></a></li>
+          <!-- Mobile Actions -->
+          <li class="mobile-only" id="lang-toggle-li-mobile"><button class="btn btn-outline lang-toggle-btn" style="padding: 5px 10px; font-size: 12px; margin-left: 0;">ES</button></li>
+          <li class="mobile-only"><a href="./assets/cv_rperez.pdf" target="_blank" class="btn btn-filled"><span data-i18n="nav.resume">Resume</span></a></li>
         </ul>
+
+        <!-- Desktop Actions -->
+        <div class="nav-actions desktop-only">
+            <button class="btn btn-outline lang-toggle-btn" style="padding: 5px 10px; font-size: 12px;">ES</button>
+            <a href="./assets/cv_rperez.pdf" target="_blank" class="btn btn-filled"><span data-i18n="nav.resume">Resume</span></a>
+        </div>
+
         <div class="hamburger">
           <i data-feather="menu"></i>
         </div>
@@ -53,28 +62,30 @@
 
     <main>
       <!-- Hero Section -->
-      <section id="hero" class="hero container">
-        <div class="hero-content">
-          <p class="hero-intro" data-i18n="hero.intro">Hi, I specialize in</p>
-          <h1 class="hero-title" data-i18n="hero.title">Securing Critical Infrastructure.</h1>
-          <!--<p style="color: var(--teal); font-family: 'Roboto Mono', monospace; margin-top: 5px; margin-bottom: 5px;" data-i18n="hero.location">Based in Madrid</p>-->
-          <h2 class="hero-subtitle" data-i18n="hero.subtitle">
-            Through Development, Governance, and Security Operations.
-          </h2>
-          <p class="hero-desc" data-i18n="hero.desc">
-            From National Police IT Leadership to European Cybersecurity
-            Strategy. I bridge the gap between technical operations and
-            executive governance.
-          </p>
-          <div class="hero-btns">
-            <a href="#expertise" class="btn btn-primary" data-i18n="hero.btnExpertise">View Expertise</a>
-            <a href="./assets/cv_rperez.pdf" target="_blank" class="btn btn-outline" data-i18n="hero.btnCv">Download CV</a>
+      <section id="hero" class="hero">
+        <div class="hero-glow"></div>
+        <div class="container">
+          <div class="hero-content">
+            <p class="hero-intro" data-i18n="hero.intro">Hi, I specialize in</p>
+            <h1 class="hero-title" data-i18n="hero.title">Securing Critical Infrastructure.</h1>
+            <h2 class="hero-subtitle" data-i18n="hero.subtitle">
+              Through Development, Governance, and Security Operations.
+            </h2>
+            <p class="hero-desc" data-i18n="hero.desc">
+              From National Police IT Leadership to European Cybersecurity
+              Strategy. I bridge the gap between technical operations and
+              executive governance.
+            </p>
+            <div class="hero-btns">
+              <a href="#expertise" class="btn btn-primary" data-i18n="hero.btnExpertise">View Expertise</a>
+              <a href="./assets/cv_rperez.pdf" target="_blank" class="btn btn-outline" data-i18n="hero.btnCv">Download CV</a>
+            </div>
           </div>
         </div>
       </section>
 
       <!-- About Section -->
-      <section id="about" class="about container section-padding">
+      <section id="about" class="about container section-padding reveal">
         <h2 class="section-title" data-i18n="about.title">About Me</h2>
         <div class="about-content">
           <div class="about-text">
@@ -246,7 +257,7 @@
       </section>
 
       <!-- Contact Section -->
-      <section id="contact" class="contact container section-padding">
+      <section id="contact" class="contact container section-padding reveal">
         <h2 class="section-title" data-i18n="contact.title">Get In Touch</h2>
         <p class="contact-desc" data-i18n="contact.desc">
           I am currently open to opportunities in the European banking,
@@ -278,7 +289,7 @@
           <a href="pages/legal.html" data-i18n="footer.legal">Legal Notice</a>
         </div>
         <div class="footer-copyright">
-          <p data-i18n="footer.rights">&copy; 2025 Rafael Pérez Llorca. All rights reserved.</p>
+          <p data-i18n="footer.rights">&copy; 2026 Rafael Pérez Llorca. All rights reserved.</p>
         </div>
       </div>
     </footer>
