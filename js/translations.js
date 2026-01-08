@@ -2,10 +2,10 @@ const translations = {
     en: {
         nav: {
             about: "About",
-            expertise: "Expertise",
+            expertise: "Profile",
             experience: "Experience",
             academy: "Academy",
-            blog: "Blog",
+            //blog: "Blog",
             article: "Article",
             contact: "Contact",
             resume: "Download CV"
@@ -14,9 +14,9 @@ const translations = {
             intro: "Hi, I specialize in",
             title: "Securing Critical Infrastructure.",
             location: "Based in Madrid",
-            subtitle: "Through Development, Governance, and Cybersecurity Operations.",
-            desc: "From National Police IT Leadership to European Cybersecurity Strategy. I bridge the gap between technical operations and executive governance.",
-            btnExpertise: "View Expertise",
+            subtitle: "Through development, governance, and cybersecurity operations.",
+            desc: "From National Police IT leadership to european cybersecurity strategy. I bridge the gap between technical operations and executive governance.",
+            btnExpertise: "View profile",
             btnCv: "Download CV"
         },
         about: {
@@ -26,7 +26,7 @@ const translations = {
             p3: "Currently based in Madrid, I am finalizing my Master’s at CEU San Pablo. My focus is on integrating my experience in secure operations with advancements in Artificial Intelligence, with the goal of bringing the balance of technical expertise and strategy that companies require today."
         },
         expertise: {
-            title: "Expertise 360 Security Profile",
+            title: "360 Security Profile",
             card1: {
                 title: "SecDevOps & Engineering",
                 subtitle: "\"Secure by Design\"",
@@ -114,33 +114,14 @@ const translations = {
             },
             btnStart: "Start Learning"
         },
-        blog: {
-            title: "Technical Blog",
-            subtitle: "Insights on Security, Auditing, and Operations.",
-            readMore: "Read Article",
-            article1: {
-                tag: "Auditing",
-                title: "Auditing SQL Server for Anomalies",
-                excerpt: "How to use T-SQL to identify unauthorized access patterns without external tools."
-            },
-            article2: {
-                tag: "Blue Team",
-                title: "Defending Against Ransomware in 2025",
-                excerpt: "Strategies for critical infrastructure protection beyond the perimeter."
-            },
-            article3: {
-                tag: "Governance",
-                title: "Implementing ENS in Public Sector",
-                excerpt: "Lessons learned from deploying the National Security Scheme in a police environment."
-            }
-        },
+        
         contact: {
             title: "Get In Touch",
-            desc: "I am currently open to opportunities in the Spanish banking, government, and consultancy sectors.",
+            desc: "I'm currently open to opportunities in the security, defense, banking, government, and general consulting sectors.",
             btnContact: "Contact Me"
         },
         footer: {
-            rights: "&copy; 2025 Rafael Pérez Llorca. All rights reserved.",
+            rights: "&copy; 2026 Rafael Pérez Llorca. All rights reserved.",
             privacy: "Privacy Policy",
             legal: "Legal Notice"
         },
@@ -193,10 +174,10 @@ const translations = {
     es: {
         nav: {
             about: "Sobre Mí",
-            expertise: "Expertise",
+            expertise: "Perfil",
             experience: "Experiencia",
             academy: "Academia",
-            blog: "Blog",
+            //blog: "Blog",
             article: "Artículo",
             contact: "Contacto",
             resume: "Descargar CV"
@@ -205,9 +186,9 @@ const translations = {
             intro: "Hola, me especializo en",
             title: "Proteger Infraestructuras Críticas.",
             location: "Ubicado en Madrid",
-            subtitle: "Mediante Desarrollo, Cumplimiento y Operaciones de Ciberseguridad.",
-            desc: "Desde el Liderazgo TI en la Policía Nacional hasta la Estrategia de Ciberseguridad Europea. Conecto las operaciones técnicas con la gobernanza ejecutiva.",
-            btnExpertise: "Ver Expertise",
+            subtitle: "Mediante desarrollo, cumplimiento y operaciones de ciberseguridad.",
+            desc: "Desde el liderazgo TI en la Policía Nacional hasta la estrategia de ciberseguridad europea. Conecto las operaciones técnicas con la gobernanza ejecutiva.",
+            btnExpertise: "Ver perfil",
             btnCv: "Descargar CV"
         },
         about: {
@@ -286,7 +267,7 @@ const translations = {
              btn: "Ver Todos los Cursos"
         },
         academy: {
-            title: "Cyber Academy",
+            title: "Ciber Academia",
             subtitle: "Formación Ejecutiva y Técnica para la Era Moderna.",
              card1: {
                 title: "SQL para Auditores",
@@ -305,33 +286,14 @@ const translations = {
             },
             btnStart: "Empezar a Aprender"
         },
-        blog: {
-            title: "Blog Técnico",
-            subtitle: "Insights sobre Seguridad, Auditoría y Operaciones.",
-            readMore: "Leer Artículo",
-            article1: {
-                tag: "Auditoría",
-                title: "Auditando SQL Server en busca de Anomalías",
-                excerpt: "Cómo usar T-SQL para identificar patrones de acceso no autorizado sin herramientas externas."
-            },
-            article2: {
-                tag: "Blue Team",
-                title: "Defensa contra Ransomware en 2025",
-                excerpt: "Estrategias para la protección de infraestructuras críticas más allá del perímetro."
-            },
-            article3: {
-                tag: "Gobernanza",
-                title: "Implementando el ENS en el Sector Público",
-                excerpt: "Lecciones aprendidas del despliegue del Esquema Nacional de Seguridad en un entorno policial."
-            }
-        },
+        
         contact: {
             title: "Contacto",
-            desc: "Actualmente estoy abierto a oportunidades en los sectores bancario, gubernamental y de consultoría en España.",
+            desc: "Actualmente estoy abierto a oportunidades en los sectores seguridad, defensa, banca, gobierno y de consultoría en general.",
             btnContact: "Contáctame"
         },
         footer: {
-            rights: "&copy; 2025 Rafael Pérez Llorca. Todos los derechos reservados.",
+            rights: "&copy; 2026 Rafael Pérez Llorca. Todos los derechos reservados.",
             privacy: "Política de Privacidad",
             legal: "Aviso Legal"
         },
