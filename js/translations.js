@@ -21,8 +21,9 @@ const translations = {
         },
         about: {
             title: "About Me",
-            p1: "With over 10 years of experience in the Public Sector, specifically within the National Police, I have led critical IT interoperability initiatives and managed national-scale data security projects.",
-            p2: "Currently pursuing my Master's at CEU San Pablo Madrid, I combine deep technical knowledge in Blue Team Operations and Threat Hunting with rigorous academic insight. My goal is to apply this unique blend of operational grit and strategic oversight to the private sector."
+            p1: "I am a Systems Engineer with over 10 years of experience, primarily built within the public sector and the National Police. In these roles, I managed critical IT sections, led data interoperability projects, and oversaw secure infrastructure at a national level.",
+            p2: "Beyond my technical work, I have dedicated part of my career to academia as a University Professor, teaching Systems Engineering and Cybersecurity.",
+            p3: "Currently based in Madrid, I am finalizing my Master’s at CEU San Pablo. My focus is on integrating my experience in secure operations with advancements in Artificial Intelligence, with the goal of bringing the balance of technical expertise and strategy that companies require today."
         },
         expertise: {
             title: "Expertise 360 Security Profile",
@@ -211,8 +212,9 @@ const translations = {
         },
         about: {
             title: "Sobre Mí",
-            p1: "Con más de 10 años de experiencia en el Sector Público, específicamente en la Policía Nacional del Perú, he liderado iniciativas críticas de interoperabilidad TI y gestionado proyectos de seguridad de datos a escala nacional.",
-            p2: "Actualmente cursando mi Máster en CEU San Pablo Madrid, combino un profundo conocimiento técnico en Operaciones Blue Team y Threat Hunting con una rigurosa visión académica. Mi objetivo es aplicar esta mezcla única de determinación operativa y supervisión estratégica al sector privado."
+            p1: "Soy Ingeniero de Sistemas con más de 10 años de experiencia, desarrollada principalmente en el sector público y la Policía Nacional. En esta etapa, gestioné secciones críticas de TI, lideré proyectos de interoperabilidad de datos y supervisé infraestructuras seguras a nivel nacional.",
+            p2: "Más allá de la parte técnica, he dedicado parte de mi carrera al ámbito académico como Docente Universitario en Ingeniería de Sistemas y Ciberseguridad.",
+            p3: "Actualmente resido en Madrid y estoy finalizando mi Máster en el CEU San Pablo. Mi enfoque actual es integrar mi experiencia en operaciones seguras con los avances en Inteligencia Artificial, con el objetivo de aportar este equilibrio de técnica y estrategia que requieren las empresas en la actualidad."
         },
         expertise: {
             title: "Perfil de Seguridad 360",
