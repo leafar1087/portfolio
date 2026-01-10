@@ -1,5 +1,31 @@
 [
     {
+        "id": "realidades-ciberseguridad",
+        "date": "2026-01-10",
+        "en": {
+            "title": "5 Realities of Cybersecurity that Challenge Everything You Knew",
+            "description": "An analysis of how cyber intelligence is shifting from static defense to a dynamic, intelligence-driven posture.",
+            "tags": [
+                "Cybersecurity",
+                "CyberIntelligence",
+                "AI",
+                "CEU San Pablo"
+            ],
+            "author": "Rafael Pérez Llorca"
+        },
+        "es": {
+            "title": "5 Realidades de la Ciberseguridad que Desafían Todo lo que Creías Saber",
+            "description": "Un análisis de cómo la ciberinteligencia está desplazando la defensa estática hacia una postura dinámica impulsada por la inteligencia.",
+            "tags": [
+                "Cybersecurity",
+                "CyberIntelligence",
+                "AI",
+                "CEU San Pablo"
+            ],
+            "author": "Rafael Pérez Llorca"
+        }
+    },
+    {
         "id": "python-port-scanner",
         "date": "2026-01-08",
         "en": {
