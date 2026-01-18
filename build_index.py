@@ -6,7 +6,7 @@ from datetime import datetime
 # Configuration
 
 """
-SCRIPT DE AUTOMATIZACIÓN DE CONTENIDO (Static Site Generator)
+##SCRIPT DE AUTOMATIZACIÓN DE CONTENIDO (Static Site Generator)
 -------------------------------------------------------------
 Este script actúa como el "Backend" en tiempo de construcción (Build Time).
 Su función es convertir la carpeta de artículos Markdown en una API estática (JSON)
