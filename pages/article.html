@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Rafael Pérez Llorca - Article</title>
+    <title>Rafael Pérez Llorca - Artículo</title>
     <link rel="icon" type="image/png" href="../images/favicon.png" />
     <meta
       name="description"
-      content="Technical article on Cybersecurity, Blue Team Operations, and GRC."
+      content="Artículo técnico sobre Ciberseguridad, Operaciones Blue Team y GRC."
     />
 
     <!-- Fonts -->
@@ -42,16 +42,26 @@
         <div class="logo">
           <a href="../index.html">Rafael Pérez Llorca</a>
         </div>
+        
         <ul class="nav-links">
-          <li><a href="../index.html#about"><span data-i18n="nav.about">About</span><span class="glowing-dot"></span></a></li>
-          <li><a href="../index.html#expertise"><span data-i18n="nav.expertise">Expertise</span><span class="glowing-dot"></span></a></li>
-          <li><a href="../index.html#experience"><span data-i18n="nav.experience">Experience</span><span class="glowing-dot"></span></a></li>
-          <li><a href="academy.html"><span data-i18n="nav.academy">Academy</span><span class="glowing-dot"></span></a></li>
-          <li><a href="article.html" class="active"><span data-i18n="nav.article">Article</span><span class="glowing-dot"></span></a></li>
-          <li><a href="../index.html#contact"><span data-i18n="nav.contact">Contact</span><span class="glowing-dot"></span></a></li>
-          <li id="lang-toggle-li"><button id="lang-toggle" class="btn btn-outline" style="padding: 5px 10px; font-size: 12px; margin-left: 0;">ES</button></li>
-          <li><a href="../assets/cv_rperez.pdf" target="_blank" class="btn btn-filled"><span data-i18n="nav.resume">Resume</span></a></li>
+          <li><a href="../index.html#about"><span data-i18n="nav.about">Sobre Mí</span><span class="glowing-dot"></span></a></li>
+          <li><a href="../index.html#expertise"><span data-i18n="nav.expertise">Perfil</span><span class="glowing-dot"></span></a></li>
+          <li><a href="../index.html#experience"><span data-i18n="nav.experience">Experiencia</span><span class="glowing-dot"></span></a></li>
+          <li><a href="../index.html#contact"><span data-i18n="nav.contact">Contacto</span><span class="glowing-dot"></span></a></li>
+          <li><a href="academy.html"><span data-i18n="nav.academy">Academia</span><span class="glowing-dot"></span></a></li>
+          <li><a href="article.html" class="active"><span data-i18n="nav.article">Artículo</span><span class="glowing-dot"></span></a></li>
+          
+          <!-- Mobile Actions -->
+          <li class="mobile-only" id="lang-toggle-li-mobile"><button class="btn btn-outline lang-toggle-btn" style="padding: 5px 10px; font-size: 12px; margin-left: 0;">ES</button></li>
+          <li class="mobile-only"><a href="../assets/cv_rperez.pdf" target="_blank" class="btn btn-filled"><span data-i18n="nav.resume">Descargar CV</span></a></li>
         </ul>
+
+        <!-- Desktop Actions -->
+        <div class="nav-actions desktop-only">
+            <button class="btn btn-outline lang-toggle-btn" style="padding: 5px 10px; font-size: 12px;">ES</button>
+            <a href="../assets/cv_rperez.pdf" target="_blank" class="btn btn-filled"><span data-i18n="nav.resume">Descargar CV</span></a>
+        </div>
+
         <div class="hamburger">
           <i data-feather="menu"></i>
         </div>
@@ -63,7 +73,7 @@
        <article class="article-container container section-padding" id="article-container">
            <div class="loading-state">
                <span class="glowing-dot" style="width: 10px; height: 10px;"></span>
-               <p style="font-family: 'Roboto Mono'; margin-top: 10px;">Loading Payload...</p>
+               <p style="font-family: 'Roboto Mono'; margin-top: 10px;">Cargando Payload...</p>
            </div>
        </article>
     </main>
@@ -75,11 +85,11 @@
           <a href="mailto:email@example.com" aria-label="Email"><i data-feather="mail"></i></a>
         </div>
         <div class="footer-links">
-          <a href="privacy.html" data-i18n="footer.privacy">Privacy Policy</a>
-          <a href="legal.html" data-i18n="footer.legal">Legal Notice</a>
+          <a href="privacy.html" data-i18n="footer.privacy">Política de Privacidad</a>
+          <a href="legal.html" data-i18n="footer.legal">Aviso Legal</a>
         </div>
         <div class="footer-copyright">
-          <p data-i18n="footer.rights">&copy; 2025 Rafael Pérez Llorca. All rights reserved.</p>
+          <p data-i18n="footer.rights">&copy; 2026 Rafael Pérez Llorca. Todos los derechos reservados.</p>
         </div>
       </div>
     </footer>

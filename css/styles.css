@@ -27,6 +27,10 @@ body {
   min-width: 450px; /* Stop responsive scaling below 450px as requested */
 }
 
+html {
+  overflow-y: scroll; /* Force scrollbar to prevent layout shift */
+}
+
 h1,
 h2,
 h3,
@@ -143,17 +147,20 @@ ul {
 
 .glowing-dot {
   display: none; /* Hidden by default */
+  position: absolute; /* Remove from flow to prevent shifting */
+  right: -14px; /* Position in the margin space */
+  top: 50%;
+  margin-top: -3px; /* Half height to center */
   width: 6px;
   height: 6px;
   background-color: var(--teal);
   border-radius: 50%;
-  margin-left: 8px; /* Slightly more space */
   box-shadow: 0 0 5px var(--teal);
   animation: pulse-dot 2s infinite ease-in-out;
 }
 
 .nav-links a.active .glowing-dot {
-  display: inline-block; /* Show when parent is active */
+  display: block; /* Show when parent is active */
 }
 
 @keyframes pulse-dot {
@@ -196,7 +203,7 @@ ul {
 
 /* Specific Header Container to widen the navbar */
 .header .container {
-  padding: 0 30px; 
+  padding: 0 30px;
   max-width: 1400px;
 }
 
@@ -219,16 +226,17 @@ ul {
   display: flex;
   align-items: center;
   gap: 15px;
-  min-width: 100px; 
-  min-height: 50px; 
+  min-width: 100px;
+  min-height: 50px;
 }
 
 .nav-links a {
   font-size: 13px;
   font-family: "Roboto Mono", monospace;
-  white-space: nowrap; 
-  display: flex; 
-  align-items: center; 
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  position: relative; /* Anchor for absolute dot */
 }
 
 .nav-links a:hover,
@@ -242,25 +250,25 @@ ul {
 
 /* Visibility Utilities */
 .mobile-only {
-    display: none;
+  display: none;
 }
 
 .desktop-only {
-    display: flex;
+  display: flex;
 }
 
 /* Mobile Responsive Adjustments */
 @media (max-width: 767.98px) {
   .nav {
-      /* Revert to Flex for mobile to handle logo + hamburger */
-      display: flex;
-      justify-content: space-between;
+    /* Revert to Flex for mobile to handle logo + hamburger */
+    display: flex;
+    justify-content: space-between;
   }
-  
+
   .hamburger {
-      display: block;
-      cursor: pointer;
-      color: var(--teal); /* Ensure visibility */
+    display: block;
+    cursor: pointer;
+    color: var(--teal); /* Ensure visibility */
   }
 
   .nav-links {
@@ -283,17 +291,17 @@ ul {
   .nav-links.nav-active {
     right: 0;
   }
-  
+
   .nav-links li {
-      margin: 20px 0;
+    margin: 20px 0;
   }
 
   .mobile-only {
-      display: block; /* Show in drawer */
+    display: block; /* Show in drawer */
   }
 
   .desktop-only {
-      display: none; /* Hide desktop actions */
+    display: none; /* Hide desktop actions */
   }
 }
 
@@ -319,7 +327,7 @@ ul {
   left: 0;
   width: 200%; /* Wider to allow scrolling animation */
   height: 200%;
-  background-image: 
+  background-image:
     linear-gradient(rgba(100, 255, 218, 0.05) 1px, transparent 1px),
     linear-gradient(90deg, rgba(100, 255, 218, 0.05) 1px, transparent 1px);
   background-size: 50px 50px;
@@ -330,8 +338,12 @@ ul {
 }
 
 @keyframes grid-scroll {
-  0% { transform: perspective(500px) rotateX(20deg) translateY(0); }
-  100% { transform: perspective(500px) rotateX(20deg) translateY(-50px); }
+  0% {
+    transform: perspective(500px) rotateX(20deg) translateY(0);
+  }
+  100% {
+    transform: perspective(500px) rotateX(20deg) translateY(-50px);
+  }
 }
 
 /* Vignette / Depth Effect */
@@ -342,7 +354,11 @@ ul {
   left: 0;
   width: 100%;
   height: 100%;
-  background: radial-gradient(circle at center, transparent 10%, var(--bg-navy) 90%);
+  background: radial-gradient(
+    circle at center,
+    transparent 10%,
+    var(--bg-navy) 90%
+  );
   z-index: 1;
   pointer-events: none;
 }
@@ -355,27 +371,37 @@ ul {
   transform: translate(-50%, -50%);
   width: 800px;
   height: 800px;
-  background: radial-gradient(circle, rgba(100, 255, 218, 0.08) 0%, transparent 70%);
-  filter: blur(100px); 
-  z-index: 0; 
+  background: radial-gradient(
+    circle,
+    rgba(100, 255, 218, 0.08) 0%,
+    transparent 70%
+  );
+  filter: blur(100px);
+  z-index: 0;
   pointer-events: none;
   animation: pulse-glow 8s ease-in-out infinite alternate;
 }
 
 @keyframes pulse-glow {
-  0% { opacity: 0.5; transform: translate(-50%, -50%) scale(0.9); }
-  100% { opacity: 0.8; transform: translate(-50%, -50%) scale(1.1); }
+  0% {
+    opacity: 0.5;
+    transform: translate(-50%, -50%) scale(0.9);
+  }
+  100% {
+    opacity: 0.8;
+    transform: translate(-50%, -50%) scale(1.1);
+  }
 }
 
 /* Content Wrapper to ensure text is visible & centered */
 /* Content Wrapper to ensure text is visible & centered */
 .hero .container {
-    position: relative;
-    z-index: 10; /* Boost z-index to be safe */
-    width: 100%;
-    max-width: 1400px;
-    padding: 0 30px;
-    margin: 0 auto;
+  position: relative;
+  z-index: 10; /* Boost z-index to be safe */
+  width: 100%;
+  max-width: 1400px;
+  padding: 0 30px;
+  margin: 0 auto;
 }
 
 .hero-content {

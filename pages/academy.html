@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cyber Academy - Rafael Pérez Llorca</title>
+    <title>Ciber Academia - Rafael Pérez Llorca</title>
     <link rel="icon" type="image/png" href="../images/favicon.png" />
     <meta
       name="description"
@@ -30,16 +30,26 @@
         <div class="logo">
           <a href="../index.html">Rafael Pérez Llorca</a>
         </div>
+        
         <ul class="nav-links">
-          <li><a href="../index.html#about"><span data-i18n="nav.about">About</span><span class="glowing-dot"></span></a></li>
-          <li><a href="../index.html#expertise"><span data-i18n="nav.expertise">Profile</span><span class="glowing-dot"></span></a></li>
-          <li><a href="../index.html#experience"><span data-i18n="nav.experience">Experience</span><span class="glowing-dot"></span></a></li>
-          <li><a href="academy.html" class="active"><span data-i18n="nav.academy">Academy</span><span class="glowing-dot"></span></a></li>
-          <li><a href="article.html"><span data-i18n="nav.article">Article</span><span class="glowing-dot"></span></a></li>
-          <li><a href="../index.html#contact"><span data-i18n="nav.contact">Contact</span><span class="glowing-dot"></span></a></li>
-          <li id="lang-toggle-li"><button id="lang-toggle" class="btn btn-outline" style="padding: 5px 10px; font-size: 12px; margin-left: 0;">ES</button></li>
-          <li><a href="#" class="btn btn-outline"><span data-i18n="nav.resume">Download CV</span></a></li>
+          <li><a href="../index.html#about"><span data-i18n="nav.about">Sobre Mí</span><span class="glowing-dot"></span></a></li>
+          <li><a href="../index.html#expertise"><span data-i18n="nav.expertise">Perfil</span><span class="glowing-dot"></span></a></li>
+          <li><a href="../index.html#experience"><span data-i18n="nav.experience">Experiencia</span><span class="glowing-dot"></span></a></li>
+          <li><a href="../index.html#contact"><span data-i18n="nav.contact">Contacto</span><span class="glowing-dot"></span></a></li>
+          <li><a href="academy.html" class="active"><span data-i18n="nav.academy">Academia</span><span class="glowing-dot"></span></a></li>
+          <li><a href="article.html"><span data-i18n="nav.article">Artículo</span><span class="glowing-dot"></span></a></li>
+          
+          <!-- Mobile Actions -->
+          <li class="mobile-only" id="lang-toggle-li-mobile"><button class="btn btn-outline lang-toggle-btn" style="padding: 5px 10px; font-size: 12px; margin-left: 0;">ES</button></li>
+          <li class="mobile-only"><a href="../assets/cv_rperez.pdf" target="_blank" class="btn btn-filled"><span data-i18n="nav.resume">Descargar CV</span></a></li>
         </ul>
+
+        <!-- Desktop Actions -->
+        <div class="nav-actions desktop-only">
+            <button class="btn btn-outline lang-toggle-btn" style="padding: 5px 10px; font-size: 12px;">ES</button>
+            <a href="../assets/cv_rperez.pdf" target="_blank" class="btn btn-filled"><span data-i18n="nav.resume">Descargar CV</span></a>
+        </div>
+
         <div class="hamburger">
           <i data-feather="menu"></i>
         </div>
@@ -50,9 +60,9 @@
       <!-- Academy Hero -->
       <section class="hero container" style="min-height: 40vh; padding-top: 120px;">
         <div class="hero-content">
-          <h1 class="hero-title" data-i18n="academy.title">Cyber Academy</h1>
+          <h1 class="hero-title" data-i18n="academy.title">Ciber Academia</h1>
           <h2 class="hero-subtitle" data-i18n="academy.subtitle" style="font-size: 24px;">
-            Executive & Technical Training for the Modern Era.
+            Formación Ejecutiva y Técnica para la Era Moderna.
           </h2>
         </div>
       </section>
@@ -66,9 +76,9 @@
                     <i data-feather="database"></i>
                 </div>
                 <div class="course-content">
-                    <span class="course-badge" data-i18n="academy.card1.badge">Technical</span>
-                    <h3 class="course-title" data-i18n="academy.card1.title">SQL for Auditors</h3>
-                    <p class="course-desc" data-i18n="academy.card1.desc">Master data queries to detect anomalies and validate integrity without relying on tools.</p>
+                    <span class="course-badge" data-i18n="academy.card1.badge">Técnico</span>
+                    <h3 class="course-title" data-i18n="academy.card1.title">SQL para Auditores</h3>
+                    <p class="course-desc" data-i18n="academy.card1.desc">Domina las consultas de datos para detectar anomalías y validar integridad sin depender de herramientas.</p>
                     <div class="course-rating">
                         <i data-feather="star" style="fill: #ffc107; width: 14px;"></i>
                         <i data-feather="star" style="fill: #ffc107; width: 14px;"></i>
@@ -77,7 +87,7 @@
                         <i data-feather="star" style="fill: #ffc107; width: 14px;"></i>
                         <span style="color: var(--slate); font-size: 12px; margin-left: 5px;">(5.0)</span>
                     </div>
-                    <a href="#" class="btn btn-primary" style="width: 100%; text-align: center;" data-i18n="academy.btnStart">Start Learning</a>
+                    <a href="#" class="btn btn-primary" style="width: 100%; text-align: center;" data-i18n="academy.btnStart">Empezar a Aprender</a>
                 </div>
             </div>
 
@@ -87,9 +97,9 @@
                     <i data-feather="shield"></i>
                 </div>
                 <div class="course-content">
-                    <span class="course-badge" data-i18n="academy.card2.badge">Management</span>
-                    <h3 class="course-title" data-i18n="academy.card2.title">Cybersecurity Governance</h3>
-                    <p class="course-desc" data-i18n="academy.card2.desc">Align IT operations with business strategy and compliance frameworks (ISO, ENS).</p>
+                    <span class="course-badge" data-i18n="academy.card2.badge">Gestión</span>
+                    <h3 class="course-title" data-i18n="academy.card2.title">Gobernanza de Ciberseguridad</h3>
+                    <p class="course-desc" data-i18n="academy.card2.desc">Alinea las operaciones de TI con la estrategia empresarial y marcos de cumplimiento (ISO, ENS).</p>
                     <div class="course-rating">
                         <i data-feather="star" style="fill: #ffc107; width: 14px;"></i>
                         <i data-feather="star" style="fill: #ffc107; width: 14px;"></i>
@@ -98,7 +108,7 @@
                         <i data-feather="star" style="fill: #ffc107; width: 14px;"></i>
                         <span style="color: var(--slate); font-size: 12px; margin-left: 5px;">(4.9)</span>
                     </div>
-                    <a href="#" class="btn btn-primary" style="width: 100%; text-align: center;" data-i18n="academy.btnStart">Start Learning</a>
+                    <a href="#" class="btn btn-primary" style="width: 100%; text-align: center;" data-i18n="academy.btnStart">Empezar a Aprender</a>
                 </div>
             </div>
 
@@ -108,9 +118,9 @@
                     <i data-feather="crosshair"></i>
                 </div>
                 <div class="course-content">
-                    <span class="course-badge" data-i18n="academy.card3.badge">Operations</span>
+                    <span class="course-badge" data-i18n="academy.card3.badge">Operaciones</span>
                     <h3 class="course-title" data-i18n="academy.card3.title">Threat Hunting 101</h3>
-                    <p class="course-desc" data-i18n="academy.card3.desc">Proactive search for cyber threats that evade existing security solutions.</p>
+                    <p class="course-desc" data-i18n="academy.card3.desc">Búsqueda proactiva de ciberamenazas que evaden las soluciones de seguridad existentes.</p>
                     <div class="course-rating">
                         <i data-feather="star" style="fill: #ffc107; width: 14px;"></i>
                         <i data-feather="star" style="fill: #ffc107; width: 14px;"></i>
@@ -119,7 +129,7 @@
                         <i data-feather="star-half" style="fill: #ffc107; width: 14px;"></i>
                         <span style="color: var(--slate); font-size: 12px; margin-left: 5px;">(4.8)</span>
                     </div>
-                    <a href="#" class="btn btn-primary" style="width: 100%; text-align: center;" data-i18n="academy.btnStart">Start Learning</a>
+                    <a href="#" class="btn btn-primary" style="width: 100%; text-align: center;" data-i18n="academy.btnStart">Empezar a Aprender</a>
                 </div>
             </div>
         </div>
@@ -135,11 +145,11 @@
           <a href="mailto:email@example.com" aria-label="Email"><i data-feather="mail"></i></a>
         </div>
         <div class="footer-links">
-          <a href="privacy.html" data-i18n="footer.privacy">Privacy Policy</a>
-          <a href="legal.html" data-i18n="footer.legal">Legal Notice</a>
+          <a href="privacy.html" data-i18n="footer.privacy">Política de Privacidad</a>
+          <a href="legal.html" data-i18n="footer.legal">Aviso Legal</a>
         </div>
         <div class="footer-copyright">
-          <p data-i18n="footer.rights">&copy; 2025 Rafael Pérez Llorca. All rights reserved.</p>
+          <p data-i18n="footer.rights">&copy; 2026 Rafael Pérez Llorca. Todos los derechos reservados.</p>
         </div>
       </div>
     </footer>

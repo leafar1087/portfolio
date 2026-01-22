@@ -6,8 +6,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     const articleId = params.get('id');
 
     // --- STATE MANAGEMENT ---
-    // Single Source of Truth: LocalStorage. Default to 'en' if not set.
-    let currentLang = localStorage.getItem('portfolio_lang') || 'en';
+    // Single Source of Truth: LocalStorage. Default to 'es' if not set.
+    let currentLang = localStorage.getItem('portfolio_lang') || 'es';
     let allPosts = [];
 
     // --- INITIALIZATION ---
@@ -88,17 +88,21 @@ document.addEventListener('DOMContentLoaded', async () => {
             const separatorRegex = /<!--\s*es\s*-->/i;
             const parts = content.split(separatorRegex);
             
-            let finalContent = parts[0]; // Default to EN
+            let finalContent = parts[0]; // Default to first part (often EN in legacy posts)
+            
+            // If the post has 2 parts, usually Part 1 = EN, Part 2 = ES
+            // But if we want Spanish Default, we should check logic:
             
             if (currentLang === 'es') {
                 if (parts.length > 1) {
                     finalContent = parts[1];
-                } else {
-                    // Fallback Warning
-                    finalContent = "> **[SYSTEM WARNING]: Translation not available. Displaying original data.**\n\n" + finalContent;
-                }
+                } 
+                // If only 1 part exists, it's likely the only content available.
+            } else {
+                // English requested
+                finalContent = parts[0];
             }
-
+            
             // Parse Markdown
             const rawHtml = marked.parse(finalContent);
 
@@ -115,7 +119,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             });
 
             // Navigation Text
-            const backText = currentLang === 'en' ? 'RETURN TO INDEX' : 'VOLVER AL ÍNDICE';
+            const backText = currentLang === 'es' ? 'VOLVER AL ÍNDICE' : 'RETURN TO INDEX';
 
             container.innerHTML = `
                 <div style="margin-bottom: 30px;">
@@ -194,8 +198,8 @@ document.addEventListener('DOMContentLoaded', async () => {
             `;
         }).join('');
 
-        const headerText = currentLang === 'en' ? '/DOCUMENTS/POSTS/INDEX' : '/DOCUMENTOS/POSTS/INDICE';
-        const waitingText = currentLang === 'en' ? '_AWAITING INPUT' : '_ESPERANDO ENTRADA';
+        const headerText = currentLang === 'es' ? '/DOCUMENTOS/POSTS/INDICE' : '/DOCUMENTS/POSTS/INDEX';
+        const waitingText = currentLang === 'es' ? '_ESPERANDO ENTRADA' : '_AWAITING INPUT';
 
         container.innerHTML = `
             <div style="max-width: 800px; margin: 0 auto; padding-top: 20px;">

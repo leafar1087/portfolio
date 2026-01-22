@@ -13,11 +13,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const logoLink = document.querySelector('.logo a');
     if (logoLink) {
         logoLink.addEventListener('click', (e) => {
-            e.preventDefault();
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
+            const href = logoLink.getAttribute('href');
+            // Only intercept if we are on the homepage (link is just anchor)
+            if (href === '#' || (href && href.startsWith('#'))) {
+                e.preventDefault();
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            }
+            // Otherwise, let the browser handle standard navigation (e.g. to ../index.html)
         });
     }
 
@@ -51,8 +56,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Language Support
-    // Check localStorage first, default to 'en'
-    let currentLang = localStorage.getItem('portfolio_lang') || 'en';
+    // Check localStorage first, default to 'es'
+    let currentLang = localStorage.getItem('portfolio_lang') || 'es';
     const langToggleBtns = document.querySelectorAll('.lang-toggle-btn'); // Select all toggle buttons
 
     function updateContent(lang) {
@@ -83,8 +88,10 @@ document.addEventListener('DOMContentLoaded', () => {
         updateList('experience-list-4', translations[lang]?.experience?.job4?.items);
 
         // Update Button Text for ALL toggle buttons
+        // If currentLang is 'es', button should say 'EN' (to switch to it)
+        // If currentLang is 'en', button should say 'ES'
         langToggleBtns.forEach(btn => {
-            btn.innerText = lang === 'en' ? 'ES' : 'EN';
+            btn.innerText = lang === 'es' ? 'EN' : 'ES';
         });
     }
 
@@ -127,14 +134,15 @@ document.addEventListener('DOMContentLoaded', () => {
         const isHomePage = document.getElementById('about') && document.getElementById('expertise');
         
         if (!isHomePage) {
-            const currentPath = window.location.pathname;
+            const currentPath = window.location.pathname.toLowerCase();
             navItems.forEach(a => {
                 a.classList.remove('active');
-                const href = a.getAttribute('href');
+                const href = a.getAttribute('href').toLowerCase();
 
-                if (href && href.includes('academy.html') && currentPath.includes('academy.html')) {
+                // Simple check: if current path contains 'academy' and link is 'academy'
+                if (currentPath.includes('academy') && href.includes('academy')) {
                     a.classList.add('active');
-                } else if (href && href.includes('article.html') && currentPath.includes('article.html')) {
+                } else if (currentPath.includes('article') && href.includes('article')) {
                     a.classList.add('active');
                 }
             });
