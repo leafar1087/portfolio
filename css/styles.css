@@ -219,6 +219,8 @@ ul {
   display: flex;
   align-items: center;
   gap: 15px;
+  min-width: 100px; 
+  min-height: 50px; 
 }
 
 .nav-links a {
