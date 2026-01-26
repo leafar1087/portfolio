@@ -1,0 +1,20 @@
+# Rafael Pérez Llorca - Cybersecurity Engineer Portfolio
+> Este archivo está optimizado para ser leído por agentes de IA. Contiene la estructura del sitio y los artículos técnicos disponibles.
+
+## Core Pages
+- [Home - Portafolio Principal](https://rafaelperezllorca.com/)
+- [Academy - Formación y Cursos](https://rafaelperezllorca.com/pages/academy.html)
+- [Articles - Blog Técnico](https://rafaelperezllorca.com/pages/article.html)
+
+## Technical Articles (Knowledge Base)
+Here you can find deep-dive technical content on Cybersecurity, GRC, and SecDevOps.
+For AI analysis, it is recommended to read the **Raw Markdown** files directly.
+
+- [5 Realities of Cybersecurity that Challenge Everything You Knew / 5 Realidades de la Ciberseguridad que Desafían Todo lo que Creías Saber](https://rafaelperezllorca.com/pages/article.html?id=realidades-ciberseguridad): An analysis of how cyber intelligence is shifting from static defense to a dynamic, intelligence-driven posture.
+  - [Raw Markdown Source](https://rafaelperezllorca.com/posts/realidades-ciberseguridad.md)
+- [Building a Port Scanner with Python / Construyendo un Escáner de Puertos con Python](https://rafaelperezllorca.com/pages/article.html?id=python-port-scanner): Creating a custom security tool to audit local networks using Python Sockets.
+  - [Raw Markdown Source](https://rafaelperezllorca.com/posts/python-port-scanner.md)
+- [Automation with Python and Cloudflare Pages / Automatización con Python y Cloudflare Pages](https://rafaelperezllorca.com/pages/article.html?id=test-automation): How I configured my CI/CD pipeline to deploy this portfolio automatically.
+  - [Raw Markdown Source](https://rafaelperezllorca.com/posts/test-automation.md)
+- [Proof of Concept: Security and Sanitization / Prueba de Concepto: Seguridad y sanitización](https://rafaelperezllorca.com/pages/article.html?id=security-test): Cross-Site Scripting (XSS) injection test.
+  - [Raw Markdown Source](https://rafaelperezllorca.com/posts/security-test.md)
