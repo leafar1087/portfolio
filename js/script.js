@@ -1,11 +1,14 @@
-document.addEventListener('DOMContentLoaded', () => {
+window.initApp = function() {
     // Smooth Scrolling
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
-            document.querySelector(this.getAttribute('href')).scrollIntoView({
-                behavior: 'smooth'
-            });
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth'
+                });
+            }
         });
     });
 
@@ -61,6 +64,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const langToggleBtns = document.querySelectorAll('.lang-toggle-btn'); // Select all toggle buttons
 
     function updateContent(lang) {
+        if (typeof translations === 'undefined') return;
+
         // Update simple text elements
         document.querySelectorAll('[data-i18n]').forEach(element => {
             const key = element.getAttribute('data-i18n');
@@ -76,33 +81,32 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
-        // Update Expertise Lists
-        updateList('expertise-list-1', translations[lang]?.expertise?.card1?.items);
-        updateList('expertise-list-2', translations[lang]?.expertise?.card2?.items);
-        updateList('expertise-list-3', translations[lang]?.expertise?.card3?.items);
+        // Update Dynamic Lists
+        document.querySelectorAll('[data-i18n-list]').forEach(list => {
+            const key = list.getAttribute('data-i18n-list');
+            const keys = key.split('.');
+            let items = translations[lang];
+            
+            keys.forEach(k => {
+                if (items) items = items[k];
+            });
 
-        // Update Experience Lists
-        updateList('experience-list-1', translations[lang]?.experience?.job1?.items);
-        updateList('experience-list-2', translations[lang]?.experience?.job2?.items);
-        updateList('experience-list-3', translations[lang]?.experience?.job3?.items);
-        updateList('experience-list-4', translations[lang]?.experience?.job4?.items);
+            updateList(list, items);
+        });
 
         // Update Button Text for ALL toggle buttons
-        // If currentLang is 'es', button should say 'EN' (to switch to it)
-        // If currentLang is 'en', button should say 'ES'
         langToggleBtns.forEach(btn => {
             btn.innerText = lang === 'es' ? 'EN' : 'ES';
         });
     }
 
-    function updateList(id, items) {
-        const ul = document.getElementById(id);
-        if (ul && items) {
-            ul.innerHTML = '';
+    function updateList(ulElement, items) {
+        if (ulElement && items && Array.isArray(items)) {
+            ulElement.innerHTML = '';
             items.forEach(item => {
                 const li = document.createElement('li');
                 li.innerText = item;
-                ul.appendChild(li);
+                ulElement.appendChild(li);
             });
         }
     }
@@ -133,20 +137,12 @@ document.addEventListener('DOMContentLoaded', () => {
         // --- 1. Sub-page Logic (Academy, Article) ---
         const isHomePage = document.getElementById('about') && document.getElementById('expertise');
         
+        // If not home page, logic is simpler (based on URL matching done in components.js mostly)
+        // We just ensure we don't clear the active state blindly
         if (!isHomePage) {
-            const currentPath = window.location.pathname.toLowerCase();
-            navItems.forEach(a => {
-                a.classList.remove('active');
-                const href = a.getAttribute('href').toLowerCase();
-
-                // Simple check: if current path contains 'academy' and link is 'academy'
-                if (currentPath.includes('academy') && href.includes('academy')) {
-                    a.classList.add('active');
-                } else if (currentPath.includes('article') && href.includes('article')) {
-                    a.classList.add('active');
-                }
-            });
-            return; // Exit, do not run homepage scroll logic
+            // Logic handled by static check in components.js or simple path match
+            // Here we can reinforce it if needed, but components.js does it at render time.
+            return; 
         }
 
         // --- 2. Homepage Scroll Spy Logic ---
@@ -193,4 +189,4 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const revealElements = document.querySelectorAll('.reveal');
     revealElements.forEach(el => observer.observe(el));
-});
+};

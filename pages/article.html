@@ -2,9 +2,11 @@
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://unpkg.com https://cdnjs.cloudflare.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com https://cdn.jsdelivr.net; img-src 'self' data: https:; connect-src 'self' https://unpkg.com;">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Rafael Pérez Llorca - Artículo</title>
-    <link rel="icon" type="image/png" href="../images/favicon.png" />
+    <link rel="icon" type="image/png" href="../assets/images/favicon.png" />
     <meta
       name="description"
       content="Artículo técnico sobre Ciberseguridad, Operaciones Blue Team y GRC."
@@ -37,14 +39,16 @@
     <!-- Icons -->
     <link
       rel="stylesheet"
-      href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
+      href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/devicon.min.css"
+      integrity="sha384-DjehTlU5SubGD1zUGe78SkwLgw+q2y9DXnmy3EaDbXA9nvFMPW3LP5verNrWr9rW"
+      crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script src="https://unpkg.com/feather-icons"></script>
+
+    <script src="https://unpkg.com/feather-icons@4.29.1/dist/feather.min.js" integrity="sha384-En/3vVo7Wc+6Ogkkp7OUi5Oc7Zf4c+N/kRP3z7QVcJssy5Ud5MWcAvwWDAEFMga8" crossorigin="anonymous"></script>
 
     <!-- Libs for Markdown and Security -->
-    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.0.6/purify.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked@12.0.0/lib/marked.umd.min.js" integrity="sha384-nc1X348k5rejcKvs5u4lHL0GpeBFsxPx4DhmRX4s8v8/8UvQ6PRExWEE44U0eBWA" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.0.6/purify.min.js" integrity="sha384-cwS6YdhLI7XS60eoDiC+egV0qHp8zI+Cms46R0nbn8JrmoAzV9uFL60etMZhAnSu" crossorigin="anonymous"></script>
 
     <!-- Styles -->
     <link rel="stylesheet" href="../css/styles.css" />
@@ -53,67 +57,25 @@
     <script src="../js/article-loader.js" defer></script>
   </head>
   <body>
-    <header class="header">
-      <nav class="nav container">
-        <div class="logo">
-          <a href="../index.html">Rafael Pérez Llorca</a>
-        </div>
-        
-        <ul class="nav-links">
-          <li><a href="../index.html#about"><span data-i18n="nav.about">Sobre Mí</span><span class="glowing-dot"></span></a></li>
-          <li><a href="../index.html#expertise"><span data-i18n="nav.expertise">Perfil</span><span class="glowing-dot"></span></a></li>
-          <li><a href="../index.html#experience"><span data-i18n="nav.experience">Experiencia</span><span class="glowing-dot"></span></a></li>
-          <li><a href="../index.html#contact"><span data-i18n="nav.contact">Contacto</span><span class="glowing-dot"></span></a></li>
-          <li><a href="academy.html"><span data-i18n="nav.academy">Academia</span><span class="glowing-dot"></span></a></li>
-          <li><a href="article.html" class="active"><span data-i18n="nav.article">Artículo</span><span class="glowing-dot"></span></a></li>
-          
-          <!-- Mobile Actions -->
-          <li class="mobile-only" id="lang-toggle-li-mobile"><button class="btn btn-outline lang-toggle-btn" style="padding: 5px 10px; font-size: 12px; margin-left: 0;">ES</button></li>
-          <!-- <li class="mobile-only"><a href="../assets/cv_rperez.pdf" target="_blank" class="btn btn-filled"><span data-i18n="nav.resume">Descargar CV</span></a></li> -->
-        </ul>
+    <header id="main-header"></header>
 
-        <!-- Desktop Actions -->
-        <div class="nav-actions desktop-only">
-            <button class="btn btn-outline lang-toggle-btn" style="padding: 5px 10px; font-size: 12px;">ES</button>
-            <!-- <a href="../assets/cv_rperez.pdf" target="_blank" class="btn btn-filled"><span data-i18n="nav.resume">Descargar CV</span></a> -->
-        </div>
-
-        <div class="hamburger">
-          <i data-feather="menu"></i>
-        </div>
-      </nav>
-    </header>
-
-    <main>
+     <main>
        <!-- Container for the dynamic article content -->
        <article class="article-container container section-padding" id="article-container">
            <div class="loading-state">
-               <span class="glowing-dot" style="width: 10px; height: 10px;"></span>
-               <p style="font-family: 'Roboto Mono'; margin-top: 10px;">Cargando Payload...</p>
+               <span class="glowing-dot" style="position: relative; right: auto; top: auto; width: 10px; height: 10px; display: block;"></span>
+               <p class="font-mono mt-1">Cargando Payload...</p>
            </div>
        </article>
     </main>
 
-    <footer class="footer">
-      <div class="footer-content">
-        <div class="footer-socials">
-          <a href="https://www.linkedin.com/in/rperezll/" target="_blank" rel="me" aria-label="LinkedIn"><i data-feather="linkedin"></i></a>
-          <a href="mailto:email@example.com" aria-label="Email"><i data-feather="mail"></i></a>
-        </div>
-        <div class="footer-links">
-          <a href="privacy.html" data-i18n="footer.privacy">Política de Privacidad</a>
-          <a href="legal.html" data-i18n="footer.legal">Aviso Legal</a>
-        </div>
-        <div class="footer-copyright">
-          <p data-i18n="footer.rights">&copy; 2026 Rafael Pérez Llorca. Todos los derechos reservados.</p>
-        </div>
-      </div>
-    </footer>
+    <footer id="main-footer"></footer>
 
     <script src="../js/translations.js"></script>
+    <script src="../js/components.js"></script>
+    <script src="../js/article-loader.js"></script>
     <script src="../js/script.js"></script>
-    <script>
-      feather.replace();
-    </script>
-  </body>
+    <script src="../js/terminal.js"></script>
+    <script type="module" src="../js/app.js"></script>
+</body>
 </html>

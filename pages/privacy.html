@@ -1,97 +1,56 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://unpkg.com https://cdnjs.cloudflare.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com https://cdn.jsdelivr.net; img-src 'self' data: https:; connect-src 'self' https://unpkg.com;">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Política de Privacidad - Rafael Pérez Llorca</title>
-    <link rel="icon" type="image/png" href="../images/favicon.png" />
+    <link rel="icon" type="image/png" href="../assets/images/favicon.png" />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/styles.css">
-    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://unpkg.com/feather-icons@4.29.1/dist/feather.min.js" integrity="sha384-En/3vVo7Wc+6Ogkkp7OUi5Oc7Zf4c+N/kRP3z7QVcJssy5Ud5MWcAvwWDAEFMga8" crossorigin="anonymous"></script>
 </head>
 <body>
-    <header class="header">
-      <nav class="nav container">
-        <div class="logo">
-          <a href="../index.html">Rafael Pérez Llorca</a>
-        </div>
+    <header id="main-header"></header>
+    <main class="container section-padding text-page-container reveal">
+        <h1 class="page-title" data-i18n="privacyPage.title">Política de Privacidad</h1>
         
-        <ul class="nav-links">
-          <li><a href="../index.html#about"><span data-i18n="nav.about">Sobre Mí</span><span class="glowing-dot"></span></a></li>
-          <li><a href="../index.html#expertise"><span data-i18n="nav.expertise">Perfil</span><span class="glowing-dot"></span></a></li>
-          <li><a href="../index.html#experience"><span data-i18n="nav.experience">Experiencia</span><span class="glowing-dot"></span></a></li>
-          <li><a href="../index.html#contact"><span data-i18n="nav.contact">Contacto</span><span class="glowing-dot"></span></a></li>
-          <li><a href="academy.html"><span data-i18n="nav.academy">Academia</span><span class="glowing-dot"></span></a></li>
-          <li><a href="article.html"><span data-i18n="nav.article">Artículo</span><span class="glowing-dot"></span></a></li>
-          
-          <!-- Mobile Actions -->
-          <li class="mobile-only" id="lang-toggle-li-mobile"><button class="btn btn-outline lang-toggle-btn" style="padding: 5px 10px; font-size: 12px; margin-left: 0;">ES</button></li>
-          <!-- <li class="mobile-only"><a href="../assets/cv_rperez.pdf" target="_blank" class="btn btn-filled"><span data-i18n="nav.resume">Descargar CV</span></a></li> -->
-        </ul>
-
-        <!-- Desktop Actions -->
-        <div class="nav-actions desktop-only">
-            <button class="btn btn-outline lang-toggle-btn" style="padding: 5px 10px; font-size: 12px;">ES</button>
-            <!-- <a href="../assets/cv_rperez.pdf" target="_blank" class="btn btn-filled"><span data-i18n="nav.resume">Descargar CV</span></a> -->
-        </div>
-
-        <div class="hamburger">
-          <i data-feather="menu"></i>
-        </div>
-      </nav>
-    </header>
-    <main class="container section-padding" style="margin-top: 100px; max-width: 800px;">
-        <h1 style="margin-bottom: 40px; color: var(--teal);" data-i18n="privacyPage.title">Política de Privacidad</h1>
-        
-        <div style="margin-bottom: 30px;">
-            <h2 style="font-size: 20px; color: var(--lightest-slate); margin-bottom: 15px;" data-i18n="privacyPage.section1.title">1. RESPONSABLE DEL TRATAMIENTO</h2>
+        <div class="legal-section">
+            <h2 class="legal-section-title" data-i18n="privacyPage.section1.title">1. RESPONSABLE DEL TRATAMIENTO</h2>
             <p data-i18n="privacyPage.section1.text">Los datos personales recogidos a través de este sitio web serán tratados por Rafael Pérez Llorca, con domicilio en Madrid, España. Contacto: leafar@gmail.com.</p>
         </div>
 
-        <div style="margin-bottom: 30px;">
-            <h2 style="font-size: 20px; color: var(--lightest-slate); margin-bottom: 15px;" data-i18n="privacyPage.section2.title">2. DATOS RECOGIDOS Y FINALIDAD</h2>
-            <p style="margin-bottom: 15px;" data-i18n="privacyPage.section2.intro">Este sitio web ha sido diseñado bajo el principio de <strong>Minimización de Datos</strong> (Privacy by Design):</p>
-            <ul style="list-style: disc; padding-left: 20px;">
-                 <li style="margin-bottom: 10px;"><span data-i18n="[html]privacyPage.section2.item1"><strong>Formularios:</strong> No existen formularios de contacto que almacenen datos en una base de datos. El contacto se realiza exclusivamente a través de su cliente de correo (enlaces 'mailto') o LinkedIn.</span></li>
-                 <li style="margin-bottom: 10px;"><span data-i18n="[html]privacyPage.section2.item2"><strong>Cookies y Rastreo:</strong> No utilizamos cookies de terceros ni herramientas de análisis invasivas (como Google Analytics).</span></li>
+        <div class="legal-section">
+            <h2 class="legal-section-title" data-i18n="privacyPage.section2.title">2. DATOS RECOGIDOS Y FINALIDAD</h2>
+            <p class="mb-1" data-i18n="privacyPage.section2.intro">Este sitio web ha sido diseñado bajo el principio de <strong>Minimización de Datos</strong> (Privacy by Design):</p>
+            <ul class="legal-list">
+                 <li class="mb-1"><span data-i18n="[html]privacyPage.section2.item1"><strong>Formularios:</strong> No existen formularios de contacto que almacenen datos en una base de datos. El contacto se realiza exclusivamente a través de su cliente de correo (enlaces 'mailto') o LinkedIn.</span></li>
+                 <li class="mb-1"><span data-i18n="[html]privacyPage.section2.item2"><strong>Cookies y Rastreo:</strong> No utilizamos cookies de terceros ni herramientas de análisis invasivas (como Google Analytics).</span></li>
                  <li><span data-i18n="[html]privacyPage.section2.item3"><strong>Almacenamiento Local:</strong> Utilizamos únicamente <code>localStorage</code> del navegador para recordar su preferencia de idioma (ES/EN). Este dato es técnico, no le identifica personalmente y reside solo en su dispositivo.</span></li>
             </ul>
         </div>
 
-        <div style="margin-bottom: 30px;">
-            <h2 style="font-size: 20px; color: var(--lightest-slate); margin-bottom: 15px;" data-i18n="privacyPage.section3.title">3. BASE LEGAL</h2>
+        <div class="legal-section">
+            <h2 class="legal-section-title" data-i18n="privacyPage.section3.title">3. BASE LEGAL</h2>
             <p data-i18n="privacyPage.section3.text">La base legal para el tratamiento de sus datos es su consentimiento expreso, otorgado al enviar un formulario de contacto o unirse a una lista de espera.</p>
         </div>
 
-        <div style="margin-bottom: 30px;">
-            <h2 style="font-size: 20px; color: var(--lightest-slate); margin-bottom: 15px;" data-i18n="privacyPage.section4.title">4. DESTINATARIOS DE DATOS</h2>
+        <div class="legal-section">
+            <h2 class="legal-section-title" data-i18n="privacyPage.section4.title">4. DESTINATARIOS DE DATOS</h2>
             <p data-i18n="privacyPage.section4.text">Los datos no se cederán a terceros salvo obligación legal. No obstante, para la gestión de la formación se podrán utilizar plataformas externas (como Hotmart o Udemy) como encargados del tratamiento bajo sus propias políticas de privacidad.</p>
         </div>
 
-        <div style="margin-bottom: 30px;">
-            <h2 style="font-size: 20px; color: var(--lightest-slate); margin-bottom: 15px;" data-i18n="privacyPage.section5.title">5. SUS DERECHOS</h2>
+        <div class="legal-section">
+            <h2 class="legal-section-title" data-i18n="privacyPage.section5.title">5. SUS DERECHOS</h2>
             <p data-i18n="privacyPage.section5.text">Usted tiene derecho a acceder, rectificar y suprimir sus datos, así como a limitar su tratamiento, enviando un correo electrónico a leafar@gmail.com.</p>
         </div>
     </main>
-    <footer class="footer">
-      <div class="footer-content">
-        <div class="footer-socials">
-          <a href="https://www.linkedin.com/in/rperezll/" target="_blank" rel="me" aria-label="LinkedIn"><i data-feather="linkedin"></i></a>
-          <a href="mailto:email@example.com" aria-label="Email"><i data-feather="mail"></i></a>
-        </div>
-        <div class="footer-links">
-          <a href="privacy.html" data-i18n="footer.privacy">Política de Privacidad</a>
-          <a href="legal.html" data-i18n="footer.legal">Aviso Legal</a>
-        </div>
-        <div class="footer-copyright">
-          <p data-i18n="footer.rights">&copy; 2026 Rafael Pérez Llorca. Todos los derechos reservados.</p>
-        </div>
-      </div>
-    </footer>
+    <footer id="main-footer"></footer>
     <script src="../js/translations.js"></script>
+    <script src="../js/components.js"></script>
     <script src="../js/script.js"></script>
-    <script>
-      feather.replace();
-    </script>
+    <script src="../js/terminal.js"></script>
+    <script type="module" src="../js/app.js"></script>
 </body>
 </html>

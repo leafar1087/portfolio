@@ -2,87 +2,49 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://unpkg.com https://cdnjs.cloudflare.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com https://cdn.jsdelivr.net; img-src 'self' data: https:; connect-src 'self' https://unpkg.com;">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aviso Legal - Rafael Pérez Llorca</title>
-    <link rel="icon" type="image/png" href="../images/favicon.png" />
+    <link rel="icon" type="image/png" href="../assets/images/favicon.png" />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/styles.css">
-    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://unpkg.com/feather-icons@4.29.1/dist/feather.min.js" integrity="sha384-En/3vVo7Wc+6Ogkkp7OUi5Oc7Zf4c+N/kRP3z7QVcJssy5Ud5MWcAvwWDAEFMga8" crossorigin="anonymous"></script>
 </head>
 <body>
-    <header class="header">
-      <nav class="nav container">
-        <div class="logo">
-          <a href="../index.html">Rafael Pérez Llorca</a>
-        </div>
+    <header id="main-header"></header>
+    <main class="container section-padding text-page-container reveal">
+        <h1 class="page-title" data-i18n="legalPage.title">Aviso Legal</h1>
         
-        <ul class="nav-links">
-          <li><a href="../index.html#about"><span data-i18n="nav.about">Sobre Mí</span><span class="glowing-dot"></span></a></li>
-          <li><a href="../index.html#expertise"><span data-i18n="nav.expertise">Perfil</span><span class="glowing-dot"></span></a></li>
-          <li><a href="../index.html#experience"><span data-i18n="nav.experience">Experiencia</span><span class="glowing-dot"></span></a></li>
-          <li><a href="../index.html#contact"><span data-i18n="nav.contact">Contacto</span><span class="glowing-dot"></span></a></li>
-          <li><a href="academy.html"><span data-i18n="nav.academy">Academia</span><span class="glowing-dot"></span></a></li>
-          <li><a href="article.html"><span data-i18n="nav.article">Artículo</span><span class="glowing-dot"></span></a></li>
-          
-          <!-- Mobile Actions -->
-          <li class="mobile-only" id="lang-toggle-li-mobile"><button class="btn btn-outline lang-toggle-btn" style="padding: 5px 10px; font-size: 12px; margin-left: 0;">ES</button></li>
-          <!-- <li class="mobile-only"><a href="../assets/cv_rperez.pdf" target="_blank" class="btn btn-filled"><span data-i18n="nav.resume">Descargar CV</span></a></li> -->
-        </ul>
-
-        <!-- Desktop Actions -->
-        <div class="nav-actions desktop-only">
-            <button class="btn btn-outline lang-toggle-btn" style="padding: 5px 10px; font-size: 12px;">ES</button>
-            <!-- <a href="../assets/cv_rperez.pdf" target="_blank" class="btn btn-filled"><span data-i18n="nav.resume">Descargar CV</span></a> -->
-        </div>
-
-        <div class="hamburger">
-          <i data-feather="menu"></i>
-        </div>
-      </nav>
-    </header>
-    <main class="container section-padding" style="margin-top: 100px; max-width: 800px;">
-        <h1 style="margin-bottom: 40px; color: var(--teal);" data-i18n="legalPage.title">Aviso Legal</h1>
-        
-        <div style="margin-bottom: 30px;">
-            <h2 style="font-size: 20px; color: var(--lightest-slate); margin-bottom: 15px;" data-i18n="legalPage.section1.title">1. TITULAR DE LA WEB</h2>
-            <p style="margin-bottom: 15px;" data-i18n="legalPage.section1.intro">En cumplimiento del deber de información recogido en el artículo 10 de la Ley 34/2002, de 11 de julio, de Servicios de la Sociedad de la Información y del Comercio Electrónico, se indica:</p>
-            <ul style="list-style: none; padding: 0;">
+        <div class="legal-section">
+            <h2 class="legal-section-title" data-i18n="legalPage.section1.title">1. TITULAR DE LA WEB</h2>
+            <p class="mb-1" data-i18n="legalPage.section1.intro">En cumplimiento del deber de información recogido en el artículo 10 de la Ley 34/2002, de 11 de julio, de Servicios de la Sociedad de la Información y del Comercio Electrónico, se indica:</p>
+            <ul class="legal-list-none">
                 <li><strong data-i18n="legalPage.section1.owner">Titular:</strong> Rafael Pérez Llorca</li>
                 <li><strong data-i18n="legalPage.section1.address">Domicilio:</strong> Madrid, España</li>
-                <li><strong data-i18n="legalPage.section1.email">Email de contacto:</strong> leafar@gmail.com</li>
+                <li><strong data-i18n="legalPage.section1.email">Email de contacto:</strong> <span id="contact-email">[protegido]</span></li>
+                <script>
+                    document.getElementById('contact-email').innerText = 'contacto' + '@' + 'rafaelperezllorca.com';
+                </script>
                 <li><strong data-i18n="legalPage.section1.activity">Actividad:</strong> <span data-i18n="legalPage.section1.activityValue">Servicios de Ingeniería, Consultoría de Ciberseguridad y Formación.</span></li>
             </ul>
         </div>
 
-        <div style="margin-bottom: 30px;">
-            <h2 style="font-size: 20px; color: var(--lightest-slate); margin-bottom: 15px;" data-i18n="legalPage.section2.title">2. OBJETO</h2>
+        <div class="legal-section">
+            <h2 class="legal-section-title" data-i18n="legalPage.section2.title">2. OBJETO</h2>
             <p data-i18n="legalPage.section2.text">El presente sitio web tiene carácter de portafolio profesional y académico. Su objetivo es mostrar la experiencia del titular en Ciberseguridad, Auditoría y Docencia, así como ofrecer acceso a formación especializada ('Academy').</p>
         </div>
 
-        <div style="margin-bottom: 30px;">
-            <h2 style="font-size: 20px; color: var(--lightest-slate); margin-bottom: 15px;" data-i18n="legalPage.section3.title">3. PROPIEDAD INTELECTUAL</h2>
+        <div class="legal-section">
+            <h2 class="legal-section-title" data-i18n="legalPage.section3.title">3. PROPIEDAD INTELECTUAL</h2>
             <p data-i18n="legalPage.section3.text">Todos los contenidos del sitio web (textos, imágenes de proyectos, diseño y código fuente) son titularidad exclusiva de Rafael Pérez Llorca o de terceros que han autorizado su uso, estando protegidos por la legislación sobre Propiedad Intelectual. Queda prohibida la reproducción o uso comercial sin autorización expresa.</p>
         </div>
     </main>
-    <footer class="footer">
-      <div class="footer-content">
-        <div class="footer-socials">
-          <a href="https://www.linkedin.com/in/rperezll/" target="_blank" rel="me" aria-label="LinkedIn"><i data-feather="linkedin"></i></a>
-          <a href="mailto:email@example.com" aria-label="Email"><i data-feather="mail"></i></a>
-        </div>
-        <div class="footer-links">
-          <a href="privacy.html" data-i18n="footer.privacy">Política de Privacidad</a>
-          <a href="legal.html" data-i18n="footer.legal">Aviso Legal</a>
-        </div>
-        <div class="footer-copyright">
-          <p data-i18n="footer.rights">&copy; 2026 Rafael Pérez Llorca. Todos los derechos reservados.</p>
-        </div>
-      </div>
-    </footer>
+    <footer id="main-footer"></footer>
     <script src="../js/translations.js"></script>
+    <script src="../js/components.js"></script>
     <script src="../js/script.js"></script>
-    <script>
-      feather.replace();
-    </script>
+    <script src="../js/terminal.js"></script>
+    <script type="module" src="../js/app.js"></script>
 </body>
 </html>

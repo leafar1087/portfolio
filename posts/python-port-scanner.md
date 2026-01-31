@@ -56,7 +56,7 @@ except socket.error:
     sys.exit()
 ```
 
-![script execution](/images/posts/python-port-scanner.png)
+![script execution](/assets/images/posts/python-port-scanner.png)
 
 ## Strategic Analysis: Custom vs. Standard Tools
 
@@ -130,7 +130,7 @@ except socket.error:
     sys.exit()
 ```
 
-![ejecución del script](/images/posts/python-port-scanner.png)
+![ejecución del script](/assets/images/posts/python-port-scanner.png)
 
 ## Análisis Estratégico: Herramientas Propias vs. Estándares
 

@@ -1,0 +1,63 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--bg-navy);
+  color: var(--slate);
+  font-family: "Inter", sans-serif;
+  line-height: 1.6;
+  font-size: 18px;
+  overflow-x: hidden;
+  min-width: 450px;
+  background-image: radial-gradient(circle at 50% 50%, rgba(var(--teal-rgb), 0.03) 0%, transparent 50%);
+  background-attachment: fixed;
+}
+
+html {
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+}
+
+h1,h2,h3,h4,h5,h6 {
+  margin: 0 0 10px 0;
+  font-weight: 700;
+  color: var(--lightest-slate);
+  font-family: "Inter", sans-serif;
+  letter-spacing: -0.02em;
+}
+
+p {
+  margin-bottom: 20px;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+ul {
+  list-style: none;
+}
+
+::selection {
+  background-color: rgba(var(--teal-rgb), 0.3);
+  color: var(--white);
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-navy);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--light-slate);
+  border-radius: 5px;
+  border: 2px solid var(--bg-navy);
+}

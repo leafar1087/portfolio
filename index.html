@@ -8,7 +8,7 @@
       Ciberseguridad
     </title>
     <link rel="canonical" href="https://rafaelperezllorca.com/" />
-    <link rel="icon" type="image/png" href="images/favicon.png" />
+    <link rel="icon" type="image/png" href="assets/images/favicon.png" />
 
     <meta
       name="description"
@@ -21,7 +21,10 @@
     />
 
     <meta name="author" content="Rafael Pérez Llorca" />
-    <meta name="robots" content="index, follow" />
+    <!-- Security Headers -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://unpkg.com https://cdnjs.cloudflare.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com https://cdn.jsdelivr.net; img-src 'self' data: https:; connect-src 'self' https://unpkg.com;">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="profile" />
@@ -35,7 +38,7 @@
     />
     <meta
       property="og:image"
-      content="https://rafaelperezllorca.com/images/foto_perfil.png"
+      content="https://rafaelperezllorca.com/assets/images/foto_perfil.png"
     />
     <meta property="og:url" content="https://rafaelperezllorca.com/" />
     <meta property="og:site_name" content="Rafael Pérez Llorca Portafolio" />
@@ -55,7 +58,7 @@
     />
     <meta
       name="twitter:image"
-      content="https://rafaelperezllorca.com/images/foto_perfil.png"
+      content="https://rafaelperezllorca.com/assets/images/foto_perfil.png"
     />
 
     <script type="application/ld+json">
@@ -112,90 +115,18 @@
     <!-- Icons -->
     <link
       rel="stylesheet"
-      href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
+      href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/devicon.min.css"
+      integrity="sha384-DjehTlU5SubGD1zUGe78SkwLgw+q2y9DXnmy3EaDbXA9nvFMPW3LP5verNrWr9rW"
+      crossorigin="anonymous"
     />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    />
-    <script src="https://unpkg.com/feather-icons"></script>
+
+    <script src="https://unpkg.com/feather-icons@4.29.1/dist/feather.min.js" integrity="sha384-En/3vVo7Wc+6Ogkkp7OUi5Oc7Zf4c+N/kRP3z7QVcJssy5Ud5MWcAvwWDAEFMga8" crossorigin="anonymous"></script>
 
     <!-- Styles -->
     <link rel="stylesheet" href="css/styles.css" />
   </head>
   <body>
-    <header class="header">
-      <nav class="nav container">
-        <div class="logo">
-          <!--<a href="#">&lt;Rafael.Sec /&gt;</a>-->
-          <a href="#">Rafael Pérez Llorca</a>
-        </div>
-
-        <ul class="nav-links">
-          <li>
-            <a href="#about"
-              ><span data-i18n="nav.about">Sobre Mí</span
-              ><span class="glowing-dot"></span
-            ></a>
-          </li>
-          <li>
-            <a href="#expertise"
-              ><span data-i18n="nav.expertise">Perfil</span
-              ><span class="glowing-dot"></span
-            ></a>
-          </li>
-          <li>
-            <a href="#experience"
-              ><span data-i18n="nav.experience">Experiencia</span
-              ><span class="glowing-dot"></span
-            ></a>
-          </li>
-          <li>
-            <a href="#contact"
-              ><span data-i18n="nav.contact">Contacto</span
-              ><span class="glowing-dot"></span
-            ></a>
-          </li>
-          <li>
-            <a href="pages/academy.html"
-              ><span data-i18n="nav.academy">Academia</span
-              ><span class="glowing-dot"></span
-            ></a>
-          </li>
-          <li>
-            <a href="pages/article.html"
-              ><span data-i18n="nav.article">Artículo</span
-              ><span class="glowing-dot"></span
-            ></a>
-          </li>
-          <!-- Mobile Actions -->
-          <li class="mobile-only" id="lang-toggle-li-mobile">
-            <button
-              class="btn btn-outline lang-toggle-btn"
-              style="padding: 5px 10px; font-size: 12px; margin-left: 0"
-            >
-              ES
-            </button>
-          </li>
-          <!-- <li class="mobile-only"><a href="./assets/cv_rperez.pdf" target="_blank" class="btn btn-filled"><span data-i18n="nav.resume">Descargar CV</span></a></li> -->
-        </ul>
-
-        <!-- Desktop Actions -->
-        <div class="nav-actions desktop-only">
-          <button
-            class="btn btn-outline lang-toggle-btn"
-            style="padding: 5px 10px; font-size: 12px"
-          >
-            ES
-          </button>
-          <!-- <a href="./assets/cv_rperez.pdf" target="_blank" class="btn btn-filled"><span data-i18n="nav.resume">Resume</span></a> -->
-        </div>
-
-        <div class="hamburger">
-          <i data-feather="menu"></i>
-        </div>
-      </nav>
-    </header>
+    <header id="main-header"></header>
 
     <main>
       <!-- Hero Section -->
@@ -224,7 +155,7 @@
                 data-i18n="hero.btnExpertise"
                 >Ver perfil</a
               >
-              <!-- <a href="./assets/cv_rperez.pdf" target="_blank" class="btn btn-outline" data-i18n="hero.btnCv">Descargar CV</a> -->
+              <a href="./assets/CV_Rafael_Perez.pdf" target="_blank" class="btn btn-outline" data-i18n="hero.btnCv">Descargar CV</a>
             </div>
           </div>
         </div>
@@ -258,9 +189,9 @@
           <div class="about-img">
             <div class="img-wrapper">
               <picture>
-                <source srcset="./images/foto_perfil.webp" type="image/webp" />
+                <source srcset="./assets/images/foto_perfil.webp" type="image/webp" />
                 <img
-                  src="./images/foto_perfil.png"
+                  src="./assets/images/foto_perfil.png"
                   alt="Senior Cybersecurity Engineer Profile Picture"
                 />
               </picture>
@@ -277,61 +208,43 @@
         <div class="expertise-grid">
           <!-- Column 1 -->
           <div class="expertise-card">
-            <div class="card-icon"><i class="fas fa-code-branch"></i></div>
-            <h3 data-i18n="expertise.card1.title">SecDevOps & Engineering</h3>
+            <div class="card-icon"><i data-feather="git-branch"></i></div>
+            <h3 data-i18n="expertise.card1.title">DevSecOps & Engineering</h3>
             <p
               class="card-subtitle"
               data-i18n="expertise.card1.subtitle"
-              style="
-                color: var(--teal);
-                font-family: &quot;Roboto Mono&quot;, monospace;
-                font-size: 0.9em;
-                margin-bottom: 15px;
-              "
             >
               "Seguridad desde el Diseño"
             </p>
-            <ul id="expertise-list-1">
+            <ul data-i18n-list="expertise.card1.items">
               <!-- Filled via JS -->
             </ul>
           </div>
           <!-- Column 2 -->
           <div class="expertise-card">
-            <div class="card-icon"><i class="fas fa-clipboard-check"></i></div>
+            <div class="card-icon"><i data-feather="clipboard"></i></div>
             <h3 data-i18n="expertise.card2.title">Gobernanza y Estrategia</h3>
             <p
               class="card-subtitle"
               data-i18n="expertise.card2.subtitle"
-              style="
-                color: var(--teal);
-                font-family: &quot;Roboto Mono&quot;, monospace;
-                font-size: 0.9em;
-                margin-bottom: 15px;
-              "
             >
               "Alineado con el Negocio"
             </p>
-            <ul id="expertise-list-2">
+            <ul data-i18n-list="expertise.card2.items">
               <!-- Filled via JS -->
             </ul>
           </div>
           <!-- Column 3 -->
           <div class="expertise-card">
-            <div class="card-icon"><i class="fas fa-shield-alt"></i></div>
+            <div class="card-icon"><i data-feather="shield"></i></div>
             <h3 data-i18n="expertise.card3.title">Operaciones de Amenazas</h3>
             <p
               class="card-subtitle"
               data-i18n="expertise.card3.subtitle"
-              style="
-                color: var(--teal);
-                font-family: &quot;Roboto Mono&quot;, monospace;
-                font-size: 0.9em;
-                margin-bottom: 15px;
-              "
             >
               "Defensa Activa"
             </p>
-            <ul id="expertise-list-3">
+            <ul data-i18n-list="expertise.card3.items">
               <!-- Filled via JS -->
             </ul>
           </div>
@@ -356,7 +269,7 @@
               <p class="timeline-date" data-i18n="experience.job1.date">
                 Sept 2025 - Actualidad
               </p>
-              <ul class="timeline-list" id="experience-list-1">
+              <ul class="timeline-list" data-i18n-list="experience.job1.items">
                 <!-- Filled by JS -->
               </ul>
             </div>
@@ -373,7 +286,7 @@
               <p class="timeline-date" data-i18n="experience.job2.date">
                 Ene 2024 - Oct 2025
               </p>
-              <ul class="timeline-list" id="experience-list-2">
+              <ul class="timeline-list" data-i18n-list="experience.job2.items">
                 <!-- Filled by JS -->
               </ul>
             </div>
@@ -390,7 +303,7 @@
               <p class="timeline-date" data-i18n="experience.job3.date">
                 Ene 2023 - Dic 2023
               </p>
-              <ul class="timeline-list" id="experience-list-3">
+              <ul class="timeline-list" data-i18n-list="experience.job3.items">
                 <!-- Filled by JS -->
               </ul>
             </div>
@@ -407,7 +320,7 @@
               <p class="timeline-date" data-i18n="experience.job4.date">
                 Nov 2016 - Dic 2022
               </p>
-              <ul class="timeline-list" id="experience-list-4">
+              <ul class="timeline-list" data-i18n-list="experience.job4.items">
                 <!-- Filled by JS -->
               </ul>
             </div>
@@ -474,12 +387,11 @@
             Accede a formación práctica y especializada en Ciberseguridad y
             Tecnología. Certifícate y destaca en el mercado laboral.
           </p>
-          <div class="lead-cta" style="display: flex; justify-content: center">
+          <div class="lead-cta">
             <a
               href="pages/academy.html"
-              class="btn btn-primary"
+              class="btn btn-primary btn-lg"
               data-i18n="leadMagnet.btn"
-              style="padding: 15px 30px; font-size: 16px"
               >Ver Todos los Cursos</a
             >
           </div>
@@ -494,8 +406,8 @@
         </p>
         <div class="contact-buttons">
           <a
-            href="mailto:contacto@rafaelperezllorca.com"
-            class="btn btn-primary big-btn"
+            href="#"
+            class="btn btn-primary btn-lg email-protected"
             data-i18n="contact.btnContact"
             >Contáctame</a
           >
@@ -503,7 +415,7 @@
             href="https://www.linkedin.com/in/rperezll/"
             target="_blank"
             rel="me"
-            class="btn btn-outline big-btn"
+            class="btn btn-outline btn-lg"
           >
             <i data-feather="linkedin"></i> LinkedIn
           </a>
@@ -511,38 +423,12 @@
       </section>
     </main>
 
-    <footer class="footer">
-      <div class="footer-content">
-        <div class="footer-socials">
-          <a
-            href="https://www.linkedin.com/in/rperezll/"
-            target="_blank"
-            rel="me"
-            aria-label="LinkedIn"
-            ><i data-feather="linkedin"></i
-          ></a>
-          <a href="mailto:email@example.com" aria-label="Email"
-            ><i data-feather="mail"></i
-          ></a>
-        </div>
-        <div class="footer-links">
-          <a href="pages/privacy.html" data-i18n="footer.privacy"
-            >Política de Privacidad</a
-          >
-          <a href="pages/legal.html" data-i18n="footer.legal">Aviso Legal</a>
-        </div>
-        <div class="footer-copyright">
-          <p data-i18n="footer.rights">
-            &copy; 2026 Rafael Pérez Llorca. Todos los derechos reservados.
-          </p>
-        </div>
-      </div>
-    </footer>
+    <footer id="main-footer"></footer>
 
     <script src="js/translations.js"></script>
+    <script src="js/components.js"></script>
     <script src="js/script.js"></script>
-    <script>
-      feather.replace();
-    </script>
+    <script src="js/terminal.js"></script>
+    <script type="module" src="js/app.js"></script>
   </body>
 </html>

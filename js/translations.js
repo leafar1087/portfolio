@@ -28,7 +28,7 @@ const translations = {
         expertise: {
             title: "360 Security Profile",
             card1: {
-                title: "SecDevOps & Engineering",
+                title: "DevSecOps & Engineering",
                 subtitle: "\"Secure by Design\"",
                 items: ["CI/CD Pipeline Security (GitHub Actions)", "Infrastructure as Code (Terraform/Ansible)", "Security Architecture", "Python & Bash Automation"]
             },
@@ -200,7 +200,7 @@ const translations = {
         expertise: {
             title: "Perfil de Seguridad 360",
             card1: {
-                title: "SecDevOps & Engineering",
+                title: "DevSecOps & Engineering",
                 subtitle: "\"Seguridad desde el Diseño\"",
                 items: ["Seguridad en Pipelines CI/CD (GitHub Actions)", "Infraestructura como Código (Terraform/Ansible)", "Arquitectura de Seguridad", "Automatización con Python y Bash"]
             },

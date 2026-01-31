@@ -175,64 +175,110 @@ document.addEventListener('DOMContentLoaded', async () => {
         return { metadata: {}, content: text };
     }
 
-    function renderPostList(posts) {
-        // Sort by date (optional, newest first)
-        // posts.sort((a, b) => new Date(b.date) - new Date(a.date));
+    function renderPostList(posts, searchTerm = '') {
+        // Sort by date (newest first)
+        posts.sort((a, b) => new Date(b.date) - new Date(a.date));
 
-        let rows = posts.map(post => {
-            // Intelligence to pick the right metadata based on lang
+        // Filter Logic
+        const filteredPosts = posts.filter(post => {
+            const meta = post[currentLang] || post['en'] || post['es'];
+            if (!meta) return false;
+            
+            const term = searchTerm.toLowerCase();
+            const titleMatch = (meta.title || '').toLowerCase().includes(term);
+            const descMatch = (meta.description || '').toLowerCase().includes(term);
+            const tagMatch = (meta.tags || []).some(tag => tag.toLowerCase().includes(term));
+            
+            return titleMatch || descMatch || tagMatch;
+        });
+
+        let rows = filteredPosts.map(post => {
             const meta = post[currentLang] || post['en'] || post['es']; 
             if (!meta) return ''; 
 
+            const tagsHtml = meta.tags ? 
+                `<div class="terminal-tags">${meta.tags.map(tag => `<span class="terminal-tag">${tag}</span>`).join('')}</div>` : '';
+
             return `
-            <div class="terminal-row" style="margin-bottom: 20px; border-bottom: 1px dashed var(--light-slate); padding-bottom: 15px;">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px;">
-                    <a href="article.html?id=${post.id}" style="font-family: 'Roboto Mono'; font-size: 18px; color: var(--teal); text-decoration: none;">
+            <div class="terminal-row">
+                <div class="mb-2">
+                    <a href="article.html?id=${post.id}" class="terminal-link">
                         > ${meta.title || post.id}
                     </a>
-                    <span style="font-family: 'Roboto Mono'; font-size: 12px; color: var(--slate);">${post.date || ''}</span>
+                    <div class="terminal-meta">
+                        <span class="terminal-date"> [${post.date || 'N/A'}]</span>
+                    </div>
                 </div>
-                <p style="color: var(--slate); font-size: 14px; margin-left: 20px; margin-bottom: 5px;">${meta.description || ''}</p>
-                 ${meta.tags ? `<div style="margin-left: 20px;">${meta.tags.map(tag => `<span style="font-family: 'Roboto Mono'; font-size: 10px; border: 1px solid var(--slate); padding: 2px 6px; margin-right: 5px; border-radius: 3px; color: var(--teal);">${tag}</span>`).join('')}</div>` : ''}
+                <p class="terminal-desc">${meta.description || ''}</p>
+                 ${tagsHtml}
             </div>
             `;
         }).join('');
 
+        if (rows.length === 0) {
+            rows = `<div class="terminal-row"><p class="terminal-desc">_NO DATA FOUND FOR QUERY: "${searchTerm}"</p></div>`;
+        }
+
         const headerText = currentLang === 'es' ? '/DOCUMENTOS/POSTS/INDICE' : '/DOCUMENTS/POSTS/INDEX';
         const waitingText = currentLang === 'es' ? '_ESPERANDO ENTRADA' : '_AWAITING INPUT';
+        const placeholderText = currentLang === 'es' ? 'filtrar_resultados...' : 'filter_results...';
 
         container.innerHTML = `
-            <div style="max-width: 800px; margin: 0 auto; padding-top: 20px;">
-                 <div style="border-bottom: 2px solid var(--teal); padding-bottom: 10px; margin-bottom: 30px; display: flex; align-items: center;">
-                    <i data-feather="terminal" style="color: var(--teal); margin-right: 15px;"></i>
-                    <h1 style="color: var(--teal); font-family: 'Roboto Mono'; font-size: 24px; margin: 0;">${headerText}</h1>
+            <div class="pt-3">
+                 <div class="terminal-header mb-3">
+                    <i data-feather="terminal" class="text-teal mr-1"></i>
+                    <h1 class="terminal-header-title">${headerText}</h1>
                 </div>
-                <div>${rows}</div>
-                 <p style="font-family: 'Roboto Mono'; color: var(--teal); margin-top: 30px;" class="blink">${waitingText}</p>
+                
+                <div class="terminal-search-container">
+                    <span class="prompt">> search_query:</span>
+                    <input type="text" id="article-search" class="terminal-search-input" placeholder="${placeholderText}" value="${searchTerm}" autocomplete="off" autofocus>
+                </div>
+
+                <div id="posts-list">${rows}</div>
+                 <p class="blink-cursor mt-4">${waitingText}</p>
             </div>
-            <style>
-                @keyframes blink { 0% { opacity: 0; } 50% { opacity: 1; } 100% { opacity: 0; } }
-                .blink { animation: blink 1s infinite; }
-                .terminal-row a:hover { color: var(--white) !important; text-decoration: none; border-bottom: 1px solid var(--teal); }
-            </style>
         `;
+        
         if(window.feather) feather.replace();
+
+        // Attach Event Listener for Search (Debounced slightly by nature of just replacing innerHTML of list or re-rendering whole?)
+        // Re-rendering whole container loses focus if we are not careful.
+        // Better strategy: Attach listener to the input we just created.
+        const searchInput = document.getElementById('article-search');
+        if(searchInput) {
+            searchInput.focus(); // Keep focus
+            // Move cursor to end
+            const val = searchInput.value;
+            searchInput.value = '';
+            searchInput.value = val;
+
+            searchInput.addEventListener('input', (e) => {
+                // Recursive call to render with new term
+                // Note: deeply recursive calls might be bad if typing fast, but for this scale it's fine.
+                // A better approach would be to only update the #posts-list div.
+                renderPostList(posts, e.target.value); 
+            });
+        }
     }
 
     function renderTerminalState({ status, color, lines, actions }) {
-        let linesHtml = lines.map(line => `<p style="margin-bottom: 10px; font-family: 'Roboto Mono';">> ${line}</p>`).join('');
+        // Note: 'color' param is kept for status text to maintain dynamic error coloring if needed, 
+        // but container uses class.
+        let linesHtml = lines.map(line => `<p class="mb-1 font-mono">> ${line}</p>`).join('');
         let actionsHtml = actions.map(action => 
-            `<a href="${action.href}" class="${action.primary ? 'btn btn-filled' : 'btn btn-outline'}" 
-                style="margin-right: 15px; margin-top: 10px;">${action.text}</a>`
+            `<a href="${action.href}" class="${action.primary ? 'btn btn-filled' : 'btn btn-outline'} mr-1 mt-1">
+                ${action.text}
+             </a>`
         ).join('');
 
         container.innerHTML = `
-            <div style="max-width: 700px; margin: 50px auto; padding: 40px; border: 1px solid ${color}; background-color: rgba(17, 34, 64, 0.5); border-radius: 4px;">
-                <div style="border-bottom: 1px solid ${color}; padding-bottom: 10px; margin-bottom: 20px; display: flex; align-items: center;">
-                     <span style="font-family: 'Roboto Mono'; color: ${color}; font-weight: 700; letter-spacing: 2px;">${status}</span>
+            <div class="error-box" style="border-color: ${color}">
+                <div class="error-header" style="border-color: ${color}">
+                     <span class="error-title" style="color: ${color}">${status}</span>
                 </div>
-                <div style="color: var(--light-slate); margin-bottom: 30px;">${linesHtml}</div>
-                <div style="display: flex; flex-wrap: wrap;">${actionsHtml}</div>
+                <div class="text-light-slate mb-3">${linesHtml}</div>
+                <div class="d-flex flex-wrap">${actionsHtml}</div>
             </div>
         `;
     }
