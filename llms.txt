@@ -10,6 +10,8 @@
 Here you can find deep-dive technical content on Cybersecurity, GRC, and SecDevOps.
 For AI analysis, it is recommended to read the **Raw Markdown** files directly.
 
+- [The Essentials of DevSecOps: Security at the Speed of Code / Los Esenciales de DevSecOps: Seguridad a la Velocidad del Código](https://rafaelperezllorca.com/pages/article.html?id=devsecops-essentials): A comprehensive guide to understanding DevSecOps, its core principles, benefits, and the challenges of shifting security left.
+  - [Raw Markdown Source](https://rafaelperezllorca.com/posts/devsecops-essentials.md)
 - [5 Realities of Cybersecurity that Challenge Everything You Knew / 5 Realidades de la Ciberseguridad que Desafían Todo lo que Creías Saber](https://rafaelperezllorca.com/pages/article.html?id=realidades-ciberseguridad): An analysis of how cyber intelligence is shifting from static defense to a dynamic, intelligence-driven posture.
   - [Raw Markdown Source](https://rafaelperezllorca.com/posts/realidades-ciberseguridad.md)
 - [Building a Port Scanner with Python / Construyendo un Escáner de Puertos con Python](https://rafaelperezllorca.com/pages/article.html?id=python-port-scanner): Creating a custom security tool to audit local networks using Python Sockets.

@@ -1,5 +1,33 @@
 [
     {
+        "id": "devsecops-essentials",
+        "date": "2026-02-01",
+        "en": {
+            "title": "The Essentials of DevSecOps: Security at the Speed of Code",
+            "description": "A comprehensive guide to understanding DevSecOps, its core principles, benefits, and the challenges of shifting security left.",
+            "tags": [
+                "DevSecOps",
+                "Cybersecurity",
+                "CI/CD",
+                "AppSec",
+                "Master CEU"
+            ],
+            "author": "Rafael Pérez Llorca"
+        },
+        "es": {
+            "title": "Los Esenciales de DevSecOps: Seguridad a la Velocidad del Código",
+            "description": "Una guía completa para entender DevSecOps, sus principios fundamentales, beneficios y los desafíos de desplazar la seguridad a la izquierda.",
+            "tags": [
+                "DevSecOps",
+                "Cybersecurity",
+                "CI/CD",
+                "AppSec",
+                "Master CEU"
+            ],
+            "author": "Rafael Pérez Llorca"
+        }
+    },
+    {
         "id": "realidades-ciberseguridad",
         "date": "2026-01-10",
         "en": {

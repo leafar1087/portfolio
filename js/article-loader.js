@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', async () => {
     // --- CONFIGURATION & SELECTORS ---
+    // --- CONFIGURATION & SELECTORS ---
     const container = document.getElementById('article-container');
-    const langToggleBtn = document.getElementById('lang-toggle');
     const params = new URLSearchParams(window.location.search);
     const articleId = params.get('id');
 
@@ -11,33 +11,49 @@ document.addEventListener('DOMContentLoaded', async () => {
     let allPosts = [];
 
     // --- INITIALIZATION ---
-    updateLanguageUI(); // Ensure button text matches state on load
+    // Defer UI update slightly to allow Components to render if race condition exists, 
+    // though the mutation/event delegation handles interaction.
+    setTimeout(updateLanguageUI, 100); 
     await loadContent();
 
-    // --- EVENT LISTENERS ---
-    if (langToggleBtn) {
-        langToggleBtn.addEventListener('click', (e) => {
-            e.preventDefault(); // Prevent conflicts if script.js is also listening (optional)
+    // --- EVENT LISTENERS (DELEGATION) ---
+    // Use delegation because .lang-toggle-btn might be injected by components.js AFTER this script runs.
+    document.body.addEventListener('click', (e) => {
+        const btn = e.target.closest('.lang-toggle-btn');
+        if (btn) {
+            // Logic handled by script.js?
+            // If script.js is present, it might ALSO toggle. 
+            // To be safe and avoid double-toggling if both run:
+            // We can check the STARTING state from localStorage which script.js might have just updated 
+            // OR we just wait a microtask? 
+            // actually, let's just force read the NEW state after a small delay to sync with script.js 
+            // OR, simplest: Let us handle the Article Content update, let script.js handle the global UI.
+            // But we need to know the NEW lang.
             
-            // Toggle Logic
-            currentLang = currentLang === 'en' ? 'es' : 'en';
+            // Let's assume we want to be reactive.
+            // We proactively update our local state and render.
+            // If checking e.defaultPrevented might hint if script.js handled it? No.
+
+            // Safe Approach: 
+            // calculate desired next state based on CURRENT local variable (snapshot at load time might be stale if modified elsewhere, so read fresh)
+            const stored = localStorage.getItem('portfolio_lang') || 'es';
+            const next = stored === 'en' ? 'es' : 'en';
             
-            // Save to Storage
+            // We update it. (Idempotent if script.js does same)
+            currentLang = next;
             localStorage.setItem('portfolio_lang', currentLang);
-            
-            // Update UI & Content
+
             updateLanguageUI();
             loadContent();
-        });
-    }
-
-    // Helper to sync Button Text (Independent of script.js to be safe)
-    function updateLanguageUI() {
-        if(langToggleBtn) {
-            // If current is EN, button should offer ES switch, and vice versa
-            // Or just show current. Let's assume button shows TARGET language:
-            langToggleBtn.innerText = currentLang === 'en' ? 'ES' : 'EN';
         }
+    });
+
+    // Helper to sync Button Text
+    function updateLanguageUI() {
+        const btns = document.querySelectorAll('.lang-toggle-btn');
+        btns.forEach(btn => {
+            btn.innerText = currentLang === 'en' ? 'ES' : 'EN';
+        });
     }
 
     async function loadContent() {
