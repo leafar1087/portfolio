@@ -2,7 +2,7 @@
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://unpkg.com https://cdnjs.cloudflare.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com https://cdn.jsdelivr.net; img-src 'self' data: https:; connect-src 'self' https://unpkg.com;">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdnjs.cloudflare.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com https://cdn.jsdelivr.net; img-src 'self' data: https:; connect-src 'self';">
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ciber Academia - Rafael Pérez Llorca</title>
@@ -72,8 +72,6 @@
       rel="stylesheet"
     />
 
-    <!-- Icons -->
-    <script src="https://unpkg.com/feather-icons@4.29.1/dist/feather.min.js" integrity="sha384-En/3vVo7Wc+6Ogkkp7OUi5Oc7Zf4c+N/kRP3z7QVcJssy5Ud5MWcAvwWDAEFMga8" crossorigin="anonymous"></script>
 
     <!-- Styles -->
     <link rel="stylesheet" href="../css/styles.css" />
@@ -101,18 +99,18 @@
             <!-- Course 1 -->
             <div class="course-card">
                 <div class="course-thumb">
-                    <i data-feather="database"></i>
+                    <svg width="40" height="40"><use href="../assets/images/tech-icons.svg#icon-database"/></svg>
                 </div>
                 <div class="course-content">
                     <span class="course-badge" data-i18n="academy.card1.badge">Técnico</span>
                     <h3 class="course-title" data-i18n="academy.card1.title">SQL para Auditores</h3>
                     <p class="course-desc" data-i18n="academy.card1.desc">Domina las consultas de datos para detectar anomalías y validar integridad sin depender de herramientas.</p>
                     <div class="course-rating">
-                        <i data-feather="star" class="star-filled"></i>
-                        <i data-feather="star" class="star-filled"></i>
-                        <i data-feather="star" class="star-filled"></i>
-                        <i data-feather="star" class="star-filled"></i>
-                        <i data-feather="star" class="star-filled"></i>
+                        <svg width="16" height="16" class="star-filled"><use href="../assets/images/tech-icons.svg#icon-star"/></svg>
+                        <svg width="16" height="16" class="star-filled"><use href="../assets/images/tech-icons.svg#icon-star"/></svg>
+                        <svg width="16" height="16" class="star-filled"><use href="../assets/images/tech-icons.svg#icon-star"/></svg>
+                        <svg width="16" height="16" class="star-filled"><use href="../assets/images/tech-icons.svg#icon-star"/></svg>
+                        <svg width="16" height="16" class="star-filled"><use href="../assets/images/tech-icons.svg#icon-star"/></svg>
                         <span class="rating-text">(5.0)</span>
                     </div>
                     <a href="#" class="btn btn-primary w-full text-center" data-i18n="academy.btnStart">Empezar a Aprender</a>
@@ -122,18 +120,18 @@
              <!-- Course 2 -->
              <div class="course-card">
                 <div class="course-thumb">
-                    <i data-feather="shield"></i>
+                    <svg width="40" height="40"><use href="../assets/images/tech-icons.svg#icon-shield-generic"/></svg>
                 </div>
                 <div class="course-content">
                     <span class="course-badge" data-i18n="academy.card2.badge">Gestión</span>
                     <h3 class="course-title" data-i18n="academy.card2.title">Gobernanza de Ciberseguridad</h3>
                     <p class="course-desc" data-i18n="academy.card2.desc">Alinea las operaciones de TI con la estrategia empresarial y marcos de cumplimiento (ISO, ENS).</p>
                     <div class="course-rating">
-                        <i data-feather="star" class="star-filled"></i>
-                        <i data-feather="star" class="star-filled"></i>
-                        <i data-feather="star" class="star-filled"></i>
-                        <i data-feather="star" class="star-filled"></i>
-                        <i data-feather="star" class="star-filled"></i>
+                        <svg width="16" height="16" class="star-filled"><use href="../assets/images/tech-icons.svg#icon-star"/></svg>
+                        <svg width="16" height="16" class="star-filled"><use href="../assets/images/tech-icons.svg#icon-star"/></svg>
+                        <svg width="16" height="16" class="star-filled"><use href="../assets/images/tech-icons.svg#icon-star"/></svg>
+                        <svg width="16" height="16" class="star-filled"><use href="../assets/images/tech-icons.svg#icon-star"/></svg>
+                        <svg width="16" height="16" class="star-filled"><use href="../assets/images/tech-icons.svg#icon-star"/></svg>
                         <span class="rating-text">(4.9)</span>
                     </div>
                     <a href="#" class="btn btn-primary w-full text-center" data-i18n="academy.btnStart">Empezar a Aprender</a>
@@ -143,18 +141,18 @@
              <!-- Course 3 -->
              <div class="course-card">
                 <div class="course-thumb">
-                    <i data-feather="crosshair"></i>
+                    <svg width="40" height="40"><use href="../assets/images/tech-icons.svg#icon-crosshair"/></svg>
                 </div>
                 <div class="course-content">
                     <span class="course-badge" data-i18n="academy.card3.badge">Operaciones</span>
                     <h3 class="course-title" data-i18n="academy.card3.title">Threat Hunting 101</h3>
                     <p class="course-desc" data-i18n="academy.card3.desc">Búsqueda proactiva de ciberamenazas que evaden las soluciones de seguridad existentes.</p>
                     <div class="course-rating">
-                        <i data-feather="star" class="star-filled"></i>
-                        <i data-feather="star" class="star-filled"></i>
-                        <i data-feather="star" class="star-filled"></i>
-                        <i data-feather="star" class="star-filled"></i>
-                        <i data-feather="star-half" class="star-half"></i>
+                        <svg width="16" height="16" class="star-filled"><use href="../assets/images/tech-icons.svg#icon-star"/></svg>
+                        <svg width="16" height="16" class="star-filled"><use href="../assets/images/tech-icons.svg#icon-star"/></svg>
+                        <svg width="16" height="16" class="star-filled"><use href="../assets/images/tech-icons.svg#icon-star"/></svg>
+                        <svg width="16" height="16" class="star-filled"><use href="../assets/images/tech-icons.svg#icon-star"/></svg>
+                        <svg width="16" height="16" class="star-half"><use href="../assets/images/tech-icons.svg#icon-star-half"/></svg>
                         <span class="rating-text">(4.8)</span>
                     </div>
                     <a href="#" class="btn btn-primary w-full text-center" data-i18n="academy.btnStart">Empezar a Aprender</a>

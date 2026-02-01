@@ -5,7 +5,6 @@
  */
 
 import { updateThemeIcon } from './modules/theme.js';
-import { initIcons } from './modules/icons.js';
 import { detectBasePath, protectEmails } from './modules/utils.js';
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -21,7 +20,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    initIcons();
     protectEmails();
     
     // Init Main App Logic (from script.js if adapted to module, for now global)

@@ -19,7 +19,7 @@
     terminalDiv.id = 'hack-terminal';
     terminalDiv.innerHTML = `
         <div class="terminal-line">Rafael.Sec OS [Version 1.0.0]</div>
-        <div class="terminal-line">(c) 2026 Rafael Pérez Llorca. All rights reserved.</div>
+        <div class="terminal-line">(c) ${new Date().getFullYear()} Rafael Pérez Llorca. All rights reserved.</div>
         <div class="terminal-line"><br></div>
         <div id="term-output"></div>
         <div class="terminal-input-area">

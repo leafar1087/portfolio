@@ -63,7 +63,7 @@ const Components = {
                id="theme-toggle-mobile" class="btn btn-outline btn-sm theme-toggle-btn w-full ml-0" style="display:flex; justify-content:center;"
                aria-label="Toggle Theme"
             >
-              <i data-feather="sun"></i>
+              <svg width="20" height="20"><use href="${assetsPath}images/tech-icons.svg#icon-sun"/></svg>
             </button>
           </li>
           <li class="mobile-only" id="lang-toggle-li-mobile">
@@ -84,13 +84,13 @@ const Components = {
             ES
           </button>
           <button id="theme-toggle" class="btn btn-outline btn-sm theme-toggle-btn" aria-label="Toggle Theme">
-               <i data-feather="sun"></i>
+               <svg width="18" height="18"><use href="${assetsPath}images/tech-icons.svg#icon-sun"/></svg>
           </button>
           <a href="${assetsPath}CV_Rafael_Perez.pdf" target="_blank" class="btn btn-filled"><span data-i18n="nav.resume">Resume</span></a>
         </div>
 
         <div class="hamburger" aria-label="Menu">
-          <i data-feather="menu"></i>
+          <svg width="24" height="24"><use href="${assetsPath}images/tech-icons.svg#icon-menu"/></svg>
         </div>
       </nav>
         `;
@@ -98,10 +98,6 @@ const Components = {
         container.classList.add('header'); // Ensure class is present
         container.innerHTML = html;
         
-        // Re-initialize Feather Icons for the menu
-        if (window.feather) {
-            try { feather.replace(); } catch (e) { console.warn('Header icons init failed', e); }
-        }
     },
 
     renderFooter: (containerId, basePath = './') => {
@@ -110,6 +106,7 @@ const Components = {
 
         const isHome = basePath === './';
         const pagesPath = isHome ? 'pages/' : '';
+        const assetsPath = isHome ? './assets/' : '../assets/';
 
         const html = `
       <div class="footer-content">
@@ -117,13 +114,11 @@ const Components = {
           <a
             href="https://www.linkedin.com/in/rperezll/"
             target="_blank"
-            rel="me"
+            rel="noopener noreferrer"
             aria-label="LinkedIn"
-            ><i data-feather="linkedin"></i
-          ></a>
+            ><svg width="20" height="20"><use href="${assetsPath}images/tech-icons.svg#icon-linkedin"/></svg></a>
           <a href="#" aria-label="Email" class="email-trigger"
-            ><i data-feather="mail"></i
-          ></a>
+            ><svg width="20" height="20"><use href="${assetsPath}images/tech-icons.svg#icon-mail"/></svg></a>
         </div>
         <div class="footer-links">
           <a href="${pagesPath}privacy.html" data-i18n="footer.privacy"
@@ -133,7 +128,7 @@ const Components = {
         </div>
         <div class="footer-copyright">
           <p data-i18n="footer.rights">
-            &copy; 2026 Rafael Pérez Llorca. Todos los derechos reservados.
+            &copy; ${new Date().getFullYear()} Rafael Pérez Llorca. Todos los derechos reservados.
           </p>
         </div>
       </div>
@@ -151,8 +146,5 @@ const Components = {
             });
         }
 
-        if (window.feather) {
-             try { feather.replace(); } catch (e) { console.warn('Footer icons init failed', e); }
-        }
     }
 };

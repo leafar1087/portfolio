@@ -3,7 +3,4 @@ document.addEventListener('DOMContentLoaded', () => {
     if (pathElement) {
         pathElement.innerText = window.location.pathname;
     }
-    if (typeof feather !== 'undefined') {
-        feather.replace();
-    }
 });

@@ -4,14 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Security Headers -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://unpkg.com https://cdnjs.cloudflare.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com https://cdn.jsdelivr.net; img-src 'self' data: https:; connect-src 'self' https://unpkg.com;">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdnjs.cloudflare.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com https://cdn.jsdelivr.net; img-src 'self' data: https:; connect-src 'self';">
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
     
     <title>404 - Acceso Denegado | Rafael Pérez Llorca</title>
     <link rel="icon" type="image/png" href="../assets/images/favicon.png" />
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/styles.css" />
-    <script src="https://unpkg.com/feather-icons@4.29.1/dist/feather.min.js" integrity="sha384-En/3vVo7Wc+6Ogkkp7OUi5Oc7Zf4c+N/kRP3z7QVcJssy5Ud5MWcAvwWDAEFMga8" crossorigin="anonymous"></script>
 </head>
 <body>
     <div class="terminal-container">
@@ -27,7 +26,7 @@
         </div>
 
         <a href="../index.html" class="btn-home">
-            <i data-feather="arrow-left" style="vertical-align: middle; width: 16px;"></i> 
+            <svg width="16" height="16" style="vertical-align: middle; margin-right: 4px;"><use href="../assets/images/tech-icons.svg#icon-arrow-left"/></svg> 
             Regresar al Inicio
         </a>
     </div>

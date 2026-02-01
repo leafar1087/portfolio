@@ -22,7 +22,7 @@ El CSS ya no es un archivo gigante. Se ha dividido en una arquitectura escalable
 El JS entra por `js/app.js` y orquesta módulos especializados:
 
 - **Theme Engine (`theme.js`)**: Detecta preferencias del sistema, persiste tu elección en `localStorage` y cambia clases en el `html` sin parpadeos (FOUC).
-- **Icons (`icons.js`)**: Gestiona la carga y reemplazo asíncrono de `feather-icons`.
+- **Icon System**: usa un unificado SVG sprite (`assets/images/tech-icons.svg`) para mejorar la performance y la consistencia del estilo con`fill="currentColor"`.
 - **Utils (`utils.js`)**: Funciones auxiliares como la protección de emails contra bots.
 
 ## 🚀 Cómo Funciona

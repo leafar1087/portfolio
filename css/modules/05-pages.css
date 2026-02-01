@@ -124,7 +124,7 @@
   border-radius: 4px;
   background-color: var(--teal);
   margin: 0 auto;
-  transition: all 0.3s ease;
+  transition: var(--transition);
 }
 
 .img-wrapper::after {
@@ -137,7 +137,7 @@
   top: 15px;
   left: 15px;
   z-index: -1;
-  transition: all 0.3s ease;
+  transition: var(--transition);
 }
 
 .img-wrapper img {
@@ -146,11 +146,12 @@
   display: block;
   mix-blend-mode: multiply;
   filter: grayscale(100%) contrast(1);
-  transition: all 0.3s ease;
+  transition: var(--transition);
 }
 
 .img-wrapper:hover {
   transform: translateY(-5px);
+  transition-delay: 0.1s;
 }
 
 .img-wrapper:hover::after {
@@ -173,7 +174,7 @@
   background-color: var(--light-navy);
   padding: 35px;
   border-radius: 6px;
-  transition: all 0.3s ease;
+  transition: var(--transition);
   border: 1px solid transparent;
   box-shadow: 0 10px 30px -15px rgba(2, 12, 27, 0.7);
 }
@@ -182,6 +183,7 @@
   transform: translateY(-10px);
   border-color: var(--teal);
   box-shadow: 0 20px 30px -15px rgba(2, 12, 27, 0.7);
+  transition-delay: 0.1s;
 }
 
 .timeline {
@@ -205,7 +207,7 @@
   border-radius: 50%;
   background-color: var(--bg-navy);
   border: 2px solid var(--teal);
-  transition: all 0.3s;
+  transition: var(--transition);
 }
 
 .timeline-item:hover::before {
@@ -241,7 +243,7 @@
   flex-direction: column;
   align-items: center;
   width: 100px;
-  transition: all 0.3s;
+  transition: var(--transition);
 }
 
 .tech-item i, .tech-item svg {
@@ -250,13 +252,19 @@
   height: 50px;
   margin-bottom: 15px;
   color: var(--light-slate);
-  transition: all 0.3s;
+  transition: var(--transition);
 }
 
 .tech-item:hover i, .tech-item:hover svg {
   color: var(--teal);
   transform: scale(1.1);
   filter: drop-shadow(0 0 8px var(--teal));
+  transition-delay: 0.1s;
+}
+
+.tech-item:hover span {
+  color: var(--teal);
+  text-shadow: 0 0 8px rgba(var(--teal-rgb), 0.4);
 }
 
 .lead-magnet {
@@ -292,7 +300,7 @@
   background-color: var(--light-navy);
   border-radius: 8px;
   overflow: hidden;
-  transition: all 0.3s ease;
+  transition: var(--transition);
   border: 1px solid transparent;
 }
 
@@ -300,6 +308,7 @@
   transform: translateY(-8px);
   border-color: var(--teal);
   box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+  transition-delay: 0.1s;
 }
 
 .course-thumb {

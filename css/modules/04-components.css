@@ -9,7 +9,7 @@
   white-space: nowrap;
   position: relative;
   overflow: hidden;
-  transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+  transition: var(--transition);
   z-index: 1;
 }
 
@@ -28,7 +28,7 @@
   height: 100%;
   background: var(--teal);
   z-index: -1;
-  transition: all 0.3s ease;
+  transition: var(--transition);
 }
 
 .btn-primary:hover {
@@ -136,7 +136,7 @@
   color: var(--white);
   font-family: "Roboto Mono", monospace;
   width: 350px;
-  transition: all 0.3s;
+  transition: var(--transition);
 }
 
 .lead-input:focus {

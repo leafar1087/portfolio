@@ -22,7 +22,7 @@
 
     <meta name="author" content="Rafael Pérez Llorca" />
     <!-- Security Headers -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://unpkg.com https://cdnjs.cloudflare.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com https://cdn.jsdelivr.net; img-src 'self' data: https:; connect-src 'self' https://unpkg.com;">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdnjs.cloudflare.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com https://cdn.jsdelivr.net; img-src 'self' data: https:; connect-src 'self';">
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
     <meta name="referrer" content="strict-origin-when-cross-origin">
 
@@ -112,15 +112,9 @@
       rel="stylesheet"
     />
 
-    <!-- Icons -->
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/devicon.min.css"
-      integrity="sha384-DjehTlU5SubGD1zUGe78SkwLgw+q2y9DXnmy3EaDbXA9nvFMPW3LP5verNrWr9rW"
-      crossorigin="anonymous"
-    />
 
-    <script src="https://unpkg.com/feather-icons@4.29.1/dist/feather.min.js" integrity="sha384-En/3vVo7Wc+6Ogkkp7OUi5Oc7Zf4c+N/kRP3z7QVcJssy5Ud5MWcAvwWDAEFMga8" crossorigin="anonymous"></script>
+
+
 
     <!-- Styles -->
     <link rel="stylesheet" href="css/styles.css" />
@@ -155,7 +149,7 @@
                 data-i18n="hero.btnExpertise"
                 >Ver perfil</a
               >
-              <a href="./assets/CV_Rafael_Perez.pdf" target="_blank" class="btn btn-outline" data-i18n="hero.btnCv">Descargar CV</a>
+              <a href="./assets/CV_Rafael_Perez.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-outline" data-i18n="hero.btnCv">Descargar CV</a>
             </div>
           </div>
         </div>
@@ -208,7 +202,9 @@
         <div class="expertise-grid">
           <!-- Column 1 -->
           <div class="expertise-card">
-            <div class="card-icon"><i data-feather="git-branch"></i></div>
+            <div class="card-icon">
+              <svg width="45" height="45"><use href="assets/images/tech-icons.svg#icon-git-branch"/></svg>
+            </div>
             <h3 data-i18n="expertise.card1.title">DevSecOps & Engineering</h3>
             <p
               class="card-subtitle"
@@ -222,7 +218,9 @@
           </div>
           <!-- Column 2 -->
           <div class="expertise-card">
-            <div class="card-icon"><i data-feather="clipboard"></i></div>
+            <div class="card-icon">
+              <svg width="45" height="45"><use href="assets/images/tech-icons.svg#icon-clipboard"/></svg>
+            </div>
             <h3 data-i18n="expertise.card2.title">Gobernanza y Estrategia</h3>
             <p
               class="card-subtitle"
@@ -236,7 +234,9 @@
           </div>
           <!-- Column 3 -->
           <div class="expertise-card">
-            <div class="card-icon"><i data-feather="shield"></i></div>
+            <div class="card-icon">
+              <svg width="45" height="45"><use href="assets/images/tech-icons.svg#icon-shield-generic"/></svg>
+            </div>
             <h3 data-i18n="expertise.card3.title">Operaciones de Amenazas</h3>
             <p
               class="card-subtitle"
@@ -334,45 +334,56 @@
         <div class="tech-grid">
           <!-- Development & Data -->
           <div class="tech-item">
-            <i class="devicon-python-plain"></i><span>Python</span>
+            <svg width="40" height="40"><use href="assets/images/tech-icons.svg#icon-python"/></svg>
+            <span>Python</span>
           </div>
           <div class="tech-item">
-            <i class="devicon-fastapi-plain"></i><span>FastAPI</span>
+            <svg width="40" height="40"><use href="assets/images/tech-icons.svg#icon-fastapi"/></svg>
+            <span>FastAPI</span>
           </div>
           <div class="tech-item">
-            <i class="devicon-microsoftsqlserver-plain"></i
-            ><span>SQL Server</span>
+            <svg width="40" height="40"><use href="assets/images/tech-icons.svg#icon-sqlserver"/></svg>
+            <span>SQL Server</span>
           </div>
           <div class="tech-item">
-            <i class="devicon-postgresql-plain"></i><span>PostgreSQL</span>
+            <svg width="40" height="40"><use href="assets/images/tech-icons.svg#icon-postgresql"/></svg>
+            <span>PostgreSQL</span>
           </div>
           <div class="tech-item">
-            <i class="devicon-azure-plain"></i><span>Azure AI</span>
+            <svg width="40" height="40"><use href="assets/images/tech-icons.svg#icon-azure"/></svg>
+            <span>Azure AI</span>
           </div>
           <div class="tech-item">
-            <i data-feather="bar-chart-2"></i><span>Power BI</span>
+            <svg width="40" height="40"><use href="assets/images/tech-icons.svg#icon-powerbi"/></svg>
+            <span>Power BI</span>
           </div>
 
           <!-- Security Operations -->
           <div class="tech-item">
-            <i data-feather="shield"></i><span>Wazuh</span>
+            <svg width="40" height="40"><use href="assets/images/tech-icons.svg#icon-wazuh"/></svg>
+            <span>Wazuh</span>
           </div>
           <div class="tech-item">
-            <i data-feather="lock"></i><span>Fortinet</span>
+            <svg width="40" height="40"><use href="assets/images/tech-icons.svg#icon-fortinet"/></svg>
+            <span>Fortinet</span>
           </div>
           <div class="tech-item">
-            <i data-feather="cloud"></i><span>Cloudflare</span>
+            <svg width="40" height="40"><use href="assets/images/tech-icons.svg#icon-cloudflare"/></svg>
+            <span>Cloudflare</span>
           </div>
           <div class="tech-item">
-            <i data-feather="activity"></i><span>Wireshark</span>
+            <svg width="40" height="40"><use href="assets/images/tech-icons.svg#icon-wireshark"/></svg>
+            <span>Wireshark</span>
           </div>
           <div class="tech-item">
-            <i data-feather="search"></i><span>Volatility</span>
+            <svg width="40" height="40"><use href="assets/images/tech-icons.svg#icon-volatility"/></svg>
+            <span>Volatility</span>
           </div>
 
           <!-- Compliance & Standards (Conceptually represented) -->
           <div class="tech-item">
-            <i data-feather="file-text"></i><span>ISO/NIST</span>
+            <svg width="40" height="40"><use href="assets/images/tech-icons.svg#icon-iso"/></svg>
+            <span>ISO/NIST</span>
           </div>
         </div>
       </section>
@@ -414,10 +425,10 @@
           <a
             href="https://www.linkedin.com/in/rperezll/"
             target="_blank"
-            rel="me"
+            rel="noopener noreferrer"
             class="btn btn-outline btn-lg"
           >
-            <i data-feather="linkedin"></i> LinkedIn
+            <svg width="20" height="20" style="vertical-align: middle; margin-right: 8px;"><use href="assets/images/tech-icons.svg#icon-linkedin"/></svg> LinkedIn
           </a>
         </div>
       </section>

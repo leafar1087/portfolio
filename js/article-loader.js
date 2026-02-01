@@ -226,7 +226,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         container.innerHTML = `
             <div class="pt-3">
                  <div class="terminal-header mb-3">
-                    <i data-feather="terminal" class="text-teal mr-1"></i>
+                    <svg width="24" height="24" style="margin-right: 8px;"><use href="../assets/images/tech-icons.svg#icon-terminal"/></svg>
                     <h1 class="terminal-header-title">${headerText}</h1>
                 </div>
                 
@@ -240,7 +240,6 @@ document.addEventListener('DOMContentLoaded', async () => {
             </div>
         `;
         
-        if(window.feather) feather.replace();
 
         // Attach Event Listener for Search (Debounced slightly by nature of just replacing innerHTML of list or re-rendering whole?)
         // Re-rendering whole container loses focus if we are not careful.

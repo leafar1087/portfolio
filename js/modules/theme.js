@@ -16,15 +16,16 @@ window.toggleTheme = function() {
 };
 
 export function updateThemeIcon(theme) {
-    const icon = theme === 'light' ? 'moon' : 'sun';
+    const iconId = theme === 'light' ? 'icon-moon' : 'icon-sun';
     const btns = document.querySelectorAll('.theme-toggle-btn');
     if (btns.length > 0) {
+        // Detect basePath from current URL to ensure SVG path is correct
+        const basePath = window.location.pathname.includes('/pages/') ? '../' : './';
+        const spritePath = `${basePath}assets/images/tech-icons.svg#${iconId}`;
+        
         btns.forEach(btn => {
-            btn.innerHTML = `<i data-feather="${icon}"></i>`;
+            btn.innerHTML = `<svg width="20" height="20"><use href="${spritePath}"/></svg>`;
         });
-        if (window.feather) {
-            try { feather.replace(); } catch(e) {}
-        }
     }
 }
 
