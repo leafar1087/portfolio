@@ -63,7 +63,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         // Always fetch posts index if missing, needed for sidebars
         if (allPosts.length === 0) {
             try {
-                const postsUrl = '../posts.json?v=' + Date.now();
+                const postsUrl = '../content-index.json?v=' + Date.now();
                 console.log('[LOADER] Fetching:', postsUrl);
                 const response = await fetch(postsUrl);
                 if (!response.ok) throw new Error("Could not load post index: " + response.status);
@@ -71,7 +71,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                 console.log('[LOADER] Posts loaded:', allPosts.length, 'items');
                 console.log('[LOADER] Course posts:', allPosts.filter(p => p.id && p.id.startsWith('python-course/')).length);
             } catch (error) {
-                console.error('[LOADER] posts.json error:', error);
+                console.error('[LOADER] content-index.json error:', error);
                 if (!articleId) {
                     renderTerminalState({
                         status: "INDEX_RETRIEVAL_FAILED",
