@@ -1,8 +1,8 @@
-@import './modules/00-fonts.css';
-@import './modules/01-variables.css';
-@import './modules/02-base.css';
-@import './modules/03-layout.css';
-@import './modules/04-components.css';
-@import './modules/05-pages.css';
-@import './modules/06-utilities.css';
-@import './modules/07-courses.css';
+@import './modules/00-fonts.css?v=13';
+@import './modules/01-variables.css?v=13';
+@import './modules/02-base.css?v=13';
+@import './modules/03-layout.css?v=13';
+@import './modules/04-components.css?v=13';
+@import './modules/05-pages.css?v=13';
+@import './modules/06-utilities.css?v=13';
+@import './modules/07-courses.css?v=13';
