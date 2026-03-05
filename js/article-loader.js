@@ -63,7 +63,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         // Always fetch posts index if missing, needed for sidebars
         if (allPosts.length === 0) {
             try {
-                const response = await fetch('../posts.json');
+                const response = await fetch('../posts.json?v=' + Date.now());
                 if (!response.ok) throw new Error("Could not load post index");
                 allPosts = await response.json();
             } catch (error) {

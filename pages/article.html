@@ -35,11 +35,8 @@
     <!-- Libs for Markdown and Security -->
     <script src="https://cdn.jsdelivr.net/npm/marked@12.0.0/lib/marked.umd.min.js" integrity="sha384-nc1X348k5rejcKvs5u4lHL0GpeBFsxPx4DhmRX4s8v8/8UvQ6PRExWEE44U0eBWA" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.0.6/purify.min.js" integrity="sha384-cwS6YdhLI7XS60eoDiC+egV0qHp8zI+Cms46R0nbn8JrmoAzV9uFL60etMZhAnSu" crossorigin="anonymous"></script>
-    <script type="module">
-        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
-        mermaid.initialize({ startOnLoad: false, theme: 'dark' });
-        window.mermaid = mermaid;
-    </script>
+    <!-- Mermaid.js (Externalizado para cumplir con RPLL CSP) -->
+    <script type="module" src="../js/mermaid-init.js?v=11"></script>
 
     <!-- Prism.js Core and Languages -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" data-manual></script>
