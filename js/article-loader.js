@@ -63,10 +63,15 @@ document.addEventListener('DOMContentLoaded', async () => {
         // Always fetch posts index if missing, needed for sidebars
         if (allPosts.length === 0) {
             try {
-                const response = await fetch('../posts.json?v=' + Date.now());
-                if (!response.ok) throw new Error("Could not load post index");
+                const postsUrl = '../posts.json?v=' + Date.now();
+                console.log('[LOADER] Fetching:', postsUrl);
+                const response = await fetch(postsUrl);
+                if (!response.ok) throw new Error("Could not load post index: " + response.status);
                 allPosts = await response.json();
+                console.log('[LOADER] Posts loaded:', allPosts.length, 'items');
+                console.log('[LOADER] Course posts:', allPosts.filter(p => p.id && p.id.startsWith('python-course/')).length);
             } catch (error) {
+                console.error('[LOADER] posts.json error:', error);
                 if (!articleId) {
                     renderTerminalState({
                         status: "INDEX_RETRIEVAL_FAILED",
@@ -168,7 +173,8 @@ document.addEventListener('DOMContentLoaded', async () => {
 
             if (articleId.startsWith('python-course/')) {
                 wrapperClass = 'course-content-wrapper';
-                const coursePosts = allPosts.filter(p => p.id.startsWith('python-course/'));
+                const coursePosts = allPosts.filter(p => p.id && p.id.startsWith('python-course/'));
+                console.log('[SIDEBAR] articleId:', articleId, '| allPosts.length:', allPosts.length, '| coursePosts:', coursePosts.length);
                 
                 // Sort appropriately (index first, then modulo-01, modulo-02...)
                 coursePosts.sort((a,b) => {
