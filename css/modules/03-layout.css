@@ -4,8 +4,20 @@
   padding: 0 50px;
 }
 
+@media (max-width: 768px) {
+  .container {
+    padding: 0 20px;
+  }
+}
+
 .section-padding {
   padding: 120px 0;
+}
+
+@media (max-width: 768px) {
+  .section-padding {
+    padding: 60px 0;
+  }
 }
 
 .section-title {

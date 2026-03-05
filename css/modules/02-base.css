@@ -11,7 +11,7 @@ body {
   line-height: 1.6;
   font-size: 18px;
   overflow-x: hidden;
-  min-width: 450px;
+  overflow-x: hidden;
   background-image: radial-gradient(circle at 50% 50%, rgba(var(--teal-rgb), 0.03) 0%, transparent 50%);
   background-attachment: fixed;
 }
