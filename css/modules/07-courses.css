@@ -1,0 +1,285 @@
+.course-content-wrapper {
+  display: flex;
+  gap: 30px;
+  align-items: flex-start;
+}
+
+.course-sidebar {
+  width: 280px;
+  flex-shrink: 0;
+  border-right: 1px solid var(--border-color);
+  padding-right: 20px;
+  padding-top: 5px;
+  position: sticky;
+  top: 120px;
+  height: calc(100vh - 140px);
+  display: flex;
+  flex-direction: column;
+}
+
+.course-sidebar h4 {
+  font-size: 0.85rem;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  margin-bottom: 20px !important;
+  color: var(--slate) !important;
+}
+
+.course-nav-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  overflow-y: auto;
+  padding-right: 15px;
+  flex-grow: 1;
+}
+
+/* Custom Scrollbar for Sidebar */
+.course-nav-list::-webkit-scrollbar {
+  width: 4px;
+}
+.course-nav-list::-webkit-scrollbar-track {
+  background: transparent;
+}
+.course-nav-list::-webkit-scrollbar-thumb {
+  background: rgba(136, 146, 176, 0.2);
+  border-radius: 4px;
+}
+.course-nav-list::-webkit-scrollbar-thumb:hover {
+  background: rgba(136, 146, 176, 0.5);
+}
+
+.course-nav-link {
+  color: var(--slate);
+  text-decoration: none;
+  font-size: 0.85rem;
+  padding: 10px 14px;
+  border-radius: 6px;
+  border-left: 3px solid transparent;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  display: block;
+  line-height: 1.4;
+}
+
+.course-nav-link:hover {
+  background: rgba(100, 255, 218, 0.05); /* very subtle depending on theme this uses var(--teal) rgba but hardcoded */
+  color: var(--lightest-slate);
+  transform: translateX(3px);
+  border-left-color: rgba(100, 255, 218, 0.4);
+}
+
+.course-nav-link.active {
+  background: rgba(100, 255, 218, 0.1);
+  color: var(--teal);
+  border-left-color: var(--teal);
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .course-content-wrapper {
+    flex-direction: column;
+  }
+  .course-sidebar {
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid var(--border-color);
+    padding-right: 0;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    position: static;
+    top: auto;
+  }
+  .course-nav-list {
+    max-height: 300px;
+  }
+}
+
+/* Base Markdown formatting improvements within articles */
+.article-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 25px 0;
+  color: var(--light-slate);
+  font-size: 0.9rem;
+  background: var(--navy-light);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.article-content table th,
+.article-content table td {
+  padding: 12px 15px;
+  border-bottom: 1px solid var(--border-color);
+  text-align: left;
+}
+
+.article-content table th {
+  background-color: rgba(100, 255, 218, 0.05);
+  color: var(--teal);
+  font-weight: 600;
+}
+
+.article-content table tr:last-child td {
+  border-bottom: none;
+}
+
+/* --------------------------------------------------------------------------
+   Markdown / Article Content Typography Styles
+   -------------------------------------------------------------------------- */
+
+.article-content {
+  color: var(--slate);
+  font-size: 1.1rem;
+  line-height: 1.7;
+  max-width: 850px;
+  /* Prevent horizontal squashing */
+  min-width: 0;
+}
+
+.article-content h1,
+.article-content h2,
+.article-content h3,
+.article-content h4,
+.article-content h5,
+.article-content h6 {
+  color: var(--lightest-slate);
+  font-weight: 700;
+  margin-top: 2em;
+  margin-bottom: 1em;
+  line-height: 1.3;
+}
+
+.article-content h1 {
+  font-size: 2.25rem;
+  margin-top: 0;
+  color: var(--teal);
+}
+
+.article-content h2 {
+  font-size: 1.75rem;
+  border-bottom: 1px solid rgba(var(--lightest-navy-rgb, 35, 53, 84), 0.5);
+  padding-bottom: 0.3em;
+}
+
+.article-content h3 {
+  font-size: 1.5rem;
+}
+
+.article-content p {
+  margin-bottom: 1.5em;
+}
+
+.article-content a {
+  color: var(--teal);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: var(--transition);
+}
+
+.article-content a:hover {
+  border-bottom-color: var(--teal);
+}
+
+.article-content strong,
+.article-content b {
+  color: var(--lightest-slate);
+  font-weight: 600;
+}
+
+/* Lists */
+.article-content ul,
+.article-content ol {
+  margin-bottom: 1.5em;
+  padding-left: 2em;
+}
+
+.article-content ul {
+  list-style-type: disc;
+}
+
+.article-content ol {
+  list-style-type: decimal;
+}
+
+.article-content li {
+  margin-bottom: 0.5em;
+}
+
+.article-content li > ul,
+.article-content li > ol {
+  margin-top: 0.5em;
+  margin-bottom: 0;
+}
+
+/* Blockquotes */
+.article-content blockquote {
+  margin: 2em 0;
+  padding: 1em 1.5em;
+  border-left: 4px solid var(--teal);
+  background-color: var(--light-navy);
+  border-radius: 0 4px 4px 0;
+  font-style: italic;
+  color: var(--light-slate);
+}
+
+.article-content blockquote p:last-child {
+  margin-bottom: 0;
+}
+
+/* Code Blocks */
+.article-content code {
+  font-family: inherit;
+  font-family: "Roboto Mono", monospace;
+  background-color: rgba(100, 255, 218, 0.1);
+  color: var(--teal);
+  padding: 0.2em 0.4em;
+  border-radius: 3px;
+  font-size: 0.85em;
+}
+
+.article-content pre,
+.article-content pre[class*="language-"] {
+  margin: 2em 0;
+  padding: 1.5em;
+  border-radius: 8px;
+  overflow-x: auto;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  background-color: var(--light-navy) !important;
+}
+
+.article-content pre code {
+  background-color: transparent;
+  padding: 0;
+  border-radius: 0;
+  font-size: 0.9em;
+  line-height: 1.6;
+}
+
+/* Images */
+.article-content img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin: 2em 0;
+  box-shadow: 0 10px 30px -15px rgba(2, 12, 27, 0.7);
+}
+
+/* Horizontal Rules */
+.article-content hr {
+  margin: 3em 0;
+  border: 0;
+  height: 1px;
+  background-color: var(--lightest-navy);
+}
+
+/* Mermaid Diagrams */
+.mermaid {
+  background-color: var(--light-navy);
+  padding: 1.5em;
+  border-radius: 8px;
+  margin: 2em 0;
+  overflow-x: auto;
+  display: flex;
+  justify-content: center;
+}

@@ -60,24 +60,28 @@ document.addEventListener('DOMContentLoaded', async () => {
         // Clear container mostly for re-renders on lang switch
         container.innerHTML = ''; 
 
+        // Always fetch posts index if missing, needed for sidebars
+        if (allPosts.length === 0) {
+            try {
+                const response = await fetch('../posts.json');
+                if (!response.ok) throw new Error("Could not load post index");
+                allPosts = await response.json();
+            } catch (error) {
+                if (!articleId) {
+                    renderTerminalState({
+                        status: "INDEX_RETRIEVAL_FAILED",
+                        color: "#ff6b6b",
+                        lines: ["ERROR LOADING ARCHIVES", "DETAILS: " + error.message],
+                        actions: [{ text: "RETRY", href: "article.html", primary: true }]
+                    });
+                    return;
+                }
+            }
+        }
+
         // State 1: No ID Provided -> LIST ARTICLES (The Index)
         if (!articleId) {
-            try {
-                // Cache strategy: only fetch if empty
-                if (allPosts.length === 0) {
-                    const response = await fetch('../posts.json');
-                    if (!response.ok) throw new Error("Could not load post index");
-                    allPosts = await response.json();
-                }
-                renderPostList(allPosts);
-            } catch (error) {
-                renderTerminalState({
-                    status: "INDEX_RETRIEVAL_FAILED",
-                    color: "#ff6b6b",
-                    lines: ["ERROR LOADING ARCHIVES", "DETAILS: " + error.message],
-                    actions: [{ text: "RETRY", href: "article.html", primary: true }]
-                });
-            }
+            renderPostList(allPosts);
             return;
         }
 
@@ -119,7 +123,16 @@ document.addEventListener('DOMContentLoaded', async () => {
                 finalContent = parts[0];
             }
             
-            // Parse Markdown
+            // Parse Markdown. First configure marked to add language- class prefix for Prism
+            marked.setOptions({
+                highlight: function(code, lang) {
+                    if (Prism.languages[lang]) {
+                        return Prism.highlight(code, Prism.languages[lang], lang);
+                    } else {
+                        return code;
+                    }
+                }
+            });
             const rawHtml = marked.parse(finalContent);
 
             // --- SECURITY CORE (YOUR "KILLER FEATURE") ---
@@ -131,18 +144,68 @@ document.addEventListener('DOMContentLoaded', async () => {
             });
 
             const cleanHtml = DOMPurify.sanitize(rawHtml, {
-                ADD_ATTR: ['target'] 
+                ADD_ATTR: ['target'],
+                ADD_TAGS: ['span'], // Allow Prism to create syntax highlight spans
+                ADD_CLASSES: {
+                    'code': ['language-python', 'language-bash', 'language-sql', 'language-js', 'language-html', 'language-css', 'language-mermaid', 'language-ignore', 'language-gitignore', 'language-json', 'language-yaml', 'language-text', 'language-sh', 'language-tree'],
+                    'span': ['token', 'keyword', 'string', 'number', 'operator', 'punctuation', 'comment', 'function', 'class-name', 'builtin', 'boolean', 'property', 'regex', 'directive', 'value', 'key']
+                }
             });
 
-            // Navigation Text
-            const backText = currentLang === 'es' ? 'VOLVER AL ÍNDICE' : 'RETURN TO INDEX';
+            // Fix relative markdown links within the content
+            let fixedHtml = cleanHtml.replace(/href="\.\/([^"]+)\.md"/g, 'href="article.html?id=python-course/$1"');
+
+            // --- GENERIC HIGHLIGHTING FALLBACK ---
+            // Code blocks without a language (like directory trees or ASCII art) won't have a class. 
+            // We assign 'language-bash' by default so Prism colors the '#' as comments.
+            fixedHtml = fixedHtml.replace(/<pre><code>/g, '<pre><code class="language-bash">');
+
+            // --- BUILD SIDEBAR IF IN COURSE MODE ---
+            let sidebarHtml = '';
+            let wrapperClass = '';
+            const backText = currentLang === 'es' ? 'VOLVER A ACADEMIA' : 'RETURN TO ACADEMY';
+            let backLink = 'academy.html';
+
+            if (articleId.startsWith('python-course/')) {
+                wrapperClass = 'course-content-wrapper';
+                const coursePosts = allPosts.filter(p => p.id.startsWith('python-course/'));
+                
+                // Sort appropriately (index first, then modulo-01, modulo-02...)
+                coursePosts.sort((a,b) => {
+                    if(a.id.includes('index')) return -1;
+                    if(b.id.includes('index')) return 1;
+                    return a.id.localeCompare(b.id);
+                });
+                
+                const navLinks = coursePosts.map(p => {
+                    const postMeta = p[currentLang] || p['en'] || p['es'] || {};
+                    const title = postMeta.title || p.id.split('/').pop();
+                    const isActive = p.id === articleId ? 'active' : '';
+                    return `<a href="article.html?id=${p.id}" class="course-nav-link ${isActive}">${title}</a>`;
+                }).join('');
+                
+                const sidebarTitle = currentLang === 'es' ? 'Contenido del Curso' : 'Course Content';
+                sidebarHtml = `
+                    <div class="course-sidebar">
+                        <h4 class="mb-3 font-mono text-teal">${sidebarTitle}</h4>
+                        <div class="course-nav-list">
+                            ${navLinks}
+                        </div>
+                    </div>
+                `;
+            } else {
+                backLink = 'article.html'; // Default back to posts list if not a course
+            }
 
             container.innerHTML = `
                 <div style="margin-bottom: 30px;">
-                    <a href="article.html" class="btn btn-outline" style="font-family: 'Roboto Mono'; font-size: 12px;">&lt; // ${backText}</a>
+                    <a href="${backLink}" class="btn btn-outline" style="font-family: 'Roboto Mono'; font-size: 12px;">&lt; // ${backText}</a>
                 </div>
-                <div class="article-content">
-                    ${cleanHtml}
+                <div class="${wrapperClass}">
+                    ${sidebarHtml}
+                    <div class="article-content" style="flex-grow: 1; overflow: hidden;">
+                        ${fixedHtml}
+                    </div>
                 </div>
             `;
 
@@ -155,8 +218,31 @@ document.addEventListener('DOMContentLoaded', async () => {
             }
             if (docTitle) document.title = `${docTitle} - Rafael Pérez Llorca`;
 
-            // Syntax Highlighting (if you use Highlight.js or Prism later)
-            // if(window.hljs) hljs.highlightAll();
+            // --- RENDER MERMAID AND PRISM ---
+            if (window.mermaid) {
+                setTimeout(() => {
+                    const mermaidBlocks = document.querySelectorAll('.language-mermaid');
+                    if(mermaidBlocks.length > 0) {
+                        mermaidBlocks.forEach(codeBlock => {
+                            const pre = codeBlock.parentElement;
+                            const div = document.createElement('div');
+                            div.className = 'mermaid';
+                            div.textContent = codeBlock.textContent;
+                            pre.parentElement.replaceChild(div, pre);
+                        });
+                        window.mermaid.run();
+                    }
+                    
+                    // Trigger Prism Syntax Highlighting
+                    if (window.Prism) {
+                        Prism.highlightAll();
+                    }
+                }, 50);
+            } else if (window.Prism) {
+                setTimeout(() => {
+                    Prism.highlightAll();
+                }, 50);
+            }
 
         } catch (error) {
             renderTerminalState({

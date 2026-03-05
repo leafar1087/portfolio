@@ -124,5 +124,447 @@
             ],
             "author": "Rafael Pérez Llorca"
         }
+    },
+    {
+        "id": "python-course/index",
+        "date": "2026-03-05",
+        "en": {
+            "title": "Python Course from Scratch - Índice Maestro",
+            "description": "Manual interactivo segmentado en módulos con enfoque DevSecOps y validaciones de seguridad.",
+            "tags": [
+                "Python",
+                "Course",
+                "Cybersecurity",
+                "DevSecOps"
+            ],
+            "author": "Rafael Pérez Llorca"
+        },
+        "es": {
+            "title": "Curso Python desde 0 - Índice Maestro",
+            "description": "Manual interactivo segmentado en módulos con enfoque DevSecOps y validaciones de seguridad.",
+            "tags": [
+                "Python",
+                "Curso",
+                "Ciberseguridad",
+                "DevSecOps"
+            ],
+            "author": "Rafael Pérez Llorca"
+        }
+    },
+    {
+        "id": "python-course/modulo-01-fundamentos",
+        "date": "2026-03-05",
+        "en": {
+            "title": "Module 01: Fundamentos e Instalación",
+            "description": "CPython internals, entornos virtuales y tipado dinámico.",
+            "tags": [
+                "Python",
+                "Course",
+                "Cybersecurity",
+                "DevSecOps"
+            ],
+            "author": "Rafael Pérez Llorca"
+        },
+        "es": {
+            "title": "Módulo 01: Fundamentos e Instalación",
+            "description": "CPython internals, entornos virtuales y tipado dinámico.",
+            "tags": [
+                "Python",
+                "Curso",
+                "Ciberseguridad",
+                "DevSecOps"
+            ],
+            "author": "Rafael Pérez Llorca"
+        }
+    },
+    {
+        "id": "python-course/modulo-02-sintaxis-basica",
+        "date": "2026-03-05",
+        "en": {
+            "title": "Module 02: Sintaxis Básica",
+            "description": "Tipos, funciones, listas, tuplas, diccionarios, slicing.",
+            "tags": [
+                "Python",
+                "Course",
+                "Cybersecurity",
+                "DevSecOps"
+            ],
+            "author": "Rafael Pérez Llorca"
+        },
+        "es": {
+            "title": "Módulo 02: Sintaxis Básica",
+            "description": "Tipos, funciones, listas, tuplas, diccionarios, slicing.",
+            "tags": [
+                "Python",
+                "Curso",
+                "Ciberseguridad",
+                "DevSecOps"
+            ],
+            "author": "Rafael Pérez Llorca"
+        }
+    },
+    {
+        "id": "python-course/modulo-03-control-de-flujo",
+        "date": "2026-03-05",
+        "en": {
+            "title": "Module 03: Control de Flujo",
+            "description": "Condicionales, bucles for y while, break, continue, pass.",
+            "tags": [
+                "Python",
+                "Course",
+                "Cybersecurity",
+                "DevSecOps"
+            ],
+            "author": "Rafael Pérez Llorca"
+        },
+        "es": {
+            "title": "Módulo 03: Control de Flujo",
+            "description": "Condicionales, bucles for y while, break, continue, pass.",
+            "tags": [
+                "Python",
+                "Curso",
+                "Ciberseguridad",
+                "DevSecOps"
+            ],
+            "author": "Rafael Pérez Llorca"
+        }
+    },
+    {
+        "id": "python-course/modulo-04-generadores",
+        "date": "2026-03-05",
+        "en": {
+            "title": "Module 04: Generadores",
+            "description": "Yield, lazy evaluation, pipelines ETL, análisis de memoria.",
+            "tags": [
+                "Python",
+                "Course",
+                "Cybersecurity",
+                "DevSecOps"
+            ],
+            "author": "Rafael Pérez Llorca"
+        },
+        "es": {
+            "title": "Módulo 04: Generadores",
+            "description": "Yield, lazy evaluation, pipelines ETL, análisis de memoria.",
+            "tags": [
+                "Python",
+                "Curso",
+                "Ciberseguridad",
+                "DevSecOps"
+            ],
+            "author": "Rafael Pérez Llorca"
+        }
+    },
+    {
+        "id": "python-course/modulo-05-excepciones",
+        "date": "2026-03-05",
+        "en": {
+            "title": "Module 05: Excepciones",
+            "description": "Manejo de errores, aserciones, jerarquía e inyección de dependencias.",
+            "tags": [
+                "Python",
+                "Course",
+                "Cybersecurity",
+                "DevSecOps"
+            ],
+            "author": "Rafael Pérez Llorca"
+        },
+        "es": {
+            "title": "Módulo 05: Excepciones",
+            "description": "Manejo de errores, aserciones, jerarquía e inyección de dependencias.",
+            "tags": [
+                "Python",
+                "Curso",
+                "Ciberseguridad",
+                "DevSecOps"
+            ],
+            "author": "Rafael Pérez Llorca"
+        }
+    },
+    {
+        "id": "python-course/modulo-06-poo",
+        "date": "2026-03-05",
+        "en": {
+            "title": "Module 06: POO Completa",
+            "description": "Clases, herencia, MRO, polimorfismo, ABC, __slots__.",
+            "tags": [
+                "Python",
+                "Course",
+                "Cybersecurity",
+                "DevSecOps"
+            ],
+            "author": "Rafael Pérez Llorca"
+        },
+        "es": {
+            "title": "Módulo 06: POO Completa",
+            "description": "Clases, herencia, MRO, polimorfismo, ABC, __slots__.",
+            "tags": [
+                "Python",
+                "Curso",
+                "Ciberseguridad",
+                "DevSecOps"
+            ],
+            "author": "Rafael Pérez Llorca"
+        }
+    },
+    {
+        "id": "python-course/modulo-07-modulos-paquetes",
+        "date": "2026-03-05",
+        "en": {
+            "title": "Module 07: Modules y Paquetes",
+            "description": "Sistema de importación, __init__.py, paquetes redistribuibles.",
+            "tags": [
+                "Python",
+                "Course",
+                "Cybersecurity",
+                "DevSecOps"
+            ],
+            "author": "Rafael Pérez Llorca"
+        },
+        "es": {
+            "title": "Módulo 07: Módulos y Paquetes",
+            "description": "Sistema de importación, __init__.py, paquetes redistribuibles.",
+            "tags": [
+                "Python",
+                "Curso",
+                "Ciberseguridad",
+                "DevSecOps"
+            ],
+            "author": "Rafael Pérez Llorca"
+        }
+    },
+    {
+        "id": "python-course/modulo-08-archivos-serializacion",
+        "date": "2026-03-05",
+        "en": {
+            "title": "Module 08: Archivos y Serialización",
+            "description": "Ficheros, pickle, JSON, pathlib, mitigación de path traversal.",
+            "tags": [
+                "Python",
+                "Course",
+                "Cybersecurity",
+                "DevSecOps"
+            ],
+            "author": "Rafael Pérez Llorca"
+        },
+        "es": {
+            "title": "Módulo 08: Archivos y Serialización",
+            "description": "Ficheros, pickle, JSON, pathlib, mitigación de path traversal.",
+            "tags": [
+                "Python",
+                "Curso",
+                "Ciberseguridad",
+                "DevSecOps"
+            ],
+            "author": "Rafael Pérez Llorca"
+        }
+    },
+    {
+        "id": "python-course/modulo-09-tkinter",
+        "date": "2026-03-05",
+        "en": {
+            "title": "Module 09: Interfaces Gráficas Tkinter",
+            "description": "Widgets, patrón MVC en Tkinter, threading seguro.",
+            "tags": [
+                "Python",
+                "Course",
+                "Cybersecurity",
+                "DevSecOps"
+            ],
+            "author": "Rafael Pérez Llorca"
+        },
+        "es": {
+            "title": "Módulo 09: Interfaces Gráficas Tkinter",
+            "description": "Widgets, patrón MVC en Tkinter, threading seguro.",
+            "tags": [
+                "Python",
+                "Curso",
+                "Ciberseguridad",
+                "DevSecOps"
+            ],
+            "author": "Rafael Pérez Llorca"
+        }
+    },
+    {
+        "id": "python-course/modulo-10-bbdd",
+        "date": "2026-03-05",
+        "en": {
+            "title": "Module 10: Bases de Datos SQLite",
+            "description": "3NF, UUID v4/v7, Unit of Work, Repository, prevención de SQL Injection.",
+            "tags": [
+                "Python",
+                "Course",
+                "Cybersecurity",
+                "DevSecOps"
+            ],
+            "author": "Rafael Pérez Llorca"
+        },
+        "es": {
+            "title": "Módulo 10: Bases de Datos SQLite",
+            "description": "3NF, UUID v4/v7, Unit of Work, Repository, prevención de SQL Injection.",
+            "tags": [
+                "Python",
+                "Curso",
+                "Ciberseguridad",
+                "DevSecOps"
+            ],
+            "author": "Rafael Pérez Llorca"
+        }
+    },
+    {
+        "id": "python-course/modulo-11-practicas-mvc",
+        "date": "2026-03-05",
+        "en": {
+            "title": "Module 11: Prácticas Guiadas MVC",
+            "description": "CRUD completo, separación de capas, patrones de integración.",
+            "tags": [
+                "Python",
+                "Course",
+                "Cybersecurity",
+                "DevSecOps"
+            ],
+            "author": "Rafael Pérez Llorca"
+        },
+        "es": {
+            "title": "Módulo 11: Prácticas Guiadas MVC",
+            "description": "CRUD completo, separación de capas, patrones de integración.",
+            "tags": [
+                "Python",
+                "Curso",
+                "Ciberseguridad",
+                "DevSecOps"
+            ],
+            "author": "Rafael Pérez Llorca"
+        }
+    },
+    {
+        "id": "python-course/modulo-12-funciones-avanzadas",
+        "date": "2026-03-05",
+        "en": {
+            "title": "Module 12: Funciones Avanzadas",
+            "description": "Lambda, filter, map, reduce, paradigma funcional puro.",
+            "tags": [
+                "Python",
+                "Course",
+                "Cybersecurity",
+                "DevSecOps"
+            ],
+            "author": "Rafael Pérez Llorca"
+        },
+        "es": {
+            "title": "Módulo 12: Funciones Avanzadas",
+            "description": "Lambda, filter, map, reduce, paradigma funcional puro.",
+            "tags": [
+                "Python",
+                "Curso",
+                "Ciberseguridad",
+                "DevSecOps"
+            ],
+            "author": "Rafael Pérez Llorca"
+        }
+    },
+    {
+        "id": "python-course/modulo-13-regex",
+        "date": "2026-03-05",
+        "en": {
+            "title": "Module 13: Expresiones Regulares",
+            "description": "Metacaracteres, grupos nombrados, prevención de ReDoS, validación.",
+            "tags": [
+                "Python",
+                "Course",
+                "Cybersecurity",
+                "DevSecOps"
+            ],
+            "author": "Rafael Pérez Llorca"
+        },
+        "es": {
+            "title": "Módulo 13: Expresiones Regulares",
+            "description": "Metacaracteres, grupos nombrados, prevención de ReDoS, validación.",
+            "tags": [
+                "Python",
+                "Curso",
+                "Ciberseguridad",
+                "DevSecOps"
+            ],
+            "author": "Rafael Pérez Llorca"
+        }
+    },
+    {
+        "id": "python-course/modulo-14-decoradores",
+        "date": "2026-03-05",
+        "en": {
+            "title": "Module 14: Decoradores y Validación",
+            "description": "Decoradores, @functools.wraps, RBAC, Pydantic spec-driven.",
+            "tags": [
+                "Python",
+                "Course",
+                "Cybersecurity",
+                "DevSecOps"
+            ],
+            "author": "Rafael Pérez Llorca"
+        },
+        "es": {
+            "title": "Módulo 14: Decoradores y Validación",
+            "description": "Decoradores, @functools.wraps, RBAC, Pydantic spec-driven.",
+            "tags": [
+                "Python",
+                "Curso",
+                "Ciberseguridad",
+                "DevSecOps"
+            ],
+            "author": "Rafael Pérez Llorca"
+        }
+    },
+    {
+        "id": "python-course/modulo-15-testing",
+        "date": "2026-03-05",
+        "en": {
+            "title": "Module 15: Documentación y Testing",
+            "description": "doctest, unittest, pre-commit, bandit, safety en DevSecOps.",
+            "tags": [
+                "Python",
+                "Course",
+                "Cybersecurity",
+                "DevSecOps"
+            ],
+            "author": "Rafael Pérez Llorca"
+        },
+        "es": {
+            "title": "Módulo 15: Documentación y Testing",
+            "description": "doctest, unittest, pre-commit, bandit, safety en DevSecOps.",
+            "tags": [
+                "Python",
+                "Curso",
+                "Ciberseguridad",
+                "DevSecOps"
+            ],
+            "author": "Rafael Pérez Llorca"
+        }
+    },
+    {
+        "id": "python-course/modulo-16-ejecutables",
+        "date": "2026-03-05",
+        "en": {
+            "title": "Module 16: Ejecutables y Despliegue",
+            "description": "Uso de PyInstaller, firma en macOS, distribución de aplicaciones.",
+            "tags": [
+                "Python",
+                "Course",
+                "Cybersecurity",
+                "DevSecOps"
+            ],
+            "author": "Rafael Pérez Llorca"
+        },
+        "es": {
+            "title": "Módulo 16: Ejecutables y Despliegue",
+            "description": "Uso de PyInstaller, firma en macOS, distribución de aplicaciones.",
+            "tags": [
+                "Python",
+                "Curso",
+                "Ciberseguridad",
+                "DevSecOps"
+            ],
+            "author": "Rafael Pérez Llorca"
+        }
     }
 ]

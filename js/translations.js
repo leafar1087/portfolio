@@ -112,7 +112,13 @@ const translations = {
                 desc: "Proactive search for cyber threats that evade existing security solutions.",
                 badge: "Operations"
             },
-            btnStart: "Start Learning"
+            card4: {
+                title: "Python Course from Scratch",
+                desc: "Learn Python with a focus on cybersecurity, DevSecOps, and data validation.",
+                badge: "Development"
+            },
+            btnStart: "Start Learning",
+            btnSoon: "Coming Soon"
         },
         
         contact: {
@@ -284,7 +290,13 @@ const translations = {
                 desc: "Búsqueda proactiva de ciberamenazas que evaden las soluciones de seguridad existentes.",
                 badge: "Operaciones"
             },
-            btnStart: "Empezar a Aprender"
+            card4: {
+                title: "Curso Python desde 0",
+                desc: "Aprende Python con enfoque en ciberseguridad, DevSecOps y validación de datos.",
+                badge: "Desarrollo"
+            },
+            btnStart: "Empezar a Aprender",
+            btnSoon: "Próximamente"
         },
         
         contact: {

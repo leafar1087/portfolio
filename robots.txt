@@ -1,7 +1,18 @@
+# Reglas generales
 User-agent: *
 Allow: /
 
+# Exclusiones de IA para Proteger Propiedad Intelectual (Academia)
+User-agent: GPTBot
+Disallow: /posts/
+Disallow: /pages/academy.html
+
+User-agent: ClaudeBot
+Disallow: /posts/
+Disallow: /pages/academy.html
+
+User-agent: anthropic-ai
+Disallow: /posts/
+Disallow: /pages/academy.html
+
 Sitemap: https://rafaelperezllorca.com/sitemap.xml
-# Link for AI Agents
-# See https://llmstxt.org/ for info
-Disallow: 

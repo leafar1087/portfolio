@@ -27,6 +27,13 @@ export function updateThemeIcon(theme) {
             btn.innerHTML = `<svg width="20" height="20"><use href="${spritePath}"/></svg>`;
         });
     }
+
+    const prismTheme = document.getElementById('prism-theme');
+    if (prismTheme) {
+        prismTheme.href = theme === 'light' 
+            ? 'https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css'
+            : 'https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css';
+    }
 }
 
 // Event Delegation for Theme Button (Robust)
