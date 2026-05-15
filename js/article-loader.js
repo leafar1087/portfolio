@@ -64,14 +64,10 @@ document.addEventListener('DOMContentLoaded', async () => {
         if (allPosts.length === 0) {
             try {
                 const postsUrl = '../content-index.json?v=' + Date.now();
-                console.log('[LOADER] Fetching:', postsUrl);
                 const response = await fetch(postsUrl);
                 if (!response.ok) throw new Error("Could not load post index: " + response.status);
                 allPosts = await response.json();
-                console.log('[LOADER] Posts loaded:', allPosts.length, 'items');
-                console.log('[LOADER] Course posts:', allPosts.filter(p => p.id && p.id.startsWith('python-course/')).length);
             } catch (error) {
-                console.error('[LOADER] content-index.json error:', error);
                 if (!articleId) {
                     renderTerminalState({
                         status: "INDEX_RETRIEVAL_FAILED",
@@ -92,11 +88,13 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         // State 2: Fetching Specific Article
         try {
-            container.innerHTML = `
-                <div style="display: flex; justify-content: center; align-items: center; height: 300px; color: var(--teal);">
-                    <p style="font-family: 'Roboto Mono';">_RETRIEVING PAYLOAD: ${articleId} [${currentLang.toUpperCase()}]...</p>
-                </div>
-            `;
+            const loadingDiv = document.createElement('div');
+            loadingDiv.style.cssText = "display: flex; justify-content: center; align-items: center; height: 300px; color: var(--teal);";
+            const loadingP = document.createElement('p');
+            loadingP.style.fontFamily = "'Roboto Mono'";
+            loadingP.textContent = `_RETRIEVING PAYLOAD: ${articleId} [${currentLang.toUpperCase()}]...`;
+            loadingDiv.appendChild(loadingP);
+            container.appendChild(loadingDiv);
 
             const fetchUrl = `../posts/${articleId}.md`;
             const response = await fetch(fetchUrl);
@@ -174,7 +172,6 @@ document.addEventListener('DOMContentLoaded', async () => {
             if (articleId.startsWith('python-course/')) {
                 wrapperClass = 'course-content-wrapper';
                 const coursePosts = allPosts.filter(p => p.id && p.id.startsWith('python-course/'));
-                console.log('[SIDEBAR] articleId:', articleId, '| allPosts.length:', allPosts.length, '| coursePosts:', coursePosts.length);
                 
                 // Sort appropriately (index first, then modulo-01, modulo-02...)
                 coursePosts.sort((a,b) => {
@@ -289,6 +286,9 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         // Filter Logic
         const filteredPosts = posts.filter(post => {
+            // Hardening: Exclude course modules from general article index (Backend-driven)
+            if (post.type !== 'article') return false;
+
             const meta = post[currentLang] || post['en'] || post['es'];
             if (!meta) return false;
             
@@ -304,33 +304,39 @@ document.addEventListener('DOMContentLoaded', async () => {
             const meta = post[currentLang] || post['en'] || post['es']; 
             if (!meta) return ''; 
 
-            const tagsHtml = meta.tags ? 
-                `<div class="terminal-tags">${meta.tags.map(tag => `<span class="terminal-tag">${tag}</span>`).join('')}</div>` : '';
+            const title = meta.title || post.id;
+            const description = meta.description || '';
+            const tags = meta.tags || [];
+
+            const tagsHtml = tags.length > 0 ? 
+                `<div class="terminal-tags">${tags.map(tag => `<span class="terminal-tag">${DOMPurify.sanitize(tag)}</span>`).join('')}</div>` : '';
 
             return `
             <div class="terminal-row">
                 <div class="mb-2">
-                    <a href="article.html?id=${post.id}" class="terminal-link">
-                        > ${meta.title || post.id}
+                    <a href="article.html?id=${encodeURIComponent(post.id)}" class="terminal-link">
+                        > ${DOMPurify.sanitize(title)}
                     </a>
                     <div class="terminal-meta">
-                        <span class="terminal-date"> [${post.date || 'N/A'}]</span>
+                        <span class="terminal-date"> [${DOMPurify.sanitize(post.date || 'N/A')}]</span>
                     </div>
                 </div>
-                <p class="terminal-desc">${meta.description || ''}</p>
+                <p class="terminal-desc">${DOMPurify.sanitize(description)}</p>
                  ${tagsHtml}
             </div>
             `;
         }).join('');
 
         if (rows.length === 0) {
-            rows = `<div class="terminal-row"><p class="terminal-desc">_NO DATA FOUND FOR QUERY: "${searchTerm}"</p></div>`;
+            const safeTerm = DOMPurify.sanitize(searchTerm);
+            rows = `<div class="terminal-row"><p class="terminal-desc">_NO DATA FOUND FOR QUERY: "${safeTerm}"</p></div>`;
         }
 
         const headerText = currentLang === 'es' ? '/DOCUMENTOS/POSTS/INDICE' : '/DOCUMENTS/POSTS/INDEX';
         const waitingText = currentLang === 'es' ? '_ESPERANDO ENTRADA' : '_AWAITING INPUT';
         const placeholderText = currentLang === 'es' ? 'filtrar_resultados...' : 'filter_results...';
 
+        const cleanSearchTerm = DOMPurify.sanitize(searchTerm);
         container.innerHTML = `
             <div class="pt-3">
                  <div class="terminal-header mb-3">
@@ -340,7 +346,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                 
                 <div class="terminal-search-container">
                     <span class="prompt">> search_query:</span>
-                    <input type="text" id="article-search" class="terminal-search-input" placeholder="${placeholderText}" value="${searchTerm}" autocomplete="off" autofocus>
+                    <input type="text" id="article-search" class="terminal-search-input" placeholder="${placeholderText}" value="${cleanSearchTerm}" autocomplete="off" autofocus>
                 </div>
 
                 <div id="posts-list">${rows}</div>

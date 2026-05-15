@@ -5,7 +5,7 @@ from datetime import datetime
 
 # Configuration
 POSTS_DIR = 'posts'
-OUTPUT_FILE = 'posts.json'
+OUTPUT_FILE = 'content-index.json'
 SITEMAP_FILE = 'sitemap.xml'
 LLMS_TXT_FILE = 'llms.txt'
 BASE_URL = 'https://rafaelperezllorca.com'
@@ -22,7 +22,7 @@ STATIC_PAGES = [
 ## SCRIPT DE AUTOMATIZACIÓN DE CONTENIDO (SSG + SEO + AI)
 -------------------------------------------------------------
 Genera:
-1. posts.json (API para frontend)
+1. content-index.json (API para frontend)
 2. sitemap.xml (SEO para Google/Bing)
 3. llms.txt (Contexto para Agentes de IA)
 """
@@ -73,9 +73,6 @@ def generate_sitemap(posts):
 
     # Add Posts (Dynamic)
     for post in posts:
-        # Assuming the article viewer uses query params like ?id=post_id
-        # Or if using a router: /article/post_id
-        # Based on current setup, it seems to be pages/article.html?id=...
         url = f"{BASE_URL}/pages/article.html?id={post['id']}"
         date = post.get('date', datetime.now().strftime("%Y-%m-%d"))
         
@@ -83,7 +80,7 @@ def generate_sitemap(posts):
         xml += f'    <loc>{url}</loc>\n'
         xml += f'    <lastmod>{date}</lastmod>\n'
         xml += f'    <changefreq>monthly</changefreq>\n'
-        xml += f'    <priority>0.7</priority>\n'
+        xml += f'    <priority>{"0.7" if post["type"] == "article" else "0.5"}</priority>\n'
         xml += '  </url>\n'
 
     xml += '</urlset>'
@@ -92,7 +89,7 @@ def generate_sitemap(posts):
         f.write(xml)
 
 def generate_llmstxt(posts):
-    """Generates llms.txt for AI Agents."""
+    """Generates llms.txt for AI Agents with category separation."""
     print(f"[*] Generating {LLMS_TXT_FILE}...")
     
     md = f"# Rafael Pérez Llorca - Cybersecurity Engineer Portfolio\n"
@@ -100,25 +97,23 @@ def generate_llmstxt(posts):
     
     md += "## Core Pages\n"
     for page in STATIC_PAGES:
-        # Skip legal/privacy for AI unless strictly necessary
         if 'Legal' in page['desc'] or 'Privacy' in page['desc']: continue
         md += f"- [{page['desc']}]({BASE_URL}{page['loc']})\n"
 
-    md += "\n## Technical Articles (Knowledge Base)\n"
-    md += "Here you can find deep-dive technical content on Cybersecurity, GRC, and SecDevOps.\n"
-    md += "For AI analysis, it is recommended to read the **Raw Markdown** files directly.\n\n"
-    
-    for post in posts:
+    # Separate Articles
+    md += "\n## Technical Articles\n"
+    for post in [p for p in posts if p['type'] == 'article']:
         title = post['en']['title']
-        desc = post['en']['description']
-        # If ES title is different/better, maybe list both? Stick to EN for 'llms.txt' standard usually, but bilingual is fine.
         title_es = post['es']['title']
-        
         url = f"{BASE_URL}/pages/article.html?id={post['id']}"
-        raw_url = f"{BASE_URL}/posts/{post['id']}.md"
-        
-        md += f"- [{title} / {title_es}]({url}): {desc}\n"
-        md += f"  - [Raw Markdown Source]({raw_url})\n"
+        md += f"- [{title} / {title_es}]({url})\n"
+
+    # Separate Courses
+    md += "\n## Educational Courses (Modules)\n"
+    for post in [p for p in posts if p['type'] == 'course']:
+        title = post['en']['title']
+        url = f"{BASE_URL}/pages/article.html?id={post['id']}"
+        md += f"- [{title}]({url})\n"
 
     with open(LLMS_TXT_FILE, 'w', encoding='utf-8') as f:
         f.write(md)
@@ -128,20 +123,36 @@ def main():
     posts = []
     
     if os.path.exists(POSTS_DIR):
-        for filename in os.listdir(POSTS_DIR):
-            if not filename.endswith('.md'): continue
-            
-            filepath = os.path.join(POSTS_DIR, filename)
-            post_id = os.path.splitext(filename)[0]
-            
-            try:
-                with open(filepath, 'r', encoding='utf-8') as f:
-                    content = f.read()
+        # Recursive scan for modules and subfolders
+        for root, dirs, files in os.walk(POSTS_DIR):
+            for filename in files:
+                if not filename.endswith('.md'): continue
                 
-                metadata = parse_frontmatter(content)
-                if metadata:
+                filepath = os.path.join(root, filename)
+                # rel_path will be e.g. 'devsecops.md' or 'python-course/modulo-01.md'
+                rel_path = os.path.relpath(filepath, POSTS_DIR)
+                post_id = os.path.splitext(rel_path)[0]
+                
+                # Type assignment: 'article' for root files, 'course' for subfolders
+                category = 'article' if root == POSTS_DIR else 'course'
+                
+                try:
+                    with open(filepath, 'r', encoding='utf-8') as f:
+                        content = f.read()
+                    
+                    metadata = parse_frontmatter(content)
+                    
+                    # Ensure we have at least a basic entry even without metadata
+                    if not metadata:
+                        metadata = {}
+                        # Fallback: Try to find first H1
+                        h1_match = re.search(r'^#\s+(.*)', content)
+                        if h1_match:
+                            metadata['title'] = h1_match.group(1).strip()
+                    
                     post_entry = {
                         'id': post_id,
+                        'type': category,
                         'date': metadata.get('date', ''),
                         'en': {
                             'title': metadata.get('title', post_id.title()),
@@ -161,13 +172,13 @@ def main():
                         post_entry['date'] = datetime.fromtimestamp(mod_time).strftime('%Y-%m-%d')
                     
                     posts.append(post_entry)
-            except Exception as e:
-                print(f"[!] Error processing {filename}: {e}")
+                except Exception as e:
+                    print(f"[!] Error processing {filepath}: {e}")
 
     # Sort
     posts.sort(key=lambda x: x.get('date', ''), reverse=True)
 
-    # 1. Generate JSON
+    # 1. Generate JSON (Master Index)
     with open(OUTPUT_FILE, 'w', encoding='utf-8') as f:
         json.dump(posts, f, indent=4, ensure_ascii=False)
     print(f"[+] {OUTPUT_FILE} generated.")

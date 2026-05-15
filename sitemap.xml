@@ -2,33 +2,135 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://rafaelperezllorca.com/</loc>
-    <lastmod>2026-02-01</lastmod>
+    <lastmod>2026-05-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://rafaelperezllorca.com/pages/academy.html</loc>
-    <lastmod>2026-02-01</lastmod>
+    <lastmod>2026-05-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://rafaelperezllorca.com/pages/article.html</loc>
-    <lastmod>2026-02-01</lastmod>
+    <lastmod>2026-05-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://rafaelperezllorca.com/pages/legal.html</loc>
-    <lastmod>2026-02-01</lastmod>
+    <lastmod>2026-05-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
     <loc>https://rafaelperezllorca.com/pages/privacy.html</loc>
-    <lastmod>2026-02-01</lastmod>
+    <lastmod>2026-05-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://rafaelperezllorca.com/pages/article.html?id=python-course/modulo-16-ejecutables</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://rafaelperezllorca.com/pages/article.html?id=python-course/modulo-01-fundamentos</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://rafaelperezllorca.com/pages/article.html?id=python-course/modulo-15-testing</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://rafaelperezllorca.com/pages/article.html?id=python-course/modulo-10-bbdd</loc>
+    <lastmod>2026-03-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://rafaelperezllorca.com/pages/article.html?id=python-course/modulo-06-poo</loc>
+    <lastmod>2026-03-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://rafaelperezllorca.com/pages/article.html?id=python-course/modulo-08-archivos-serializacion</loc>
+    <lastmod>2026-03-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://rafaelperezllorca.com/pages/article.html?id=python-course/modulo-11-practicas-mvc</loc>
+    <lastmod>2026-03-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://rafaelperezllorca.com/pages/article.html?id=python-course/modulo-04-generadores</loc>
+    <lastmod>2026-03-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://rafaelperezllorca.com/pages/article.html?id=python-course/modulo-07-modulos-paquetes</loc>
+    <lastmod>2026-03-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://rafaelperezllorca.com/pages/article.html?id=python-course/modulo-03-control-de-flujo</loc>
+    <lastmod>2026-03-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://rafaelperezllorca.com/pages/article.html?id=python-course/modulo-02-sintaxis-basica</loc>
+    <lastmod>2026-03-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://rafaelperezllorca.com/pages/article.html?id=python-course/index</loc>
+    <lastmod>2026-03-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://rafaelperezllorca.com/pages/article.html?id=python-course/modulo-09-tkinter</loc>
+    <lastmod>2026-03-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://rafaelperezllorca.com/pages/article.html?id=python-course/modulo-13-regex</loc>
+    <lastmod>2026-03-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://rafaelperezllorca.com/pages/article.html?id=python-course/modulo-12-funciones-avanzadas</loc>
+    <lastmod>2026-03-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://rafaelperezllorca.com/pages/article.html?id=python-course/modulo-05-excepciones</loc>
+    <lastmod>2026-03-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://rafaelperezllorca.com/pages/article.html?id=python-course/modulo-14-decoradores</loc>
+    <lastmod>2026-03-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url>
   <url>
     <loc>https://rafaelperezllorca.com/pages/article.html?id=devsecops-essentials</loc>

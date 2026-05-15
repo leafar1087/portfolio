@@ -1,10 +1,6 @@
 # Ciber Portfolio - Rafael Pérez Llorca
 
-Bienvenido a la documentación técnica del Portfolio. Este proyecto ha sido diseñado siguiendo una arquitectura modular y moderna ("Cyber-Executive"), priorizando la experiencia de usuario, la mantenibilidad del código y la velocidad de carga sin dependencias pesadas.
-
-## 🌟 Arquitectura y Diseño
-
-El sitio utiliza una estética de vanguardia combinando elementos de **Glassmorphism** (transparencias desenfocadas), **Neumorphism** (profundidad sutil) y **Cyberpunk** (colores neón y terminales).
+Bienvenido a la documentación técnica del Portfolio. Este proyecto ha sido diseñado siguiendo una arquitectura modular y moderna.
 
 ### 1. Sistema de Estilos (CSS Modular)
 
@@ -25,7 +21,7 @@ El JS entra por `js/app.js` y orquesta módulos especializados:
 - **Icon System**: usa un unificado SVG sprite (`assets/images/tech-icons.svg`) para mejorar la performance y la consistencia del estilo con`fill="currentColor"`.
 - **Utils (`utils.js`)**: Funciones auxiliares como la protección de emails contra bots.
 
-## 🚀 Cómo Funciona
+## Cómo Funciona
 
 1. **Carga Inicial (`app.js`)**:
    - Se determina el tema (Oscuro por defecto).

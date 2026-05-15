@@ -63,7 +63,7 @@
         terminalOpen = true;
         terminalDiv.style.display = 'block';
         inputField.focus();
-        printLine(`> Session started. Welcome, user. Type 'help' for commands.`);
+        printLine(`> Session started. Welcome, user. Type 'help' for commands.`, false);
     }
 
     function closeTerminal() {
@@ -84,7 +84,7 @@
 
     function processCommand(cmd) {
         const safeCmd = escapeHtml(cmd);
-        printLine(`<span class="prompt">visitor@rafael.sec:~$</span> ${safeCmd}`);
+        printLine(`<span class="prompt">visitor@rafael.sec:~$</span> ${safeCmd}`, true);
         
         if (cmd === 'clear') {
             outputDiv.innerHTML = '';
@@ -92,25 +92,29 @@
         }
         
         if (cmd === 'exit') {
-            printLine(COMMANDS['exit']);
+            printLine(COMMANDS['exit'], false);
             setTimeout(closeTerminal, 800);
             return;
         }
 
         if (COMMANDS[cmd]) {
-            printLine(`> ${COMMANDS[cmd]}`);
+            printLine(`> ${COMMANDS[cmd]}`, false);
         } else if (cmd !== '') {
-            printLine(`> Command not found: ${safeCmd}`);
+            printLine(`> Command not found: ${safeCmd}`, true);
         }
         
         // Scroll to inverted
         terminalDiv.scrollTop = terminalDiv.scrollHeight;
     }
 
-    function printLine(html) {
+    function printLine(content, isHtml = false) {
         const div = document.createElement('div');
         div.className = 'terminal-line';
-        div.innerHTML = html;
+        if (isHtml) {
+            div.innerHTML = content;
+        } else {
+            div.textContent = content;
+        }
         outputDiv.appendChild(div);
     }
 })();

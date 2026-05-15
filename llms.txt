@@ -6,17 +6,28 @@
 - [Academy - Formación y Cursos](https://rafaelperezllorca.com/pages/academy.html)
 - [Articles - Blog Técnico](https://rafaelperezllorca.com/pages/article.html)
 
-## Technical Articles (Knowledge Base)
-Here you can find deep-dive technical content on Cybersecurity, GRC, and SecDevOps.
-For AI analysis, it is recommended to read the **Raw Markdown** files directly.
+## Technical Articles
+- [The Essentials of DevSecOps: Security at the Speed of Code / Los Esenciales de DevSecOps: Seguridad a la Velocidad del Código](https://rafaelperezllorca.com/pages/article.html?id=devsecops-essentials)
+- [5 Realities of Cybersecurity that Challenge Everything You Knew / 5 Realidades de la Ciberseguridad que Desafían Todo lo que Creías Saber](https://rafaelperezllorca.com/pages/article.html?id=realidades-ciberseguridad)
+- [Building a Port Scanner with Python / Construyendo un Escáner de Puertos con Python](https://rafaelperezllorca.com/pages/article.html?id=python-port-scanner)
+- [Automation with Python and Cloudflare Pages / Automatización con Python y Cloudflare Pages](https://rafaelperezllorca.com/pages/article.html?id=test-automation)
+- [Proof of Concept: Security and Sanitization / Prueba de Concepto: Seguridad y sanitización](https://rafaelperezllorca.com/pages/article.html?id=security-test)
 
-- [The Essentials of DevSecOps: Security at the Speed of Code / Los Esenciales de DevSecOps: Seguridad a la Velocidad del Código](https://rafaelperezllorca.com/pages/article.html?id=devsecops-essentials): A comprehensive guide to understanding DevSecOps, its core principles, benefits, and the challenges of shifting security left.
-  - [Raw Markdown Source](https://rafaelperezllorca.com/posts/devsecops-essentials.md)
-- [5 Realities of Cybersecurity that Challenge Everything You Knew / 5 Realidades de la Ciberseguridad que Desafían Todo lo que Creías Saber](https://rafaelperezllorca.com/pages/article.html?id=realidades-ciberseguridad): An analysis of how cyber intelligence is shifting from static defense to a dynamic, intelligence-driven posture.
-  - [Raw Markdown Source](https://rafaelperezllorca.com/posts/realidades-ciberseguridad.md)
-- [Building a Port Scanner with Python / Construyendo un Escáner de Puertos con Python](https://rafaelperezllorca.com/pages/article.html?id=python-port-scanner): Creating a custom security tool to audit local networks using Python Sockets.
-  - [Raw Markdown Source](https://rafaelperezllorca.com/posts/python-port-scanner.md)
-- [Automation with Python and Cloudflare Pages / Automatización con Python y Cloudflare Pages](https://rafaelperezllorca.com/pages/article.html?id=test-automation): How I configured my CI/CD pipeline to deploy this portfolio automatically.
-  - [Raw Markdown Source](https://rafaelperezllorca.com/posts/test-automation.md)
-- [Proof of Concept: Security and Sanitization / Prueba de Concepto: Seguridad y sanitización](https://rafaelperezllorca.com/pages/article.html?id=security-test): Cross-Site Scripting (XSS) injection test.
-  - [Raw Markdown Source](https://rafaelperezllorca.com/posts/security-test.md)
+## Educational Courses (Modules)
+- [Módulo 16 — Ejecutables y Distribución](https://rafaelperezllorca.com/pages/article.html?id=python-course/modulo-16-ejecutables)
+- [Módulo 01 — Fundamentos e Instalación del Entorno](https://rafaelperezllorca.com/pages/article.html?id=python-course/modulo-01-fundamentos)
+- [Módulo 15 — Testing y DevSecOps](https://rafaelperezllorca.com/pages/article.html?id=python-course/modulo-15-testing)
+- [Módulo 10 — Bases de Datos con SQLite](https://rafaelperezllorca.com/pages/article.html?id=python-course/modulo-10-bbdd)
+- [Módulo 06 — Programación Orientada a Objetos (POO)](https://rafaelperezllorca.com/pages/article.html?id=python-course/modulo-06-poo)
+- [Módulo 08 — Archivos y Serialización](https://rafaelperezllorca.com/pages/article.html?id=python-course/modulo-08-archivos-serializacion)
+- [Módulo 11 — Prácticas MVC: CRUD Completo](https://rafaelperezllorca.com/pages/article.html?id=python-course/modulo-11-practicas-mvc)
+- [Módulo 04 — Generadores y Optimización de Memoria](https://rafaelperezllorca.com/pages/article.html?id=python-course/modulo-04-generadores)
+- [Módulo 07 — Módulos y Paquetes](https://rafaelperezllorca.com/pages/article.html?id=python-course/modulo-07-modulos-paquetes)
+- [Módulo 03 — Control de Flujo](https://rafaelperezllorca.com/pages/article.html?id=python-course/modulo-03-control-de-flujo)
+- [Módulo 02 — Sintaxis Básica](https://rafaelperezllorca.com/pages/article.html?id=python-course/modulo-02-sintaxis-basica)
+- [Índice Maestro — Curso Python desde 0](https://rafaelperezllorca.com/pages/article.html?id=python-course/index)
+- [Módulo 09 — Interfaces Gráficas con Tkinter](https://rafaelperezllorca.com/pages/article.html?id=python-course/modulo-09-tkinter)
+- [Módulo 13 — Expresiones Regulares (Regex)](https://rafaelperezllorca.com/pages/article.html?id=python-course/modulo-13-regex)
+- [Módulo 12 — Funciones Avanzadas: Lambda, Map, Filter y Funcional](https://rafaelperezllorca.com/pages/article.html?id=python-course/modulo-12-funciones-avanzadas)
+- [Módulo 05 — Manejo de Excepciones](https://rafaelperezllorca.com/pages/article.html?id=python-course/modulo-05-excepciones)
+- [Módulo 14 — Decoradores](https://rafaelperezllorca.com/pages/article.html?id=python-course/modulo-14-decoradores)

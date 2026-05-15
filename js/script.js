@@ -77,7 +77,17 @@ window.initApp = function() {
             });
 
             if (value) {
-                element.innerHTML = value;
+                // Hardening: Use textContent for simple text, or DOMPurify if HTML is needed
+                if (typeof value === 'string' && value.includes('<')) {
+                    if (window.DOMPurify) {
+                        element.innerHTML = DOMPurify.sanitize(value);
+                    } else {
+                        // Fallback to textContent if someone forgot to load DOMPurify
+                        element.textContent = value;
+                    }
+                } else {
+                    element.textContent = value;
+                }
             }
         });
 

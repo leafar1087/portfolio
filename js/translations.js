@@ -13,29 +13,28 @@ const translations = {
         hero: {
             intro: "Hi, I specialize in",
             title: "Securing Critical Infrastructure.",
-            location: "Based in Madrid",
-            subtitle: "Through development, governance, and cybersecurity operations.",
-            desc: "From National Police IT leadership to european cybersecurity strategy. I bridge the gap between technical operations and executive governance.",
+            subtitle: "Through development, governance, and cyber security operations.",
+            desc: "From IT leadership to cyber security strategy. I connect technical operations with the business needs to ensure the growth of the organization.",
             btnExpertise: "View profile",
             btnCv: "Download CV"
         },
         about: {
             title: "About Me",
-            p1: "I am a Systems Engineer with over 10 years of experience, primarily built within the public sector and the National Police. In these roles, I managed critical IT sections, led data interoperability projects, and oversaw secure infrastructure at a national level.",
+            p1: "I am a Systems Engineer with over 10 years of experience, primarily built within the Peruvian public sector. In these roles, I managed critical IT sections, led data interoperability projects, and oversaw secure infrastructure at a national level.",
             p2: "Beyond my technical work, I have dedicated part of my career to academia as a University Professor, teaching Systems Engineering and Cybersecurity.",
-            p3: "Currently based in Madrid, I am finalizing my Master’s at CEU San Pablo. My focus is on integrating my experience in secure operations with advancements in Artificial Intelligence, with the goal of bringing the balance of technical expertise and strategy that companies require today."
+            p3: "My focus is on integrating my experience in secure operations with advancements in emerging technologies, with the goal of bringing the balance of technical expertise and strategy that companies require today."
         },
         expertise: {
             title: "360 Security Profile",
             card1: {
                 title: "DevSecOps & Engineering",
                 subtitle: "\"Secure by Design\"",
-                items: ["CI/CD Pipeline Security (GitHub Actions)", "Infrastructure as Code (Terraform/Ansible)", "Security Architecture", "Python & Bash Automation"]
+                items: ["CI/CD Pipeline Security", "Infrastructure as Code", "Security Architecture", "Python & Bash Automation"]
             },
             card2: {
                 title: "Governance & Strategy",
                 subtitle: "\"Aligned with Business\"",
-                items: ["ISO 27001 & ENS (Esquema Nacional de Seguridad)", "IT Risk Management & Compliance", "Security Awareness & Technical Training", "Team Leadership & Mentoring"]
+                items: ["ISO 27001, CSF 2.0", "IT Risk Management & Compliance", "Security Awareness & Technical Training", "Team Leadership & Mentoring"]
             },
             card3: {
                 title: "Threat Operations",
@@ -104,7 +103,7 @@ const translations = {
             },
             card2: {
                  title: "Cybersecurity Governance",
-                 desc: "Align IT operations with business strategy and compliance frameworks (ISO, ENS).",
+                 desc: "Align IT operations with business strategy and compliance frameworks.",
                  badge: "Management"
             },
             card3: {
@@ -127,7 +126,7 @@ const translations = {
             btnContact: "Contact Me"
         },
         footer: {
-            rights: "&copy; 2026 Rafael Pérez Llorca. All rights reserved.",
+            rights: "© 2026 Rafael Pérez Llorca. All rights reserved.",
             privacy: "Privacy Policy",
             legal: "Legal Notice"
         },
@@ -135,7 +134,7 @@ const translations = {
             title: "Privacy Policy",
             section1: {
                 title: "1. DATA CONTROLLER",
-                text: "Personal data collected through this website will be processed by Rafael Pérez Llorca, based in Madrid, Spain. Contact: leafar1087@gmail.com."
+                text: "Personal data collected through this website will be processed by Rafael Pérez Llorca, based in Madrid, España. Contact: contacto@rafaelperezllorca.com."
             },
             section2: {
                 title: "2. PURPOSE OF PROCESSING",
@@ -191,29 +190,28 @@ const translations = {
         hero: {
             intro: "Hola, me especializo en",
             title: "Proteger Infraestructuras Críticas.",
-            location: "Ubicado en Madrid",
             subtitle: "Mediante desarrollo, cumplimiento y operaciones de ciberseguridad.",
-            desc: "Desde el liderazgo TI en la Policía Nacional hasta la estrategia de ciberseguridad europea. Conecto las operaciones técnicas con la gobernanza ejecutiva.",
+            desc: "Desde el liderazgo TI hasta la estrategia en ciberseguridad. Conecto las operaciones técnicas con las necesidades del negocio para asegurar el crecimiento de la organización.",
             btnExpertise: "Ver perfil",
             btnCv: "Descargar CV"
         },
         about: {
             title: "Sobre Mí",
-            p1: "Soy Ingeniero de Sistemas con más de 10 años de experiencia, desarrollada principalmente en el sector público y la Policía Nacional. En esta etapa, gestioné secciones críticas de TI, lideré proyectos de interoperabilidad de datos y supervisé infraestructuras seguras a nivel nacional.",
-            p2: "Más allá de la parte técnica, he dedicado parte de mi carrera al ámbito académico como Docente Universitario en Ingeniería de Sistemas y Ciberseguridad.",
-            p3: "Actualmente resido en Madrid y estoy finalizando mi Máster en el CEU San Pablo. Mi enfoque actual es integrar mi experiencia en operaciones seguras con los avances en Inteligencia Artificial, con el objetivo de aportar este equilibrio de técnica y estrategia que requieren las empresas en la actualidad."
+            p1: "Soy Ingeniero de Sistemas con más de 10 años de experiencia, desarrollada principalmente en el sector público peruano. En esta etapa, gestioné secciones críticas de TI, lideré proyectos de interoperabilidad de datos y supervisé infraestructuras seguras.",
+            p2: "Más allá de la parte técnica, también me dedico al ámbito académico como Docente Universitario en Ingeniería de Sistemas y Ciberseguridad.",
+            p3: "Mi enfoque actual es integrar mi experiencia en operaciones seguras con los avances en tecnologías emergentes, con el objetivo de aportar este equilibrio de técnica y estrategia que requieren las empresas en la actualidad."
         },
         expertise: {
             title: "Perfil de Seguridad 360",
             card1: {
                 title: "DevSecOps & Engineering",
                 subtitle: "\"Seguridad desde el Diseño\"",
-                items: ["Seguridad en Pipelines CI/CD (GitHub Actions)", "Infraestructura como Código (Terraform/Ansible)", "Arquitectura de Seguridad", "Automatización con Python y Bash"]
+                items: ["Seguridad en Pipelines CI/CD", "Infraestructura como Código", "Arquitectura de Seguridad", "Automatización con Python y Bash"]
             },
             card2: {
                 title: "Gobernanza y Estrategia",
                 subtitle: "\"Alineado con el Negocio\"",
-                items: ["ISO 27001 y ENS (Esquema Nacional de Seguridad)", "Gestión de Riesgos TI y Cumplimiento", "Concienciación y Formación Técnica", "Liderazgo de Equipos y Mentoría"]
+                items: ["ISO 27001 y NIST CSF 2.0", "Gestión de Riesgos TI y Cumplimiento", "Concienciación y Formación Técnica", "Liderazgo de Equipos y Mentoría"]
             },
             card3: {
                 title: "Operaciones de Amenazas",
@@ -305,7 +303,7 @@ const translations = {
             btnContact: "Contáctame"
         },
         footer: {
-            rights: "&copy; 2026 Rafael Pérez Llorca. Todos los derechos reservados.",
+            rights: "© 2026 Rafael Pérez Llorca. Todos los derechos reservados.",
             privacy: "Política de Privacidad",
             legal: "Aviso Legal"
         },
@@ -313,7 +311,7 @@ const translations = {
             title: "Política de Privacidad",
              section1: {
                 title: "1. RESPONSABLE DEL TRATAMIENTO",
-                text: "Los datos personales recogidos a través de este sitio web serán tratados por Rafael Pérez Llorca, con domicilio en Madrid, España. Contacto: leafar1087@gmail.com."
+                text: "Los datos personales recogidos a través de este sitio web serán tratados por Rafael Pérez Llorca, con domicilio en Madrid, España. Contacto: contacto@rafaelperezllorca.com."
             },
             section2: {
                 title: "2. FINALIDAD DEL TRATAMIENTO",
@@ -331,7 +329,7 @@ const translations = {
             },
             section5: {
                 title: "5. SUS DERECHOS",
-                text: "Usted tiene derecho a acceder, rectificar y suprimir sus datos, así como a limitar su tratamiento, enviando un correo electrónico a leafar1087@gmail.com."
+                text: "Usted tiene derecho a acceder, rectificar y suprimir sus datos, así como a limitar su tratamiento, enviando un correo electrónico a contacto@rafaelperezllorca.com."
             }
         },
         legalPage: {
