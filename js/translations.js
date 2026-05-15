@@ -20,8 +20,8 @@ const translations = {
         },
         about: {
             title: "About Me",
-            p1: "I am a Systems Engineer with over 10 years of experience, primarily built within the Peruvian public sector. In these roles, I managed critical IT sections, led data interoperability projects, and oversaw secure infrastructure at a national level.",
-            p2: "Beyond my technical work, I have dedicated part of my career to academia as a University Professor, teaching Systems Engineering and Cybersecurity.",
+            p1: "I am an IT Engineer and Systems Engineer with more than 15 years of experience, developed mainly in the Peruvian public sector. In these roles, I led IT areas, data interoperability projects, established security standards, implemented access controls and supervised secure technological infrastructures.",
+            p2: "Beyond the technical part, I have also dedicated myself to the academic field as a University Professor in IT and Systems Engineering, as well as in Cybersecurity.",
             p3: "My focus is on integrating my experience in secure operations with advancements in emerging technologies, with the goal of bringing the balance of technical expertise and strategy that companies require today."
         },
         expertise: {
@@ -197,8 +197,8 @@ const translations = {
         },
         about: {
             title: "Sobre Mí",
-            p1: "Soy Ingeniero de Sistemas con más de 10 años de experiencia, desarrollada principalmente en el sector público peruano. En esta etapa, gestioné secciones críticas de TI, lideré proyectos de interoperabilidad de datos y supervisé infraestructuras seguras.",
-            p2: "Más allá de la parte técnica, también me dedico al ámbito académico como Docente Universitario en Ingeniería de Sistemas y Ciberseguridad.",
+            p1: "Soy Ingeniero Informático y de Sistemas con más de 15 años de experiencia, desarrollada principalmente en el sector público peruano. En esta etapa, lideré áreas de TI, proyectos de interoperabilidad de datos, establecí estándares de seguridad, implementé controles de acceso y supervisé infraestructuras tecnológicas seguras.",
+            p2: "Más allá de la parte técnica, también me he dedicado al ámbito académico como Docente Universitario en Ingeniería Informática y de Sistemas, asi como en Ciberseguridad.",
             p3: "Mi enfoque actual es integrar mi experiencia en operaciones seguras con los avances en tecnologías emergentes, con el objetivo de aportar este equilibrio de técnica y estrategia que requieren las empresas en la actualidad."
         },
         expertise: {
