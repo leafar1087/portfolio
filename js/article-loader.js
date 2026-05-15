@@ -200,7 +200,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                 backLink = 'article.html'; // Default back to posts list if not a course
             }
 
-            container.innerHTML = `
+            const finalHtml = `
                 <div style="margin-bottom: 30px;">
                     <a href="${backLink}" class="btn btn-outline" style="font-family: 'Roboto Mono'; font-size: 12px;">&lt; // ${backText}</a>
                 </div>
@@ -211,6 +211,11 @@ document.addEventListener('DOMContentLoaded', async () => {
                     </div>
                 </div>
             `;
+
+            container.innerHTML = DOMPurify.sanitize(finalHtml, {
+                ADD_ATTR: ['target'],
+                ADD_TAGS: ['use', 'svg'], // Support for icons if needed
+            });
 
             // Update Page Title dynamically
             let docTitle = "";
@@ -337,7 +342,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         const placeholderText = currentLang === 'es' ? 'filtrar_resultados...' : 'filter_results...';
 
         const cleanSearchTerm = DOMPurify.sanitize(searchTerm);
-        container.innerHTML = `
+        const finalContent = `
             <div class="pt-3">
                  <div class="terminal-header mb-3">
                     <svg width="24" height="24" style="margin-right: 8px;"><use href="../assets/images/tech-icons.svg#icon-terminal"/></svg>
@@ -353,6 +358,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                  <p class="blink-cursor mt-4">${waitingText}</p>
             </div>
         `;
+        container.innerHTML = DOMPurify.sanitize(finalContent, { ADD_ATTR: ['id', 'value', 'placeholder', 'autocomplete', 'autofocus'] });
         
 
         // Attach Event Listener for Search (Debounced slightly by nature of just replacing innerHTML of list or re-rendering whole?)
@@ -385,7 +391,7 @@ document.addEventListener('DOMContentLoaded', async () => {
              </a>`
         ).join('');
 
-        container.innerHTML = `
+        const errorHtml = `
             <div class="error-box" style="border-color: ${color}">
                 <div class="error-header" style="border-color: ${color}">
                      <span class="error-title" style="color: ${color}">${status}</span>
@@ -394,5 +400,6 @@ document.addEventListener('DOMContentLoaded', async () => {
                 <div class="d-flex flex-wrap">${actionsHtml}</div>
             </div>
         `;
+        container.innerHTML = DOMPurify.sanitize(errorHtml, { ADD_ATTR: ['style'] });
     }
 });

@@ -4,7 +4,7 @@
  * Replaces init.js and script.js in the future.
  */
 
-import { updateThemeIcon } from './modules/theme.js';
+import { updateThemeIcon, toggleTheme } from './modules/theme.js';
 import { detectBasePath, protectEmails } from './modules/utils.js';
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -21,6 +21,18 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     protectEmails();
+    
+    // Sync Theme Icon after rendering components
+    const currentTheme = document.documentElement.getAttribute('data-theme') || 'dark';
+    updateThemeIcon(currentTheme);
+
+    // Direct listener as fail-safe
+    document.querySelectorAll('.theme-toggle-btn').forEach(btn => {
+        btn.onclick = (e) => {
+            e.preventDefault();
+            toggleTheme();
+        };
+    });
     
     // Init Main App Logic (from script.js if adapted to module, for now global)
     if (typeof window.initApp === 'function') {

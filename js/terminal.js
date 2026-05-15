@@ -17,7 +17,7 @@
     // Create Terminal Iframe/Div
     const terminalDiv = document.createElement('div');
     terminalDiv.id = 'hack-terminal';
-    terminalDiv.innerHTML = `
+    const terminalHtml = `
         <div class="terminal-line">Rafael.Sec OS [Version 1.0.0]</div>
         <div class="terminal-line">(c) ${new Date().getFullYear()} Rafael Pérez Llorca. All rights reserved.</div>
         <div class="terminal-line"><br></div>
@@ -27,6 +27,16 @@
             <input type="text" id="term-input" autocomplete="off">
         </div>
     `;
+
+    if (typeof DOMPurify !== 'undefined') {
+        terminalDiv.innerHTML = DOMPurify.sanitize(terminalHtml, { 
+            USE_PROFILES: { html: true, svg: true },
+            ADD_TAGS: ['use', 'svg'],
+            ADD_ATTR: ['id', 'autocomplete', 'href', 'xlink:href'] 
+        });
+    } else {
+        terminalDiv.innerHTML = terminalHtml;
+    }
     document.body.appendChild(terminalDiv);
 
     const outputDiv = terminalDiv.querySelector('#term-output');
@@ -111,7 +121,16 @@
         const div = document.createElement('div');
         div.className = 'terminal-line';
         if (isHtml) {
-            div.innerHTML = content;
+            // Hardening: Use DOMPurify if available, otherwise fallback to textContent
+            if (typeof DOMPurify !== 'undefined') {
+                div.innerHTML = DOMPurify.sanitize(content, {
+                    USE_PROFILES: { html: true, svg: true },
+                    ADD_TAGS: ['use', 'svg', 'span'],
+                    ADD_ATTR: ['class', 'href', 'xlink:href']
+                });
+            } else {
+                div.textContent = content; // Security fallback
+            }
         } else {
             div.textContent = content;
         }

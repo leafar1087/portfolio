@@ -80,7 +80,11 @@ window.initApp = function() {
                 // Hardening: Use textContent for simple text, or DOMPurify if HTML is needed
                 if (typeof value === 'string' && value.includes('<')) {
                     if (window.DOMPurify) {
-                        element.innerHTML = DOMPurify.sanitize(value);
+                        element.innerHTML = DOMPurify.sanitize(value, {
+                            USE_PROFILES: { html: true, svg: true },
+                            ADD_TAGS: ['strong', 'em', 'br', 'span', 'svg', 'use'],
+                            ADD_ATTR: ['class', 'href', 'xlink:href']
+                        });
                     } else {
                         // Fallback to textContent if someone forgot to load DOMPurify
                         element.textContent = value;

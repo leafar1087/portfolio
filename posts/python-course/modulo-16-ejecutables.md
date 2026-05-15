@@ -278,7 +278,7 @@ cryptography==42.0.5 \
 
 | Riesgo                                 | Fallo común                                                                   | Mitigación                                                                          | Referencia                 |
 | -------------------------------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | -------------------------- |
-| **Secretos hardcodeados en el bundle** | `API_KEY = "[REDACTED_API_KEY]"` en código — descompilable con `uncompyle6`          | Variables de entorno o archivos de configuración externos; nunca secretos en código | CWE-798 · NIST IA-5        |
+| **Secretos hardcodeados en el bundle** | `SET_SECRET = "TOKEN_PLACEHOLDER"` en código — descompilable con `uncompyle6`          | Variables de entorno o archivos de configuración externos; nunca secretos en código | CWE-798 · NIST IA-5        |
 | **Ejecutar como root**                 | `sudo ./mi_app` o instalador que eleva privilegios innecesariamente           | Verificar `os.getuid() == 0` y advertir; aplicar principio de mínimo privilegio     | NIST CM-7 · CWE-250        |
 | **Módulos peligrosos en el bundle**    | `http.server`, `telnetlib`, `xmlrpc.server` incluidos sin necesidad           | `excludes` en la spec de PyInstaller para eliminar módulos no usados                | NIST CM-7                  |
 | **Sin verificación de integridad**     | Distribuir binario sin hash — atacante puede reemplazarlo                     | Publicar `sha256sum` junto al ejecutable; verificar antes de instalar               | NIST SI-7 · ENS [op.exp.8] |

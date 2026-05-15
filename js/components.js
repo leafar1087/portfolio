@@ -96,8 +96,15 @@ const Components = {
         `;
 
         container.classList.add('header'); // Ensure class is present
-        container.innerHTML = html;
-        
+        if (typeof DOMPurify !== 'undefined') {
+            container.innerHTML = DOMPurify.sanitize(html, {
+                USE_PROFILES: { html: true, svg: true },
+                ADD_TAGS: ['use', 'svg'],
+                ADD_ATTR: ['href', 'xlink:href']
+            });
+        } else {
+            container.innerHTML = html; // Fallback for controlled strings
+        }
     },
 
     renderFooter: (containerId, basePath = './') => {
@@ -135,7 +142,15 @@ const Components = {
         `;
 
         container.classList.add('footer');
-        container.innerHTML = html;
+        if (typeof DOMPurify !== 'undefined') {
+            container.innerHTML = DOMPurify.sanitize(html, {
+                USE_PROFILES: { html: true, svg: true },
+                ADD_TAGS: ['use', 'svg'],
+                ADD_ATTR: ['href', 'xlink:href']
+            });
+        } else {
+            container.innerHTML = html; // Fallback
+        }
 
         // Attach Event Listeners
         const emailBtn = container.querySelector('.email-trigger');
