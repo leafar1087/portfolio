@@ -15,7 +15,7 @@ PORTFOLIO/
 ├── llms.txt                   # Índice estructurado para agentes de IA
 ├── robots.txt                 # Directivas canónicas de rastreo
 ├── _headers                   # Cabeceras HTTP (CSP estricta, HSTS, X-Frame-Options)
-├── _redirects                 # Reglas de bloqueo 302 hacia /404.html
+├── _redirects                 # Directivas de redirección canónica y fallback nativo 404
 ├── index.html                 # Página principal
 ├── 404.html                   # Página de error canónica
 ├── css/
@@ -56,9 +56,9 @@ Alineado con directrices de **NIST CSF 2.0**, **CIS Controls v8.1** y **ENS**:
 
 - **Aislamiento de Despliegue**: Cloudflare Pages sirve únicamente el directorio `public/`. Los archivos de soporte, scripts de build y documentación interna no son accesibles desde la red pública.
 - **Defensa contra Path Traversal / IDOR**: `article-loader.js` valida identificadores con expresiones regulares canónicas y aplica verificación de lista blanca en modo *fail-closed* contra `content-index.json`.
-- **Sanitización del DOM**: Limpieza de contenido HTML mediante `DOMPurify 3.2.4` antes de cualquier renderizado dinámico.
-- **Integridad de Recursos (SRI)**: Hashes `sha384` aplicados en todas las dependencias externas (PrismJS 1.30.0, Marked 12.0.2, DOMPurify).
-- **Mermaid Hardening**: Diagramas procesados bajo `securityLevel: 'strict'` con `mermaid@11.4.1`.
+- **Sanitización del DOM**: Limpieza de contenido HTML mediante `DOMPurify 3.4.14` antes de cualquier renderizado dinámico.
+- **Integridad de Recursos (SRI)**: Hashes `sha384` aplicados en todas las dependencias externas (PrismJS 1.30.0, Marked 12.0.2, DOMPurify 3.4.14).
+- **Mermaid Hardening**: Diagramas procesados bajo `securityLevel: 'strict'` con `mermaid@11.17.0`.
 - **Content Security Policy (CSP)**: Restricción de orígenes, bloqueo de objetos (`object-src 'none'`), protección contra clickjacking (`frame-ancestors 'none'`) y transporte cifrado obligatorio (HSTS con preload).
 
 ---
