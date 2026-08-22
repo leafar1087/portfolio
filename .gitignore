@@ -35,3 +35,9 @@ logs/
 
 # OS Generated
 __MACOSX/
+*.zip
+
+# Agent & Local Tools
+.agents/
+__pycache__/
+*.pyc

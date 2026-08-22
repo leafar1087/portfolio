@@ -1,0 +1,5 @@
+# Robots.txt — Rafael Pérez Llorca Portfolio
+User-agent: *
+Allow: /
+
+Sitemap: https://rafaelperezllorca.com/sitemap.xml

@@ -191,5 +191,12 @@ def main():
     generate_llmstxt(posts)
     print(f"[+] {LLMS_TXT_FILE} generated.")
 
+    # 4. Sync to public/ if present
+    if os.path.isdir('public'):
+        import shutil
+        for fname in [OUTPUT_FILE, SITEMAP_FILE, LLMS_TXT_FILE]:
+            shutil.copy2(fname, os.path.join('public', fname))
+        print("[+] Sincronizado con public/ exitosamente.")
+
 if __name__ == '__main__':
     main()

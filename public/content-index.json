@@ -1,0 +1,469 @@
+[
+    {
+        "id": "cyber-resilience-architecture",
+        "type": "article",
+        "date": "2026-08-19",
+        "en": {
+            "title": "Arquitectura de Ciberresiliencia para Infraestructuras Críticas y Sector Público",
+            "description": "",
+            "tags": [
+                "Ciberresiliencia",
+                "GRC",
+                "SBOM",
+                "DevSecOps",
+                "SIEM",
+                "NIST CSF 2.0",
+                "ISO 27001",
+                "MITRE ATT&CK"
+            ],
+            "author": "Rafael Pérez Llorca"
+        },
+        "es": {
+            "title": "Arquitectura de Ciberresiliencia para Infraestructuras Críticas y Sector Público",
+            "description": "",
+            "tags": [
+                "Ciberresiliencia",
+                "GRC",
+                "SBOM",
+                "DevSecOps",
+                "SIEM",
+                "NIST CSF 2.0",
+                "ISO 27001",
+                "MITRE ATT&CK"
+            ],
+            "author": "Rafael Pérez Llorca"
+        }
+    },
+    {
+        "id": "python-course/modulo-16-ejecutables",
+        "type": "course",
+        "date": "2026-05-15",
+        "en": {
+            "title": "Módulo 16 — Ejecutables y Distribución",
+            "description": "",
+            "tags": [],
+            "author": ""
+        },
+        "es": {
+            "title": "Módulo 16 — Ejecutables y Distribución",
+            "description": "",
+            "tags": [],
+            "author": ""
+        }
+    },
+    {
+        "id": "python-course/modulo-01-fundamentos",
+        "type": "course",
+        "date": "2026-05-15",
+        "en": {
+            "title": "Módulo 01 — Fundamentos e Instalación del Entorno",
+            "description": "",
+            "tags": [],
+            "author": ""
+        },
+        "es": {
+            "title": "Módulo 01 — Fundamentos e Instalación del Entorno",
+            "description": "",
+            "tags": [],
+            "author": ""
+        }
+    },
+    {
+        "id": "python-course/modulo-15-testing",
+        "type": "course",
+        "date": "2026-05-15",
+        "en": {
+            "title": "Módulo 15 — Testing y DevSecOps",
+            "description": "",
+            "tags": [],
+            "author": ""
+        },
+        "es": {
+            "title": "Módulo 15 — Testing y DevSecOps",
+            "description": "",
+            "tags": [],
+            "author": ""
+        }
+    },
+    {
+        "id": "python-course/modulo-10-bbdd",
+        "type": "course",
+        "date": "2026-03-05",
+        "en": {
+            "title": "Módulo 10 — Bases de Datos con SQLite",
+            "description": "",
+            "tags": [],
+            "author": ""
+        },
+        "es": {
+            "title": "Módulo 10 — Bases de Datos con SQLite",
+            "description": "",
+            "tags": [],
+            "author": ""
+        }
+    },
+    {
+        "id": "python-course/modulo-06-poo",
+        "type": "course",
+        "date": "2026-03-05",
+        "en": {
+            "title": "Módulo 06 — Programación Orientada a Objetos (POO)",
+            "description": "",
+            "tags": [],
+            "author": ""
+        },
+        "es": {
+            "title": "Módulo 06 — Programación Orientada a Objetos (POO)",
+            "description": "",
+            "tags": [],
+            "author": ""
+        }
+    },
+    {
+        "id": "python-course/modulo-08-archivos-serializacion",
+        "type": "course",
+        "date": "2026-03-05",
+        "en": {
+            "title": "Módulo 08 — Archivos y Serialización",
+            "description": "",
+            "tags": [],
+            "author": ""
+        },
+        "es": {
+            "title": "Módulo 08 — Archivos y Serialización",
+            "description": "",
+            "tags": [],
+            "author": ""
+        }
+    },
+    {
+        "id": "python-course/modulo-11-practicas-mvc",
+        "type": "course",
+        "date": "2026-03-05",
+        "en": {
+            "title": "Módulo 11 — Prácticas MVC: CRUD Completo",
+            "description": "",
+            "tags": [],
+            "author": ""
+        },
+        "es": {
+            "title": "Módulo 11 — Prácticas MVC: CRUD Completo",
+            "description": "",
+            "tags": [],
+            "author": ""
+        }
+    },
+    {
+        "id": "python-course/modulo-04-generadores",
+        "type": "course",
+        "date": "2026-03-05",
+        "en": {
+            "title": "Módulo 04 — Generadores y Optimización de Memoria",
+            "description": "",
+            "tags": [],
+            "author": ""
+        },
+        "es": {
+            "title": "Módulo 04 — Generadores y Optimización de Memoria",
+            "description": "",
+            "tags": [],
+            "author": ""
+        }
+    },
+    {
+        "id": "python-course/modulo-07-modulos-paquetes",
+        "type": "course",
+        "date": "2026-03-05",
+        "en": {
+            "title": "Módulo 07 — Módulos y Paquetes",
+            "description": "",
+            "tags": [],
+            "author": ""
+        },
+        "es": {
+            "title": "Módulo 07 — Módulos y Paquetes",
+            "description": "",
+            "tags": [],
+            "author": ""
+        }
+    },
+    {
+        "id": "python-course/modulo-03-control-de-flujo",
+        "type": "course",
+        "date": "2026-03-05",
+        "en": {
+            "title": "Módulo 03 — Control de Flujo",
+            "description": "",
+            "tags": [],
+            "author": ""
+        },
+        "es": {
+            "title": "Módulo 03 — Control de Flujo",
+            "description": "",
+            "tags": [],
+            "author": ""
+        }
+    },
+    {
+        "id": "python-course/modulo-02-sintaxis-basica",
+        "type": "course",
+        "date": "2026-03-05",
+        "en": {
+            "title": "Módulo 02 — Sintaxis Básica",
+            "description": "",
+            "tags": [],
+            "author": ""
+        },
+        "es": {
+            "title": "Módulo 02 — Sintaxis Básica",
+            "description": "",
+            "tags": [],
+            "author": ""
+        }
+    },
+    {
+        "id": "python-course/index",
+        "type": "course",
+        "date": "2026-03-05",
+        "en": {
+            "title": "Curso Python desde 0 — Manual de Ingeniería y Ciberseguridad",
+            "description": "Manual integral de Python en 16 módulos con enfoque en CPython internals, DevSecOps, arquitectura de software y controles NIST/ENS.",
+            "tags": [
+                "Python",
+                "DevSecOps",
+                "Ciberseguridad",
+                "Arquitectura",
+                "Testing"
+            ],
+            "author": "Rafael Pérez Llorca"
+        },
+        "es": {
+            "title": "Curso Python desde 0 — Manual de Ingeniería y Ciberseguridad",
+            "description": "Manual integral de Python en 16 módulos con enfoque en CPython internals, DevSecOps, arquitectura de software y controles NIST/ENS.",
+            "tags": [
+                "Python",
+                "DevSecOps",
+                "Ciberseguridad",
+                "Arquitectura",
+                "Testing"
+            ],
+            "author": "Rafael Pérez Llorca"
+        }
+    },
+    {
+        "id": "python-course/modulo-09-tkinter",
+        "type": "course",
+        "date": "2026-03-05",
+        "en": {
+            "title": "Módulo 09 — Interfaces Gráficas con Tkinter",
+            "description": "",
+            "tags": [],
+            "author": ""
+        },
+        "es": {
+            "title": "Módulo 09 — Interfaces Gráficas con Tkinter",
+            "description": "",
+            "tags": [],
+            "author": ""
+        }
+    },
+    {
+        "id": "python-course/modulo-13-regex",
+        "type": "course",
+        "date": "2026-03-05",
+        "en": {
+            "title": "Módulo 13 — Expresiones Regulares (Regex)",
+            "description": "",
+            "tags": [],
+            "author": ""
+        },
+        "es": {
+            "title": "Módulo 13 — Expresiones Regulares (Regex)",
+            "description": "",
+            "tags": [],
+            "author": ""
+        }
+    },
+    {
+        "id": "python-course/modulo-12-funciones-avanzadas",
+        "type": "course",
+        "date": "2026-03-05",
+        "en": {
+            "title": "Módulo 12 — Funciones Avanzadas: Lambda, Map, Filter y Funcional",
+            "description": "",
+            "tags": [],
+            "author": ""
+        },
+        "es": {
+            "title": "Módulo 12 — Funciones Avanzadas: Lambda, Map, Filter y Funcional",
+            "description": "",
+            "tags": [],
+            "author": ""
+        }
+    },
+    {
+        "id": "python-course/modulo-05-excepciones",
+        "type": "course",
+        "date": "2026-03-05",
+        "en": {
+            "title": "Módulo 05 — Manejo de Excepciones",
+            "description": "",
+            "tags": [],
+            "author": ""
+        },
+        "es": {
+            "title": "Módulo 05 — Manejo de Excepciones",
+            "description": "",
+            "tags": [],
+            "author": ""
+        }
+    },
+    {
+        "id": "python-course/modulo-14-decoradores",
+        "type": "course",
+        "date": "2026-03-05",
+        "en": {
+            "title": "Módulo 14 — Decoradores",
+            "description": "",
+            "tags": [],
+            "author": ""
+        },
+        "es": {
+            "title": "Módulo 14 — Decoradores",
+            "description": "",
+            "tags": [],
+            "author": ""
+        }
+    },
+    {
+        "id": "devsecops-essentials",
+        "type": "article",
+        "date": "2026-02-01",
+        "en": {
+            "title": "The Essentials of DevSecOps: Security at the Speed of Code",
+            "description": "A comprehensive guide to understanding DevSecOps, its core principles, benefits, and the challenges of shifting security left.",
+            "tags": [
+                "DevSecOps",
+                "Cybersecurity",
+                "CI/CD",
+                "AppSec",
+                "Master CEU"
+            ],
+            "author": "Rafael Pérez Llorca"
+        },
+        "es": {
+            "title": "Los Esenciales de DevSecOps: Seguridad a la Velocidad del Código",
+            "description": "Una guía completa para entender DevSecOps, sus principios fundamentales, beneficios y los desafíos de desplazar la seguridad a la izquierda.",
+            "tags": [
+                "DevSecOps",
+                "Cybersecurity",
+                "CI/CD",
+                "AppSec",
+                "Master CEU"
+            ],
+            "author": "Rafael Pérez Llorca"
+        }
+    },
+    {
+        "id": "realidades-ciberseguridad",
+        "type": "article",
+        "date": "2026-01-10",
+        "en": {
+            "title": "5 Realities of Cybersecurity that Challenge Everything You Knew",
+            "description": "An analysis of how cyber intelligence is shifting from static defense to a dynamic, intelligence-driven posture.",
+            "tags": [
+                "Cybersecurity",
+                "CyberIntelligence",
+                "AI",
+                "CEU San Pablo"
+            ],
+            "author": "Rafael Pérez Llorca"
+        },
+        "es": {
+            "title": "5 Realidades de la Ciberseguridad que Desafían Todo lo que Creías Saber",
+            "description": "Un análisis de cómo la ciberinteligencia está desplazando la defensa estática hacia una postura dinámica impulsada por la inteligencia.",
+            "tags": [
+                "Cybersecurity",
+                "CyberIntelligence",
+                "AI",
+                "CEU San Pablo"
+            ],
+            "author": "Rafael Pérez Llorca"
+        }
+    },
+    {
+        "id": "python-port-scanner",
+        "type": "article",
+        "date": "2026-01-08",
+        "en": {
+            "title": "Building a Port Scanner with Python",
+            "description": "Creating a custom security tool to audit local networks using Python Sockets.",
+            "tags": [
+                "Python",
+                "NetSec",
+                "Scripting"
+            ],
+            "author": "Rafael Pérez Llorca"
+        },
+        "es": {
+            "title": "Construyendo un Escáner de Puertos con Python",
+            "description": "Creando una herramienta de seguridad personalizada para auditar redes locales usando Python Sockets.",
+            "tags": [
+                "Python",
+                "NetSec",
+                "Scripting"
+            ],
+            "author": "Rafael Pérez Llorca"
+        }
+    },
+    {
+        "id": "test-automation",
+        "type": "article",
+        "date": "2025-12-14",
+        "en": {
+            "title": "Automation with Python and Cloudflare Pages",
+            "description": "How I configured my CI/CD pipeline to deploy this portfolio automatically.",
+            "tags": [
+                "DevOps",
+                "Python",
+                "CI/CD"
+            ],
+            "author": "Rafael Pérez Llorca"
+        },
+        "es": {
+            "title": "Automatización con Python y Cloudflare Pages",
+            "description": "Cómo configuré mi pipeline CI/CD para desplegar este portafolio automáticamente.",
+            "tags": [
+                "DevOps",
+                "Python",
+                "CI/CD"
+            ],
+            "author": "Rafael Pérez Llorca"
+        }
+    },
+    {
+        "id": "security-test",
+        "type": "article",
+        "date": "2025-12-13",
+        "en": {
+            "title": "Proof of Concept: Security and Sanitization",
+            "description": "Cross-Site Scripting (XSS) injection test.",
+            "tags": [
+                "Security",
+                "XSS",
+                "Sanitization"
+            ],
+            "author": "Rafael Pérez Llorca"
+        },
+        "es": {
+            "title": "Prueba de Concepto: Seguridad y sanitización",
+            "description": "Prueba de inyección de código malicioso.",
+            "tags": [
+                "Security",
+                "XSS",
+                "Sanitization"
+            ],
+            "author": "Rafael Pérez Llorca"
+        }
+    }
+]

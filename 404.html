@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    
+    <title>404 - Recurso No Encontrado | Rafael Pérez Llorca</title>
+    <link rel="icon" type="image/png" href="./assets/images/favicon.png" />
+    <link rel="stylesheet" href="./css/styles.css" />
+</head>
+<body>
+    <div class="terminal-container">
+        <h1 class="error-code">404</h1>
+        <p class="error-msg">RECURSO NO ENCONTRADO O ACCESO DENEGADO</p>
+        
+        <div class="terminal-output">
+            <div class="cmd-line">> initiating_trace...</div>
+            <div class="cmd-line">> target_url: <span id="path"></span></div>
+            <div class="cmd-line">> error: resource_unreachable</div>
+            <div class="cmd-line">> suggestion: return_to_base</div>
+            <div class="cmd-line">> _<span class="cursor"></span></div>
+        </div>
+
+        <a href="./index.html" class="btn-home">
+            <svg width="16" height="16" style="vertical-align: middle; margin-right: 4px;"><use href="./assets/images/tech-icons.svg#icon-arrow-left"/></svg> 
+            Regresar al Inicio
+        </a>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.2.4/purify.min.js" integrity="sha384-eEu5CTj3qGvu9PdJuS+YlkNi7d2XxQROAFYOr59zgObtlcux1ae1Il3u7jvdCSWu" crossorigin="anonymous"></script>
+    <script type="module" src="./js/app.js"></script>
+    <script src="./js/404.js"></script>
+</body>
+</html>
