@@ -1,83 +1,78 @@
-# Rafael Pérez Llorca - Ciber-Portafolio de Ingeniería & Ciberseguridad
+# Rafael Pérez Llorca — Portafolio Profesional & Portal de Investigación
 
-Ecosistema digital diseñado para la exhibición de competencias en **Ingeniería Informática, Ciberseguridad (Blue/Red Team) y GRC**. Este proyecto combina un motor de generación de sitios estáticos (SSG) ligero con una arquitectura frontend robusta y securizada.
-
----
-
-## Arquitectura del Sistema
-
-### 1. Motor de Contenidos (SSG & Indexing)
-
-El proyecto utiliza un pipeline de automatización en Python (`build_index.py`) que gestiona el ciclo de vida del contenido:
-
-- **Escaneo Recursivo:** Procesa archivos Markdown en `/posts` y subcarpetas.
-- **Categorización Automática:** Clasifica el contenido en `article` (blog técnico) o `course` (módulos académicos).
-- **Master Index (`content-index.json`):** Genera una "API estática" que el frontend consume para el renderizado dinámico.
-- **SEO & AI Ready:** Genera automáticamente `sitemap.xml` para buscadores y `llms.txt` para proporcionar contexto estructurado a agentes de IA.
-
-### 2. Frontend de Alta Intensidad (Vanilla Tech)
-
-Construido sin frameworks pesados para garantizar longevidad y rendimiento:
-
-- **CSS Modular (v15):** Sistema basado en tokens de diseño (`css/modules/`) que separa variables, layout, componentes y estilos específicos de cursos.
-- **Dynamic Loader (`article-loader.js`):** Orquesta la carga de Markdown, lo convierte a HTML vía `marked.js`, aplica resaltado de sintaxis con `Prism.js` e inicializa diagramas de flujo con `Mermaid.js`.
-- **i18n Engine:** Soporte nativo bilingüe (ES/EN) mediante diccionarios en `js/translations.js`.
+Sitio web profesional y repositorio de investigación técnica enfocado en **Ingeniería de Sistemas, Seguridad de la Información, Respuesta a Incidentes y Docencia Especializada**. Construido bajo arquitectura estática con aislamiento estricto de despliegue y hardening multimarco.
 
 ---
 
-## 3. Hardening & Ciberseguridad (Audit-Ready)
+## 1. Arquitectura del Sistema
 
-Siguiendo los estándares **NIST CSF 2.0** y **ENS**, se han implementado las siguientes salvaguardas:
-
-- **Sanitización Estricta:** Uso mandatario de `DOMPurify` en todos los puntos de inyección de HTML (`innerHTML`). Política de "Zero Unsanitized DOM".
-- **Segregación de Contenidos:** Los módulos de la Academia están aislados del índice general de artículos mediante filtrado por metadatos a nivel de datos.
-- **Content Security Policy (CSP):** Cabeceras configuradas para mitigar ataques de XSS e inyección de datos, restringiendo la ejecución de scripts a fuentes verificadas.
-- **Ofuscación de Identidad:** Protección de correos electrónicos y datos de contacto contra scrapers automatizados.
-
----
-
-## 4. Estructura de Directorios
-
-```tree
-/
-├── assets/             # Recursos estáticos (imágenes, fuentes, iconos SVG)
+```
+PORTFOLIO/
+├── wrangler.toml              # Configuración de Cloudflare Pages (pages_build_output_dir = "public")
+├── build_index.py             # Pipeline de generación (SSG, SEO, LLMs y sync)
+├── content-index.json         # Registro maestro de artículos y módulos
+├── sitemap.xml                # Sitemap SEO
+├── llms.txt                   # Índice estructurado para agentes de IA
+├── robots.txt                 # Directivas canónicas de rastreo
+├── _headers                   # Cabeceras HTTP (CSP estricta, HSTS, X-Frame-Options)
+├── _redirects                 # Reglas de bloqueo 302 hacia /404.html
+├── index.html                 # Página principal
+├── 404.html                   # Página de error canónica
 ├── css/
-│   ├── modules/        # Arquitectura CSS Modular (01-07)
-│   └── styles.css      # Manifiesto de estilos principal
+│   ├── modules/               # CSS modular (00 a 07)
+│   └── styles.css             # Bundle compilado de estilos
 ├── js/
-│   ├── modules/        # Lógica de negocio (Theme, Utils, i18n)
-│   ├── article-loader  # Motor de renderizado de Markdown
-│   ├── components.js   # Generador de componentes UI reutilizables
-│   └── terminal.js     # Simulación de CLI interactiva
-├── pages/              # Vistas de la aplicación (Academy, Article, Legal)
-├── posts/              # Base de conocimientos en Markdown
-│   └── python-course/  # Módulos del Curso de Python Avanzado
-├── build_index.py      # Script de automatización (SSG)
-├── content-index.json  # Índice maestro de contenidos
-└── index.html          # Punto de entrada principal
+│   ├── modules/               # Módulos ES6 (tema claro/oscuro, utilidades)
+│   ├── article-loader.js      # Cargador seguro de Markdown con lista blanca
+│   ├── components.js          # Componentes de cabecera y pie de página
+│   ├── mermaid-init.js        # Inicializador seguro de Mermaid (strict)
+│   └── translations.js        # Diccionario bilingüe (ES/EN)
+├── pages/                     # Páginas interiores (Academy, Article, Legal, Privacy, 404)
+├── posts/                     # Publicaciones técnicas y cursos en Markdown
+├── assets/                    # Tipografías, imágenes, logos y PDF
+└── public/                    # Directorio de distribución estática (Runtime de producción)
 ```
 
 ---
 
-## 5. Guía de Mantenimiento
+## 2. Pipeline de Construcción & Aislamiento (`build_index.py`)
 
-### Actualización de Contenidos
+El script de automatización realiza las siguientes tareas de forma determinista:
 
-Para añadir un nuevo artículo o módulo de curso:
+1. **Indexación de Contenidos**: Escanea `/posts` y parsea los metadatos YAML.
+2. **Generación de Metadatos**: Actualiza `content-index.json`, `sitemap.xml` y `llms.txt`.
+3. **Aislamiento de Producción**: Sincroniza exclusivamente los activos de runtime hacia `public/`, purgando scripts Python, documentación interna y archivos temporales.
 
-1. Crea el archivo `.md` en `/posts` o en la carpeta correspondiente del curso.
-2. Añade el frontmatter YAML necesario (título, fecha, descripción, tags).
-3. Ejecuta el pipeline de construcción:
-   ```bash
-   python3 build_index.py
-   ```
-   _Esto actualizará el índice, el sitemap y el contexto para IA automáticamente._
-
-### 6. Personalización de Estilos
-
-- **Colores y Temas:** Modifica `css/modules/01-variables.css`.
-- **Nuevos Componentes:** Añade el CSS en `css/modules/04-components.css` y la lógica de renderizado en `js/components.js`.
+Ejecución manual:
+```bash
+python3 build_index.py
+```
 
 ---
 
-_Proyecto auditado y mantenido por Rafael Pérez Llorca._
+## 3. Seguridad y Cumplimiento Técnico (Audit-Ready)
+
+Alineado con directrices de **NIST CSF 2.0**, **CIS Controls v8.1** y **ENS**:
+
+- **Aislamiento de Despliegue**: Cloudflare Pages sirve únicamente el directorio `public/`. Los archivos de soporte, scripts de build y documentación interna no son accesibles desde la red pública.
+- **Defensa contra Path Traversal / IDOR**: `article-loader.js` valida identificadores con expresiones regulares canónicas y aplica verificación de lista blanca en modo *fail-closed* contra `content-index.json`.
+- **Sanitización del DOM**: Limpieza de contenido HTML mediante `DOMPurify 3.2.4` antes de cualquier renderizado dinámico.
+- **Integridad de Recursos (SRI)**: Hashes `sha384` aplicados en todas las dependencias externas (PrismJS 1.30.0, Marked 12.0.2, DOMPurify).
+- **Mermaid Hardening**: Diagramas procesados bajo `securityLevel: 'strict'` con `mermaid@11.4.1`.
+- **Content Security Policy (CSP)**: Restricción de orígenes, bloqueo de objetos (`object-src 'none'`), protección contra clickjacking (`frame-ancestors 'none'`) y transporte cifrado obligatorio (HSTS con preload).
+
+---
+
+## 4. Despliegue en Cloudflare Pages
+
+### Configuración en Dashboard
+- **Build command**: `python build_index.py`
+- **Build output directory**: `public`
+- **Root directory**: `/`
+
+### Despliegue Local vía CLI
+```bash
+# Compilar distribución y desplegar
+python3 build_index.py
+npx wrangler pages deploy public
+```
