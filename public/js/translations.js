@@ -16,7 +16,8 @@ const translations = {
             subtitle: "Technology, Risk Management, and Security Operations.",
             desc: "Over 15 years connecting technology infrastructure and data with risk management, operational continuity, and cybersecurity.",
             btnExpertise: "View research",
-            btnCv: "Download CV"
+            btnAbout: "About me",
+            btnCvPdf: "Download CV (PDF)"
         },
         about: {
             title: "About Me",
@@ -221,7 +222,8 @@ const translations = {
             subtitle: "Tecnología, Gestión de Riesgos y Operaciones de Seguridad.",
             desc: "Más de 15 años conectando la infraestructura tecnológica y los datos con la gestión del riesgo, la continuidad operativa y la ciberseguridad.",
             btnExpertise: "Ver investigación",
-            btnCv: "Descargar CV",
+            btnAbout: "Sobre mí",
+            btnCvPdf: "Descargar CV (PDF)",
             credYears: "Madrid, España"
         },
         about: {
