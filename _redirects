@@ -1,17 +1,17 @@
-# Cloudflare Security Redirects — Deny access to sensitive and development resources
-/build_index.py /404.html 404
-/fix_csp.py /404.html 404
-/assets/fonts/fix_css.py /404.html 404
-/docs/* /404.html 404
-/README.md /404.html 404
-/*.py /404.html 404
-/*.zip /404.html 404
-/.git /404.html 404
-/.git/* /404.html 404
-/.agents /404.html 404
-/.agents/* /404.html 404
-/.vscode /404.html 404
-/.vscode/* /404.html 404
-/__MACOSX /404.html 404
-/__MACOSX/* /404.html 404
-/._* /404.html 404
+# Cloudflare Pages Security Redirects (Valid status: 200, 301, 302, 303, 307, 308)
+/build_index.py /404.html 302
+/fix_csp.py /404.html 302
+/assets/fonts/fix_css.py /404.html 302
+/docs/* /404.html 302
+/README.md /404.html 302
+/*.py /404.html 302
+/*.zip /404.html 302
+/.git /404.html 302
+/.git/* /404.html 302
+/.agents /404.html 302
+/.agents/* /404.html 302
+/.vscode /404.html 302
+/.vscode/* /404.html 302
+/__MACOSX /404.html 302
+/__MACOSX/* /404.html 302
+/._* /404.html 302
