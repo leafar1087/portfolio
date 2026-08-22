@@ -8,6 +8,7 @@
       Ciberseguridad
     </title>
     <link rel="canonical" href="https://rafaelperezllorca.com/" />
+    <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg" />
     <link rel="icon" type="image/png" href="assets/images/favicon.png" />
 
     <meta
@@ -22,7 +23,6 @@
 
     <meta name="author" content="Rafael Pérez Llorca" />
     <!-- Security Headers -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://cdnjs.cloudflare.com; font-src 'self' https://cdnjs.cloudflare.com https://cdn.jsdelivr.net; img-src 'self' data: https:; connect-src 'self' https://cdn.jsdelivr.net https://cdnjs.cloudflare.com https://cloudflareinsights.com;" />
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
     <meta name="referrer" content="strict-origin-when-cross-origin">
 
@@ -105,321 +105,286 @@
     </script>
 
     <!-- Libs for Security -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.0.6/purify.min.js" integrity="sha384-cwS6YdhLI7XS60eoDiC+egV0qHp8zI+Cms46R0nbn8JrmoAzV9uFL60etMZhAnSu" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.2.4/purify.min.js" integrity="sha384-eEu5CTj3qGvu9PdJuS+YlkNi7d2XxQROAFYOr59zgObtlcux1ae1Il3u7jvdCSWu" crossorigin="anonymous"></script>
 
     <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600;700&family=IBM+Plex+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <!-- Styles -->
-    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/styles.css?v=20260822l" />
   </head>
   <body>
     <header id="main-header"></header>
 
     <main>
-      <!-- Hero Section -->
+      <!-- ─── HERO ──────────────────────────────────────────── -->
       <section id="hero" class="hero">
-        <div class="hero-glow"></div>
         <div class="container">
-          <div class="hero-content">
-            <p class="hero-intro" data-i18n="hero.intro">
-              Hola, me especializo en
-            </p>
-            <h1 class="hero-title" data-i18n="hero.title">
-              Proteger Infraestructuras Críticas.
-            </h1>
-            <h2 class="hero-subtitle" data-i18n="hero.subtitle">
-              Mediante desarrollo, cumplimiento y operaciones de ciberseguridad.
-            </h2>
-            <p class="hero-desc" data-i18n="hero.desc">
-              Desde el liderazgo TI hasta la estrategia
-              de ciberseguridad. Conecto las operaciones técnicas con la
-              gobernanza ejecutiva.
-            </p>
-            <div class="hero-btns">
-              <a
-                href="#expertise"
-                class="btn btn-primary"
-                data-i18n="hero.btnExpertise"
-                >Ver perfil</a
-              >
-              <a href="./assets/CV_Rafael_Perez.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-outline" data-i18n="hero.btnCv">Descargar CV</a>
+          <div class="hero-layout">
+            <!-- Columna izquierda: texto editorial -->
+            <div class="hero-content">
+              <p class="hero-supertitle">INGENIERÍA INFORMÁTICA · CIBERSEGURIDAD · GOBERNANZA</p>
+              <h1 class="hero-title" data-i18n="hero.title">Ingeniería de Sistemas &amp; Seguridad de la Información.</h1>
+              <p class="hero-desc" data-i18n="hero.desc">Más de 15 años conectando la infraestructura tecnológica y los datos con la gestión del riesgo, la continuidad operativa y la ciberseguridad.</p>
+              <div class="hero-btns">
+                <a href="#research" class="btn btn-primary">Ver investigación &rarr;</a>
+                <a href="./assets/CV_Rafael_Perez.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-outline" data-i18n="hero.btnCv">Descargar CV &darr;</a>
+              </div>
+            </div>
+            <!-- Columna derecha: foto editorial + identidad compacta -->
+            <div class="hero-profile">
+              <div class="hero-photo">
+                <picture>
+                  <source srcset="./assets/images/foto_perfil.webp" type="image/webp" />
+                  <img src="./assets/images/foto_perfil.png" alt="Rafael Pérez Llorca — Ingeniero Informático y de Sistemas" />
+                </picture>
+              </div>
+              <div class="hero-identity">
+                <span class="hero-name">RAFAEL PÉREZ LLORCA</span>
+                <span class="hero-identity-tags">Ciberseguridad · Soporte B2B · Docencia</span>
+                <span class="hero-identity-meta">Madrid, España</span>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- About Section -->
-      <section id="about" class="about container section-padding reveal">
-        <h2 class="section-title" data-i18n="about.title">Sobre Mí</h2>
+      <!-- ─── // 01 INVESTIGACIÓN ───────────────────────────── -->
+      <section id="research" class="research container section-editorial">
+        <span class="section-code">// 01 INVESTIGACIÓN</span>
+        <div class="research-item">
+          <span class="research-number">01</span>
+          <div class="research-body">
+            <h2 class="research-title" data-i18n="articles.art1.title">
+              <a href="pages/article.html?id=cyber-resilience-architecture">
+                Arquitectura de Ciberresiliencia para Infraestructuras Críticas
+              </a>
+            </h2>
+            <p class="research-meta">INVESTIGACIÓN · PROOF OF CONCEPT · 2025</p>
+            <p class="research-desc" data-i18n="articles.art1.desc">Arquitectura de referencia, evaluación multicriterio bajo ISO/IEC 25010 y validación práctica: seguridad en cadena de suministro (SBOM CycloneDX), triaje de riesgo con CISA SSVC + EPSS y detección activa con Coraza WAF + Wazuh SIEM.</p>
+            <a href="pages/article.html?id=cyber-resilience-architecture" class="research-link">Leer investigación &rarr;</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ─── // 02 EXPERIENCIA ─────────────────────────────── -->
+      <section id="experience" class="experience container section-editorial">
+        <span class="section-code">// 02 EXPERIENCIA</span>
+        <div class="ledger">
+          <!-- Job 1: Palco Ticketing -->
+          <div class="ledger-item">
+            <div class="ledger-date" data-i18n="experience.job1.date">FEB 2026 — HOY</div>
+            <div class="ledger-detail">
+              <h3 class="ledger-role" data-i18n="experience.job1.role">INGENIERO DE SOPORTE &amp; CIBERSEGURIDAD</h3>
+              <span class="ledger-company" data-i18n="experience.job1.company">Palco Ticketing</span>
+              <p class="ledger-tags">Soporte B2B · Monitorización · Seguridad de la Información</p>
+              <ul class="ledger-list" data-i18n-list="experience.job1.items"><!-- JS --></ul>
+            </div>
+          </div>
+          <hr class="ledger-divider">
+          <!-- Job 2: Universidad César Vallejo -->
+          <div class="ledger-item">
+            <div class="ledger-date" data-i18n="experience.job2.date">SEPT 2025 — HOY</div>
+            <div class="ledger-detail">
+              <h3 class="ledger-role" data-i18n="experience.job2.role">DOCENTE DE POSGRADO EN CIBERSEGURIDAD</h3>
+              <span class="ledger-company" data-i18n="experience.job2.company">Universidad César Vallejo</span>
+              <p class="ledger-tags">Mitigación de Ciberataques · Forense · Pentesting</p>
+              <ul class="ledger-list" data-i18n-list="experience.job2.items"><!-- JS --></ul>
+            </div>
+          </div>
+          <hr class="ledger-divider">
+          <!-- Job 3: PNP Proyectos -->
+          <div class="ledger-item">
+            <div class="ledger-date" data-i18n="experience.job3.date">ENE 2024 — OCT 2025</div>
+            <div class="ledger-detail">
+              <h3 class="ledger-role" data-i18n="experience.job3.role">JEFE DE PROYECTOS TIC &amp; ESTRATEGIA DE CIBERSEGURIDAD</h3>
+              <span class="ledger-company" data-i18n="experience.job3.company">Policía Nacional del Perú</span>
+              <p class="ledger-tags">Estrategia · ISO 27001 · Gestión de Riesgos</p>
+              <ul class="ledger-list" data-i18n-list="experience.job3.items"><!-- JS --></ul>
+            </div>
+          </div>
+          <hr class="ledger-divider">
+          <!-- Job 4: PNP Interoperabilidad & Técnico -->
+          <div class="ledger-item">
+            <div class="ledger-date" data-i18n="experience.job4.date">NOV 2016 — DIC 2023</div>
+            <div class="ledger-detail">
+              <h3 class="ledger-role" data-i18n="experience.job4.role">LÍDER DE INTEROPERABILIDAD &amp; JEFE TÉCNICO</h3>
+              <span class="ledger-company" data-i18n="experience.job4.company">Policía Nacional del Perú</span>
+              <p class="ledger-tags">Interoperabilidad · APIs · DevSecOps</p>
+              <ul class="ledger-list" data-i18n-list="experience.job4.items"><!-- JS --></ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ─── // 03 ÁREAS DE PRÁCTICA ──────────────────────── -->
+      <section id="practice" class="practice container section-editorial">
+        <span class="section-code">// 03 ÁREAS DE PRÁCTICA</span>
+        <div class="practice-grid">
+          <div class="practice-col">
+            <span class="practice-number">01</span>
+            <h3 class="practice-title" data-i18n="expertise.card1.title">Sistemas, Interoperabilidad &amp; Datos</h3>
+            <p class="practice-subtitle" data-i18n="expertise.card1.subtitle">"Arquitectura, APIs y Trazabilidad"</p>
+            <ul class="practice-tags" data-i18n-list="expertise.card1.items"><!-- JS --></ul>
+          </div>
+          <div class="practice-col">
+            <span class="practice-number">02</span>
+            <h3 class="practice-title" data-i18n="expertise.card2.title">Gobernanza, Riesgo &amp; Cumplimiento</h3>
+            <p class="practice-subtitle" data-i18n="expertise.card2.subtitle">"Estrategia y Marcos de Control"</p>
+            <ul class="practice-tags" data-i18n-list="expertise.card2.items"><!-- JS --></ul>
+          </div>
+          <div class="practice-col">
+            <span class="practice-number">03</span>
+            <h3 class="practice-title" data-i18n="expertise.card3.title">Gestión de Incidentes &amp; Ciberdefensa</h3>
+            <p class="practice-subtitle" data-i18n="expertise.card3.subtitle">"Respuesta, Forense y Evaluación"</p>
+            <ul class="practice-tags" data-i18n-list="expertise.card3.items"><!-- JS --></ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- ─── // 04 ACADEMIA ────────────────────────────────── -->
+      <section id="academy" class="academy-section container section-editorial">
+        <span class="section-code">// 04 ACADEMIA</span>
+        <div class="academy-grid">
+          <div class="course-card">
+            <div class="course-card-badge">
+              <span class="badge badge-signal">Desarrollo &amp; Ciberseguridad</span>
+            </div>
+            <div class="course-content">
+              <h3 class="course-card-title">Curso Python desde 0</h3>
+              <p class="course-card-desc">Manual integral en 16 módulos: CPython internals, automatización DevSecOps, arquitectura segura y controles NIST/ENS.</p>
+            </div>
+            <div class="course-card-footer">
+              <a href="pages/article.html?id=python-course/index" class="btn btn-sm btn-primary">Empezar a Aprender</a>
+            </div>
+          </div>
+          <div class="course-card">
+            <div class="course-card-badge">
+              <span class="badge">Auditoría &amp; Datos</span>
+            </div>
+            <div class="course-content">
+              <h3 class="course-card-title">SQL para Auditores</h3>
+              <p class="course-card-desc">Consultas de datos para detectar anomalías y validar integridad sin depender de herramientas externas.</p>
+            </div>
+            <div class="course-card-footer">
+              <a href="pages/academy.html" class="btn btn-sm btn-outline">Ver en Academia</a>
+            </div>
+          </div>
+          <div class="course-card">
+            <div class="course-card-badge">
+              <span class="badge">Gestión &amp; Cumplimiento</span>
+            </div>
+            <div class="course-content">
+              <h3 class="course-card-title">Gobernanza de Ciberseguridad</h3>
+              <p class="course-card-desc">Alinea las operaciones de TI con la estrategia empresarial y marcos (ISO 27001, ENS, DORA).</p>
+            </div>
+            <div class="course-card-footer">
+              <a href="pages/academy.html" class="btn btn-sm btn-outline">Ver en Academia</a>
+            </div>
+          </div>
+        </div>
+        <div class="lead-cta" style="margin-top: 40px; text-align: center;">
+          <a href="pages/academy.html" class="btn btn-outline btn-lg">Ver Todos los Cursos</a>
+        </div>
+      </section>
+
+      <!-- ─── // 05 STACK TÉCNICO ───────────────────────────── -->
+      <section id="tech-stack" class="tech-stack container section-editorial">
+        <span class="section-code">// 05 STACK TÉCNICO</span>
+        <div class="stack-layout">
+          <div class="stack-group">
+            <h4 class="stack-group-title">INGENIERÍA DE SEGURIDAD</h4>
+            <div class="stack-row"><span class="stack-name">Wazuh</span><span class="stack-desc">SIEM / XDR</span></div>
+            <div class="stack-row"><span class="stack-name">Python</span><span class="stack-desc">Automatización</span></div>
+            <div class="stack-row"><span class="stack-name">Coraza WAF</span><span class="stack-desc">Protección de aplicaciones</span></div>
+            <div class="stack-row"><span class="stack-name">Syft</span><span class="stack-desc">SBOM / Dependencias</span></div>
+          </div>
+          <div class="stack-group">
+            <h4 class="stack-group-title">IDENTIDAD &amp; INFRAESTRUCTURA</h4>
+            <div class="stack-row"><span class="stack-name">Keycloak</span><span class="stack-desc">IAM / Zero Trust</span></div>
+            <div class="stack-row"><span class="stack-name">OpenBAO</span><span class="stack-desc">Gestión de secretos</span></div>
+            <div class="stack-row"><span class="stack-name">Cloudflare</span><span class="stack-desc">ZTNA / Edge Security</span></div>
+            <div class="stack-row"><span class="stack-name">Shuffle</span><span class="stack-desc">SOAR / Orquestación</span></div>
+          </div>
+          <div class="stack-group">
+            <h4 class="stack-group-title">MARCOS DE REFERENCIA</h4>
+            <div class="stack-row"><span class="stack-name">NIST CSF 2.0</span><span class="stack-desc">Gestión de riesgos</span></div>
+            <div class="stack-row"><span class="stack-name">ISO 27001</span><span class="stack-desc">SGSI</span></div>
+            <div class="stack-row"><span class="stack-name">MITRE ATT&amp;CK</span><span class="stack-desc">Inteligencia de amenazas</span></div>
+            <div class="stack-row"><span class="stack-name">CIS Controls</span><span class="stack-desc">Salvaguardas esenciales</span></div>
+          </div>
+        </div>
+        <details class="stack-extended">
+          <summary class="stack-extended-toggle">Ver stack completo &darr;</summary>
+          <div class="stack-layout stack-extended-grid">
+            <div class="stack-group">
+              <h4 class="stack-group-title">ANÁLISIS &amp; FORENSE</h4>
+              <div class="stack-row"><span class="stack-name">Nmap</span><span class="stack-desc">Descubrimiento de red</span></div>
+              <div class="stack-row"><span class="stack-name">Wireshark</span><span class="stack-desc">Análisis de paquetes</span></div>
+              <div class="stack-row"><span class="stack-name">Volatility</span><span class="stack-desc">Forense de memoria</span></div>
+              <div class="stack-row"><span class="stack-name">Velociraptor</span><span class="stack-desc">DFIR / EDR</span></div>
+            </div>
+            <div class="stack-group">
+              <h4 class="stack-group-title">DATOS &amp; BACKEND</h4>
+              <div class="stack-row"><span class="stack-name">FastAPI</span><span class="stack-desc">APIs seguras</span></div>
+              <div class="stack-row"><span class="stack-name">PostgreSQL</span><span class="stack-desc">Base de datos relacional</span></div>
+              <div class="stack-row"><span class="stack-name">SQL Server</span><span class="stack-desc">Entornos empresariales</span></div>
+              <div class="stack-row"><span class="stack-name">MinIO</span><span class="stack-desc">WORM / Evidencias</span></div>
+            </div>
+            <div class="stack-group">
+              <h4 class="stack-group-title">GOBERNANZA EXTENDIDA</h4>
+              <div class="stack-row"><span class="stack-name">ISO 27005</span><span class="stack-desc">Gestión de riesgos</span></div>
+              <div class="stack-row"><span class="stack-name">ISO 22301</span><span class="stack-desc">Continuidad de negocio</span></div>
+              <div class="stack-row"><span class="stack-name">ENS / DORA</span><span class="stack-desc">Cumplimiento europeo</span></div>
+              <div class="stack-row"><span class="stack-name">MAGERIT v3</span><span class="stack-desc">Análisis de riesgos</span></div>
+            </div>
+          </div>
+        </details>
+      </section>
+
+      <!-- ─── // 06 SOBRE MÍ ───────────────────────────────── -->
+      <section id="about" class="about container section-editorial reveal">
+        <span class="section-code">// 06 SOBRE MÍ</span>
         <div class="about-content">
           <div class="about-text">
-            <p data-i18n="about.p1">
-              Soy Ingeniero de Sistemas con más de 10 años de experiencia,
-              desarrollada principalmente en el sector público peruano. En esta etapa, gestioné secciones críticas de TI, lideré
-              proyectos de interoperabilidad de datos y supervisé
-              infraestructuras seguras.
-            </p>
-            <p data-i18n="about.p2">
-              Más allá de la parte técnica, he dedicado parte de mi carrera al
-              ámbito académico como Docente Universitario en Ingeniería de
-              Sistemas y Ciberseguridad.
-            </p>
-            <p data-i18n="about.p3">
-              Mi enfoque actual es integrar mi experiencia en
-              operaciones seguras con los avances en tecnologías emergentes,
-              con el objetivo de aportar este equilibrio de técnica y estrategia
-              que requieren las empresas en la actualidad.
-            </p>
+            <p data-i18n="about.p1">Soy Ingeniero Informático y de Sistemas con más de 15 años de trayectoria en soporte TI, desarrollo, interoperabilidad, gestión de datos, dirección de proyectos y ciberseguridad. Desarrollé buena parte de mi carrera en la Policía Nacional del Perú, participando en proyectos tecnológicos de alcance nacional con sistemas e información sensible.</p>
+            <p data-i18n="about.p2">Actualmente en España trabajo en Palco Ticketing (plataforma B2B para eventos), combinando soporte de producto con iniciativas de monitorización de endpoints, automatización y seguridad de la información. Paralelamente, soy Docente de Posgrado en la Universidad César Vallejo en mitigación de ciberataques, informática forense y pentesting.</p>
+            <p data-i18n="about.p3">Mi objetivo es aportar en proyectos donde convergen la ingeniería de sistemas, la seguridad de la información y el gobierno tecnológico: entender qué ocurre en los sistemas, identificar el riesgo y transformarlo en acciones y controles operativos concretos.</p>
           </div>
-          <div class="about-img">
-            <div class="img-wrapper">
-              <picture>
-                <source srcset="./assets/images/foto_perfil.webp" type="image/webp" />
-                <img
-                  loading="lazy"
-                  src="./assets/images/foto_perfil.png"
-                  alt="Senior Cybersecurity Engineer Profile Picture"
-                />
-              </picture>
+          <aside class="about-facts">
+            <div class="about-fact">
+              <span class="about-fact-label">Ubicación</span>
+              <span class="about-fact-value">Madrid, España</span>
             </div>
-          </div>
+            <div class="about-fact">
+              <span class="about-fact-label">Rol Actual</span>
+              <span class="about-fact-value">Soporte &amp; Ciberseguridad · Docencia</span>
+              <span class="about-fact-sub">Palco Ticketing · Univ. César Vallejo</span>
+            </div>
+            <div class="about-fact">
+              <span class="about-fact-label">Formación de Posgrado</span>
+              <span class="about-fact-value">Máster en Ciberseguridad</span>
+              <span class="about-fact-sub">CEU San Pablo · Maestría Ing. Sistemas UCV</span>
+            </div>
+            <div class="about-fact">
+              <span class="about-fact-label">Marcos &amp; Especialidad</span>
+              <span class="about-fact-value">ISO 27001 · NIST CSF · CIS Controls</span>
+              <span class="about-fact-sub">MITRE ATT&amp;CK · Forense · Pentesting</span>
+            </div>
+          </aside>
         </div>
       </section>
 
-      <!-- Triad of Expertise -->
-      <section id="expertise" class="expertise container section-padding">
-        <h2 class="section-title" data-i18n="expertise.title">
-          Perfil de Seguridad 360
-        </h2>
-        <div class="expertise-grid">
-          <!-- Column 1 -->
-          <div class="expertise-card">
-            <div class="card-icon">
-              <svg width="45" height="45"><use href="assets/images/tech-icons.svg#icon-git-branch"/></svg>
-            </div>
-            <h3 data-i18n="expertise.card1.title">DevSecOps & Engineering</h3>
-            <p
-              class="card-subtitle"
-              data-i18n="expertise.card1.subtitle"
-            >
-              "Seguridad desde el Diseño"
-            </p>
-            <ul data-i18n-list="expertise.card1.items">
-              <!-- Filled via JS -->
-            </ul>
-          </div>
-          <!-- Column 2 -->
-          <div class="expertise-card">
-            <div class="card-icon">
-              <svg width="45" height="45"><use href="assets/images/tech-icons.svg#icon-clipboard"/></svg>
-            </div>
-            <h3 data-i18n="expertise.card2.title">Gobernanza y Estrategia</h3>
-            <p
-              class="card-subtitle"
-              data-i18n="expertise.card2.subtitle"
-            >
-              "Alineado con el Negocio"
-            </p>
-            <ul data-i18n-list="expertise.card2.items">
-              <!-- Filled via JS -->
-            </ul>
-          </div>
-          <!-- Column 3 -->
-          <div class="expertise-card">
-            <div class="card-icon">
-              <svg width="45" height="45"><use href="assets/images/tech-icons.svg#icon-shield-generic"/></svg>
-            </div>
-            <h3 data-i18n="expertise.card3.title">Operaciones de Amenazas</h3>
-            <p
-              class="card-subtitle"
-              data-i18n="expertise.card3.subtitle"
-            >
-              "Defensa Activa"
-            </p>
-            <ul data-i18n-list="expertise.card3.items">
-              <!-- Filled via JS -->
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      <!-- Experience Timeline -->
-      <section id="experience" class="experience container section-padding">
-        <h2 class="section-title" data-i18n="experience.title">
-          Cronología de Experiencia
-        </h2>
-        <div class="timeline">
-          <!-- Job 1: Postgraduate Professor -->
-          <div class="timeline-item">
-            <div class="timeline-content">
-              <h3 class="role" data-i18n="experience.job1.role">
-                Docente de Posgrado
-              </h3>
-              <span class="company" data-i18n="experience.job1.company"
-                >Universidad César Vallejo</span
-              >
-              <p class="timeline-date" data-i18n="experience.job1.date">
-                Sept 2025 - Actualidad
-              </p>
-              <ul class="timeline-list" data-i18n-list="experience.job1.items">
-                <!-- Filled by JS -->
-              </ul>
-            </div>
-          </div>
-          <!-- Job 2: IT Project Manager & Cibersecurity Strategy -->
-          <div class="timeline-item">
-            <div class="timeline-content">
-              <h3 class="role" data-i18n="experience.job2.role">
-                Jefe de Proyectos TI & Estrategia de Ciberseguridad
-              </h3>
-              <span class="company" data-i18n="experience.job2.company"
-                >Policía Nacional del Perú</span
-              >
-              <p class="timeline-date" data-i18n="experience.job2.date">
-                Ene 2024 - Oct 2025
-              </p>
-              <ul class="timeline-list" data-i18n-list="experience.job2.items">
-                <!-- Filled by JS -->
-              </ul>
-            </div>
-          </div>
-          <!-- Job 3: Section Chief of Data Interoperability -->
-          <div class="timeline-item">
-            <div class="timeline-content">
-              <h3 class="role" data-i18n="experience.job3.role">
-                Líder de Interoperabilidad y Operaciones de Datos
-              </h3>
-              <span class="company" data-i18n="experience.job3.company"
-                >Policía Nacional del Perú</span
-              >
-              <p class="timeline-date" data-i18n="experience.job3.date">
-                Ene 2023 - Dic 2023
-              </p>
-              <ul class="timeline-list" data-i18n-list="experience.job3.items">
-                <!-- Filled by JS -->
-              </ul>
-            </div>
-          </div>
-          <!-- Job 4: Lead Technical -->
-          <div class="timeline-item">
-            <div class="timeline-content">
-              <h3 class="role" data-i18n="experience.job4.role">
-                Jefe del Equipo Técnico (Lead Technical)
-              </h3>
-              <span class="company" data-i18n="experience.job4.company"
-                >Policía Nacional del Perú</span
-              >
-              <p class="timeline-date" data-i18n="experience.job4.date">
-                Nov 2016 - Dic 2022
-              </p>
-              <ul class="timeline-list" data-i18n-list="experience.job4.items">
-                <!-- Filled by JS -->
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Tech Stack -->
-      <section id="tech-stack" class="tech-stack container section-padding">
-        <h2 class="section-title" data-i18n="tech.title">Arsenal Técnico</h2>
-        <div class="tech-grid">
-          <!-- Development & Data -->
-          <div class="tech-item">
-            <svg width="40" height="40"><use href="assets/images/tech-icons.svg#icon-python"/></svg>
-            <span>Python</span>
-          </div>
-          <div class="tech-item">
-            <svg width="40" height="40"><use href="assets/images/tech-icons.svg#icon-fastapi"/></svg>
-            <span>FastAPI</span>
-          </div>
-          <div class="tech-item">
-            <svg width="40" height="40"><use href="assets/images/tech-icons.svg#icon-sqlserver"/></svg>
-            <span>SQL Server</span>
-          </div>
-          <div class="tech-item">
-            <svg width="40" height="40"><use href="assets/images/tech-icons.svg#icon-postgresql"/></svg>
-            <span>PostgreSQL</span>
-          </div>
-          <div class="tech-item">
-            <svg width="40" height="40"><use href="assets/images/tech-icons.svg#icon-azure"/></svg>
-            <span>Azure AI</span>
-          </div>
-          <div class="tech-item">
-            <svg width="40" height="40"><use href="assets/images/tech-icons.svg#icon-powerbi"/></svg>
-            <span>Power BI</span>
-          </div>
-
-          <!-- Security Operations -->
-          <div class="tech-item">
-            <svg width="40" height="40"><use href="assets/images/tech-icons.svg#icon-wazuh"/></svg>
-            <span>Wazuh</span>
-          </div>
-          <div class="tech-item">
-            <svg width="40" height="40"><use href="assets/images/tech-icons.svg#icon-fortinet"/></svg>
-            <span>Fortinet</span>
-          </div>
-          <div class="tech-item">
-            <svg width="40" height="40"><use href="assets/images/tech-icons.svg#icon-cloudflare"/></svg>
-            <span>Cloudflare</span>
-          </div>
-          <div class="tech-item">
-            <svg width="40" height="40"><use href="assets/images/tech-icons.svg#icon-wireshark"/></svg>
-            <span>Wireshark</span>
-          </div>
-          <div class="tech-item">
-            <svg width="40" height="40"><use href="assets/images/tech-icons.svg#icon-volatility"/></svg>
-            <span>Volatility</span>
-          </div>
-
-          <!-- Compliance & Standards (Conceptually represented) -->
-          <div class="tech-item">
-            <svg width="40" height="40"><use href="assets/images/tech-icons.svg#icon-iso"/></svg>
-            <span>ISO/NIST</span>
-          </div>
-        </div>
-      </section>
-
-      <!-- Lead Magnet Section -->
-      <section id="lead-magnet" class="lead-magnet container section-padding">
-        <div class="lead-magnet-content">
-          <h2 class="lead-title" data-i18n="leadMagnet.title">
-            ¿Listo para potenciar tu perfil profesional?
-          </h2>
-          <p class="lead-desc" data-i18n="leadMagnet.desc">
-            Accede a formación práctica y especializada en Ciberseguridad y
-            Tecnología. Certifícate y destaca en el mercado laboral.
-          </p>
-          <div class="lead-cta">
-            <a
-              href="pages/academy.html"
-              class="btn btn-primary btn-lg"
-              data-i18n="leadMagnet.btn"
-              >Ver Todos los Cursos</a
-            >
-          </div>
-        </div>
-      </section>
-
-      <section id="contact" class="contact container section-padding reveal">
-        <h2 class="section-title" data-i18n="contact.title">Contacto</h2>
-        <p class="contact-desc" data-i18n="contact.desc">
-          Actualmente estoy abierto a oportunidades en los sectores seguridad,
-          defensa, banca, gobierno y de consultoría en general.
-        </p>
+      <!-- ─── CONTACTO ──────────────────────────────────────── -->
+      <section id="contact" class="contact container section-editorial reveal">
+        <span class="section-code">// 07 CONTACTO</span>
+        <h2 class="contact-title font-display" data-i18n="contact.title">¿Hablamos?</h2>
+        <p class="contact-desc" data-i18n="contact.desc">Abierto a nuevos retos profesionales, consultoría técnica y proyectos en seguridad de la información, gestión de incidentes y operaciones TI.</p>
         <div class="contact-buttons">
-          <a
-            href="#"
-            class="btn btn-primary btn-lg email-protected"
-            data-i18n="contact.btnContact"
-            >Contáctame</a
-          >
-          <a
-            href="https://www.linkedin.com/in/rperezll/"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="btn btn-outline btn-lg"
-          >
-            <svg width="20" height="20" style="vertical-align: middle; margin-right: 8px;"><use href="assets/images/tech-icons.svg#icon-linkedin"/></svg> LinkedIn
+          <a href="#" class="btn btn-primary btn-lg email-protected" data-i18n="contact.btnContact">Contáctame &rarr;</a>
+          <a href="https://www.linkedin.com/in/rperezll/" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-lg">
+            <svg width="20" height="20" class="icon-social"><use href="assets/images/tech-icons.svg#icon-linkedin"/></svg> LinkedIn
           </a>
         </div>
       </section>
@@ -427,10 +392,9 @@
 
     <footer id="main-footer"></footer>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.0.6/purify.min.js" integrity="sha384-cwS6YdhLI7XS60eoDiC+egV0qHp8zI+Cms46R0nbn8JrmoAzV9uFL60etMZhAnSu" crossorigin="anonymous"></script>
-    <script src="js/translations.js"></script>
-    <script src="js/components.js"></script>
-    <script src="js/script.js"></script>
-    <script type="module" src="js/app.js"></script>
+    <script src="js/translations.js?v=20260822l"></script>
+    <script src="js/components.js?v=20260822l"></script>
+    <script src="js/script.js?v=20260822l"></script>
+    <script type="module" src="js/app.js?v=20260822l"></script>
   </body>
 </html>

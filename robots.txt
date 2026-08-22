@@ -1,18 +1,5 @@
-# Reglas generales
+# Robots.txt — Rafael Pérez Llorca Portfolio
 User-agent: *
 Allow: /
-
-# Exclusiones de IA para Proteger Propiedad Intelectual (Academia)
-User-agent: GPTBot
-Disallow: /posts/
-Disallow: /pages/academy.html
-
-User-agent: ClaudeBot
-Disallow: /posts/
-Disallow: /pages/academy.html
-
-User-agent: anthropic-ai
-Disallow: /posts/
-Disallow: /pages/academy.html
 
 Sitemap: https://rafaelperezllorca.com/sitemap.xml
