@@ -1,19 +1,2 @@
-# Cloudflare Pages Security Redirects (Exact rules first for maximum performance)
-/build_index.py /404.html 302
-/fix_csp.py /404.html 302
-/assets/fonts/fix_css.py /404.html 302
-/README.md /404.html 302
-/.git /404.html 302
-/.agents /404.html 302
-/.vscode /404.html 302
-/__MACOSX /404.html 302
-
-# Wildcard / Splat rules
-/docs/* /404.html 302
-/*.py /404.html 302
-/*.zip /404.html 302
-/.git/* /404.html 302
-/.agents/* /404.html 302
-/.vscode/* /404.html 302
-/__MACOSX/* /404.html 302
-/._* /404.html 302
+# Cloudflare Pages Redirects
+# Non-existent and internal files are natively protected by serving /404.html with status 404
