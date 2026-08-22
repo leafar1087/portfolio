@@ -191,12 +191,25 @@ def main():
     generate_llmstxt(posts)
     print(f"[+] {LLMS_TXT_FILE} generated.")
 
-    # 4. Sync to public/ if present
-    if os.path.isdir('public'):
-        import shutil
-        for fname in [OUTPUT_FILE, SITEMAP_FILE, LLMS_TXT_FILE]:
+    # 4. Build and sync clean public/ distribution
+    if not os.path.isdir('public'):
+        os.makedirs('public', exist_ok=True)
+    
+    import shutil
+    static_files = [OUTPUT_FILE, SITEMAP_FILE, LLMS_TXT_FILE, 'index.html', '404.html', 'robots.txt', '_headers', '_redirects']
+    for fname in static_files:
+        if os.path.isfile(fname):
             shutil.copy2(fname, os.path.join('public', fname))
-        print("[+] Sincronizado con public/ exitosamente.")
+            
+    static_dirs = ['css', 'js', 'pages', 'posts', 'assets']
+    for dname in static_dirs:
+        if os.path.isdir(dname):
+            target_dir = os.path.join('public', dname)
+            if os.path.exists(target_dir):
+                shutil.rmtree(target_dir)
+            shutil.copytree(dname, target_dir, ignore=shutil.ignore_patterns('*.py', '*.pyc', '__pycache__', '.DS_Store', '._*'))
+            
+    print("[+] Distribución estática en public/ sincronizada y libre de archivos internos.")
 
 if __name__ == '__main__':
     main()
