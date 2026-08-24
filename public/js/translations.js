@@ -162,7 +162,7 @@ const translations = {
             title: "Privacy Policy",
             section1: {
                 title: "1. DATA CONTROLLER",
-                text: "Personal data provided voluntarily via direct email communication will be processed by Rafael Antonio Pérez Llorca, based in Madrid, Spain. Contact: leafar_8710@hotmail.com."
+                text: "Personal data provided voluntarily via direct email communication will be processed by Rafael Antonio Pérez Llorca, based in Madrid, Spain. Contact: contacto@rafaelperezllorca.com."
             },
             section2: {
                 title: "2. COLLECTED DATA AND PURPOSE",
@@ -181,7 +181,7 @@ const translations = {
             },
             section5: {
                 title: "5. YOUR RIGHTS",
-                text: "You have the right to access, rectify, erase, and oppose the processing of your data under the GDPR by sending an email to leafar_8710@hotmail.com."
+                text: "You have the right to access, rectify, erase, and oppose the processing of your data under the GDPR by sending an email to contacto@rafaelperezllorca.com."
             }
         },
         legalPage: {
@@ -369,14 +369,15 @@ const translations = {
             title: "Política de Privacidad",
             section1: {
                 title: "1. RESPONSABLE DEL TRATAMIENTO",
-                text: "Los datos personales facilitados mediante comunicación voluntaria por correo electrónico serán tratados por Rafael Antonio Pérez Llorca, con domicilio profesional en Madrid, España. Contacto: leafar_8710@hotmail.com."
+                text: "Los datos personales facilitados mediante comunicación voluntaria por correo electrónico serán tratados por Rafael Antonio Pérez Llorca, con domicilio profesional en Madrid, España. Contacto: contacto@rafaelperezllorca.com."
             },
             section2: {
                 title: "2. DATOS RECOGIDOS Y FINALIDAD",
                 intro: "Este sitio web ha sido diseñado bajo el principio de <strong>Minimización de Datos</strong> (Privacy by Design):",
                 item1: "<strong>Sin Formularios de Captura:</strong> No existen formularios ni bases de datos de usuarios en el servidor web. El contacto se realiza de forma directa y voluntaria a través de enlaces mailto o mediante LinkedIn.",
                 item2: "<strong>Sin Cookies de Rastreo:</strong> No se utilizan cookies analíticas invasivas ni herramientas de seguimiento publicitario de terceros.",
-                item3: "<strong>Preferencia Local Técnica:</strong> Se utiliza únicamente el almacenamiento local del navegador (localStorage) para recordar la preferencia de tema visual (claro u oscuro). Este dato es puramente técnico y reside de manera exclusiva en su navegador."
+                item3: "<strong>Preferencia Local Técnica:</strong> Se utiliza únicamente el almacenamiento local del navegador (localStorage) para recordar la preferencia de tema visual (claro u oscuro). Este dato es puramente técnico y reside de manera exclusiva en su navegador.",
+                item4: "<strong>Sin Transferencias Internacionales Inseguras:</strong> Los servicios de infraestructura operan bajo estándares de cumplimiento RGPD y ENS."
             },
             section3: {
                 title: "3. BASE LEGAL",
@@ -388,7 +389,7 @@ const translations = {
             },
             section5: {
                 title: "5. EJERCICIO DE DERECHOS",
-                text: "Puede ejercer sus derechos de acceso, rectificación, supresión y oposición reconocidos en el RGPD enviando un mensaje a leafar_8710@hotmail.com."
+                text: "Puede ejercer sus derechos de acceso, rectificación, supresión y oposición reconocidos en el RGPD enviando un mensaje a contacto@rafaelperezllorca.com."
             }
         },
         legalPage: {

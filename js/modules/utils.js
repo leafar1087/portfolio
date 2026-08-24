@@ -12,7 +12,7 @@ export function protectEmails() {
     document.querySelectorAll('.email-protected').forEach(btn => {
         btn.addEventListener('click', (e) => {
             e.preventDefault();
-            window.location.href = 'mailto:leafar_8710@hotmail.com'; 
+            window.location.href = 'mailto:contacto@rafaelperezllorca.com'; 
         });
         btn.removeAttribute('onclick');
     });
