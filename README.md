@@ -24,13 +24,18 @@ PORTFOLIO/
 ├── js/
 │   ├── modules/               # Módulos ES6 (tema claro/oscuro, utilidades)
 │   ├── article-loader.js      # Cargador seguro de Markdown con lista blanca
+│   ├── academy-loader.js      # Catálogo dinámico desde el índice estático
 │   ├── components.js          # Componentes de cabecera y pie de página
 │   ├── mermaid-init.js        # Inicializador seguro de Mermaid (strict)
 │   └── translations.js        # Diccionario bilingüe (ES/EN)
 ├── pages/                     # Páginas interiores (Academy, Article, Legal, Privacy, 404)
-├── posts/                     # Publicaciones técnicas y cursos en Markdown
+├── posts/                     # Publicaciones técnicas y Markdown publicado
+│   └── academy/               # Cursos aprobados: <course-slug>/
 ├── assets/                    # Tipografías, imágenes, logos y PDF
-└── public/                    # Directorio de distribución estática (Runtime de producción)
+├── public/                    # Directorio de distribución estática (Runtime de producción)
+├── docs/academy-content.md    # Contrato de contenido de Ciber Academia
+├── tests/                     # Pruebas del índice y aislamiento de publicación
+└── .github/workflows/         # Validación del build estático
 ```
 
 ---
@@ -50,7 +55,50 @@ python3 build_index.py
 
 ---
 
-## 3. Seguridad y Cumplimiento Técnico (Audit-Ready)
+## 3. Ciber Academia: catálogo y publicación
+
+`pages/academy.html` carga `js/academy-loader.js`, que consulta exclusivamente `content-index.json`. Agrupa módulos por `course_slug`, muestra metadatos publicados y enlaza al índice del curso o a su primer recurso mediante `article.html?id=...`. Todo texto dinámico se sanea con DOMPurify; los IDs siguen validados por la lista blanca del índice.
+
+El contenido nuevo se guarda únicamente en:
+
+```text
+posts/academy/<course-slug>/
+```
+
+Cada Markdown publicado usa este frontmatter:
+
+```yaml
+title: <título>
+title_es: <título español>
+description: <resumen>
+description_es: <resumen español>
+date: YYYY-MM-DD
+author: Rafael Pérez Llorca
+tags: [ciberseguridad, ...]
+content_type: course|module|guide|lab
+course_slug: <slug del curso>
+course_title: <título del curso>
+module_order: <número o 0>
+publication_status: reviewed|canonical
+version: <versión o alcance>
+```
+
+El build excluye cualquier `publication_status` distinto de `reviewed` o `canonical`, además de rutas internas, backups, secretos, enlaces fuera de `posts/`, archivos Python, `.env` y cachés. El contenido legacy sin ese campo permanece publicado por compatibilidad. El contrato detallado está en [`docs/academy-content.md`](docs/academy-content.md).
+
+### Flujo desde el repositorio privado de cursos
+
+1. Preparar contenido en `leafar1087/cursos/products/portfolio/courses/<course-slug>/`.
+2. Ejecutar allí `python3 tools/validate_portfolio_publication.py`.
+3. Exportar a un destino vacío con `python3 tools/export_portfolio_content.py --output /ruta/al/portfolio/posts/academy`.
+4. Abrir un PR en este repositorio que solo modifique `posts/academy/`.
+5. El workflow `Static content build` ejecuta tests, `python3 build_index.py` y verifica que `public/` contiene únicamente runtime estático.
+6. Cloudflare Pages despliega `public/`.
+
+No hay token, webhook, submódulo, backend, API runtime ni carga directa de Markdown desde GitHub. Mientras la zona exportable del repositorio privado no contenga Markdown validado, no se incorporarán nuevos cursos.
+
+---
+
+## 4. Seguridad y Cumplimiento Técnico (Audit-Ready)
 
 Alineado con directrices de **NIST CSF 2.0**, **CIS Controls v8.1** y **ENS**:
 
@@ -63,7 +111,7 @@ Alineado con directrices de **NIST CSF 2.0**, **CIS Controls v8.1** y **ENS**:
 
 ---
 
-## 4. Despliegue en Cloudflare Pages
+## 5. Despliegue en Cloudflare Pages
 
 ### Configuración en Dashboard
 - **Build command**: `python build_index.py`
