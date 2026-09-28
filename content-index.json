@@ -1,5 +1,75 @@
 [
     {
+        "id": "academy/wazuh/index",
+        "type": "course",
+        "date": "2026-09-28",
+        "en": {
+            "title": "Fundamentos de Wazuh",
+            "description": "An evidence-based introduction to Wazuh architecture and its verified version scope.",
+            "tags": [
+                "wazuh",
+                "blue-team",
+                "siem",
+                "xdr",
+                "fundamentos"
+            ],
+            "author": "Rafael Pérez Llorca"
+        },
+        "es": {
+            "title": "Fundamentos de Wazuh",
+            "description": "Introducción basada en evidencia a la arquitectura de Wazuh y su alcance de versión verificado.",
+            "tags": [
+                "wazuh",
+                "blue-team",
+                "siem",
+                "xdr",
+                "fundamentos"
+            ],
+            "author": "Rafael Pérez Llorca"
+        },
+        "content_type": "course",
+        "course_slug": "wazuh",
+        "course_title": "Fundamentos de Wazuh",
+        "module_order": "0",
+        "publication_status": "reviewed",
+        "version": "4.14.x"
+    },
+    {
+        "id": "academy/wazuh/01-fundamentos",
+        "type": "course",
+        "date": "2026-09-28",
+        "en": {
+            "title": "Arquitectura y alcance de Wazuh",
+            "description": "Learn the verified Wazuh architecture and version scope.",
+            "tags": [
+                "wazuh",
+                "blue-team",
+                "siem",
+                "xdr",
+                "fundamentos"
+            ],
+            "author": "Rafael Pérez Llorca"
+        },
+        "es": {
+            "title": "Arquitectura y alcance de Wazuh",
+            "description": "Aprende la arquitectura y el alcance de versión verificados de Wazuh.",
+            "tags": [
+                "wazuh",
+                "blue-team",
+                "siem",
+                "xdr",
+                "fundamentos"
+            ],
+            "author": "Rafael Pérez Llorca"
+        },
+        "content_type": "module",
+        "course_slug": "wazuh",
+        "course_title": "Fundamentos de Wazuh",
+        "module_order": "1",
+        "publication_status": "reviewed",
+        "version": "4.14.x"
+    },
+    {
         "id": "python-course/modulo-16-ejecutables",
         "type": "course",
         "date": "2026-09-28",

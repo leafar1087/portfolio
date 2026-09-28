@@ -15,6 +15,8 @@
 - [Proof of Concept: Security and Sanitization / Prueba de Concepto: Seguridad y sanitización](https://rafaelperezllorca.com/pages/article.html?id=security-test)
 
 ## Educational Courses (Modules)
+- [Fundamentos de Wazuh](https://rafaelperezllorca.com/pages/article.html?id=academy/wazuh/index)
+- [Arquitectura y alcance de Wazuh](https://rafaelperezllorca.com/pages/article.html?id=academy/wazuh/01-fundamentos)
 - [Módulo 16 — Ejecutables y Distribución](https://rafaelperezllorca.com/pages/article.html?id=python-course/modulo-16-ejecutables)
 - [Módulo 03 — Control de Flujo](https://rafaelperezllorca.com/pages/article.html?id=python-course/modulo-03-control-de-flujo)
 - [Módulo 10 — Bases de Datos con SQLite](https://rafaelperezllorca.com/pages/article.html?id=python-course/modulo-10-bbdd)

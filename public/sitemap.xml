@@ -31,6 +31,18 @@
     <priority>0.3</priority>
   </url>
   <url>
+    <loc>https://rafaelperezllorca.com/pages/article.html?id=academy/wazuh/index</loc>
+    <lastmod>2026-09-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://rafaelperezllorca.com/pages/article.html?id=academy/wazuh/01-fundamentos</loc>
+    <lastmod>2026-09-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://rafaelperezllorca.com/pages/article.html?id=python-course/modulo-16-ejecutables</loc>
     <lastmod>2026-09-28</lastmod>
     <changefreq>monthly</changefreq>
