@@ -1,6 +1,7 @@
 import os
 import json
 import re
+import shutil
 from datetime import datetime
 
 # Configuration
@@ -9,6 +10,8 @@ OUTPUT_FILE = 'content-index.json'
 SITEMAP_FILE = 'sitemap.xml'
 LLMS_TXT_FILE = 'llms.txt'
 BASE_URL = 'https://rafaelperezllorca.com'
+PUBLISHABLE_STATUSES = {'reviewed', 'canonical'}
+INTERNAL_PATH_PARTS = {'backup', 'backups', 'internal', 'source', 'sources', 'secret', 'secrets', '__pycache__'}
 
 STATIC_PAGES = [
     {'loc': '/', 'priority': '1.0', 'desc': 'Home - Portafolio Principal'},
@@ -55,6 +58,44 @@ def parse_frontmatter(content):
             metadata[key] = value
             
     return metadata
+
+def is_publishable_markdown(filepath):
+    """Allow only Markdown files contained in posts/ and outside internal paths."""
+    posts_root = os.path.realpath(POSTS_DIR)
+    resolved_path = os.path.realpath(filepath)
+    if os.path.commonpath([posts_root, resolved_path]) != posts_root:
+        return False
+    relative_parts = os.path.relpath(resolved_path, posts_root).split(os.sep)
+    filename = relative_parts[-1].lower()
+    return not (any(part.startswith('.') or part.lower() in INTERNAL_PATH_PARTS for part in relative_parts)
+                or filename.startswith('_')
+                or filename.endswith(('~.md', '.bak.md', '.backup.md', '.tmp.md')))
+
+
+def copy_published_posts():
+    """Copy only Markdown files that the generated index may serve."""
+    source_root = os.path.realpath(POSTS_DIR)
+    target_root = os.path.join('public', POSTS_DIR)
+    if os.path.exists(target_root):
+        shutil.rmtree(target_root)
+    if not os.path.isdir(source_root):
+        return
+    for root, dirs, files in os.walk(source_root):
+        dirs[:] = [name for name in dirs if not name.startswith('.') and name.lower() not in INTERNAL_PATH_PARTS]
+        for filename in files:
+            if not filename.endswith('.md'):
+                continue
+            filepath = os.path.join(root, filename)
+            if not is_publishable_markdown(filepath):
+                continue
+            with open(filepath, 'r', encoding='utf-8') as f:
+                status = (parse_frontmatter(f.read()) or {}).get('publication_status')
+            if status and status not in PUBLISHABLE_STATUSES:
+                continue
+            destination = os.path.join(target_root, os.path.relpath(filepath, source_root))
+            os.makedirs(os.path.dirname(destination), exist_ok=True)
+            shutil.copy2(filepath, destination)
+
 
 def generate_sitemap(posts):
     """Generates a standard XML sitemap."""
@@ -125,22 +166,28 @@ def main():
     if os.path.exists(POSTS_DIR):
         # Recursive scan for modules and subfolders
         for root, dirs, files in os.walk(POSTS_DIR):
+            dirs[:] = [name for name in dirs if not name.startswith('.') and name.lower() not in INTERNAL_PATH_PARTS]
             for filename in files:
                 if not filename.endswith('.md'): continue
                 
                 filepath = os.path.join(root, filename)
+                if not is_publishable_markdown(filepath):
+                    continue
                 # rel_path will be e.g. 'devsecops.md' or 'python-course/modulo-01.md'
                 rel_path = os.path.relpath(filepath, POSTS_DIR)
                 post_id = os.path.splitext(rel_path)[0]
                 
-                # Type assignment: 'article' for root files, 'course' for subfolders
-                category = 'article' if root == POSTS_DIR else 'course'
+                # Academy content and existing course subfolders share the course type.
+                category = 'course' if rel_path.startswith('academy' + os.sep) or root != POSTS_DIR else 'article'
                 
                 try:
                     with open(filepath, 'r', encoding='utf-8') as f:
                         content = f.read()
                     
                     metadata = parse_frontmatter(content)
+                    status = metadata.get('publication_status') if metadata else None
+                    if status and status not in PUBLISHABLE_STATUSES:
+                        continue
                     
                     # Ensure we have at least a basic entry even without metadata
                     if not metadata:
@@ -167,6 +214,10 @@ def main():
                             'author': metadata.get('author', '')
                         }
                     }
+                    for field in ('content_type', 'course_slug', 'course_title', 'module_order',
+                                  'publication_status', 'version'):
+                        if field in metadata:
+                            post_entry[field] = metadata[field]
                     if not post_entry['date']:
                         mod_time = os.path.getmtime(filepath)
                         post_entry['date'] = datetime.fromtimestamp(mod_time).strftime('%Y-%m-%d')
@@ -192,23 +243,24 @@ def main():
     print(f"[+] {LLMS_TXT_FILE} generated.")
 
     # 4. Build and sync clean public/ distribution
-    if not os.path.isdir('public'):
-        os.makedirs('public', exist_ok=True)
+    if os.path.isdir('public'):
+        shutil.rmtree('public')
+    os.makedirs('public', exist_ok=True)
     
-    import shutil
     static_files = [OUTPUT_FILE, SITEMAP_FILE, LLMS_TXT_FILE, 'index.html', '404.html', 'robots.txt', '_headers', '_redirects']
     for fname in static_files:
         if os.path.isfile(fname):
             shutil.copy2(fname, os.path.join('public', fname))
             
-    static_dirs = ['css', 'js', 'pages', 'posts', 'assets']
+    static_dirs = ['css', 'js', 'pages', 'assets']
     for dname in static_dirs:
         if os.path.isdir(dname):
             target_dir = os.path.join('public', dname)
             if os.path.exists(target_dir):
                 shutil.rmtree(target_dir)
-            shutil.copytree(dname, target_dir, ignore=shutil.ignore_patterns('*.py', '*.pyc', '__pycache__', '.DS_Store', '._*'))
+            shutil.copytree(dname, target_dir, ignore=shutil.ignore_patterns('*.py', '*.pyc', '__pycache__', '.DS_Store', '._*', '.env', '.env.*', '*~'))
             
+    copy_published_posts()
     print("[+] Distribución estática en public/ sincronizada y libre de archivos internos.")
 
 if __name__ == '__main__':

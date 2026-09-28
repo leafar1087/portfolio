@@ -11,58 +11,6 @@
       content="Ciber Academia: Formación técnica y especializada en Ciberseguridad, Auditoría y Gobernanza de TI."
     />
 
-    <!-- Schema.org Course Data -->
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "ItemList",
-        "itemListElement": [
-          {
-            "@type": "ListItem",
-            "position": 1,
-            "item": {
-              "@type": "Course",
-              "name": "SQL para Auditores",
-              "description": "Domina las consultas de datos para detectar anomalías y validar integridad sin depender de herramientas.",
-              "provider": {
-                "@type": "Organization",
-                "name": "Rafael Pérez Llorca Academy",
-                "sameAs": "https://rafaelperezllorca.com"
-              }
-            }
-          },
-          {
-            "@type": "ListItem",
-            "position": 2,
-            "item": {
-              "@type": "Course",
-              "name": "Gobernanza de Ciberseguridad",
-              "description": "Alinea las operaciones de TI con la estrategia empresarial y marcos de cumplimiento (ISO, ENS).",
-              "provider": {
-                "@type": "Organization",
-                "name": "Rafael Pérez Llorca Academy",
-                "sameAs": "https://rafaelperezllorca.com"
-              }
-            }
-          },
-          {
-            "@type": "ListItem",
-            "position": 3,
-            "item": {
-              "@type": "Course",
-              "name": "Threat Hunting 101",
-              "description": "Búsqueda proactiva de ciberamenazas que evaden las soluciones de seguridad existentes.",
-              "provider": {
-                "@type": "Organization",
-                "name": "Rafael Pérez Llorca Academy",
-                "sameAs": "https://rafaelperezllorca.com"
-              }
-            }
-          }
-        ]
-      }
-    </script>
-
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -96,91 +44,7 @@
 
       <!-- Courses Grid -->
       <section class="container section-padding pt-0">
-        <div class="academy-grid">
-          <!-- Course 4 (Python) - Now First -->
-          <div class="course-card">
-            <div class="course-thumb">
-              <svg width="40" height="40">
-                <use href="../assets/images/tech-icons.svg#icon-python" />
-              </svg>
-            </div>
-            <div class="course-content">
-              <span class="course-badge" data-i18n="academy.card4.badge">Desarrollo</span>
-              <h3 class="course-title" data-i18n="academy.card4.title">Curso Python desde 0</h3>
-              <p class="course-desc" data-i18n="academy.card4.desc">
-                Aprende Python con enfoque en ciberseguridad, DevSecOps y validación de datos.
-              </p>
-              <div class="course-meta-tag">
-                <span class="badge-outline">16 Módulos</span>
-                <span>· Acceso Completo</span>
-              </div>
-              <a href="article.html?id=python-course/index" class="btn btn-primary w-full text-center" data-i18n="academy.btnStart">Empezar a Aprender</a>
-            </div>
-          </div>
-
-          <!-- Course 1 -->
-          <div class="course-card" style="opacity: 0.85;">
-            <div class="course-thumb" style="filter: grayscale(1);">
-              <svg width="40" height="40">
-                <use href="../assets/images/tech-icons.svg#icon-database" />
-              </svg>
-            </div>
-            <div class="course-content">
-              <span class="course-badge" data-i18n="academy.card1.badge">Técnico</span>
-              <h3 class="course-title" data-i18n="academy.card1.title">SQL para Auditores</h3>
-              <p class="course-desc" data-i18n="academy.card1.desc">
-                Domina las consultas de datos para detectar anomalías y validar integridad sin depender de herramientas.
-              </p>
-              <div class="course-meta-tag">
-                <span class="badge-outline">Nivel Intermedio</span>
-                <span>· En preparación</span>
-              </div>
-              <a href="javascript:void(0)" class="btn btn-outline w-full text-center" style="pointer-events: none; opacity: 0.6;" aria-disabled="true" data-i18n="academy.btnSoon">Próximamente</a>
-            </div>
-          </div>
-
-          <!-- Course 2 -->
-          <div class="course-card" style="opacity: 0.85;">
-            <div class="course-thumb" style="filter: grayscale(1);">
-              <svg width="40" height="40">
-                <use href="../assets/images/tech-icons.svg#icon-shield-generic" />
-              </svg>
-            </div>
-            <div class="course-content">
-              <span class="course-badge" data-i18n="academy.card2.badge">Gestión</span>
-              <h3 class="course-title" data-i18n="academy.card2.title">Gobernanza de Ciberseguridad</h3>
-              <p class="course-desc" data-i18n="academy.card2.desc">
-                Alinea las operaciones de TI con la estrategia empresarial y marcos de cumplimiento (ISO 27001, ENS).
-              </p>
-              <div class="course-meta-tag">
-                <span class="badge-outline">ISO 27001 / ENS</span>
-                <span>· En preparación</span>
-              </div>
-              <a href="javascript:void(0)" class="btn btn-outline w-full text-center" style="pointer-events: none; opacity: 0.6;" aria-disabled="true" data-i18n="academy.btnSoon">Próximamente</a>
-            </div>
-          </div>
-
-          <!-- Course 3 -->
-          <div class="course-card" style="opacity: 0.85;">
-            <div class="course-thumb" style="filter: grayscale(1);">
-              <svg width="40" height="40">
-                <use href="../assets/images/tech-icons.svg#icon-crosshair" />
-              </svg>
-            </div>
-            <div class="course-content">
-              <span class="course-badge" data-i18n="academy.card3.badge">Operaciones</span>
-              <h3 class="course-title" data-i18n="academy.card3.title">Threat Hunting 101</h3>
-              <p class="course-desc" data-i18n="academy.card3.desc">
-                Búsqueda proactiva de ciberamenazas que evaden las soluciones de seguridad existentes.
-              </p>
-              <div class="course-meta-tag">
-                <span class="badge-outline">NIST / MITRE</span>
-                <span>· En preparación</span>
-              </div>
-              <a href="javascript:void(0)" class="btn btn-outline w-full text-center" style="pointer-events: none; opacity: 0.6;" aria-disabled="true" data-i18n="academy.btnSoon">Próximamente</a>
-            </div>
-          </div>
-        </div>
+        <div class="academy-grid" id="academy-catalog" aria-live="polite"></div>
       </section>
     </main>
 
@@ -190,6 +54,7 @@
     <script src="../js/translations.js?v=20260822l"></script>
     <script src="../js/components.js?v=20260822l"></script>
     <script src="../js/script.js?v=20260822l"></script>
+    <script src="../js/academy-loader.js?v=20260928" defer></script>
     <script type="module" src="../js/app.js?v=20260822l"></script>
   </body>
 </html>

@@ -1,5 +1,277 @@
 [
     {
+        "id": "python-course/modulo-16-ejecutables",
+        "type": "course",
+        "date": "2026-09-28",
+        "en": {
+            "title": "Módulo 16 — Ejecutables y Distribución",
+            "description": "",
+            "tags": [],
+            "author": ""
+        },
+        "es": {
+            "title": "Módulo 16 — Ejecutables y Distribución",
+            "description": "",
+            "tags": [],
+            "author": ""
+        }
+    },
+    {
+        "id": "python-course/modulo-03-control-de-flujo",
+        "type": "course",
+        "date": "2026-09-28",
+        "en": {
+            "title": "Módulo 03 — Control de Flujo",
+            "description": "",
+            "tags": [],
+            "author": ""
+        },
+        "es": {
+            "title": "Módulo 03 — Control de Flujo",
+            "description": "",
+            "tags": [],
+            "author": ""
+        }
+    },
+    {
+        "id": "python-course/modulo-10-bbdd",
+        "type": "course",
+        "date": "2026-09-28",
+        "en": {
+            "title": "Módulo 10 — Bases de Datos con SQLite",
+            "description": "",
+            "tags": [],
+            "author": ""
+        },
+        "es": {
+            "title": "Módulo 10 — Bases de Datos con SQLite",
+            "description": "",
+            "tags": [],
+            "author": ""
+        }
+    },
+    {
+        "id": "python-course/modulo-14-decoradores",
+        "type": "course",
+        "date": "2026-09-28",
+        "en": {
+            "title": "Módulo 14 — Decoradores",
+            "description": "",
+            "tags": [],
+            "author": ""
+        },
+        "es": {
+            "title": "Módulo 14 — Decoradores",
+            "description": "",
+            "tags": [],
+            "author": ""
+        }
+    },
+    {
+        "id": "python-course/modulo-07-modulos-paquetes",
+        "type": "course",
+        "date": "2026-09-28",
+        "en": {
+            "title": "Módulo 07 — Módulos y Paquetes",
+            "description": "",
+            "tags": [],
+            "author": ""
+        },
+        "es": {
+            "title": "Módulo 07 — Módulos y Paquetes",
+            "description": "",
+            "tags": [],
+            "author": ""
+        }
+    },
+    {
+        "id": "python-course/modulo-04-generadores",
+        "type": "course",
+        "date": "2026-09-28",
+        "en": {
+            "title": "Módulo 04 — Generadores y Optimización de Memoria",
+            "description": "",
+            "tags": [],
+            "author": ""
+        },
+        "es": {
+            "title": "Módulo 04 — Generadores y Optimización de Memoria",
+            "description": "",
+            "tags": [],
+            "author": ""
+        }
+    },
+    {
+        "id": "python-course/modulo-05-excepciones",
+        "type": "course",
+        "date": "2026-09-28",
+        "en": {
+            "title": "Módulo 05 — Manejo de Excepciones",
+            "description": "",
+            "tags": [],
+            "author": ""
+        },
+        "es": {
+            "title": "Módulo 05 — Manejo de Excepciones",
+            "description": "",
+            "tags": [],
+            "author": ""
+        }
+    },
+    {
+        "id": "python-course/modulo-13-regex",
+        "type": "course",
+        "date": "2026-09-28",
+        "en": {
+            "title": "Módulo 13 — Expresiones Regulares (Regex)",
+            "description": "",
+            "tags": [],
+            "author": ""
+        },
+        "es": {
+            "title": "Módulo 13 — Expresiones Regulares (Regex)",
+            "description": "",
+            "tags": [],
+            "author": ""
+        }
+    },
+    {
+        "id": "python-course/modulo-11-practicas-mvc",
+        "type": "course",
+        "date": "2026-09-28",
+        "en": {
+            "title": "Módulo 11 — Prácticas MVC: CRUD Completo",
+            "description": "",
+            "tags": [],
+            "author": ""
+        },
+        "es": {
+            "title": "Módulo 11 — Prácticas MVC: CRUD Completo",
+            "description": "",
+            "tags": [],
+            "author": ""
+        }
+    },
+    {
+        "id": "python-course/modulo-02-sintaxis-basica",
+        "type": "course",
+        "date": "2026-09-28",
+        "en": {
+            "title": "Módulo 02 — Sintaxis Básica",
+            "description": "",
+            "tags": [],
+            "author": ""
+        },
+        "es": {
+            "title": "Módulo 02 — Sintaxis Básica",
+            "description": "",
+            "tags": [],
+            "author": ""
+        }
+    },
+    {
+        "id": "python-course/modulo-09-tkinter",
+        "type": "course",
+        "date": "2026-09-28",
+        "en": {
+            "title": "Módulo 09 — Interfaces Gráficas con Tkinter",
+            "description": "",
+            "tags": [],
+            "author": ""
+        },
+        "es": {
+            "title": "Módulo 09 — Interfaces Gráficas con Tkinter",
+            "description": "",
+            "tags": [],
+            "author": ""
+        }
+    },
+    {
+        "id": "python-course/modulo-01-fundamentos",
+        "type": "course",
+        "date": "2026-09-28",
+        "en": {
+            "title": "Módulo 01 — Fundamentos e Instalación del Entorno",
+            "description": "",
+            "tags": [],
+            "author": ""
+        },
+        "es": {
+            "title": "Módulo 01 — Fundamentos e Instalación del Entorno",
+            "description": "",
+            "tags": [],
+            "author": ""
+        }
+    },
+    {
+        "id": "python-course/modulo-08-archivos-serializacion",
+        "type": "course",
+        "date": "2026-09-28",
+        "en": {
+            "title": "Módulo 08 — Archivos y Serialización",
+            "description": "",
+            "tags": [],
+            "author": ""
+        },
+        "es": {
+            "title": "Módulo 08 — Archivos y Serialización",
+            "description": "",
+            "tags": [],
+            "author": ""
+        }
+    },
+    {
+        "id": "python-course/modulo-12-funciones-avanzadas",
+        "type": "course",
+        "date": "2026-09-28",
+        "en": {
+            "title": "Módulo 12 — Funciones Avanzadas: Lambda, Map, Filter y Funcional",
+            "description": "",
+            "tags": [],
+            "author": ""
+        },
+        "es": {
+            "title": "Módulo 12 — Funciones Avanzadas: Lambda, Map, Filter y Funcional",
+            "description": "",
+            "tags": [],
+            "author": ""
+        }
+    },
+    {
+        "id": "python-course/modulo-15-testing",
+        "type": "course",
+        "date": "2026-09-28",
+        "en": {
+            "title": "Módulo 15 — Testing y DevSecOps",
+            "description": "",
+            "tags": [],
+            "author": ""
+        },
+        "es": {
+            "title": "Módulo 15 — Testing y DevSecOps",
+            "description": "",
+            "tags": [],
+            "author": ""
+        }
+    },
+    {
+        "id": "python-course/modulo-06-poo",
+        "type": "course",
+        "date": "2026-09-28",
+        "en": {
+            "title": "Módulo 06 — Programación Orientada a Objetos (POO)",
+            "description": "",
+            "tags": [],
+            "author": ""
+        },
+        "es": {
+            "title": "Módulo 06 — Programación Orientada a Objetos (POO)",
+            "description": "",
+            "tags": [],
+            "author": ""
+        }
+    },
+    {
         "id": "cyber-resilience-architecture",
         "type": "article",
         "date": "2026-08-19",
@@ -35,193 +307,6 @@
         }
     },
     {
-        "id": "python-course/modulo-16-ejecutables",
-        "type": "course",
-        "date": "2026-05-15",
-        "en": {
-            "title": "Módulo 16 — Ejecutables y Distribución",
-            "description": "",
-            "tags": [],
-            "author": ""
-        },
-        "es": {
-            "title": "Módulo 16 — Ejecutables y Distribución",
-            "description": "",
-            "tags": [],
-            "author": ""
-        }
-    },
-    {
-        "id": "python-course/modulo-01-fundamentos",
-        "type": "course",
-        "date": "2026-05-15",
-        "en": {
-            "title": "Módulo 01 — Fundamentos e Instalación del Entorno",
-            "description": "",
-            "tags": [],
-            "author": ""
-        },
-        "es": {
-            "title": "Módulo 01 — Fundamentos e Instalación del Entorno",
-            "description": "",
-            "tags": [],
-            "author": ""
-        }
-    },
-    {
-        "id": "python-course/modulo-15-testing",
-        "type": "course",
-        "date": "2026-05-15",
-        "en": {
-            "title": "Módulo 15 — Testing y DevSecOps",
-            "description": "",
-            "tags": [],
-            "author": ""
-        },
-        "es": {
-            "title": "Módulo 15 — Testing y DevSecOps",
-            "description": "",
-            "tags": [],
-            "author": ""
-        }
-    },
-    {
-        "id": "python-course/modulo-10-bbdd",
-        "type": "course",
-        "date": "2026-03-05",
-        "en": {
-            "title": "Módulo 10 — Bases de Datos con SQLite",
-            "description": "",
-            "tags": [],
-            "author": ""
-        },
-        "es": {
-            "title": "Módulo 10 — Bases de Datos con SQLite",
-            "description": "",
-            "tags": [],
-            "author": ""
-        }
-    },
-    {
-        "id": "python-course/modulo-06-poo",
-        "type": "course",
-        "date": "2026-03-05",
-        "en": {
-            "title": "Módulo 06 — Programación Orientada a Objetos (POO)",
-            "description": "",
-            "tags": [],
-            "author": ""
-        },
-        "es": {
-            "title": "Módulo 06 — Programación Orientada a Objetos (POO)",
-            "description": "",
-            "tags": [],
-            "author": ""
-        }
-    },
-    {
-        "id": "python-course/modulo-08-archivos-serializacion",
-        "type": "course",
-        "date": "2026-03-05",
-        "en": {
-            "title": "Módulo 08 — Archivos y Serialización",
-            "description": "",
-            "tags": [],
-            "author": ""
-        },
-        "es": {
-            "title": "Módulo 08 — Archivos y Serialización",
-            "description": "",
-            "tags": [],
-            "author": ""
-        }
-    },
-    {
-        "id": "python-course/modulo-11-practicas-mvc",
-        "type": "course",
-        "date": "2026-03-05",
-        "en": {
-            "title": "Módulo 11 — Prácticas MVC: CRUD Completo",
-            "description": "",
-            "tags": [],
-            "author": ""
-        },
-        "es": {
-            "title": "Módulo 11 — Prácticas MVC: CRUD Completo",
-            "description": "",
-            "tags": [],
-            "author": ""
-        }
-    },
-    {
-        "id": "python-course/modulo-04-generadores",
-        "type": "course",
-        "date": "2026-03-05",
-        "en": {
-            "title": "Módulo 04 — Generadores y Optimización de Memoria",
-            "description": "",
-            "tags": [],
-            "author": ""
-        },
-        "es": {
-            "title": "Módulo 04 — Generadores y Optimización de Memoria",
-            "description": "",
-            "tags": [],
-            "author": ""
-        }
-    },
-    {
-        "id": "python-course/modulo-07-modulos-paquetes",
-        "type": "course",
-        "date": "2026-03-05",
-        "en": {
-            "title": "Módulo 07 — Módulos y Paquetes",
-            "description": "",
-            "tags": [],
-            "author": ""
-        },
-        "es": {
-            "title": "Módulo 07 — Módulos y Paquetes",
-            "description": "",
-            "tags": [],
-            "author": ""
-        }
-    },
-    {
-        "id": "python-course/modulo-03-control-de-flujo",
-        "type": "course",
-        "date": "2026-03-05",
-        "en": {
-            "title": "Módulo 03 — Control de Flujo",
-            "description": "",
-            "tags": [],
-            "author": ""
-        },
-        "es": {
-            "title": "Módulo 03 — Control de Flujo",
-            "description": "",
-            "tags": [],
-            "author": ""
-        }
-    },
-    {
-        "id": "python-course/modulo-02-sintaxis-basica",
-        "type": "course",
-        "date": "2026-03-05",
-        "en": {
-            "title": "Módulo 02 — Sintaxis Básica",
-            "description": "",
-            "tags": [],
-            "author": ""
-        },
-        "es": {
-            "title": "Módulo 02 — Sintaxis Básica",
-            "description": "",
-            "tags": [],
-            "author": ""
-        }
-    },
-    {
         "id": "python-course/index",
         "type": "course",
         "date": "2026-03-05",
@@ -248,91 +333,6 @@
                 "Testing"
             ],
             "author": "Rafael Pérez Llorca"
-        }
-    },
-    {
-        "id": "python-course/modulo-09-tkinter",
-        "type": "course",
-        "date": "2026-03-05",
-        "en": {
-            "title": "Módulo 09 — Interfaces Gráficas con Tkinter",
-            "description": "",
-            "tags": [],
-            "author": ""
-        },
-        "es": {
-            "title": "Módulo 09 — Interfaces Gráficas con Tkinter",
-            "description": "",
-            "tags": [],
-            "author": ""
-        }
-    },
-    {
-        "id": "python-course/modulo-13-regex",
-        "type": "course",
-        "date": "2026-03-05",
-        "en": {
-            "title": "Módulo 13 — Expresiones Regulares (Regex)",
-            "description": "",
-            "tags": [],
-            "author": ""
-        },
-        "es": {
-            "title": "Módulo 13 — Expresiones Regulares (Regex)",
-            "description": "",
-            "tags": [],
-            "author": ""
-        }
-    },
-    {
-        "id": "python-course/modulo-12-funciones-avanzadas",
-        "type": "course",
-        "date": "2026-03-05",
-        "en": {
-            "title": "Módulo 12 — Funciones Avanzadas: Lambda, Map, Filter y Funcional",
-            "description": "",
-            "tags": [],
-            "author": ""
-        },
-        "es": {
-            "title": "Módulo 12 — Funciones Avanzadas: Lambda, Map, Filter y Funcional",
-            "description": "",
-            "tags": [],
-            "author": ""
-        }
-    },
-    {
-        "id": "python-course/modulo-05-excepciones",
-        "type": "course",
-        "date": "2026-03-05",
-        "en": {
-            "title": "Módulo 05 — Manejo de Excepciones",
-            "description": "",
-            "tags": [],
-            "author": ""
-        },
-        "es": {
-            "title": "Módulo 05 — Manejo de Excepciones",
-            "description": "",
-            "tags": [],
-            "author": ""
-        }
-    },
-    {
-        "id": "python-course/modulo-14-decoradores",
-        "type": "course",
-        "date": "2026-03-05",
-        "en": {
-            "title": "Módulo 14 — Decoradores",
-            "description": "",
-            "tags": [],
-            "author": ""
-        },
-        "es": {
-            "title": "Módulo 14 — Decoradores",
-            "description": "",
-            "tags": [],
-            "author": ""
         }
     },
     {
