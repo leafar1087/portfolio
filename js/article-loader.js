@@ -133,13 +133,11 @@ document.addEventListener('DOMContentLoaded', async () => {
                 }
             });
 
-            // Fix relative markdown links within the content
+            // Fix relative Markdown links within the current course directory.
             let fixedHtml = cleanHtml.replace(/href="(?:\.\/)?([^"]+)\.md"/g, (match, path) => {
-                if (articleId.startsWith('python-course/')) {
-                    const cleanPath = path.replace(/^python-course\//, '');
-                    return `href="article.html?id=python-course/${cleanPath}"`;
-                }
-                return `href="article.html?id=${path}"`;
+                const directory = articleId.includes("/") ? articleId.slice(0, articleId.lastIndexOf("/") + 1) : "";
+                const cleanPath = path.replace(/^\.\//, "").replace(new RegExp("^" + directory), "");
+                return "href=\"article.html?id=" + encodeURIComponent(directory + cleanPath) + "\"";
             });
 
             // --- GENERIC HIGHLIGHTING FALLBACK ---
