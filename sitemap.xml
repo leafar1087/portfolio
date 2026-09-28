@@ -31,13 +31,67 @@
     <priority>0.3</priority>
   </url>
   <url>
+    <loc>https://rafaelperezllorca.com/pages/article.html?id=academy/wazuh/09-agente-windows</loc>
+    <lastmod>2026-09-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://rafaelperezllorca.com/pages/article.html?id=academy/wazuh/index</loc>
     <lastmod>2026-09-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://rafaelperezllorca.com/pages/article.html?id=academy/wazuh/04-recoleccion-de-logs</loc>
+    <lastmod>2026-09-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://rafaelperezllorca.com/pages/article.html?id=academy/wazuh/08-agente-linux</loc>
+    <lastmod>2026-09-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://rafaelperezllorca.com/pages/article.html?id=academy/wazuh/01-fundamentos</loc>
+    <lastmod>2026-09-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://rafaelperezllorca.com/pages/article.html?id=academy/wazuh/10-validacion-extremo-a-extremo</loc>
+    <lastmod>2026-09-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://rafaelperezllorca.com/pages/article.html?id=academy/wazuh/02-despliegue</loc>
+    <lastmod>2026-09-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://rafaelperezllorca.com/pages/article.html?id=academy/wazuh/03-agentes</loc>
+    <lastmod>2026-09-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://rafaelperezllorca.com/pages/article.html?id=academy/wazuh/05-vigencia-y-versiones</loc>
+    <lastmod>2026-09-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://rafaelperezllorca.com/pages/article.html?id=academy/wazuh/07-despliegue-all-in-one</loc>
+    <lastmod>2026-09-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://rafaelperezllorca.com/pages/article.html?id=academy/wazuh/06-casos-de-uso</loc>
     <lastmod>2026-09-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>

@@ -1,5 +1,42 @@
 [
     {
+        "id": "academy/wazuh/09-agente-windows",
+        "type": "course",
+        "date": "2026-09-28",
+        "en": {
+            "title": "Laboratorio: enrolar un agente Windows",
+            "description": "Deploy, enroll, and verify a Wazuh agent on a Windows endpoint.",
+            "tags": [
+                "wazuh",
+                "agente",
+                "windows",
+                "enrolamiento",
+                "powershell",
+                "laboratorio"
+            ],
+            "author": "Rafael Pérez Llorca"
+        },
+        "es": {
+            "title": "Laboratorio: enrolar un agente Windows",
+            "description": "Despliega, enrola y verifica un agente Wazuh en un endpoint Windows.",
+            "tags": [
+                "wazuh",
+                "agente",
+                "windows",
+                "enrolamiento",
+                "powershell",
+                "laboratorio"
+            ],
+            "author": "Rafael Pérez Llorca"
+        },
+        "content_type": "module",
+        "course_slug": "wazuh",
+        "course_title": "Fundamentos de Wazuh",
+        "module_order": "8",
+        "publication_status": "reviewed",
+        "version": "4.14.x"
+    },
+    {
         "id": "academy/wazuh/index",
         "type": "course",
         "date": "2026-09-28",
@@ -35,12 +72,12 @@
         "version": "4.14.x"
     },
     {
-        "id": "academy/wazuh/01-fundamentos",
+        "id": "academy/wazuh/04-recoleccion-de-logs",
         "type": "course",
         "date": "2026-09-28",
         "en": {
-            "title": "Arquitectura y alcance de Wazuh",
-            "description": "Learn the verified Wazuh architecture and version scope.",
+            "title": "Recolección y procesamiento de logs",
+            "description": "Follow the verified path from telemetry collection to decoding, rule evaluation and storage.",
             "tags": [
                 "wazuh",
                 "blue-team",
@@ -51,8 +88,8 @@
             "author": "Rafael Pérez Llorca"
         },
         "es": {
-            "title": "Arquitectura y alcance de Wazuh",
-            "description": "Aprende la arquitectura y el alcance de versión verificados de Wazuh.",
+            "title": "Recolección y procesamiento de logs",
+            "description": "Sigue el recorrido verificado desde la recolección de telemetría hasta el decodificado, evaluación de reglas y almacenamiento.",
             "tags": [
                 "wazuh",
                 "blue-team",
@@ -65,7 +102,293 @@
         "content_type": "module",
         "course_slug": "wazuh",
         "course_title": "Fundamentos de Wazuh",
+        "module_order": "9",
+        "publication_status": "reviewed",
+        "version": "4.14.x"
+    },
+    {
+        "id": "academy/wazuh/08-agente-linux",
+        "type": "course",
+        "date": "2026-09-28",
+        "en": {
+            "title": "Laboratorio: enrolar un agente Linux",
+            "description": "Deploy, enroll, and verify a Wazuh agent on a Linux endpoint.",
+            "tags": [
+                "wazuh",
+                "agente",
+                "linux",
+                "enrolamiento",
+                "laboratorio"
+            ],
+            "author": "Rafael Pérez Llorca"
+        },
+        "es": {
+            "title": "Laboratorio: enrolar un agente Linux",
+            "description": "Despliega, enrola y verifica un agente Wazuh en un endpoint Linux.",
+            "tags": [
+                "wazuh",
+                "agente",
+                "linux",
+                "enrolamiento",
+                "laboratorio"
+            ],
+            "author": "Rafael Pérez Llorca"
+        },
+        "content_type": "module",
+        "course_slug": "wazuh",
+        "course_title": "Fundamentos de Wazuh",
+        "module_order": "7",
+        "publication_status": "reviewed",
+        "version": "4.14.x"
+    },
+    {
+        "id": "academy/wazuh/01-fundamentos",
+        "type": "course",
+        "date": "2026-09-28",
+        "en": {
+            "title": "Arquitectura y alcance de Wazuh",
+            "description": "Learn how Wazuh components collect, analyze, index, and visualize security data.",
+            "tags": [
+                "wazuh",
+                "blue-team",
+                "siem",
+                "xdr",
+                "fundamentos",
+                "arquitectura"
+            ],
+            "author": "Rafael Pérez Llorca"
+        },
+        "es": {
+            "title": "Arquitectura y alcance de Wazuh",
+            "description": "Aprende cómo los componentes de Wazuh recolectan, analizan, indexan y visualizan datos de seguridad.",
+            "tags": [
+                "wazuh",
+                "blue-team",
+                "siem",
+                "xdr",
+                "fundamentos",
+                "arquitectura"
+            ],
+            "author": "Rafael Pérez Llorca"
+        },
+        "content_type": "module",
+        "course_slug": "wazuh",
+        "course_title": "Fundamentos de Wazuh",
         "module_order": "1",
+        "publication_status": "reviewed",
+        "version": "4.14.x"
+    },
+    {
+        "id": "academy/wazuh/10-validacion-extremo-a-extremo",
+        "type": "course",
+        "date": "2026-09-28",
+        "en": {
+            "title": "Pruebas de aceptación del laboratorio",
+            "description": "Verify services, network, agents, and a controlled event across a Wazuh laboratory.",
+            "tags": [
+                "wazuh",
+                "validacion",
+                "troubleshooting",
+                "agentes",
+                "laboratorio"
+            ],
+            "author": "Rafael Pérez Llorca"
+        },
+        "es": {
+            "title": "Pruebas de aceptación del laboratorio",
+            "description": "Verifica servicios, red, agentes y un evento controlado en un laboratorio Wazuh.",
+            "tags": [
+                "wazuh",
+                "validacion",
+                "troubleshooting",
+                "agentes",
+                "laboratorio"
+            ],
+            "author": "Rafael Pérez Llorca"
+        },
+        "content_type": "module",
+        "course_slug": "wazuh",
+        "course_title": "Fundamentos de Wazuh",
+        "module_order": "5",
+        "publication_status": "reviewed",
+        "version": "4.14.x"
+    },
+    {
+        "id": "academy/wazuh/02-despliegue",
+        "type": "course",
+        "date": "2026-09-28",
+        "en": {
+            "title": "Topologías de despliegue",
+            "description": "Choose a Wazuh deployment topology using the verified scope for labs, medium environments and high availability.",
+            "tags": [
+                "wazuh",
+                "blue-team",
+                "siem",
+                "xdr",
+                "fundamentos"
+            ],
+            "author": "Rafael Pérez Llorca"
+        },
+        "es": {
+            "title": "Topologías de despliegue",
+            "description": "Elige una topología Wazuh según el alcance verificado para laboratorios, entornos medianos y alta disponibilidad.",
+            "tags": [
+                "wazuh",
+                "blue-team",
+                "siem",
+                "xdr",
+                "fundamentos"
+            ],
+            "author": "Rafael Pérez Llorca"
+        },
+        "content_type": "module",
+        "course_slug": "wazuh",
+        "course_title": "Fundamentos de Wazuh",
+        "module_order": "2",
+        "publication_status": "reviewed",
+        "version": "4.14.x"
+    },
+    {
+        "id": "academy/wazuh/03-agentes",
+        "type": "course",
+        "date": "2026-09-28",
+        "en": {
+            "title": "Agentes y enrolamiento",
+            "description": "Understand the verified compatibility and secure enrollment boundaries for Wazuh agents.",
+            "tags": [
+                "wazuh",
+                "blue-team",
+                "siem",
+                "xdr",
+                "fundamentos"
+            ],
+            "author": "Rafael Pérez Llorca"
+        },
+        "es": {
+            "title": "Agentes y enrolamiento",
+            "description": "Comprende los límites verificados de compatibilidad y enrolamiento seguro de agentes Wazuh.",
+            "tags": [
+                "wazuh",
+                "blue-team",
+                "siem",
+                "xdr",
+                "fundamentos"
+            ],
+            "author": "Rafael Pérez Llorca"
+        },
+        "content_type": "module",
+        "course_slug": "wazuh",
+        "course_title": "Fundamentos de Wazuh",
+        "module_order": "6",
+        "publication_status": "reviewed",
+        "version": "4.14.x"
+    },
+    {
+        "id": "academy/wazuh/05-vigencia-y-versiones",
+        "type": "course",
+        "date": "2026-09-28",
+        "en": {
+            "title": "Vigencia y compatibilidad de versiones",
+            "description": "Apply the Wazuh course version policy without treating a training baseline as production guidance.",
+            "tags": [
+                "wazuh",
+                "blue-team",
+                "siem",
+                "xdr",
+                "fundamentos"
+            ],
+            "author": "Rafael Pérez Llorca"
+        },
+        "es": {
+            "title": "Vigencia y compatibilidad de versiones",
+            "description": "Aplica la política de versiones del curso Wazuh sin tratar el baseline formativo como guía de producción.",
+            "tags": [
+                "wazuh",
+                "blue-team",
+                "siem",
+                "xdr",
+                "fundamentos"
+            ],
+            "author": "Rafael Pérez Llorca"
+        },
+        "content_type": "module",
+        "course_slug": "wazuh",
+        "course_title": "Fundamentos de Wazuh",
+        "module_order": "3",
+        "publication_status": "reviewed",
+        "version": "4.14.x"
+    },
+    {
+        "id": "academy/wazuh/07-despliegue-all-in-one",
+        "type": "course",
+        "date": "2026-09-28",
+        "en": {
+            "title": "Laboratorio: desplegar Wazuh All-in-One",
+            "description": "Install the Wazuh central components on one Linux host and validate the resulting services.",
+            "tags": [
+                "wazuh",
+                "despliegue",
+                "all-in-one",
+                "laboratorio",
+                "linux"
+            ],
+            "author": "Rafael Pérez Llorca"
+        },
+        "es": {
+            "title": "Laboratorio: desplegar Wazuh All-in-One",
+            "description": "Instala los componentes centrales de Wazuh en un host Linux y valida los servicios resultantes.",
+            "tags": [
+                "wazuh",
+                "despliegue",
+                "all-in-one",
+                "laboratorio",
+                "linux"
+            ],
+            "author": "Rafael Pérez Llorca"
+        },
+        "content_type": "module",
+        "course_slug": "wazuh",
+        "course_title": "Fundamentos de Wazuh",
+        "module_order": "4",
+        "publication_status": "reviewed",
+        "version": "4.14.x"
+    },
+    {
+        "id": "academy/wazuh/06-casos-de-uso",
+        "type": "course",
+        "date": "2026-09-28",
+        "en": {
+            "title": "Casos de uso: de la señal a la decisión",
+            "description": "Connect Wazuh telemetry with investigation questions, evidence, and operational decisions.",
+            "tags": [
+                "wazuh",
+                "blue-team",
+                "casos-de-uso",
+                "fim",
+                "vulnerabilidades",
+                "logs",
+                "soc"
+            ],
+            "author": "Rafael Pérez Llorca"
+        },
+        "es": {
+            "title": "Casos de uso: de la señal a la decisión",
+            "description": "Conecta la telemetría de Wazuh con preguntas de investigación, evidencia y decisiones operativas.",
+            "tags": [
+                "wazuh",
+                "blue-team",
+                "casos-de-uso",
+                "fim",
+                "vulnerabilidades",
+                "logs",
+                "soc"
+            ],
+            "author": "Rafael Pérez Llorca"
+        },
+        "content_type": "module",
+        "course_slug": "wazuh",
+        "course_title": "Fundamentos de Wazuh",
+        "module_order": "14",
         "publication_status": "reviewed",
         "version": "4.14.x"
     },
