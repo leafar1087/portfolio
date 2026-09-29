@@ -30,7 +30,7 @@
                 .sort((a, b) => Number(a.course_order || 999) - Number(b.course_order || 999))
                 .map((entry, index) => {
                     const meta = entry.es || entry.en || {};
-                    const url = `${site}/pages/article.html?id=${encodeURIComponent(entry.id)}`;
+                    const url = `${site}/pages/article?id=${encodeURIComponent(entry.id)}`;
                     return {
                         '@type': 'ListItem',
                         position: index + 1,
@@ -56,7 +56,7 @@
             const meta = entry.es || entry.en || metadata || {};
             const title = metadata.title_es || metadata.title || meta.title;
             const description = metadata.description_es || metadata.description || meta.description;
-            const url = `${site}/pages/article.html?id=${encodeURIComponent(articleId)}`;
+            const url = `${site}/pages/article?id=${encodeURIComponent(articleId)}`;
             setCanonical(url);
             setMeta('meta[name="description"]', description);
             setMeta('meta[property="og:title"]', title);

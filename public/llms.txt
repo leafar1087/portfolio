@@ -3,15 +3,15 @@
 
 ## Core Pages
 - [Home - Portafolio Principal](https://rafaelperezllorca.com/)
-- [Academy - Formación y Cursos](https://rafaelperezllorca.com/pages/academy.html)
-- [Articles - Blog Técnico](https://rafaelperezllorca.com/pages/article.html)
+- [Academy - Formación y Cursos](https://rafaelperezllorca.com/pages/academy)
+- [Articles - Blog Técnico](https://rafaelperezllorca.com/pages/article)
 
 ## Technical Articles
-- [Arquitectura de Ciberresiliencia para Infraestructuras Críticas y Sector Público / Arquitectura de Ciberresiliencia para Infraestructuras Críticas y Sector Público](https://rafaelperezllorca.com/pages/article.html?id=cyber-resilience-architecture)
-- [The Essentials of DevSecOps: Security at the Speed of Code / Los Esenciales de DevSecOps: Seguridad a la Velocidad del Código](https://rafaelperezllorca.com/pages/article.html?id=devsecops-essentials)
-- [5 Realities of Cybersecurity that Challenge Everything You Knew / 5 Realidades de la Ciberseguridad que Desafían Todo lo que Creías Saber](https://rafaelperezllorca.com/pages/article.html?id=realidades-ciberseguridad)
-- [Building a Port Scanner with Python / Construyendo un Escáner de Puertos con Python](https://rafaelperezllorca.com/pages/article.html?id=python-port-scanner)
-- [Automation with Python and Cloudflare Pages / Automatización con Python y Cloudflare Pages](https://rafaelperezllorca.com/pages/article.html?id=test-automation)
-- [Proof of Concept: Security and Sanitization / Prueba de Concepto: Seguridad y sanitización](https://rafaelperezllorca.com/pages/article.html?id=security-test)
+- [Arquitectura de Ciberresiliencia para Infraestructuras Críticas y Sector Público / Arquitectura de Ciberresiliencia para Infraestructuras Críticas y Sector Público](https://rafaelperezllorca.com/pages/article?id=cyber-resilience-architecture)
+- [The Essentials of DevSecOps: Security at the Speed of Code / Los Esenciales de DevSecOps: Seguridad a la Velocidad del Código](https://rafaelperezllorca.com/pages/article?id=devsecops-essentials)
+- [5 Realities of Cybersecurity that Challenge Everything You Knew / 5 Realidades de la Ciberseguridad que Desafían Todo lo que Creías Saber](https://rafaelperezllorca.com/pages/article?id=realidades-ciberseguridad)
+- [Building a Port Scanner with Python / Construyendo un Escáner de Puertos con Python](https://rafaelperezllorca.com/pages/article?id=python-port-scanner)
+- [Automation with Python and Cloudflare Pages / Automatización con Python y Cloudflare Pages](https://rafaelperezllorca.com/pages/article?id=test-automation)
+- [Proof of Concept: Security and Sanitization / Prueba de Concepto: Seguridad y sanitización](https://rafaelperezllorca.com/pages/article?id=security-test)
 
 ## Educational Courses (Modules)

@@ -15,8 +15,8 @@ INTERNAL_PATH_PARTS = {'backup', 'backups', 'internal', 'source', 'sources', 'se
 
 STATIC_PAGES = [
     {'loc': '/', 'priority': '1.0', 'desc': 'Home - Portafolio Principal'},
-    {'loc': '/pages/academy.html', 'priority': '0.9', 'desc': 'Academy - Formación y Cursos'},
-    {'loc': '/pages/article.html', 'priority': '0.8', 'desc': 'Articles - Blog Técnico'},
+    {'loc': '/pages/academy', 'priority': '0.9', 'desc': 'Academy - Formación y Cursos'},
+    {'loc': '/pages/article', 'priority': '0.8', 'desc': 'Articles - Blog Técnico'},
     {'loc': '/pages/legal.html', 'priority': '0.3', 'desc': 'Legal - Aviso Legal'},
     {'loc': '/pages/privacy.html', 'priority': '0.3', 'desc': 'Privacy - Política de Privacidad'}
 ]
@@ -114,7 +114,7 @@ def generate_sitemap(posts):
 
     # Add Posts (Dynamic)
     for post in posts:
-        url = f"{BASE_URL}/pages/article.html?id={post['id']}"
+        url = f"{BASE_URL}/pages/article?id={post['id']}"
         date = post.get('date', datetime.now().strftime("%Y-%m-%d"))
         
         xml += '  <url>\n'
@@ -146,14 +146,14 @@ def generate_llmstxt(posts):
     for post in [p for p in posts if p['type'] == 'article']:
         title = post['en']['title']
         title_es = post['es']['title']
-        url = f"{BASE_URL}/pages/article.html?id={post['id']}"
+        url = f"{BASE_URL}/pages/article?id={post['id']}"
         md += f"- [{title} / {title_es}]({url})\n"
 
     # Separate Courses
     md += "\n## Educational Courses (Modules)\n"
     for post in [p for p in posts if p['type'] == 'course']:
         title = post['en']['title']
-        url = f"{BASE_URL}/pages/article.html?id={post['id']}"
+        url = f"{BASE_URL}/pages/article?id={post['id']}"
         md += f"- [{title}]({url})\n"
 
     with open(LLMS_TXT_FILE, 'w', encoding='utf-8') as f:
