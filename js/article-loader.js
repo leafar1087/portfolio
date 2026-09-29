@@ -149,6 +149,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             const currentEntry = allPosts.find(post => post.id === articleId);
             const courseSlug = currentEntry?.course_slug;
             let courseNavigation = '';
+            let courseOverview = '';
             let coursePager = '';
             const backText = currentLang === 'es' ? 'VOLVER A ACADEMIA' : 'RETURN TO ACADEMY';
             let backLink = 'academy.html';
@@ -176,6 +177,32 @@ document.addEventListener('DOMContentLoaded', async () => {
                 const previous = currentModuleIndex > 0 ? modules[currentModuleIndex - 1] : null;
                 const next = currentModuleIndex >= 0 && currentModuleIndex < modules.length - 1 ? modules[currentModuleIndex + 1] : null;
                 const titleFor = post => post[currentLang]?.title || post.es?.title || post.en?.title || post.id;
+                const descriptionFor = post => post[currentLang]?.description || post.es?.description || post.en?.description || '';
+
+                if (currentEntry.content_type === 'course') {
+                    const firstModule = modules[0];
+                    const moduleCards = modules.map((post, index) => `
+                        <a class="course-module-card" href="article.html?id=${encodeURIComponent(post.id)}">
+                            <span class="course-module-number">${String(index + 1).padStart(2, '0')}</span>
+                            <span class="course-module-card-body"><strong>${titleFor(post)}</strong><small>${descriptionFor(post)}</small></span>
+                            <span class="course-module-arrow" aria-hidden="true">→</span>
+                        </a>
+                    `).join('');
+                    const overviewDescription = descriptionFor(currentEntry);
+                    courseOverview = `
+                        <section class="course-overview" aria-label="Resumen del curso">
+                            <span class="course-overview-kicker">Curso publicado</span>
+                            <h1>${courseTitle}</h1>
+                            ${overviewDescription ? `<p>${overviewDescription}</p>` : ''}
+                            <div class="course-overview-meta"><span>${modules.length} módulos</span><span>${currentEntry.version || 'Versión vigente'}</span></div>
+                            ${firstModule ? `<a class="btn btn-filled course-overview-start" href="article.html?id=${encodeURIComponent(firstModule.id)}">Empezar por el módulo 01</a>` : ''}
+                        </section>
+                        <section class="course-module-directory" aria-label="Módulos del curso">
+                            <div><span class="course-overview-kicker">Ruta de aprendizaje</span><h2>Elige una lección o sigue el orden propuesto</h2></div>
+                            <div class="course-module-grid">${moduleCards}</div>
+                        </section>
+                    `;
+                }
 
                 courseNavigation = `
                     <nav class="course-sidebar" aria-label="Navegación del curso">
@@ -209,7 +236,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                 </div>
                 <div class="${courseSlug ? 'course-content-wrapper' : ''}">
                     ${courseNavigation}
-                    <div class="article-content">${fixedHtml}${coursePager}</div>
+                    <div class="article-content">${courseOverview}${fixedHtml}${coursePager}</div>
                 </div>
             `;
 
