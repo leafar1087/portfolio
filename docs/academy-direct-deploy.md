@@ -100,7 +100,7 @@ Haz esta prueba antes de borrar cualquier copia de cursos en `portfolio`.
 
 1. Abre `https://github.com/leafar1087/portfolio/actions/workflows/deploy-academy.yml`.
 2. Pulsa `Run workflow`.
-3. En `courses_ref`, introduce `ff63245` o una SHA posterior de `leafar1087/cursos` que contenga Python y Wazuh revisados.
+3. En `courses_ref`, introduce `b4e06b9ea908467613229bb862d638dc27c6d874` o una SHA completa posterior de `leafar1087/cursos` que contenga Python y Wazuh revisados.
 4. Ejecuta el workflow sobre `main`.
 5. Abre el log de `Checkout reviewed private courses`: debe resolver la SHA solicitada, no `main` por defecto.
 6. Abre el log de `Build academy from the immutable course revision`: debe mostrar exportación correcta, tests, construcción de `public/` y ausencia de campos internos.
