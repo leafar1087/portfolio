@@ -84,7 +84,7 @@ El Account ID no concede acceso por sí solo, pero se guarda como secreto para q
 
 ## 4. Ajustar Cloudflare sin perder el dominio
 
-El proyecto actual está conectado mediante Git integration. El nuevo workflow usa Direct Upload con Wrangler porque necesita construir con contenido privado que no vive en `portfolio`.
+El proyecto actual está conectado mediante Git integration. El nuevo workflow usa Direct Upload con Wrangler porque necesita construir con contenido privado que no vive en `portfolio`. Tras activarlo, cada push a `portfolio/main`, además de cada notificación desde `cursos`, construirá y desplegará el sitio completo.
 
 1. En Cloudflare Pages, abre el proyecto actual.
 2. Ve a `Settings` → `Builds & deployments` o `Build configuration`.

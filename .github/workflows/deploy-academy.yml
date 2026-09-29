@@ -1,6 +1,8 @@
 name: Deploy academy from private source
 
 on:
+  push:
+    branches: [main]
   repository_dispatch:
     types: [academy-content-reviewed]
   workflow_dispatch:
