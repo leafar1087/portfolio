@@ -33,7 +33,6 @@ PORTFOLIO/
 │   └── academy/               # Cursos aprobados: <course-slug>/
 ├── assets/                    # Tipografías, imágenes, logos y PDF
 ├── public/                    # Directorio de distribución estática (Runtime de producción)
-├── docs/academy-content.md    # Contrato de contenido de Ciber Academia
 ├── tests/                     # Pruebas del índice y aislamiento de publicación
 └── .github/workflows/         # Validación del build estático
 ```
@@ -83,7 +82,7 @@ publication_status: reviewed|canonical
 version: <versión o alcance>
 ```
 
-El build excluye cualquier `publication_status` distinto de `reviewed` o `canonical`, además de rutas internas, backups, secretos, enlaces fuera de `posts/`, archivos Python, `.env` y cachés. El contenido legacy sin ese campo permanece publicado por compatibilidad. El contrato detallado está en [`docs/academy-content.md`](docs/academy-content.md).
+El build excluye cualquier `publication_status` distinto de `reviewed` o `canonical`, además de rutas internas, backups, secretos, enlaces fuera de `posts/`, archivos Python, `.env` y cachés. El contenido legacy sin ese campo permanece publicado por compatibilidad. El contrato y la guía operativa se mantienen en el repositorio privado de cursos.
 
 ### Flujo desde el repositorio privado de cursos
 
