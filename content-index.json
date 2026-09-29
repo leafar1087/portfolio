@@ -1120,7 +1120,14 @@
                 "Testing"
             ],
             "author": "Rafael Pérez Llorca"
-        }
+        },
+        "content_type": "course",
+        "course_slug": "python-course",
+        "course_title": "Curso Python desde 0 — Manual de Ingeniería y Ciberseguridad",
+        "module_order": "0",
+        "course_order": "0",
+        "publication_status": "reviewed",
+        "version": "Curso base"
     },
     {
         "id": "devsecops-essentials",

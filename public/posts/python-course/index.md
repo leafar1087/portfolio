@@ -2,6 +2,13 @@
 title: "Curso Python desde 0 — Manual de Ingeniería y Ciberseguridad"
 description: "Manual integral de Python en 16 módulos con enfoque en CPython internals, DevSecOps, arquitectura de software y controles NIST/ENS."
 date: "2026-03-05"
+content_type: course
+course_slug: python-course
+course_title: Curso Python desde 0 — Manual de Ingeniería y Ciberseguridad
+module_order: 0
+course_order: 0
+publication_status: reviewed
+version: Curso base
 tags: ["Python", "DevSecOps", "Ciberseguridad", "Arquitectura", "Testing"]
 author: "Rafael Pérez Llorca"
 ---
