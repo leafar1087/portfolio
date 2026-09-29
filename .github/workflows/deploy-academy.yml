@@ -1,4 +1,4 @@
-name: Deploy academy from private source
+name: Deploy portfolio content from private source
 
 on:
   push:
@@ -43,19 +43,25 @@ jobs:
         with:
           python-version: '3.12'
 
-      - name: Build academy from the immutable course revision
+      - name: Build portfolio from the immutable content revision
         run: |
-          rm -rf posts/academy
+          rm -rf posts
+          mkdir -p posts
+          python3 .courses-source/tools/export_portfolio_content.py \
+            --root .courses-source/products/portfolio/posts \
+            --kind posts \
+            --output posts
           mkdir -p posts/academy
           python3 .courses-source/tools/export_portfolio_content.py \
             --root .courses-source/products/portfolio/courses \
+            --kind courses \
             --output posts/academy
           python3 -m unittest discover -s tests -v
           python3 build_index.py
           node --check js/academy-loader.js
           ! find public -type f \( -name '*.py' -o -name '*.pyc' -o -name '.env' -o -name '.env.*' \) -print -quit | grep -q .
           ! find public -type d -name '__pycache__' -print -quit | grep -q .
-          ! rg -n 'artifact_id|source_path|knowledge_dependencies|source_dependencies|Control de cambios|Registro interno|K-[A-Z0-9]' posts/academy public/posts/academy
+          ! rg -n 'artifact_id|source_path|knowledge_dependencies|source_dependencies|Control de cambios|Registro interno|K-[A-Z0-9]' posts public/posts
 
       - name: Deploy static assets to Cloudflare Pages
         uses: cloudflare/wrangler-action@v4
