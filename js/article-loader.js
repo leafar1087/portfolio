@@ -181,12 +181,36 @@ document.addEventListener('DOMContentLoaded', async () => {
 
                 if (currentEntry.content_type === 'course') {
                     const firstModule = modules[0];
-                    const moduleCards = modules.map((post, index) => `
-                        <a class="course-module-card" href="article.html?id=${encodeURIComponent(post.id)}">
-                            <span class="course-module-number">${String(index + 1).padStart(2, '0')}</span>
-                            <span class="course-module-card-body"><strong>${titleFor(post)}</strong><small>${descriptionFor(post)}</small></span>
-                            <span class="course-module-arrow" aria-hidden="true">→</span>
-                        </a>
+                    const stageLabels = {
+                        'básico': 'Nivel básico',
+                        'intermedio': 'Nivel intermedio',
+                        'avanzado': 'Nivel avanzado',
+                        'Ruta principal': 'Ruta principal'
+                    };
+                    const stageDescriptions = {
+                        'básico': 'Construye una base práctica antes de añadir complejidad.',
+                        'intermedio': 'Conecta programas, datos y estructura de proyecto.',
+                        'avanzado': 'Automatiza, comprueba y entrega con criterio técnico.',
+                        'Ruta principal': 'Sigue los módulos en el orden propuesto.'
+                    };
+                    const stages = new Map();
+                    modules.forEach((post, index) => {
+                        const stage = post.learning_stage || 'Ruta principal';
+                        const items = stages.get(stage) || [];
+                        items.push({ post, index });
+                        stages.set(stage, items);
+                    });
+                    const moduleCards = [...stages].map(([stage, items]) => `
+                        <section class="course-stage">
+                            <div class="course-stage-heading"><h3>${stageLabels[stage] || stage}</h3><p>${stageDescriptions[stage] || stageDescriptions['Ruta principal']}</p></div>
+                            <div class="course-module-grid">${items.map(({ post, index }) => `
+                                <a class="course-module-card" href="article.html?id=${encodeURIComponent(post.id)}">
+                                    <span class="course-module-number">${String(index + 1).padStart(2, '0')}</span>
+                                    <span class="course-module-card-body"><strong>${titleFor(post)}</strong><small>${descriptionFor(post)}</small></span>
+                                    <span class="course-module-arrow" aria-hidden="true">→</span>
+                                </a>
+                            `).join('')}</div>
+                        </section>
                     `).join('');
                     const overviewDescription = descriptionFor(currentEntry);
                     courseOverview = `

@@ -215,7 +215,7 @@ def main():
                         }
                     }
                     for field in ('content_type', 'course_slug', 'course_title', 'module_order', 'course_order',
-                                  'publication_status', 'version'):
+                                  'publication_status', 'version', 'learning_stage'):
                         if field in metadata:
                             post_entry[field] = metadata[field]
                     if not post_entry['date']:

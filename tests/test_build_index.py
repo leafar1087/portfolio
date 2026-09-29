@@ -46,7 +46,7 @@ class BuildIndexTests(unittest.TestCase):
 
     def test_course_metadata_is_preserved(self):
         Path('posts/academy/course').mkdir(parents=True)
-        Path('posts/academy/course/index.md').write_text('''---\ntitle: Course\ntitle_es: Curso\ndescription: Summary\ndescription_es: Resumen\ndate: 2026-01-01\nauthor: Rafael Pérez Llorca\ntags: [ciberseguridad, guia]\ncontent_type: course\ncourse_slug: course\ncourse_title: Curso\nmodule_order: 0\ncourse_order: 1\npublication_status: canonical\nversion: v1\n---\n# Course\n''', encoding='utf-8')
+        Path('posts/academy/course/index.md').write_text('''---\ntitle: Course\ntitle_es: Curso\ndescription: Summary\ndescription_es: Resumen\ndate: 2026-01-01\nauthor: Rafael Pérez Llorca\ntags: [ciberseguridad, guia]\ncontent_type: course\ncourse_slug: course\ncourse_title: Curso\nmodule_order: 0\ncourse_order: 1\npublication_status: canonical\nversion: v1\nlearning_stage: básico\n---\n# Course\n''', encoding='utf-8')
         entry = self.run_build()[0]
         self.assertEqual(entry['type'], 'course')
         self.assertEqual(entry['content_type'], 'course')
@@ -55,6 +55,7 @@ class BuildIndexTests(unittest.TestCase):
         self.assertEqual(entry['course_order'], '1')
         self.assertEqual(entry['publication_status'], 'canonical')
         self.assertEqual(entry['version'], 'v1')
+        self.assertEqual(entry['learning_stage'], 'básico')
 
     def test_internal_and_outside_paths_are_not_published(self):
         self.write('posts/academy/approved/module.md', 'reviewed')
