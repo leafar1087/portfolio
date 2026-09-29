@@ -1,6 +1,258 @@
 [
     {
-        "id": "academy/wazuh/09-agente-windows",
+        "id": "academy/wazuh-esencial/index",
+        "type": "course",
+        "date": "2026-09-29",
+        "en": {
+            "title": "Wazuh esencial",
+            "description": "A guided foundation for deploying Wazuh, connecting endpoints and validating its first telemetry path.",
+            "tags": [
+                "wazuh",
+                "blue-team",
+                "siem",
+                "fundamentos"
+            ],
+            "author": "Rafael Pérez Llorca"
+        },
+        "es": {
+            "title": "Wazuh esencial",
+            "description": "Ruta guiada para desplegar Wazuh, conectar endpoints y validar su primer flujo de telemetría.",
+            "tags": [
+                "wazuh",
+                "blue-team",
+                "siem",
+                "fundamentos"
+            ],
+            "author": "Rafael Pérez Llorca"
+        },
+        "content_type": "course",
+        "course_slug": "wazuh-esencial",
+        "course_title": "Wazuh esencial",
+        "module_order": "0",
+        "course_order": "1",
+        "publication_status": "reviewed",
+        "version": "4.14.x"
+    },
+    {
+        "id": "academy/wazuh-avanzado-operacion/03-respuesta-activa-controlada",
+        "type": "course",
+        "date": "2026-09-29",
+        "en": {
+            "title": "Respuesta activa controlada: automatizar sin perder el control",
+            "description": "Design, test and audit reversible Wazuh Active Response actions without turning an alert into an outage.",
+            "tags": [
+                "wazuh",
+                "active-response",
+                "automatizacion",
+                "respuesta-a-incidentes",
+                "blue-team"
+            ],
+            "author": "Rafael Pérez Llorca"
+        },
+        "es": {
+            "title": "Respuesta activa controlada: automatizar sin perder el control",
+            "description": "Diseña, prueba y audita acciones reversibles de Active Response sin convertir una alerta en una caída de servicio.",
+            "tags": [
+                "wazuh",
+                "active-response",
+                "automatizacion",
+                "respuesta-a-incidentes",
+                "blue-team"
+            ],
+            "author": "Rafael Pérez Llorca"
+        },
+        "content_type": "module",
+        "course_slug": "wazuh-avanzado-operacion",
+        "course_title": "Wazuh avanzado: automatización y operación",
+        "module_order": "3",
+        "publication_status": "reviewed",
+        "version": "4.14.x"
+    },
+    {
+        "id": "academy/wazuh-avanzado-operacion/10-operacion-y-recuperacion",
+        "type": "course",
+        "date": "2026-09-29",
+        "en": {
+            "title": "Operación y recuperación: mantener Wazuh verificable",
+            "description": "Operate Wazuh with health checks, capacity evidence, controlled changes and tested recovery.",
+            "tags": [
+                "wazuh",
+                "operaciones",
+                "backup",
+                "recuperacion",
+                "capacidad",
+                "mantenimiento"
+            ],
+            "author": "Rafael Pérez Llorca"
+        },
+        "es": {
+            "title": "Operación y recuperación: mantener Wazuh verificable",
+            "description": "Opera Wazuh con comprobaciones de salud, evidencia de capacidad, cambios controlados y recuperación probada.",
+            "tags": [
+                "wazuh",
+                "operaciones",
+                "backup",
+                "recuperacion",
+                "capacidad",
+                "mantenimiento"
+            ],
+            "author": "Rafael Pérez Llorca"
+        },
+        "content_type": "module",
+        "course_slug": "wazuh-avanzado-operacion",
+        "course_title": "Wazuh avanzado: automatización y operación",
+        "module_order": "10",
+        "publication_status": "reviewed",
+        "version": "4.14.x"
+    },
+    {
+        "id": "academy/wazuh-avanzado-operacion/index",
+        "type": "course",
+        "date": "2026-09-29",
+        "en": {
+            "title": "Wazuh avanzado: automatización y operación",
+            "description": "Design controlled Wazuh automation, scalable configuration and recoverable operations.",
+            "tags": [
+                "wazuh",
+                "automatizacion",
+                "active-response",
+                "operaciones",
+                "blue-team"
+            ],
+            "author": "Rafael Pérez Llorca"
+        },
+        "es": {
+            "title": "Wazuh avanzado: automatización y operación",
+            "description": "Diseña automatización controlada, configuración escalable y operación recuperable de Wazuh.",
+            "tags": [
+                "wazuh",
+                "automatizacion",
+                "active-response",
+                "operaciones",
+                "blue-team"
+            ],
+            "author": "Rafael Pérez Llorca"
+        },
+        "content_type": "course",
+        "course_slug": "wazuh-avanzado-operacion",
+        "course_title": "Wazuh avanzado: automatización y operación",
+        "module_order": "0",
+        "course_order": "3",
+        "publication_status": "reviewed",
+        "version": "4.14.x"
+    },
+    {
+        "id": "academy/wazuh-intermedio/16-dashboard-e-investigacion",
+        "type": "course",
+        "date": "2026-09-29",
+        "en": {
+            "title": "Dashboard e investigación: de la alerta a una línea temporal",
+            "description": "Use Wazuh dashboard searches and fields to investigate evidence without overreaching.",
+            "tags": [
+                "wazuh",
+                "dashboard",
+                "threat-hunting",
+                "investigacion",
+                "indexer"
+            ],
+            "author": "Rafael Pérez Llorca"
+        },
+        "es": {
+            "title": "Dashboard e investigación: de la alerta a una línea temporal",
+            "description": "Usa búsquedas y campos del dashboard de Wazuh para investigar evidencia sin sobreinterpretarla.",
+            "tags": [
+                "wazuh",
+                "dashboard",
+                "threat-hunting",
+                "investigacion",
+                "indexer"
+            ],
+            "author": "Rafael Pérez Llorca"
+        },
+        "content_type": "module",
+        "course_slug": "wazuh-intermedio",
+        "course_title": "Wazuh intermedio: telemetría y detección",
+        "module_order": "7",
+        "publication_status": "reviewed",
+        "version": "4.14.x"
+    },
+    {
+        "id": "academy/wazuh-intermedio/index",
+        "type": "course",
+        "date": "2026-09-29",
+        "en": {
+            "title": "Wazuh intermedio: telemetría y detección",
+            "description": "Build, test and investigate Wazuh telemetry and detections from real evidence.",
+            "tags": [
+                "wazuh",
+                "deteccion",
+                "decoders",
+                "rules",
+                "mitre",
+                "blue-team"
+            ],
+            "author": "Rafael Pérez Llorca"
+        },
+        "es": {
+            "title": "Wazuh intermedio: telemetría y detección",
+            "description": "Construye, prueba e investiga telemetría y detecciones de Wazuh a partir de evidencia real.",
+            "tags": [
+                "wazuh",
+                "deteccion",
+                "decoders",
+                "rules",
+                "mitre",
+                "blue-team"
+            ],
+            "author": "Rafael Pérez Llorca"
+        },
+        "content_type": "course",
+        "course_slug": "wazuh-intermedio",
+        "course_title": "Wazuh intermedio: telemetría y detección",
+        "module_order": "0",
+        "course_order": "2",
+        "publication_status": "reviewed",
+        "version": "4.14.x"
+    },
+    {
+        "id": "academy/wazuh-intermedio/15-fim-sca-inventario-vulnerabilidades",
+        "type": "course",
+        "date": "2026-09-29",
+        "en": {
+            "title": "FIM, SCA, inventario y vulnerabilidades: cuatro señales, una decisión",
+            "description": "Configure and interpret Wazuh endpoint capabilities with scope, evidence and operational limits.",
+            "tags": [
+                "wazuh",
+                "fim",
+                "sca",
+                "syscollector",
+                "vulnerabilidades",
+                "hardening"
+            ],
+            "author": "Rafael Pérez Llorca"
+        },
+        "es": {
+            "title": "FIM, SCA, inventario y vulnerabilidades: cuatro señales, una decisión",
+            "description": "Configura e interpreta capacidades de endpoint de Wazuh con alcance, evidencia y límites operativos.",
+            "tags": [
+                "wazuh",
+                "fim",
+                "sca",
+                "syscollector",
+                "vulnerabilidades",
+                "hardening"
+            ],
+            "author": "Rafael Pérez Llorca"
+        },
+        "content_type": "module",
+        "course_slug": "wazuh-intermedio",
+        "course_title": "Wazuh intermedio: telemetría y detección",
+        "module_order": "6",
+        "publication_status": "reviewed",
+        "version": "4.14.x"
+    },
+    {
+        "id": "academy/wazuh-esencial/09-agente-windows",
         "type": "course",
         "date": "2026-09-28",
         "en": {
@@ -30,49 +282,14 @@
             "author": "Rafael Pérez Llorca"
         },
         "content_type": "module",
-        "course_slug": "wazuh",
-        "course_title": "Fundamentos de Wazuh",
+        "course_slug": "wazuh-esencial",
+        "course_title": "Wazuh esencial",
         "module_order": "8",
         "publication_status": "reviewed",
         "version": "4.14.x"
     },
     {
-        "id": "academy/wazuh/index",
-        "type": "course",
-        "date": "2026-09-28",
-        "en": {
-            "title": "Fundamentos de Wazuh",
-            "description": "An evidence-based introduction to Wazuh architecture and its verified version scope.",
-            "tags": [
-                "wazuh",
-                "blue-team",
-                "siem",
-                "xdr",
-                "fundamentos"
-            ],
-            "author": "Rafael Pérez Llorca"
-        },
-        "es": {
-            "title": "Fundamentos de Wazuh",
-            "description": "Introducción basada en evidencia a la arquitectura de Wazuh y su alcance de versión verificado.",
-            "tags": [
-                "wazuh",
-                "blue-team",
-                "siem",
-                "xdr",
-                "fundamentos"
-            ],
-            "author": "Rafael Pérez Llorca"
-        },
-        "content_type": "course",
-        "course_slug": "wazuh",
-        "course_title": "Fundamentos de Wazuh",
-        "module_order": "0",
-        "publication_status": "reviewed",
-        "version": "4.14.x"
-    },
-    {
-        "id": "academy/wazuh/04-recoleccion-de-logs",
+        "id": "academy/wazuh-esencial/04-recoleccion-de-logs",
         "type": "course",
         "date": "2026-09-28",
         "en": {
@@ -100,14 +317,14 @@
             "author": "Rafael Pérez Llorca"
         },
         "content_type": "module",
-        "course_slug": "wazuh",
-        "course_title": "Fundamentos de Wazuh",
+        "course_slug": "wazuh-esencial",
+        "course_title": "Wazuh esencial",
         "module_order": "9",
         "publication_status": "reviewed",
         "version": "4.14.x"
     },
     {
-        "id": "academy/wazuh/08-agente-linux",
+        "id": "academy/wazuh-esencial/08-agente-linux",
         "type": "course",
         "date": "2026-09-28",
         "en": {
@@ -135,14 +352,14 @@
             "author": "Rafael Pérez Llorca"
         },
         "content_type": "module",
-        "course_slug": "wazuh",
-        "course_title": "Fundamentos de Wazuh",
+        "course_slug": "wazuh-esencial",
+        "course_title": "Wazuh esencial",
         "module_order": "7",
         "publication_status": "reviewed",
         "version": "4.14.x"
     },
     {
-        "id": "academy/wazuh/01-fundamentos",
+        "id": "academy/wazuh-esencial/01-fundamentos",
         "type": "course",
         "date": "2026-09-28",
         "en": {
@@ -172,14 +389,14 @@
             "author": "Rafael Pérez Llorca"
         },
         "content_type": "module",
-        "course_slug": "wazuh",
-        "course_title": "Fundamentos de Wazuh",
+        "course_slug": "wazuh-esencial",
+        "course_title": "Wazuh esencial",
         "module_order": "1",
         "publication_status": "reviewed",
         "version": "4.14.x"
     },
     {
-        "id": "academy/wazuh/10-validacion-extremo-a-extremo",
+        "id": "academy/wazuh-esencial/10-validacion-extremo-a-extremo",
         "type": "course",
         "date": "2026-09-28",
         "en": {
@@ -207,14 +424,14 @@
             "author": "Rafael Pérez Llorca"
         },
         "content_type": "module",
-        "course_slug": "wazuh",
-        "course_title": "Fundamentos de Wazuh",
+        "course_slug": "wazuh-esencial",
+        "course_title": "Wazuh esencial",
         "module_order": "5",
         "publication_status": "reviewed",
         "version": "4.14.x"
     },
     {
-        "id": "academy/wazuh/02-despliegue",
+        "id": "academy/wazuh-esencial/02-despliegue",
         "type": "course",
         "date": "2026-09-28",
         "en": {
@@ -242,14 +459,14 @@
             "author": "Rafael Pérez Llorca"
         },
         "content_type": "module",
-        "course_slug": "wazuh",
-        "course_title": "Fundamentos de Wazuh",
+        "course_slug": "wazuh-esencial",
+        "course_title": "Wazuh esencial",
         "module_order": "2",
         "publication_status": "reviewed",
         "version": "4.14.x"
     },
     {
-        "id": "academy/wazuh/03-agentes",
+        "id": "academy/wazuh-esencial/03-agentes",
         "type": "course",
         "date": "2026-09-28",
         "en": {
@@ -277,14 +494,14 @@
             "author": "Rafael Pérez Llorca"
         },
         "content_type": "module",
-        "course_slug": "wazuh",
-        "course_title": "Fundamentos de Wazuh",
+        "course_slug": "wazuh-esencial",
+        "course_title": "Wazuh esencial",
         "module_order": "6",
         "publication_status": "reviewed",
         "version": "4.14.x"
     },
     {
-        "id": "academy/wazuh/05-vigencia-y-versiones",
+        "id": "academy/wazuh-esencial/05-vigencia-y-versiones",
         "type": "course",
         "date": "2026-09-28",
         "en": {
@@ -312,14 +529,14 @@
             "author": "Rafael Pérez Llorca"
         },
         "content_type": "module",
-        "course_slug": "wazuh",
-        "course_title": "Fundamentos de Wazuh",
+        "course_slug": "wazuh-esencial",
+        "course_title": "Wazuh esencial",
         "module_order": "3",
         "publication_status": "reviewed",
         "version": "4.14.x"
     },
     {
-        "id": "academy/wazuh/07-despliegue-all-in-one",
+        "id": "academy/wazuh-esencial/07-despliegue-all-in-one",
         "type": "course",
         "date": "2026-09-28",
         "en": {
@@ -347,14 +564,156 @@
             "author": "Rafael Pérez Llorca"
         },
         "content_type": "module",
-        "course_slug": "wazuh",
-        "course_title": "Fundamentos de Wazuh",
+        "course_slug": "wazuh-esencial",
+        "course_title": "Wazuh esencial",
         "module_order": "4",
         "publication_status": "reviewed",
         "version": "4.14.x"
     },
     {
-        "id": "academy/wazuh/06-casos-de-uso",
+        "id": "academy/wazuh-intermedio/12-rules-y-logtest",
+        "type": "course",
+        "date": "2026-09-28",
+        "en": {
+            "title": "Rules y wazuh-logtest: convertir campos en una detección",
+            "description": "Build, test and safely revert a minimal Wazuh detection using verified decoded fields.",
+            "tags": [
+                "wazuh",
+                "rules",
+                "detection-engineering",
+                "logtest",
+                "blue-team"
+            ],
+            "author": "Rafael Pérez Llorca"
+        },
+        "es": {
+            "title": "Rules y wazuh-logtest: convertir campos en una detección",
+            "description": "Construye, prueba y revierte con seguridad una detección mínima de Wazuh a partir de campos ya verificados.",
+            "tags": [
+                "wazuh",
+                "rules",
+                "detection-engineering",
+                "logtest",
+                "blue-team"
+            ],
+            "author": "Rafael Pérez Llorca"
+        },
+        "content_type": "module",
+        "course_slug": "wazuh-intermedio",
+        "course_title": "Wazuh intermedio: telemetría y detección",
+        "module_order": "3",
+        "publication_status": "reviewed",
+        "version": "4.14.x"
+    },
+    {
+        "id": "academy/wazuh-intermedio/11-decoders",
+        "type": "course",
+        "date": "2026-09-28",
+        "en": {
+            "title": "Decoders: convertir registros en campos",
+            "description": "Learn to inspect what Wazuh extracts from a record and build a minimal custom decoder safely.",
+            "tags": [
+                "wazuh",
+                "decoders",
+                "logtest",
+                "regex",
+                "json",
+                "detection-engineering"
+            ],
+            "author": "Rafael Pérez Llorca"
+        },
+        "es": {
+            "title": "Decoders: convertir registros en campos",
+            "description": "Aprende a comprobar qué extrae Wazuh de un registro y a construir un decoder personalizado mínimo y seguro.",
+            "tags": [
+                "wazuh",
+                "decoders",
+                "logtest",
+                "regex",
+                "json",
+                "detection-engineering"
+            ],
+            "author": "Rafael Pérez Llorca"
+        },
+        "content_type": "module",
+        "course_slug": "wazuh-intermedio",
+        "course_title": "Wazuh intermedio: telemetría y detección",
+        "module_order": "2",
+        "publication_status": "reviewed",
+        "version": "4.14.x"
+    },
+    {
+        "id": "academy/wazuh-intermedio/04-recoleccion-de-logs",
+        "type": "course",
+        "date": "2026-09-28",
+        "en": {
+            "title": "Recolección y procesamiento de logs",
+            "description": "Follow the verified path from telemetry collection to decoding, rule evaluation and storage.",
+            "tags": [
+                "wazuh",
+                "blue-team",
+                "siem",
+                "xdr",
+                "fundamentos"
+            ],
+            "author": "Rafael Pérez Llorca"
+        },
+        "es": {
+            "title": "Recolección y procesamiento de logs",
+            "description": "Sigue el recorrido verificado desde la recolección de telemetría hasta el decodificado, evaluación de reglas y almacenamiento.",
+            "tags": [
+                "wazuh",
+                "blue-team",
+                "siem",
+                "xdr",
+                "fundamentos"
+            ],
+            "author": "Rafael Pérez Llorca"
+        },
+        "content_type": "module",
+        "course_slug": "wazuh-intermedio",
+        "course_title": "Wazuh intermedio: telemetría y detección",
+        "module_order": "1",
+        "publication_status": "reviewed",
+        "version": "4.14.x"
+    },
+    {
+        "id": "academy/wazuh-intermedio/13-primera-alerta-end-to-end",
+        "type": "course",
+        "date": "2026-09-28",
+        "en": {
+            "title": "Primera alerta end-to-end: de una señal controlada al dashboard",
+            "description": "Generate an authorized lab signal and trace it from endpoint to the Wazuh dashboard.",
+            "tags": [
+                "wazuh",
+                "alertas",
+                "laboratorio",
+                "validacion",
+                "threat-hunting"
+            ],
+            "author": "Rafael Pérez Llorca"
+        },
+        "es": {
+            "title": "Primera alerta end-to-end: de una señal controlada al dashboard",
+            "description": "Genera una señal de laboratorio autorizada y recórrela desde el endpoint hasta el dashboard de Wazuh.",
+            "tags": [
+                "wazuh",
+                "alertas",
+                "laboratorio",
+                "validacion",
+                "threat-hunting"
+            ],
+            "author": "Rafael Pérez Llorca"
+        },
+        "content_type": "module",
+        "course_slug": "wazuh-intermedio",
+        "course_title": "Wazuh intermedio: telemetría y detección",
+        "module_order": "4",
+        "publication_status": "reviewed",
+        "version": "4.14.x"
+    },
+    {
+        "id": "academy/wazuh-intermedio/06-casos-de-uso",
         "type": "course",
         "date": "2026-09-28",
         "en": {
@@ -386,9 +745,44 @@
             "author": "Rafael Pérez Llorca"
         },
         "content_type": "module",
-        "course_slug": "wazuh",
-        "course_title": "Fundamentos de Wazuh",
-        "module_order": "14",
+        "course_slug": "wazuh-intermedio",
+        "course_title": "Wazuh intermedio: telemetría y detección",
+        "module_order": "8",
+        "publication_status": "reviewed",
+        "version": "4.14.x"
+    },
+    {
+        "id": "academy/wazuh-intermedio/14-mitre-attck-y-cobertura",
+        "type": "course",
+        "date": "2026-09-28",
+        "en": {
+            "title": "MITRE ATT&CK y cobertura: mapear evidencia, no etiquetas",
+            "description": "Map verified Wazuh detections to ATT&CK responsibly and identify meaningful coverage gaps.",
+            "tags": [
+                "wazuh",
+                "mitre-attck",
+                "detection-engineering",
+                "coverage",
+                "blue-team"
+            ],
+            "author": "Rafael Pérez Llorca"
+        },
+        "es": {
+            "title": "MITRE ATT&CK y cobertura: mapear evidencia, no etiquetas",
+            "description": "Mapea detecciones verificadas de Wazuh a ATT&CK con rigor e identifica brechas de cobertura útiles.",
+            "tags": [
+                "wazuh",
+                "mitre-attck",
+                "detection-engineering",
+                "coverage",
+                "blue-team"
+            ],
+            "author": "Rafael Pérez Llorca"
+        },
+        "content_type": "module",
+        "course_slug": "wazuh-intermedio",
+        "course_title": "Wazuh intermedio: telemetría y detección",
+        "module_order": "5",
         "publication_status": "reviewed",
         "version": "4.14.x"
     },

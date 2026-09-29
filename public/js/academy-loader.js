@@ -39,7 +39,15 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         if (!courses.size) return renderEmpty('No hay cursos publicados en este momento.');
         const fragment = document.createDocumentFragment();
-        [...courses.values()].sort((a, b) => a.slug.localeCompare(b.slug)).forEach(course => {
+        [...courses.values()].sort((a, b) => {
+            const aOrder = Number(a.index?.course_order);
+            const bOrder = Number(b.index?.course_order);
+            const aValid = Number.isFinite(aOrder);
+            const bValid = Number.isFinite(bOrder);
+            if (aValid && bValid && aOrder !== bOrder) return aOrder - bOrder;
+            if (aValid !== bValid) return aValid ? -1 : 1;
+            return a.slug.localeCompare(b.slug);
+        }).forEach(course => {
             const overview = course.index || course.entries[0];
             const meta = metadata(overview);
             const modules = course.entries.filter(entry => entry.content_type === 'module' || (!entry.id.endsWith('/index') && entry !== overview));

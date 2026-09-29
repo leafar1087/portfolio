@@ -214,7 +214,7 @@ def main():
                             'author': metadata.get('author', '')
                         }
                     }
-                    for field in ('content_type', 'course_slug', 'course_title', 'module_order',
+                    for field in ('content_type', 'course_slug', 'course_title', 'module_order', 'course_order',
                                   'publication_status', 'version'):
                         if field in metadata:
                             post_entry[field] = metadata[field]

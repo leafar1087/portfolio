@@ -14,11 +14,12 @@ content_type: course|module|guide|lab
 course_slug: <slug del curso>
 course_title: <título del curso>
 module_order: <número o 0>
+course_order: <número; solo en el índice del curso, opcional>
 publication_status: reviewed|canonical
 version: <versión o alcance>
 ```
 
-El contenido legacy sin `publication_status` se conserva por compatibilidad; al incluirlo, solo se admiten `reviewed` y `canonical`. El índice del curso usa `content_type: course` y `module_order: 0`; los módulos usan `content_type: module`. Solo `reviewed` y `canonical` se publican. El generador excluye otros estados y rutas internas, backups y secretos.
+El contenido legacy sin `publication_status` se conserva por compatibilidad; al incluirlo, solo se admiten `reviewed` y `canonical`. El índice del curso usa `content_type: course` y `module_order: 0`; si hay varios cursos, `course_order` define el orden visual entre ellos. Los módulos usan `content_type: module`. Solo `reviewed` y `canonical` se publican. El generador excluye otros estados y rutas internas, backups y secretos.
 
 ## Próxima integración entre repositorios
 
