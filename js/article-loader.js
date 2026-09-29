@@ -207,6 +207,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                 docTitle = metadata.title || (finalContent.match(/^#\s+(.+)$/m)?.[1]);
             }
             if (docTitle) document.title = `${docTitle} - Rafael Pérez Llorca`;
+            window.academySeo?.resource(allPosts.find(post => post.id === articleId), articleId, metadata);
 
             // --- RENDER MERMAID AND PRISM ---
             if (window.mermaid) {

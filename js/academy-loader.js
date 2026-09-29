@@ -38,6 +38,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             });
 
         if (!courses.size) return renderEmpty('No hay cursos publicados en este momento.');
+        window.academySeo?.catalog(courses);
         const fragment = document.createDocumentFragment();
         [...courses.values()].sort((a, b) => {
             const aOrder = Number(a.index?.course_order);
