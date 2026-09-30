@@ -2,7 +2,7 @@ import os
 import json
 import re
 import shutil
-from datetime import datetime
+from datetime import datetime, timezone
 
 # Configuration
 POSTS_DIR = 'posts'
@@ -12,6 +12,14 @@ LLMS_TXT_FILE = 'llms.txt'
 BASE_URL = 'https://rafaelperezllorca.com'
 PUBLISHABLE_STATUSES = {'reviewed', 'canonical'}
 INTERNAL_PATH_PARTS = {'backup', 'backups', 'internal', 'source', 'sources', 'secret', 'secrets', '__pycache__'}
+
+
+def build_lastmod():
+    """Use the reviewed source commit date when CI provides it."""
+    raw_epoch = os.environ.get('SOURCE_DATE_EPOCH')
+    if raw_epoch:
+        return datetime.fromtimestamp(int(raw_epoch), tz=timezone.utc).strftime('%Y-%m-%d')
+    return datetime.now(timezone.utc).strftime('%Y-%m-%d')
 
 STATIC_PAGES = [
     {'loc': '/', 'priority': '1.0', 'desc': 'Home - Portafolio Principal'},
@@ -107,7 +115,7 @@ def generate_sitemap(posts):
     for page in STATIC_PAGES:
         xml += '  <url>\n'
         xml += f'    <loc>{BASE_URL}{page["loc"]}</loc>\n'
-        xml += f'    <lastmod>{datetime.now().strftime("%Y-%m-%d")}</lastmod>\n'
+        xml += f'    <lastmod>{build_lastmod()}</lastmod>\n'
         xml += f'    <changefreq>monthly</changefreq>\n'
         xml += f'    <priority>{page["priority"]}</priority>\n'
         xml += '  </url>\n'
@@ -115,7 +123,7 @@ def generate_sitemap(posts):
     # Add Posts (Dynamic)
     for post in posts:
         url = f"{BASE_URL}/pages/article?id={post['id']}"
-        date = post.get('date', datetime.now().strftime("%Y-%m-%d"))
+        date = post.get('date') or build_lastmod()
         
         xml += '  <url>\n'
         xml += f'    <loc>{url}</loc>\n'

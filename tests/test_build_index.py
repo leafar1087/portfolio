@@ -4,6 +4,7 @@ import os
 import tempfile
 import unittest
 from pathlib import Path
+from unittest.mock import patch
 
 SCRIPT = Path(__file__).resolve().parents[1] / 'build_index.py'
 
@@ -72,6 +73,13 @@ class BuildIndexTests(unittest.TestCase):
         public_files = {str(path.relative_to('public')) for path in Path('public').rglob('*') if path.is_file()}
         self.assertIn('posts/academy/approved/module.md', public_files)
         self.assertFalse(any(name.endswith(('.py', '.pyc')) or '.env' in name or '__pycache__' in name or 'internal' in name for name in public_files))
+
+    def test_sitemap_uses_reviewed_source_timestamp_when_available(self):
+        self.write('posts/article.md')
+        with patch.dict(os.environ, {'SOURCE_DATE_EPOCH': '1767225600'}):
+            self.run_build()
+        sitemap = Path('sitemap.xml').read_text(encoding='utf-8')
+        self.assertIn('<lastmod>2026-01-01</lastmod>', sitemap)
 
 
 if __name__ == '__main__':

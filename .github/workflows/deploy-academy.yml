@@ -1,16 +1,13 @@
 name: Deploy portfolio content from private source
 
 on:
-  push:
-    branches: [main]
   repository_dispatch:
     types: [academy-content-reviewed]
   workflow_dispatch:
     inputs:
       courses_ref:
-        description: SHA or branch from leafar1087/cursos
+        description: Full 40-character commit SHA from leafar1087/cursos
         required: true
-        default: main
 
 permissions:
   contents: read
@@ -25,26 +22,38 @@ jobs:
     runs-on: ubuntu-latest
     env:
       COURSES_REPOSITORY: leafar1087/cursos
-      COURSES_REF: ${{ github.event.client_payload.courses_ref || inputs.courses_ref || 'main' }}
+      COURSES_REF: ${{ github.event.client_payload.courses_ref || inputs.courses_ref }}
     steps:
+      - name: Validate immutable source revision
+        env:
+          COURSES_REF: ${{ env.COURSES_REF }}
+        run: |
+          if [[ ! "$COURSES_REF" =~ ^[0-9a-f]{40}$ ]]; then
+            echo "courses_ref debe ser un SHA completo de 40 caracteres." >&2
+            exit 1
+          fi
       - name: Checkout portfolio application
-        uses: actions/checkout@v4
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
 
       - name: Checkout reviewed private courses
-        uses: actions/checkout@v4
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
         with:
           repository: ${{ env.COURSES_REPOSITORY }}
           ref: ${{ env.COURSES_REF }}
           token: ${{ secrets.COURSES_READ_TOKEN }}
           path: .courses-source
+          persist-credentials: false
 
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
         with:
           python-version: '3.12'
 
       - name: Build portfolio from the immutable content revision
         run: |
+          echo "SOURCE_DATE_EPOCH=$(git -C .courses-source show -s --format=%ct "$COURSES_REF")" >> "$GITHUB_ENV"
           rm -rf posts
           mkdir -p posts
           python3 .courses-source/tools/export_portfolio_content.py \
@@ -64,7 +73,7 @@ jobs:
           ! rg -n 'artifact_id|source_path|knowledge_dependencies|source_dependencies|Control de cambios|Registro interno|K-[A-Z0-9]' posts public/posts
 
       - name: Deploy static assets to Cloudflare Pages
-        uses: cloudflare/wrangler-action@v4
+        uses: cloudflare/wrangler-action@953926a2e2182532811c01a25e53647d93bf07c0 # v4
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
