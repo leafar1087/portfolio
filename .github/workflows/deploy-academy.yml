@@ -71,7 +71,14 @@ jobs:
           node --check js/academy-loader.js
           ! find public -type f \( -name '*.py' -o -name '*.pyc' -o -name '.env' -o -name '.env.*' \) -print -quit | grep -q .
           ! find public -type d -name '__pycache__' -print -quit | grep -q .
-          ! rg -n 'artifact_id|source_path|knowledge_dependencies|source_dependencies|Control de cambios|Registro interno|K-[A-Z0-9]' posts public/posts
+          ! grep -R -nE 'artifact_id|source_path|knowledge_dependencies|source_dependencies|Control de cambios|Registro interno|K-[A-Z0-9]' posts public/posts
+
+      - name: Prepare Pages runtime configuration
+        env:
+          KV_NAMESPACE_ID: ${{ secrets.CLOUDFLARE_KV_NAMESPACE_ID }}
+        run: |
+          test -n "$KV_NAMESPACE_ID"
+          printf '{"name":"portfolio","pages_build_output_dir":"./public","kv_namespaces":[{"binding":"ATTACK_CACHE","id":"%s"}]}\n' "$KV_NAMESPACE_ID" > wrangler.jsonc
 
       - name: Deploy static assets to Cloudflare Pages
         uses: cloudflare/wrangler-action@953926a2e2182532811c01a25e53647d93bf07c0 # v4
