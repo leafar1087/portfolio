@@ -384,6 +384,10 @@
   overflow-wrap: anywhere;
 }
 
+.article-container {
+  padding-top: calc(var(--nav-height) + 32px);
+}
+
 @media (max-width: 768px) {
   .article-content {
     font-size: 1rem;
@@ -521,4 +525,14 @@
 .article-content .mermaid svg {
   max-width: none;
   height: auto;
+}
+
+@media (max-width: 640px) {
+  .course-module-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .course-module-card {
+    padding: 14px;
+  }
 }

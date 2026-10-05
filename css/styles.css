@@ -2426,6 +2426,10 @@ img, svg, picture {
 .article-back-link { margin-bottom: 30px; }
 .article-back-link .btn { font-family: var(--font-mono); font-size: 12px; }
 
+.article-container {
+  padding-top: calc(var(--nav-height) + 32px);
+}
+
 .article-content {
   color: var(--text-secondary);
   font-size: 1.05rem;
@@ -2573,4 +2577,14 @@ img, svg, picture {
 .article-content .mermaid svg {
   max-width: none;
   height: auto;
+}
+
+@media (max-width: 640px) {
+  .course-module-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .course-module-card {
+    padding: 14px;
+  }
 }
