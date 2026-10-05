@@ -454,7 +454,8 @@
   font-size: 0.9rem;
   background: var(--surface-primary);
   border-radius: var(--radius-sm);
-  overflow: hidden;
+  overflow-x: auto;
+  overflow-y: hidden;
   border: 1px solid var(--border-subtle);
 }
 
@@ -507,4 +508,17 @@
   padding: 0;
   color: var(--text-primary);
   font-size: 0.9em;
+}
+
+.article-content .mermaid {
+  max-width: 100%;
+  margin: 1.5em 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+}
+
+.article-content .mermaid svg {
+  max-width: none;
+  height: auto;
 }
