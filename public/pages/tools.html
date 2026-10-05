@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Herramientas de seguridad - Rafael Pérez Llorca</title>
+    <meta name="description" content="Calculadoras y utilidades técnicas para evaluación y operaciones de seguridad." />
+    <meta name="robots" content="index,follow" />
+    <link rel="canonical" href="https://rafaelperezllorca.com/pages/tools" />
+    <link rel="icon" type="image/png" href="../assets/images/favicon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600;700&family=IBM+Plex+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.4.14/purify.min.js" integrity="sha384-46dPGH1XlTmj7bc50bqLjTdORXs/3EP2QpA/6EWbelYWOY9VGp+87RT61S3Mcslb" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../css/styles.css?v=20261005h" />
+  </head>
+  <body>
+    <header id="main-header"></header>
+    <main class="tools-page container section-padding">
+      <header class="tools-hero">
+        <span class="section-code">// HERRAMIENTAS TÉCNICAS</span>
+        <h1>Utilidades de seguridad verificables</h1>
+        <p>Las puntuaciones CVSS se calculan localmente en tu navegador. Ningún vector ni dato de evaluación se transmite fuera del equipo.</p>
+      </header>
+
+      <div class="tools-tabs" role="tablist" aria-label="Herramientas disponibles">
+        <button class="tools-tab active" id="cvss-tab" type="button" role="tab" aria-selected="true" aria-controls="cvss-panel" data-tool-tab="cvss">Calculadora CVSS</button>
+        <button class="tools-tab" id="attack-tab" type="button" role="tab" aria-selected="false" aria-controls="attack-panel" data-tool-tab="attack">MITRE ATT&amp;CK y Sigma</button>
+      </div>
+
+      <section id="cvss-panel" class="tool-panel" role="tabpanel" aria-labelledby="cvss-tab" data-tool-panel="cvss">
+        <div class="tool-panel-header">
+          <div>
+            <span class="course-overview-kicker">Cálculo local</span>
+            <h2>CVSS v3.1 y v4.0</h2>
+          </div>
+          <div class="cvss-version-switch" role="group" aria-label="Versión de CVSS">
+            <button class="cvss-version active" type="button" data-cvss-version="3.1" aria-pressed="true">CVSS 3.1</button>
+            <button class="cvss-version" type="button" data-cvss-version="4.0" aria-pressed="false">CVSS 4.0</button>
+          </div>
+        </div>
+
+        <div class="cvss-layout">
+          <form id="cvss-form" class="cvss-form" novalidate>
+            <div id="cvss-metrics" class="cvss-metrics"></div>
+          </form>
+          <aside class="cvss-result" aria-live="polite">
+            <span class="course-overview-kicker">Puntuación calculada</span>
+            <output id="cvss-score" class="cvss-score">0.0</output>
+            <p id="cvss-severity" class="cvss-severity severity-none">Sin impacto</p>
+            <div class="cvss-vector-wrap">
+              <label for="cvss-vector">Vector CVSS</label>
+              <textarea id="cvss-vector" readonly rows="3"></textarea>
+              <button id="copy-cvss-vector" class="btn btn-outline btn-sm" type="button">Copiar vector</button>
+            </div>
+            <p id="cvss-copy-status" class="tool-status" role="status"></p>
+            <p class="tool-reference">Implementación v4 basada en el núcleo oficial de FIRST, BSD-2-Clause. El resultado no sustituye el análisis de impacto del entorno.</p>
+          </aside>
+        </div>
+      </section>
+
+      <section id="attack-panel" class="tool-panel" role="tabpanel" aria-labelledby="attack-tab" data-tool-panel="attack" hidden>
+        <span class="course-overview-kicker">Conector remoto</span>
+        <h2>Explorador MITRE ATT&amp;CK y reglas Sigma</h2>
+        <p class="tools-intro">Filtrará Enterprise, Mobile e ICS por técnica o sub-técnica y mostrará reglas Sigma publicadas que declaren el identificador ATT&amp;CK correspondiente. Las reglas no se generan ni se presentan como canónicas si la fuente no las publica.</p>
+        <form id="attack-search-form" class="attack-search-form"><label>Dominio <select id="attack-domain"><option value="enterprise">Enterprise</option><option value="mobile">Mobile</option><option value="ics">ICS</option></select></label><label class="attack-query">Técnica, sub-técnica o nombre<input id="attack-query" type="search" maxlength="80" placeholder="T1059.001 o PowerShell" /></label><button class="btn btn-filled" type="submit">Buscar</button></form>
+        <p id="attack-status" class="tool-status" role="status"></p>
+        <div id="attack-results" class="attack-results"></div>
+      </section>
+    </main>
+    <footer id="main-footer"></footer>
+
+    <script src="../js/vendor/cvss-v4/cvss_lookup.js"></script>
+    <script src="../js/vendor/cvss-v4/max_composed.js"></script>
+    <script src="../js/vendor/cvss-v4/max_severity.js"></script>
+    <script src="../js/vendor/cvss-v4/cvss_score.js"></script>
+    <script src="../js/translations.js?v=20260822l"></script>
+    <script src="../js/components.js?v=20261005h"></script>
+    <script src="../js/script.js?v=20260822l"></script>
+    <script src="../js/tools.js?v=20261005h"></script>
+    <script type="module" src="../js/app.js?v=20260822l"></script>
+  </body>
+</html>

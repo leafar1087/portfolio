@@ -25,6 +25,7 @@ STATIC_PAGES = [
     {'loc': '/', 'priority': '1.0', 'desc': 'Home - Portafolio Principal'},
     {'loc': '/pages/academy', 'priority': '0.9', 'desc': 'Academy - Formación y Cursos'},
     {'loc': '/pages/article', 'priority': '0.8', 'desc': 'Articles - Blog Técnico'},
+    {'loc': '/pages/tools', 'priority': '0.7', 'desc': 'Tools - Utilidades técnicas'},
     {'loc': '/pages/legal.html', 'priority': '0.3', 'desc': 'Legal - Aviso Legal'},
     {'loc': '/pages/privacy.html', 'priority': '0.3', 'desc': 'Privacy - Política de Privacidad'}
 ]

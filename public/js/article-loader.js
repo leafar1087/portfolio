@@ -145,52 +145,122 @@ document.addEventListener('DOMContentLoaded', async () => {
             // We assign 'language-bash' by default so Prism colors the '#' as comments.
             fixedHtml = fixedHtml.replace(/<pre><code>/g, '<pre><code class="language-bash">');
 
-            // --- BUILD SIDEBAR IF IN COURSE MODE ---
-            let sidebarHtml = '';
-            let wrapperClass = '';
+            // --- SHARED COURSE NAVIGATION ---
+            const currentEntry = allPosts.find(post => post.id === articleId);
+            const courseSlug = currentEntry?.course_slug;
+            let courseNavigation = '';
+            let courseOverview = '';
+            let coursePager = '';
             const backText = currentLang === 'es' ? 'VOLVER A ACADEMIA' : 'RETURN TO ACADEMY';
             let backLink = 'academy.html';
 
-            if (articleId.startsWith('python-course/')) {
-                wrapperClass = 'course-content-wrapper';
-                const coursePosts = allPosts.filter(p => p.id && p.id.startsWith('python-course/'));
-                
-                // Sort appropriately (index first, then modulo-01, modulo-02...)
-                coursePosts.sort((a,b) => {
-                    if(a.id.includes('index')) return -1;
-                    if(b.id.includes('index')) return 1;
-                    return a.id.localeCompare(b.id);
-                });
-                
-                const navLinks = coursePosts.map(p => {
-                    const postMeta = p[currentLang] || p['en'] || p['es'] || {};
-                    const title = postMeta.title || p.id.split('/').pop();
-                    const isActive = p.id === articleId ? 'active' : '';
-                    return `<a href="article.html?id=${p.id}" class="course-nav-link ${isActive}">${title}</a>`;
+            if (courseSlug) {
+                const coursePosts = allPosts
+                    .filter(post => post.course_slug === courseSlug)
+                    .sort((a, b) => {
+                        const aOrder = a.content_type === 'course' ? 0 : Number(a.module_order || 999);
+                        const bOrder = b.content_type === 'course' ? 0 : Number(b.module_order || 999);
+                        return aOrder - bOrder || String(a.id).localeCompare(String(b.id));
+                    });
+                const modules = coursePosts.filter(post => post.content_type !== 'course');
+                const currentModuleIndex = modules.findIndex(post => post.id === articleId);
+                const courseTitle = currentEntry.course_title || coursePosts[0]?.course_title || 'Curso';
+                const currentTitle = currentEntry[currentLang]?.title || currentEntry.es?.title || currentEntry.en?.title || currentEntry.id;
+                const progressText = currentModuleIndex >= 0
+                    ? `Lección ${currentModuleIndex + 1} de ${modules.length}`
+                    : 'Visión general del curso';
+                const navLinks = coursePosts.map(post => {
+                    const title = post[currentLang]?.title || post.es?.title || post.en?.title || post.id;
+                    const active = post.id === articleId ? ' active' : '';
+                    return `<a href="article.html?id=${encodeURIComponent(post.id)}" class="course-nav-link${active}">${title}</a>`;
                 }).join('');
-                
-                const sidebarTitle = currentLang === 'es' ? 'Contenido del Curso' : 'Course Content';
-                sidebarHtml = `
-                    <div class="course-sidebar">
-                        <h4 class="mb-3 font-mono text-teal">${sidebarTitle}</h4>
-                        <div class="course-nav-list">
-                            ${navLinks}
+                const previous = currentModuleIndex > 0 ? modules[currentModuleIndex - 1] : null;
+                const next = currentModuleIndex >= 0 && currentModuleIndex < modules.length - 1 ? modules[currentModuleIndex + 1] : null;
+                const titleFor = post => post[currentLang]?.title || post.es?.title || post.en?.title || post.id;
+                const descriptionFor = post => post[currentLang]?.description || post.es?.description || post.en?.description || '';
+
+                if (currentEntry.content_type === 'course') {
+                    const firstModule = modules[0];
+                    const stageLabels = {
+                        'básico': 'Nivel básico',
+                        'intermedio': 'Nivel intermedio',
+                        'avanzado': 'Nivel avanzado',
+                        'Ruta principal': 'Ruta principal'
+                    };
+                    const stageDescriptions = {
+                        'básico': 'Construye una base práctica antes de añadir complejidad.',
+                        'intermedio': 'Conecta programas, datos y estructura de proyecto.',
+                        'avanzado': 'Automatiza, comprueba y entrega con criterio técnico.',
+                        'Ruta principal': 'Sigue los módulos en el orden propuesto.'
+                    };
+                    const stages = new Map();
+                    modules.forEach((post, index) => {
+                        const stage = post.learning_stage || 'Ruta principal';
+                        const items = stages.get(stage) || [];
+                        items.push({ post, index });
+                        stages.set(stage, items);
+                    });
+                    const moduleCards = [...stages].map(([stage, items]) => `
+                        <section class="course-stage">
+                            <div class="course-stage-heading"><h3>${stageLabels[stage] || stage}</h3><p>${stageDescriptions[stage] || stageDescriptions['Ruta principal']}</p></div>
+                            <div class="course-module-grid">${items.map(({ post, index }) => `
+                                <a class="course-module-card" href="article.html?id=${encodeURIComponent(post.id)}">
+                                    <span class="course-module-number">${String(index + 1).padStart(2, '0')}</span>
+                                    <span class="course-module-card-body"><strong>${titleFor(post)}</strong><small>${descriptionFor(post)}</small></span>
+                                    <span class="course-module-arrow" aria-hidden="true">→</span>
+                                </a>
+                            `).join('')}</div>
+                        </section>
+                    `).join('');
+                    const overviewDescription = descriptionFor(currentEntry);
+                    courseOverview = `
+                        <section class="course-overview" aria-label="Resumen del curso">
+                            <span class="course-overview-kicker">Curso publicado</span>
+                            <h1>${courseTitle}</h1>
+                            ${overviewDescription ? `<p>${overviewDescription}</p>` : ''}
+                            <div class="course-overview-meta"><span>${modules.length} módulos</span><span>${currentEntry.version || 'Versión vigente'}</span></div>
+                            ${firstModule ? `<a class="btn btn-filled course-overview-start" href="article.html?id=${encodeURIComponent(firstModule.id)}">Empezar por el módulo 01</a>` : ''}
+                        </section>
+                        <section class="course-module-directory" aria-label="Módulos del curso">
+                            <div><span class="course-overview-kicker">Ruta de aprendizaje</span><h2>Elige una lección o sigue el orden propuesto</h2></div>
+                            ${moduleCards}
+                        </section>
+                    `;
+                }
+
+                courseNavigation = `
+                    <nav class="course-sidebar" aria-label="Navegación del curso">
+                        <p class="course-nav-course-title">${courseTitle}</p>
+                        <div class="course-nav-desktop">
+                            <p class="course-nav-label">Contenido del curso</p>
+                            <div class="course-nav-list">${navLinks}</div>
                         </div>
-                    </div>
+                        <details class="course-nav-mobile">
+                            <summary><span>Contenido del curso</span><strong>${progressText}</strong></summary>
+                            <p class="course-nav-current">${currentTitle}</p>
+                            <div class="course-nav-list">${navLinks}</div>
+                        </details>
+                    </nav>
                 `;
+                if (previous || next) {
+                    coursePager = `
+                        <nav class="course-pager" aria-label="Lecciones adyacentes">
+                            ${previous ? `<a class="course-pager-link course-pager-previous" href="article.html?id=${encodeURIComponent(previous.id)}"><span>← Anterior</span>${titleFor(previous)}</a>` : '<span></span>'}
+                            ${next ? `<a class="course-pager-link course-pager-next" href="article.html?id=${encodeURIComponent(next.id)}"><span>Siguiente →</span>${titleFor(next)}</a>` : '<span></span>'}
+                        </nav>
+                    `;
+                }
             } else {
-                backLink = 'article.html'; // Default back to posts list if not a course
+                backLink = 'article.html';
             }
 
             const finalHtml = `
-                <div style="margin-bottom: 30px;">
-                    <a href="${backLink}" class="btn btn-outline" style="font-family: 'Roboto Mono'; font-size: 12px;">&lt; // ${backText}</a>
+                <div class="article-back-link">
+                    <a href="${backLink}" class="btn btn-outline">&lt; // ${backText}</a>
                 </div>
-                <div class="${wrapperClass}">
-                    ${sidebarHtml}
-                    <div class="article-content" style="flex-grow: 1; overflow: hidden;">
-                        ${fixedHtml}
-                    </div>
+                <div class="${courseSlug ? 'course-content-wrapper' : ''}">
+                    ${courseNavigation}
+                    <div class="article-content">${courseOverview}${fixedHtml}${coursePager}</div>
                 </div>
             `;
 

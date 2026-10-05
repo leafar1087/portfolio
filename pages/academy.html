@@ -25,7 +25,7 @@
     <!-- Libs for Security -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.4.14/purify.min.js" integrity="sha384-46dPGH1XlTmj7bc50bqLjTdORXs/3EP2QpA/6EWbelYWOY9VGp+87RT61S3Mcslb" crossorigin="anonymous"></script>
     <!-- Styles -->
-    <link rel="stylesheet" href="../css/styles.css?v=20261005f" />
+    <link rel="stylesheet" href="../css/styles.css?v=20261005h" />
   </head>
   <body>
     <header id="main-header"></header>
@@ -51,9 +51,17 @@
 
       <!-- Courses Grid -->
       <section class="container section-padding pt-0">
-        <div class="academy-search-bar">
+        <div class="academy-toolbar">
+          <div class="academy-search-bar">
           <label for="academy-search">Buscar cursos</label>
           <input id="academy-search" class="academy-search-input" type="search" placeholder="Python, Wazuh, detección, automatización…" autocomplete="off" />
+          </div>
+          <div class="academy-filters" role="group" aria-label="Filtrar cursos por nivel">
+            <button class="academy-filter active" type="button" data-stage="all" aria-pressed="true">Todos los niveles</button>
+            <button class="academy-filter" type="button" data-stage="básico" aria-pressed="false">Básico</button>
+            <button class="academy-filter" type="button" data-stage="intermedio" aria-pressed="false">Intermedio</button>
+            <button class="academy-filter" type="button" data-stage="avanzado" aria-pressed="false">Avanzado</button>
+          </div>
         </div>
         <div class="academy-grid" id="academy-catalog" aria-live="polite"></div>
       </section>

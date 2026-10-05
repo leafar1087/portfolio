@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', async () => {
     const catalog = document.getElementById('academy-catalog');
     const searchInput = document.getElementById('academy-search');
+    const filters = [...document.querySelectorAll('.academy-filter')];
     const idPattern = /^[a-z0-9][a-z0-9_-]*(?:\/[a-z0-9][a-z0-9_-]*)*$/i;
     const allowedStatuses = new Set(['reviewed', 'canonical']);
     const metadata = entry => entry.es || entry.en || {};
@@ -37,9 +38,16 @@ document.addEventListener('DOMContentLoaded', async () => {
             .filter(Boolean).join(' ').toLocaleLowerCase('es');
     }
 
-    function renderCourses(courses, term = '') {
+    function courseStages(course) {
+        return [...new Set(course.entries.map(entry => entry.learning_stage).filter(Boolean))];
+    }
+
+    function renderCourses(courses, term = '', stage = 'all') {
         const normalized = term.trim().toLocaleLowerCase('es');
-        const visible = courses.filter(course => !normalized || searchText(course).includes(normalized));
+        const visible = courses.filter(course =>
+            (!normalized || searchText(course).includes(normalized))
+            && (stage === 'all' || courseStages(course).includes(stage))
+        );
         if (!visible.length) {
             renderEmpty(`No hay cursos que coincidan con “${term.trim()}”.`);
             return;
@@ -59,8 +67,16 @@ document.addEventListener('DOMContentLoaded', async () => {
             const details = document.createElement('div');
             details.className = 'course-meta-tag';
             appendText(details, 'span', 'badge-outline', `${modules.length} módulos`);
-            appendText(details, 'span', '', `· ${overview.version || 'Sin versión'} · ${overview.publication_status || 'published'}`);
+            appendText(details, 'span', '', `· ${overview.version || 'Sin versión'}`);
             content.appendChild(details);
+            const syllabus = document.createElement('ol');
+            syllabus.className = 'course-syllabus';
+            modules.slice(0, 3).forEach((module, index) => {
+                const item = document.createElement('li');
+                item.textContent = `${String(index + 1).padStart(2, '0')}. ${metadata(module).title || module.id}`;
+                syllabus.appendChild(item);
+            });
+            if (syllabus.childElementCount) content.appendChild(syllabus);
             const tags = Array.isArray(meta.tags) ? meta.tags : [];
             if (tags.length) appendText(content, 'p', 'course-meta-tag', tags.join(' · '));
             const link = document.createElement('a');
@@ -93,8 +109,19 @@ document.addEventListener('DOMContentLoaded', async () => {
         const courses = [...courseMap.values()].sort(compareCourses);
         if (!courses.length) return renderEmpty('No hay cursos publicados en este momento.');
         window.academySeo?.catalog(courseMap);
-        renderCourses(courses);
-        searchInput?.addEventListener('input', event => renderCourses(courses, event.target.value));
+        let selectedStage = 'all';
+        const render = () => renderCourses(courses, searchInput?.value || '', selectedStage);
+        render();
+        searchInput?.addEventListener('input', render);
+        filters.forEach(filter => filter.addEventListener('click', () => {
+            selectedStage = filter.dataset.stage || 'all';
+            filters.forEach(button => {
+                const active = button === filter;
+                button.classList.toggle('active', active);
+                button.setAttribute('aria-pressed', String(active));
+            });
+            render();
+        }));
     } catch (error) {
         renderEmpty('El catálogo no está disponible ahora.');
     }

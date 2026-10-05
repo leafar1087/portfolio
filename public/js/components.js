@@ -61,8 +61,8 @@ const Components = {
         const isHome     = basePath === './';
         const pagesPath  = isHome ? 'pages/' : '';
         const assetsPath = isHome ? './assets/' : '../assets/';
-        const logoHref   = isHome ? '#' : '../index.html';
         const getLink    = (hash) => isHome ? hash : `../index.html${hash}`;
+        const logoHref   = isHome ? '#' : '../index.html';
 
         const html = `
       <nav class="nav container">
@@ -78,6 +78,7 @@ const Components = {
           <li><a href="${getLink('#practice')}"><span>Especialidad</span></a></li>
           <li><a href="${pagesPath}article.html"><span>Artículos</span></a></li>
           <li><a href="${pagesPath}academy.html"><span>Academia</span></a></li>
+          <li><a href="${pagesPath}tools.html"><span>Herramientas</span></a></li>
           <li><a href="${getLink('#about')}"><span>Sobre mí</span></a></li>
           <!-- Mobile actions -->
           <li class="mobile-only">
@@ -113,6 +114,16 @@ const Components = {
             container.innerHTML = html;
         }
 
+        const page = window.location.pathname.split('/').pop();
+        if (page === 'academy.html' || page === 'article.html' || page === 'tools.html') {
+            const activeLink = [...container.querySelectorAll('.nav-links a')]
+                .find(link => link.getAttribute('href') === `${pagesPath}${page}`);
+            if (activeLink) {
+                activeLink.classList.add('active');
+                activeLink.setAttribute('aria-current', 'page');
+            }
+        }
+
         // Inject logo SVG inline (async, non-blocking)
         _fetchLogo(assetsPath).then(svgText => {
             const wrap = document.getElementById('logo-svg-header');
@@ -127,21 +138,36 @@ const Components = {
         const isHome     = basePath === './';
         const pagesPath  = isHome ? 'pages/' : '';
         const assetsPath = isHome ? './assets/' : '../assets/';
+        const getLink    = (hash) => isHome ? hash : `../index.html${hash}`;
 
         const html = `
       <div class="container footer-content">
-        <div class="footer-info">
+        <div class="footer-brand">
           <div class="footer-logo-wrap" id="logo-svg-footer"></div>
           <p data-i18n="footer.rights">
             &copy; ${new Date().getFullYear()} Rafael Pérez Llorca. Ingeniería de Sistemas &amp; Ciberseguridad.
           </p>
         </div>
-        <div class="footer-links">
+        <section class="footer-column" aria-label="Navegación">
+          <h2>Navegación</h2>
+          <a href="${getLink('#research')}">Investigación</a>
+          <a href="${getLink('#experience')}">Experiencia</a>
+          <a href="${getLink('#practice')}">Especialidad</a>
+        </section>
+        <section class="footer-column" aria-label="Contenido">
+          <h2>Contenido</h2>
+          <a href="${pagesPath}academy.html">Academia</a>
+          <a href="${pagesPath}article.html">Artículos</a>
+          <a href="${pagesPath}tools.html">Herramientas</a>
+          <a href="${getLink('#about')}">Sobre mí</a>
+        </section>
+        <section class="footer-column" aria-label="Enlaces profesionales">
+          <h2>Enlaces</h2>
           <a href="${pagesPath}privacy.html" data-i18n="footer.privacy">Política de Privacidad</a>
-          <a href="${pagesPath}legal.html"   data-i18n="footer.legal">Aviso Legal</a>
-          <a href="https://www.linkedin.com/in/rperezll/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">LinkedIn</a>
-          <a href="https://github.com/leafar1087"         target="_blank" rel="noopener noreferrer" aria-label="GitHub">GitHub</a>
-        </div>
+          <a href="${pagesPath}legal.html" data-i18n="footer.legal">Aviso Legal</a>
+          <a href="https://www.linkedin.com/in/rperezll/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a href="https://github.com/leafar1087" target="_blank" rel="noopener noreferrer">GitHub</a>
+        </section>
       </div>`;
 
         container.classList.add('footer');
