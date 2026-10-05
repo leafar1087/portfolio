@@ -223,7 +223,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                         </section>
                         <section class="course-module-directory" aria-label="Módulos del curso">
                             <div><span class="course-overview-kicker">Ruta de aprendizaje</span><h2>Elige una lección o sigue el orden propuesto</h2></div>
-                            <div class="course-module-grid">${moduleCards}</div>
+                            ${moduleCards}
                         </section>
                     `;
                 }
