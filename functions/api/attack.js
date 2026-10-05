@@ -46,14 +46,15 @@ async function techniques(domain, env) {
 }
 
 async function sigmaRules(techniqueId, token) {
-  if (!token || !/^T\d{4}(?:\.\d{3})?$/i.test(techniqueId)) return { available: false, rules: [] };
+  if (!token) return { available: false, reason: 'not-configured', rules: [] };
+  if (!/^T\d{4}(?:\.\d{3})?$/i.test(techniqueId)) return { available: false, reason: 'not-applicable', rules: [] };
   const search = new URL('https://api.github.com/search/code');
   search.searchParams.set('q', `repo:SigmaHQ/sigma attack.${techniqueId.toLowerCase()} extension:yml`);
   search.searchParams.set('per_page', '10');
   const response = await fetch(search, { headers: { Accept: 'application/vnd.github+json', Authorization: `Bearer ${token}` } });
-  if (!response.ok) return { available: false, rules: [] };
+  if (!response.ok) return { available: false, reason: `github-${response.status}`, rules: [] };
   const result = await response.json();
-  return { available: true, rules: (result.items || []).map(item => ({ name: item.name, path: item.path, url: item.html_url })) };
+  return { available: true, reason: '', rules: (result.items || []).map(item => ({ name: item.name, path: item.path, url: item.html_url })) };
 }
 
 export async function onRequestGet(context) {
