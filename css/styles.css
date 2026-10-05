@@ -896,6 +896,13 @@ img, svg, picture {
   text-decoration: none;
 }
 
+@media (max-width: 480px) {
+  .btn {
+    white-space: normal;
+    text-align: center;
+  }
+}
+
 .btn-primary {
   background-color: var(--brand-primary);
   color: #ffffff;
@@ -905,6 +912,18 @@ img, svg, picture {
 .btn-primary:hover {
   background-color: #0043a8;
   border-color: #0043a8;
+  color: #ffffff;
+}
+
+.btn-filled {
+  background-color: var(--brand-signal);
+  color: var(--text-inverted);
+  border-color: var(--brand-signal);
+}
+
+.btn-filled:hover {
+  background-color: var(--brand-primary);
+  border-color: var(--brand-primary);
   color: #ffffff;
 }
 
@@ -1574,6 +1593,13 @@ img, svg, picture {
   color: var(--text-secondary);
   text-align: right;
   white-space: nowrap;
+}
+
+@media (max-width: 900px) {
+  .stack-desc {
+    white-space: normal;
+    overflow-wrap: anywhere;
+  }
 }
 
 .stack-extended {
@@ -2406,12 +2432,25 @@ img, svg, picture {
   line-height: 1.7;
   max-width: 850px;
   min-width: 0;
+  overflow-wrap: anywhere;
 }
 
 @media (max-width: 768px) {
   .article-content {
     font-size: 1rem;
     line-height: 1.6;
+  }
+
+  .article-content table {
+    display: block;
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .article-content table th,
+  .article-content table td {
+    padding: 10px 12px;
   }
 }
 

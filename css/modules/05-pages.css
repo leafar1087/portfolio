@@ -401,6 +401,13 @@
   white-space: nowrap;
 }
 
+@media (max-width: 900px) {
+  .stack-desc {
+    white-space: normal;
+    overflow-wrap: anywhere;
+  }
+}
+
 .stack-extended {
   border-top: 1px solid var(--border-subtle);
   padding-top: 20px;

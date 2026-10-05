@@ -17,6 +17,13 @@
   text-decoration: none;
 }
 
+@media (max-width: 480px) {
+  .btn {
+    white-space: normal;
+    text-align: center;
+  }
+}
+
 .btn-primary {
   background-color: var(--brand-primary);
   color: #ffffff;
@@ -26,6 +33,18 @@
 .btn-primary:hover {
   background-color: #0043a8;
   border-color: #0043a8;
+  color: #ffffff;
+}
+
+.btn-filled {
+  background-color: var(--brand-signal);
+  color: var(--text-inverted);
+  border-color: var(--brand-signal);
+}
+
+.btn-filled:hover {
+  background-color: var(--brand-primary);
+  border-color: var(--brand-primary);
   color: #ffffff;
 }
 
@@ -293,4 +312,3 @@
     grid-template-columns: 1fr;
   }
 }
-
