@@ -39,5 +39,6 @@ __MACOSX/
 
 # Agent & Local Tools
 .agents/
+.private/
 __pycache__/
 *.pyc

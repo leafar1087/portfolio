@@ -66,6 +66,7 @@ jobs:
             --kind courses \
             --output posts/academy
           python3 -m unittest discover -s tests -v
+          python3 tools/build_css.py --check
           python3 build_index.py
           node --check js/academy-loader.js
           ! find public -type f \( -name '*.py' -o -name '*.pyc' -o -name '.env' -o -name '.env.*' \) -print -quit | grep -q .
