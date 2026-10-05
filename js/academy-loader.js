@@ -80,7 +80,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             const tags = Array.isArray(meta.tags) ? meta.tags : [];
             if (tags.length) appendText(content, 'p', 'course-meta-tag', tags.join(' · '));
             const link = document.createElement('a');
-            link.className = 'btn btn-primary w-full text-center';
+            link.className = 'catalog-card-action';
             link.href = `article.html?id=${encodeURIComponent(overview.id)}`;
             link.textContent = 'Ver curso';
             content.appendChild(link);

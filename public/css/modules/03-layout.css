@@ -275,8 +275,12 @@
 /* Footer Layout */
 .footer {
   padding: 56px 0 36px;
-  border-top: 1px solid var(--border-subtle);
-  background-color: var(--surface-primary);
+  border-top: 1px solid var(--border-medium);
+  background-color: color-mix(in srgb, var(--surface-primary) 94%, transparent);
+  background-image:
+    linear-gradient(rgba(var(--brand-signal-rgb), 0.018) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(var(--brand-signal-rgb), 0.018) 1px, transparent 1px);
+  background-size: 40px 40px;
   margin-top: 60px;
 }
 
@@ -286,10 +290,19 @@
   gap: 40px;
 }
 
+.footer-content::after {
+  content: '';
+  grid-column: 1 / -1;
+  height: 1px;
+  margin-top: 8px;
+  background: var(--border-subtle);
+}
+
 .footer-brand {
   display: flex;
   flex-direction: column;
   gap: 6px;
+  padding-right: 20px;
 }
 
 .footer-brand p {
@@ -323,7 +336,7 @@
 
 @media (max-width: 900px) {
   .footer-content { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .footer-brand { grid-column: 1 / -1; }
+  .footer-brand { grid-column: 1 / -1; padding-right: 0; }
 }
 
 @media (max-width: 640px) {

@@ -394,7 +394,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         const finalContent = `
             <div class="articles-index-editorial">
-                <div class="articles-hero-editorial">
+                <div class="articles-hero-editorial page-intro-content">
                     <span class="section-code">// ARTÍCULOS &amp; INVESTIGACIÓN</span>
                     <h1 class="articles-main-title">Publicaciones Técnicas</h1>
                     <p class="articles-main-desc">Investigación aplicada, análisis de incidentes y notas sobre ingeniería de sistemas, datos y ciberseguridad.</p>
