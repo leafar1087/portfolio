@@ -16,6 +16,13 @@ assert.strictEqual(
     0,
     'CVSS v3.1 no debe puntuar un vector sin impacto'
 );
+assert.strictEqual(
+    tools.attackDescriptionText('Use <code>pwsh</code> with [PowerShell](https://attack.mitre.org/techniques/T1059/001). (Citation: MITRE)'),
+    'Use pwsh with PowerShell.',
+    'La descripción ATT&CK debe eliminar marcado remoto sin interpretar HTML'
+);
+assert.strictEqual(tools.attackHref('T1059.001'), 'https://attack.mitre.org/techniques/T1059/001/', 'La sub-técnica debe enlazar a MITRE');
+assert.strictEqual(tools.attackHref('not-a-technique'), '', 'Los identificadores no válidos no deben generar enlaces');
 
 const context = {};
 for (const source of ['cvss_lookup.js', 'max_composed.js', 'max_severity.js', 'cvss_score.js']) {

@@ -63,7 +63,7 @@
       <section id="attack-panel" class="tool-panel" role="tabpanel" aria-labelledby="attack-tab" data-tool-panel="attack" hidden>
         <span class="course-overview-kicker">Conector remoto</span>
         <h2>Explorador MITRE ATT&amp;CK y reglas Sigma</h2>
-        <p class="tools-intro">Filtrará Enterprise, Mobile e ICS por técnica o sub-técnica y mostrará reglas Sigma publicadas que declaren el identificador ATT&amp;CK correspondiente. Las reglas no se generan ni se presentan como canónicas si la fuente no las publica.</p>
+        <p class="tools-intro">Consulta Enterprise, Mobile e ICS por técnica o sub-técnica. Separa la coincidencia exacta, técnicas relacionadas y reglas Sigma que declaran el identificador ATT&amp;CK. La descripción canónica de MITRE se conserva en inglés; la interfaz y clasificación se presentan en español.</p>
         <form id="attack-search-form" class="attack-search-form"><label>Dominio <select id="attack-domain"><option value="enterprise">Enterprise</option><option value="mobile">Mobile</option><option value="ics">ICS</option></select></label><label class="attack-query">Técnica, sub-técnica o nombre<input id="attack-query" type="search" maxlength="80" placeholder="T1059.001 o PowerShell" /></label><button class="btn btn-filled" type="submit">Buscar</button></form>
         <p id="attack-status" class="tool-status" role="status"></p>
         <div id="attack-results" class="attack-results"></div>

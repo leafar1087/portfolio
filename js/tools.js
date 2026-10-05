@@ -65,6 +65,94 @@
         return ['Crítica', 'critical'];
     }
 
+    const TACTIC_LABELS = {
+        'collection': 'Recolección', 'command-and-control': 'Comando y control', 'credential-access': 'Acceso a credenciales',
+        'defense-evasion': 'Evasión de defensas', 'discovery': 'Descubrimiento', 'execution': 'Ejecución',
+        'exfiltration': 'Exfiltración', 'impact': 'Impacto', 'initial-access': 'Acceso inicial',
+        'lateral-movement': 'Movimiento lateral', 'persistence': 'Persistencia', 'privilege-escalation': 'Elevación de privilegios',
+        'reconnaissance': 'Reconocimiento', 'resource-development': 'Desarrollo de recursos'
+    };
+
+    function attackDescriptionText(value) {
+        return String(value || '')
+            .replace(/\[([^\]]+)\]\(https?:\/\/[^)]+\)/gi, '$1')
+            .replace(/<\/?code>/gi, '')
+            .replace(/\(Citation:[^)]+\)/gi, '')
+            .replace(/<[^>]*>/g, '')
+            .replace(/\s+/g, ' ')
+            .trim();
+    }
+
+    function attackHref(id) {
+        return /^T\d{4}(?:\.\d{3})?$/i.test(id) ? `https://attack.mitre.org/techniques/${id.replace('.', '/')}/` : '';
+    }
+
+    function appendTags(parent, technique) {
+        const tags = document.createElement('div');
+        tags.className = 'attack-tags';
+        [...technique.tactics.map(tactic => TACTIC_LABELS[tactic] || tactic), ...technique.platforms].forEach(value => {
+            const tag = document.createElement('span');
+            tag.textContent = value;
+            tags.appendChild(tag);
+        });
+        if (!tags.childElementCount) {
+            const tag = document.createElement('span');
+            tag.textContent = 'Sin clasificación adicional';
+            tags.appendChild(tag);
+        }
+        parent.appendChild(tags);
+    }
+
+    function attackCard(technique, featured = false) {
+        const item = document.createElement('article');
+        item.className = `attack-result${featured ? ' attack-result-featured' : ''}`;
+        const type = document.createElement('p');
+        type.className = 'attack-result-type';
+        type.textContent = technique.subtechnique ? 'Sub-técnica ATT&CK' : 'Técnica ATT&CK';
+        const title = document.createElement('h3'); title.textContent = `${technique.id} · ${technique.name}`;
+        item.append(type, title);
+        appendTags(item, technique);
+        const details = document.createElement('details');
+        const summary = document.createElement('summary'); summary.textContent = 'Descripción canónica (inglés)';
+        const description = document.createElement('p'); description.textContent = attackDescriptionText(technique.description);
+        details.append(summary, description); item.appendChild(details);
+        const href = attackHref(technique.id);
+        if (href) {
+            const link = document.createElement('a');
+            link.className = 'attack-source-link'; link.href = href; link.target = '_blank'; link.rel = 'noopener noreferrer';
+            link.textContent = 'Ver técnica en MITRE ATT&CK ↗'; item.appendChild(link);
+        }
+        return item;
+    }
+
+    function resultSection(title, items, featured = false) {
+        const section = document.createElement('section'); section.className = 'attack-result-section';
+        const heading = document.createElement('h3'); heading.textContent = title; section.appendChild(heading);
+        const list = document.createElement('div'); list.className = 'attack-results-list';
+        items.forEach(item => list.appendChild(attackCard(item, featured))); section.appendChild(list);
+        return section;
+    }
+
+    function sigmaSection(sigma) {
+        const section = document.createElement('section'); section.className = 'attack-sigma';
+        const heading = document.createElement('h3'); heading.textContent = 'Reglas Sigma publicadas'; section.appendChild(heading);
+        const note = document.createElement('p');
+        note.textContent = sigma.available
+            ? `${sigma.rules.length} reglas que declaran esta técnica en SigmaHQ.`
+            : 'No se pudieron consultar reglas Sigma para esta técnica ahora.';
+        section.appendChild(note);
+        if (sigma.available && sigma.rules.length) {
+            const list = document.createElement('ul'); list.className = 'sigma-rules';
+            sigma.rules.forEach(rule => {
+                const item = document.createElement('li');
+                const link = document.createElement('a'); link.href = rule.url; link.target = '_blank'; link.rel = 'noopener noreferrer';
+                link.textContent = rule.name; item.appendChild(link); list.appendChild(item);
+            });
+            section.appendChild(list);
+        }
+        return section;
+    }
+
     function renderMetrics(container, metrics, state, onChange) {
         container.replaceChildren();
         Object.entries(metrics).forEach(([key, definition]) => {
@@ -167,20 +255,19 @@
                 const response = await fetch(`/api/attack?${params}`);
                 const payload = await response.json();
                 if (!response.ok) throw new Error(payload.error);
+                const query = document.getElementById('attack-query').value.trim().toUpperCase();
+                const exact = payload.techniques.find(technique => technique.id.toUpperCase() === query);
+                const related = payload.techniques.filter(technique => technique !== exact);
                 status.textContent = `${payload.techniques.length} técnicas · fuente ${new Date(payload.fetchedAt).toLocaleDateString('es-ES')}`;
-                payload.techniques.forEach(technique => {
-                    const item = document.createElement('article'); item.className = 'attack-result';
-                    const title = document.createElement('h3'); title.textContent = `${technique.id} · ${technique.name}`;
-                    const meta = document.createElement('p'); meta.textContent = [...technique.tactics, ...technique.platforms].join(' · ') || 'Sin clasificación adicional';
-                    const description = document.createElement('p'); description.textContent = technique.description;
-                    item.append(title, meta, description); results.appendChild(item);
-                });
-                if (payload.sigma.available) status.textContent += ` · ${payload.sigma.rules.length} reglas Sigma encontradas`;
+                if (exact) results.appendChild(resultSection('Coincidencia exacta', [exact], true));
+                if (related.length) results.appendChild(resultSection(exact ? 'Técnicas relacionadas' : 'Técnicas encontradas', related));
+                if (!payload.techniques.length) status.textContent = 'No se encontraron técnicas para esa consulta.';
+                if (exact) results.appendChild(sigmaSection(payload.sigma));
             } catch (error) { status.textContent = error.message || 'No se pudo consultar ATT&CK.'; }
         });
         render();
     }
 
-    if (typeof module !== 'undefined') module.exports = { calculateCvss31, cvss31Vector };
+    if (typeof module !== 'undefined') module.exports = { calculateCvss31, cvss31Vector, attackDescriptionText, attackHref };
     if (typeof document !== 'undefined') document.addEventListener('DOMContentLoaded', init);
 })();
