@@ -10,7 +10,7 @@ class CssBuildTests(unittest.TestCase):
 
     def test_course_grid_collapses_before_tablet_width(self):
         stylesheet = build_css.build()
-        base = '.course-module-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));'
+        base = 'grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));'
         responsive = '@media (max-width: 900px) {\n  .course-module-grid {\n    grid-template-columns: 1fr;'
         self.assertLess(stylesheet.index(base), stylesheet.index(responsive))
 
