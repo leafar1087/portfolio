@@ -51,7 +51,7 @@ async function sigmaRules(techniqueId, token) {
   const search = new URL('https://api.github.com/search/code');
   search.searchParams.set('q', `repo:SigmaHQ/sigma attack.${techniqueId.toLowerCase()} extension:yml`);
   search.searchParams.set('per_page', '10');
-  const response = await fetch(search, { headers: { Accept: 'application/vnd.github+json', Authorization: `Bearer ${token}` } });
+  const response = await fetch(search, { headers: { Accept: 'application/vnd.github+json', Authorization: `Bearer ${token}`, 'User-Agent': 'rafaelperezllorca-portfolio', 'X-GitHub-Api-Version': '2026-03-10' } });
   if (!response.ok) return { available: false, reason: `github-${response.status}`, rules: [] };
   const result = await response.json();
   return { available: true, reason: '', rules: (result.items || []).map(item => ({ name: item.name, path: item.path, url: item.html_url })) };
