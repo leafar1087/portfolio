@@ -401,7 +401,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                 </div>
                 
                 <div class="articles-search-bar">
-                    <input type="text" id="article-search" class="editorial-search-input" placeholder="${placeholderText}" value="${cleanSearchTerm}" autocomplete="off">
+                    <input type="text" id="article-search" class="editorial-search-input" aria-label="Buscar publicaciones" placeholder="${placeholderText}" value="${cleanSearchTerm}" autocomplete="off">
                 </div>
 
                 <div id="posts-list" class="editorial-posts-ledger">${rows}</div>

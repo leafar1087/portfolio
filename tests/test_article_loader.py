@@ -11,6 +11,11 @@ class CourseOverviewTests(unittest.TestCase):
         self.assertIn('${moduleCards}', source)
         self.assertNotIn('<div class="course-module-grid">${moduleCards}</div>', source)
 
+    def test_article_search_has_an_accessible_name(self):
+        source = SOURCE.read_text(encoding='utf-8')
+        self.assertIn('id="article-search"', source)
+        self.assertIn('aria-label="Buscar publicaciones"', source)
+
 
 if __name__ == '__main__':
     unittest.main()
