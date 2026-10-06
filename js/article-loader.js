@@ -407,7 +407,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                 <div id="posts-list" class="editorial-posts-ledger">${rows}</div>
             </div>
         `;
-        container.innerHTML = DOMPurify.sanitize(finalContent, { ADD_ATTR: ['id', 'value', 'placeholder', 'autocomplete'] });
+        container.innerHTML = DOMPurify.sanitize(finalContent, { ADD_ATTR: ['id', 'value', 'placeholder', 'autocomplete', 'aria-label'] });
 
         const searchInput = document.getElementById('article-search');
         if (searchInput) {

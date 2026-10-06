@@ -15,6 +15,7 @@ class CourseOverviewTests(unittest.TestCase):
         source = SOURCE.read_text(encoding='utf-8')
         self.assertIn('id="article-search"', source)
         self.assertIn('aria-label="Buscar publicaciones"', source)
+        self.assertIn("'aria-label'", source)
 
 
 if __name__ == '__main__':
