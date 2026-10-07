@@ -16,6 +16,17 @@ jobs:
       - run: python3 tools/build_css.py --check
       - run: node --input-type=module --check < functions/api/attack.js
       - run: python3 build_index.py
+      - name: Render public analytics configuration
+        env:
+          GOOGLE_ANALYTICS_MEASUREMENT_ID: ${{ secrets.GOOGLE_ANALYTICS_MEASUREMENT_ID }}
+        run: |
+          if [ -n "${GOOGLE_ANALYTICS_MEASUREMENT_ID:-}" ]; then
+            if [[ ! "$GOOGLE_ANALYTICS_MEASUREMENT_ID" =~ ^G-[A-Z0-9]+$ ]]; then
+              echo "GOOGLE_ANALYTICS_MEASUREMENT_ID tiene un formato inválido." >&2
+              exit 1
+            fi
+            printf "window.PORTFOLIO_GA_MEASUREMENT_ID = '%s';\n" "$GOOGLE_ANALYTICS_MEASUREMENT_ID" > public/js/analytics-config.js
+          fi
       - run: |
           test -d public
           ! find public -type f \( -name '*.py' -o -name '*.pyc' -o -name '.env' -o -name '.env.*' \) -print -quit | grep -q .
