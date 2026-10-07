@@ -7,7 +7,15 @@ const TAXII = 'https://attack-taxii.mitre.org/api/v21/collections/';
 const JSON_HEADERS = { Accept: 'application/taxii+json;version=2.1' };
 
 function json(body, status = 200) {
-  return new Response(JSON.stringify(body), { status, headers: { 'content-type': 'application/json; charset=utf-8', 'cache-control': 'no-store' } });
+  return new Response(JSON.stringify(body), { status, headers: {
+    'content-type': 'application/json; charset=utf-8',
+    'cache-control': 'no-store',
+    'x-content-type-options': 'nosniff',
+    'x-frame-options': 'DENY',
+    'strict-transport-security': 'max-age=31536000; includeSubDomains; preload',
+    'referrer-policy': 'strict-origin-when-cross-origin',
+    'permissions-policy': 'camera=(), microphone=(), geolocation=()'
+  } });
 }
 
 function externalId(object) {
