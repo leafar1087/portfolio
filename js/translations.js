@@ -169,9 +169,10 @@ const translations = {
                 intro: "This website has been engineered under the principle of Data Minimization (Privacy by Design):",
                 item1: "<strong>No Data Capture Forms:</strong> There are no user databases or capture forms on the web server. Contact is made directly and voluntarily via mailto links or LinkedIn.",
                 item2: "<strong>No Tracking Cookies:</strong> No invasive analytical cookies or third-party advertising tracking tools are used.",
-                item3: "<strong>Technical Local Storage:</strong> Only browser local storage (localStorage) is used to remember visual theme preferences (light/dark). This data is purely technical and resides exclusively on your device.",
+                item3: "<strong>Technical Local Storage:</strong> Browser local storage (localStorage) stores visual theme preferences and, if selected, the analytics consent decision.",
                 item4: "<strong>Technical Analytics:</strong> Cloudflare Web Analytics may collect technical performance metrics such as visits, load times, and Core Web Vitals. No cookies are used for this measurement and no personalized advertising tracking is performed.",
-                item5: "<strong>No Insecure International Transfers:</strong> Infrastructure services operate under GDPR and ENS compliance standards."
+                item5: "<strong>Google Analytics:</strong> It is loaded only after explicit consent and only when a valid Measurement ID is configured. Advertising personalization remains disabled.",
+                item6: "<strong>No Insecure International Transfers:</strong> Infrastructure services operate under GDPR and ENS compliance standards."
             },
             section3: {
                 title: "3. LEGAL BASIS",
@@ -378,9 +379,10 @@ const translations = {
                 intro: "Este sitio web ha sido diseñado bajo el principio de <strong>Minimización de Datos</strong> (Privacy by Design):",
                 item1: "<strong>Sin Formularios de Captura:</strong> No existen formularios ni bases de datos de usuarios en el servidor web. El contacto se realiza de forma directa y voluntaria a través de enlaces mailto o mediante LinkedIn.",
                 item2: "<strong>Sin Cookies de Rastreo:</strong> No se utilizan cookies analíticas invasivas ni herramientas de seguimiento publicitario de terceros.",
-                item3: "<strong>Preferencia Local Técnica:</strong> Se utiliza únicamente el almacenamiento local del navegador (localStorage) para recordar la preferencia de tema visual (claro u oscuro). Este dato es puramente técnico y reside de manera exclusiva en su navegador.",
+                item3: "<strong>Preferencia Local Técnica:</strong> El almacenamiento local del navegador (localStorage) conserva la preferencia de tema visual y, si se selecciona, la decisión sobre el consentimiento de analítica.",
                 item4: "<strong>Analítica Técnica:</strong> Cloudflare Web Analytics puede recopilar métricas técnicas de rendimiento, como visitas, tiempos de carga y Core Web Vitals. No se utilizan cookies para esta medición ni se realiza seguimiento publicitario personalizado.",
-                item5: "<strong>Sin Transferencias Internacionales Inseguras:</strong> Los servicios de infraestructura operan bajo estándares de cumplimiento RGPD y ENS."
+                item5: "<strong>Google Analytics:</strong> Solo se carga tras un consentimiento explícito y cuando se configura un Measurement ID válido. La personalización publicitaria permanece desactivada.",
+                item6: "<strong>Sin Transferencias Internacionales Inseguras:</strong> Los servicios de infraestructura operan bajo estándares de cumplimiento RGPD y ENS."
             },
             section3: {
                 title: "3. BASE LEGAL",

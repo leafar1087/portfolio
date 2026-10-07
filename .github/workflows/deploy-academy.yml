@@ -68,10 +68,19 @@ jobs:
           python3 -m unittest discover -s tests -v
           python3 tools/build_css.py --check
           python3 build_index.py
+          if [ -n "${GOOGLE_ANALYTICS_MEASUREMENT_ID:-}" ]; then
+            if [[ ! "$GOOGLE_ANALYTICS_MEASUREMENT_ID" =~ ^G-[A-Z0-9]+$ ]]; then
+              echo "GOOGLE_ANALYTICS_MEASUREMENT_ID tiene un formato inválido." >&2
+              exit 1
+            fi
+            printf "window.PORTFOLIO_GA_MEASUREMENT_ID = '%s';\n" "$GOOGLE_ANALYTICS_MEASUREMENT_ID" > public/js/analytics-config.js
+          fi
           node --check js/academy-loader.js
           ! find public -type f \( -name '*.py' -o -name '*.pyc' -o -name '.env' -o -name '.env.*' \) -print -quit | grep -q .
           ! find public -type d -name '__pycache__' -print -quit | grep -q .
           ! grep -R -nE 'artifact_id|source_path|knowledge_dependencies|source_dependencies|Control de cambios|Registro interno|K-[A-Z0-9]' posts public/posts
+        env:
+          GOOGLE_ANALYTICS_MEASUREMENT_ID: ${{ secrets.GOOGLE_ANALYTICS_MEASUREMENT_ID }}
 
       - name: Prepare Pages runtime configuration
         env:
