@@ -66,9 +66,9 @@
 .hero-photo img {
   display: block;
   width: 100%;
-  aspect-ratio: 3 / 4;
+  aspect-ratio: 25 / 29;
   object-fit: cover;
-  object-position: center top;
+  object-position: center;
   border-radius: 2px;
   background-color: var(--surface-secondary);
 }
