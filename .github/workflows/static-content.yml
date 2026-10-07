@@ -1,26 +1,8 @@
 name: Static content build
 
 on:
-  push:
-    paths:
-      - 'posts/**'
-      - 'build_index.py'
-      - 'pages/**'
-      - 'js/**'
-      - 'css/**'
-      - '_headers'
-      - '_redirects'
-      - '.github/workflows/static-content.yml'
-  pull_request:
-    paths:
-      - 'posts/**'
-      - 'build_index.py'
-      - 'pages/**'
-      - 'js/**'
-      - 'css/**'
-      - '_headers'
-      - '_redirects'
-      - '.github/workflows/static-content.yml'
+  push: {}
+  pull_request: {}
 
 jobs:
   build:
