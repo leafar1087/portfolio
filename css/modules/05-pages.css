@@ -198,6 +198,171 @@
   .research-number { font-size: 2rem; }
 }
 
+/* ─── Cyber Resilience Explorer ────────────────────────────── */
+.resilience-explorer-intro {
+  align-items: end;
+  display: grid;
+  gap: 28px;
+  grid-template-columns: minmax(0, 1.35fr) minmax(260px, 0.65fr);
+  margin-bottom: 30px;
+}
+
+.resilience-eyebrow,
+.resilience-panel-code {
+  color: var(--brand-signal);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  margin-bottom: 12px;
+}
+
+.resilience-explorer-intro h2 {
+  font-size: clamp(1.8rem, 3.4vw, 3rem);
+  letter-spacing: -0.04em;
+  margin: 0;
+  max-width: 18ch;
+}
+
+.resilience-explorer-intro > p {
+  font-size: 15px;
+  line-height: 1.7;
+  margin: 0;
+}
+
+.resilience-explorer-shell {
+  background:
+    radial-gradient(circle at 80% 16%, rgba(var(--brand-signal-rgb), 0.14), transparent 32%),
+    linear-gradient(145deg, var(--surface-primary), var(--surface-secondary));
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-md);
+  display: grid;
+  grid-template-columns: minmax(220px, 0.62fr) minmax(0, 1fr);
+  min-height: 360px;
+  overflow: hidden;
+  position: relative;
+}
+
+.resilience-explorer-shell::before {
+  background-image:
+    linear-gradient(rgba(var(--brand-signal-rgb), 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(var(--brand-signal-rgb), 0.06) 1px, transparent 1px);
+  background-size: 28px 28px;
+  content: '';
+  inset: 0;
+  mask-image: linear-gradient(to right, #000, transparent 68%);
+  pointer-events: none;
+  position: absolute;
+}
+
+.resilience-flow {
+  display: grid;
+  gap: 2px;
+  list-style: none;
+  margin: 0;
+  padding: 22px;
+  position: relative;
+  z-index: 1;
+}
+
+.resilience-stage {
+  align-items: center;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: var(--radius-sm);
+  color: var(--text-secondary);
+  cursor: pointer;
+  display: flex;
+  font: 600 14px var(--font-display);
+  gap: 14px;
+  padding: 11px 12px;
+  text-align: left;
+  transition: background-color var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast), transform var(--transition-fast);
+  width: 100%;
+}
+
+.resilience-stage span {
+  color: var(--text-muted);
+  font: 700 11px var(--font-mono);
+  letter-spacing: 0.08em;
+}
+
+.resilience-stage:hover,
+.resilience-stage.is-active {
+  background: var(--brand-signal-subtle);
+  border-color: rgba(var(--brand-signal-rgb), 0.35);
+  color: var(--text-primary);
+}
+
+.resilience-stage.is-active { box-shadow: inset 3px 0 0 var(--brand-signal); }
+.resilience-stage.is-active span { color: var(--brand-signal); }
+
+.resilience-panels {
+  align-items: center;
+  display: grid;
+  min-width: 0;
+  padding: 28px;
+  position: relative;
+  z-index: 1;
+}
+
+.resilience-panel {
+  background: rgba(var(--bg-navy-rgb), 0.68);
+  border: 1px solid var(--border-medium);
+  border-left: 3px solid var(--brand-signal);
+  border-radius: var(--radius-md);
+  box-shadow: var(--glass-shadow);
+  padding: clamp(24px, 4vw, 42px);
+}
+
+.resilience-panel h3 {
+  font-size: clamp(1.55rem, 2.8vw, 2.3rem);
+  letter-spacing: -0.035em;
+  margin-bottom: 14px;
+  max-width: 18ch;
+}
+
+.resilience-panel > p:not(.resilience-panel-code) {
+  font-size: 16px;
+  line-height: 1.7;
+  margin-bottom: 24px;
+  max-width: 60ch;
+}
+
+.resilience-panel-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.resilience-explorer-footer {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 24px;
+  justify-content: space-between;
+  margin-top: 16px;
+}
+
+.resilience-explorer-footer p {
+  color: var(--text-muted);
+  font: 12px/1.55 var(--font-mono);
+  margin: 0;
+}
+
+@media (max-width: 760px) {
+  .resilience-explorer-intro,
+  .resilience-explorer-shell { grid-template-columns: 1fr; }
+  .resilience-flow { grid-template-columns: repeat(2, minmax(0, 1fr)); padding: 16px; }
+  .resilience-panels { padding: 0 16px 16px; }
+  .resilience-stage { min-height: 48px; }
+}
+
+@media (max-width: 440px) {
+  .resilience-flow { grid-template-columns: 1fr; }
+  .resilience-panel { padding: 24px 20px; }
+}
+
 /* ─── // 02 Experiencia — ledger editorial ──────────────────── */
 .ledger { display: flex; flex-direction: column; gap: 0; }
 

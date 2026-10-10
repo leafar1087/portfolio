@@ -261,7 +261,7 @@ def main():
         if os.path.isfile(fname):
             shutil.copy2(fname, os.path.join('public', fname))
             
-    static_dirs = ['css', 'js', 'pages', 'assets']
+    static_dirs = ['css', 'js', 'pages', 'assets', 'data']
     for dname in static_dirs:
         if os.path.isdir(dname):
             target_dir = os.path.join('public', dname)

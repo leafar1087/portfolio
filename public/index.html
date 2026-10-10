@@ -168,9 +168,73 @@
         </div>
       </section>
 
-      <!-- ─── // 02 EXPERIENCIA ─────────────────────────────── -->
+      <!-- ─── // 02 MODELO DE CIBERRESILIENCIA ─────────────── -->
+      <section id="resilience-explorer" class="resilience-explorer container section-editorial" aria-labelledby="resilience-explorer-title">
+        <span class="section-code">// 02 MODELO DE CIBERRESILIENCIA</span>
+        <div class="resilience-explorer-intro">
+          <div>
+            <p class="resilience-eyebrow">DE LA EXPOSICIÓN A LA EVIDENCIA</p>
+            <h2 id="resilience-explorer-title">Una defensa útil conecta decisiones, controles y señales.</h2>
+          </div>
+          <p>Explora el ciclo con el que convierto una superficie expuesta en controles verificables y capacidad operativa de respuesta.</p>
+        </div>
+        <div class="resilience-explorer-shell">
+          <div class="resilience-flow" role="tablist" aria-label="Etapas del modelo de ciberresiliencia">
+            <button id="resilience-stage-asset" class="resilience-stage is-active" type="button" role="tab" data-resilience-stage="asset" aria-controls="resilience-panel-asset" aria-selected="true"><span>01</span>Activo</button>
+            <button id="resilience-stage-threat" class="resilience-stage" type="button" role="tab" data-resilience-stage="threat" aria-controls="resilience-panel-threat" aria-selected="false" tabindex="-1"><span>02</span>Amenaza</button>
+            <button id="resilience-stage-risk" class="resilience-stage" type="button" role="tab" data-resilience-stage="risk" aria-controls="resilience-panel-risk" aria-selected="false" tabindex="-1"><span>03</span>Riesgo</button>
+            <button id="resilience-stage-control" class="resilience-stage" type="button" role="tab" data-resilience-stage="control" aria-controls="resilience-panel-control" aria-selected="false" tabindex="-1"><span>04</span>Control</button>
+            <button id="resilience-stage-detection" class="resilience-stage" type="button" role="tab" data-resilience-stage="detection" aria-controls="resilience-panel-detection" aria-selected="false" tabindex="-1"><span>05</span>Detección</button>
+            <button id="resilience-stage-evidence" class="resilience-stage" type="button" role="tab" data-resilience-stage="evidence" aria-controls="resilience-panel-evidence" aria-selected="false" tabindex="-1"><span>06</span>Evidencia</button>
+          </div>
+          <div class="resilience-panels" aria-live="polite">
+            <article id="resilience-panel-asset" class="resilience-panel" role="tabpanel" data-resilience-panel="asset" aria-labelledby="resilience-stage-asset">
+              <p class="resilience-panel-code">01 / CONTEXTO OPERATIVO</p>
+              <h3>Identificar qué sostiene el servicio.</h3>
+              <p>Servicios, datos, integraciones y dependencias se ordenan por criticidad para que la protección responda a una necesidad concreta de negocio.</p>
+              <div class="resilience-panel-tags"><span class="badge">Inventario</span><span class="badge">Dependencias</span><span class="badge">Criticidad</span></div>
+            </article>
+            <article id="resilience-panel-threat" class="resilience-panel" role="tabpanel" data-resilience-panel="threat" aria-labelledby="resilience-stage-threat" hidden>
+              <p class="resilience-panel-code">02 / ESCENARIO ADVERSARIO</p>
+              <h3>Traducir inteligencia en escenarios relevantes.</h3>
+              <p>Las tácticas y técnicas se contrastan con la arquitectura y el contexto del activo; una lista genérica de amenazas no es una prioridad operativa.</p>
+              <div class="resilience-panel-tags"><span class="badge">MITRE ATT&amp;CK</span><span class="badge">TTPs</span><span class="badge">Contexto</span></div>
+            </article>
+            <article id="resilience-panel-risk" class="resilience-panel" role="tabpanel" data-resilience-panel="risk" aria-labelledby="resilience-stage-risk" hidden>
+              <p class="resilience-panel-code">03 / PRIORIZACIÓN</p>
+              <h3>Decidir con impacto, exposición y evidencia.</h3>
+              <p>La prioridad combina impacto de negocio, explotabilidad y exposición real para dirigir el esfuerzo donde reduce riesgo de forma medible.</p>
+              <div class="resilience-panel-tags"><span class="badge">SSVC</span><span class="badge">EPSS</span><span class="badge">Impacto</span></div>
+            </article>
+            <article id="resilience-panel-control" class="resilience-panel" role="tabpanel" data-resilience-panel="control" aria-labelledby="resilience-stage-control" hidden>
+              <p class="resilience-panel-code">04 / DISEÑO DE DEFENSA</p>
+              <h3>Aplicar controles que resistan el caso de uso.</h3>
+              <p>La arquitectura combina prevención, mínimo privilegio, hardening y continuidad; el control debe tener propietario, alcance y criterio de eficacia.</p>
+              <div class="resilience-panel-tags"><span class="badge">Zero Trust</span><span class="badge">WAF</span><span class="badge">Hardening</span></div>
+            </article>
+            <article id="resilience-panel-detection" class="resilience-panel" role="tabpanel" data-resilience-panel="detection" aria-labelledby="resilience-stage-detection" hidden>
+              <p class="resilience-panel-code">05 / VISIBILIDAD</p>
+              <h3>Detectar señales, no acumular alertas.</h3>
+              <p>La telemetría se correlaciona con hipótesis de ataque y procedimientos de triaje para acortar el tiempo entre una señal y una decisión.</p>
+              <div class="resilience-panel-tags"><span class="badge">Wazuh</span><span class="badge">Sigma</span><span class="badge">Triage</span></div>
+            </article>
+            <article id="resilience-panel-evidence" class="resilience-panel" role="tabpanel" data-resilience-panel="evidence" aria-labelledby="resilience-stage-evidence" hidden>
+              <p class="resilience-panel-code">06 / VALIDACIÓN</p>
+              <h3>Demostrar que el control funciona.</h3>
+              <p>Pruebas, registros, cobertura de detección y lecciones aprendidas convierten la seguridad en una capacidad verificable y mejorable.</p>
+              <div class="resilience-panel-tags"><span class="badge">Pruebas</span><span class="badge">Trazabilidad</span><span class="badge">Mejora continua</span></div>
+            </article>
+          </div>
+        </div>
+        <div class="resilience-explorer-footer">
+          <p>Modelo de lectura basado en la investigación publicada; no representa telemetría en tiempo real.</p>
+          <a href="pages/article.html?id=cyber-resilience-architecture" class="research-link">Ver arquitectura de referencia &rarr;</a>
+        </div>
+      </section>
+
+      <!-- ─── // 03 EXPERIENCIA ─────────────────────────────── -->
       <section id="experience" class="experience container section-editorial">
-        <span class="section-code">// 02 EXPERIENCIA</span>
+        <span class="section-code">// 03 EXPERIENCIA</span>
         <div class="ledger">
           <!-- Job 1: Palco Ticketing -->
           <div class="ledger-item">
@@ -218,9 +282,9 @@
         </div>
       </section>
 
-      <!-- ─── // 03 ÁREAS DE PRÁCTICA ──────────────────────── -->
+      <!-- ─── // 04 ÁREAS DE PRÁCTICA ──────────────────────── -->
       <section id="practice" class="practice container section-editorial">
-        <span class="section-code">// 03 ÁREAS DE PRÁCTICA</span>
+        <span class="section-code">// 04 ÁREAS DE PRÁCTICA</span>
         <div class="practice-grid">
           <div class="practice-col">
             <span class="practice-number">01</span>
@@ -243,9 +307,9 @@
         </div>
       </section>
 
-      <!-- ─── // 04 ACADEMIA ────────────────────────────────── -->
+      <!-- ─── // 05 ACADEMIA ────────────────────────────────── -->
       <section id="academy" class="academy-section container section-editorial">
-        <span class="section-code">// 04 ACADEMIA</span>
+        <span class="section-code">// 05 ACADEMIA</span>
         <div class="academy-grid">
           <div class="course-card">
             <div class="course-card-badge">
@@ -289,9 +353,9 @@
         </div>
       </section>
 
-      <!-- ─── // 05 STACK TÉCNICO ───────────────────────────── -->
+      <!-- ─── // 06 STACK TÉCNICO ───────────────────────────── -->
       <section id="tech-stack" class="tech-stack container section-editorial">
-        <span class="section-code">// 05 STACK TÉCNICO</span>
+        <span class="section-code">// 06 STACK TÉCNICO</span>
         <div class="stack-layout">
           <div class="stack-group">
             <h4 class="stack-group-title">INGENIERÍA DE SEGURIDAD</h4>
@@ -343,9 +407,9 @@
         </details>
       </section>
 
-      <!-- ─── // 06 SOBRE MÍ ───────────────────────────────── -->
+      <!-- ─── // 07 SOBRE MÍ ───────────────────────────────── -->
       <section id="about" class="about container section-editorial reveal">
-        <span class="section-code">// 06 SOBRE MÍ</span>
+        <span class="section-code">// 07 SOBRE MÍ</span>
         <div class="about-content">
           <div class="about-text">
             <p data-i18n="about.p1">Soy Ingeniero Informático y de Sistemas con más de 15 años de trayectoria en soporte TI, desarrollo, interoperabilidad, gestión de datos, dirección de proyectos y ciberseguridad. Desarrollé buena parte de mi carrera en la Policía Nacional del Perú, participando en proyectos tecnológicos de alcance nacional con sistemas e información sensible.</p>
@@ -383,7 +447,7 @@
 
       <!-- ─── CONTACTO ──────────────────────────────────────── -->
       <section id="contact" class="contact container section-editorial reveal">
-        <span class="section-code">// 07 CONTACTO</span>
+        <span class="section-code">// 08 CONTACTO</span>
         <h2 class="contact-title font-display" data-i18n="contact.title">¿Hablamos?</h2>
         <p class="contact-desc" data-i18n="contact.desc">Abierto a nuevos retos profesionales, consultoría técnica y proyectos en seguridad de la información, gestión de incidentes y operaciones TI.</p>
         <div class="contact-buttons">

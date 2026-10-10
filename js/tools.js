@@ -133,6 +133,114 @@
         return section;
     }
 
+    function initThreatMap() {
+        const map = document.getElementById('threat-map-panel');
+        if (!map) return;
+        const nodes = Array.from(map.querySelectorAll('[data-threat-node]'));
+        const filters = Array.from(map.querySelectorAll('[data-threat-filter]'));
+        const status = document.getElementById('threat-map-status');
+        const detail = {
+            code: document.getElementById('threat-map-detail-code'),
+            title: document.getElementById('threat-map-detail-title'),
+            summary: document.getElementById('threat-map-detail-summary'),
+            technique: document.getElementById('threat-map-detail-technique'),
+            source: document.getElementById('threat-map-detail-source')
+        };
+
+        function selectNode(node) {
+            nodes.forEach(item => {
+                const active = item === node;
+                item.classList.toggle('is-active', active);
+                item.setAttribute('aria-pressed', String(active));
+            });
+            detail.code.textContent = `${node.querySelector('span').textContent} / ${node.dataset.threatCategory.toUpperCase()}`;
+            detail.title.textContent = node.dataset.threatTitle;
+            detail.summary.textContent = node.dataset.threatSummary;
+            detail.technique.textContent = node.dataset.threatTechnique;
+            detail.source.href = node.dataset.threatUrl;
+            detail.source.textContent = `Consultar ${node.dataset.threatSource} ↗`;
+        }
+
+        filters.forEach(filter => filter.addEventListener('click', () => {
+            const category = filter.dataset.threatFilter;
+            filters.forEach(item => {
+                const active = item === filter;
+                item.classList.toggle('active', active);
+                item.setAttribute('aria-pressed', String(active));
+            });
+            const visible = nodes.filter(node => {
+                const matches = category === 'all' || node.dataset.threatCategory === category;
+                node.hidden = !matches;
+                return matches;
+            });
+            if (!visible.some(node => node.classList.contains('is-active'))) selectNode(visible[0]);
+            status.textContent = `${visible.length} escenario${visible.length === 1 ? '' : 's'} local${visible.length === 1 ? '' : 'es'} disponible${visible.length === 1 ? '' : 's'} · actualizado 2026-10-10.`;
+        }));
+        nodes.forEach(node => node.addEventListener('click', () => selectNode(node)));
+    }
+
+    function initKevExplorer() {
+        const input = document.getElementById('kev-search');
+        if (!input) return;
+        const status = document.getElementById('kev-status');
+        const results = document.getElementById('kev-results');
+        let catalog;
+        let loading;
+
+        function render(items) {
+            results.replaceChildren();
+            items.forEach(item => {
+                const card = document.createElement('article');
+                card.className = 'kev-result';
+                const title = document.createElement('h4'); title.textContent = `${item.cveId} · ${item.vendor} ${item.product}`;
+                const description = document.createElement('p'); description.textContent = item.description;
+                const metadata = document.createElement('div'); metadata.className = 'kev-result-meta';
+                [
+                    `Explotación conocida · ${item.dateAdded || 'sin fecha'}`,
+                    item.dueDate ? `Acción CISA · ${item.dueDate}` : '',
+                    item.ransomware === 'Known' ? 'Uso en ransomware conocido' : '',
+                    ...(item.cwes || [])
+                ].filter(Boolean).forEach(value => {
+                    const tag = document.createElement('span'); tag.textContent = value; metadata.appendChild(tag);
+                });
+                card.append(title, description, metadata); results.appendChild(card);
+            });
+        }
+
+        function search() {
+            const query = input.value.trim().toLocaleLowerCase('en');
+            if (query.length < 3) {
+                results.replaceChildren();
+                status.textContent = 'Introduce al menos 3 caracteres para buscar en el catálogo local.';
+                return;
+            }
+            const matches = catalog.vulnerabilities.filter(item => [item.cveId, item.vendor, item.product, item.name].join(' ').toLocaleLowerCase('en').includes(query)).slice(0, 12);
+            render(matches);
+            status.textContent = matches.length ? `${matches.length} resultado${matches.length === 1 ? '' : 's'} de CVEs con explotación conocida.` : 'No se encontraron CVEs en el snapshot local.';
+        }
+
+        async function load() {
+            if (catalog) return;
+            if (loading) return loading;
+            status.textContent = 'Cargando catálogo local CISA KEV…';
+            loading = fetch('../data/cisa-kev.json')
+                .then(response => response.ok ? response.json() : Promise.reject(new Error('CATALOG_NOT_FOUND')))
+                .then(data => {
+                    if (!Array.isArray(data.vulnerabilities) || !data.source) throw new Error('CATALOG_INVALID');
+                    catalog = data;
+                    status.textContent = `${catalog.vulnerabilities.length} CVEs con explotación conocida · CISA KEV ${catalog.source.catalogVersion || 'sin versión'} · usa el buscador para filtrar.`;
+                    if (input.value.trim()) search();
+                })
+                .catch(() => {
+                    status.textContent = 'No se pudo cargar el snapshot local de CISA KEV. Vuelve a generar la distribución.';
+                });
+            return loading;
+        }
+
+        document.getElementById('threat-map-tab')?.addEventListener('click', load);
+        input.addEventListener('input', () => { if (catalog) search(); });
+    }
+
     function sigmaSection(sigma) {
         const section = document.createElement('section'); section.className = 'attack-sigma';
         const heading = document.createElement('h3'); heading.textContent = 'Reglas Sigma publicadas'; section.appendChild(heading);
@@ -265,6 +373,8 @@
                 if (exact) results.appendChild(sigmaSection(payload.sigma));
             } catch (error) { status.textContent = error.message || 'No se pudo consultar ATT&CK.'; }
         });
+        initThreatMap();
+        initKevExplorer();
         render();
     }
 
