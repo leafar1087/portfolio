@@ -34,6 +34,7 @@
             ad_user_data: 'denied',
             ad_personalization: 'denied',
         });
+
         const script = document.createElement('script');
         script.async = true;
         script.src = `https://www.googletagmanager.com/gtag/js?id=${MEASUREMENT_ID}`;
@@ -88,6 +89,7 @@
         document.body.appendChild(banner);
         banner.querySelector('.analytics-consent-reject').addEventListener('click', () => setConsent('denied'));
         banner.querySelector('.analytics-consent-accept').addEventListener('click', () => setConsent('granted'));
+
         if (savedConsent === 'granted') loadAnalytics();
         window.setTimeout(addPreferencesControl, 0);
     }

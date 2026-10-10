@@ -401,13 +401,13 @@ document.addEventListener('DOMContentLoaded', async () => {
                 </div>
                 
                 <div class="articles-search-bar">
-                    <input type="text" id="article-search" class="editorial-search-input" placeholder="${placeholderText}" value="${cleanSearchTerm}" autocomplete="off">
+                    <input type="text" id="article-search" class="editorial-search-input" aria-label="Buscar publicaciones" placeholder="${placeholderText}" value="${cleanSearchTerm}" autocomplete="off">
                 </div>
 
                 <div id="posts-list" class="editorial-posts-ledger">${rows}</div>
             </div>
         `;
-        container.innerHTML = DOMPurify.sanitize(finalContent, { ADD_ATTR: ['id', 'value', 'placeholder', 'autocomplete'] });
+        container.innerHTML = DOMPurify.sanitize(finalContent, { ADD_ATTR: ['id', 'value', 'placeholder', 'autocomplete', 'aria-label'] });
 
         const searchInput = document.getElementById('article-search');
         if (searchInput) {

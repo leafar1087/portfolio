@@ -27,6 +27,7 @@
       <div class="tools-tabs" role="tablist" aria-label="Herramientas disponibles">
         <button class="tools-tab active" id="cvss-tab" type="button" role="tab" aria-selected="true" aria-controls="cvss-panel" data-tool-tab="cvss">Calculadora CVSS</button>
         <button class="tools-tab" id="attack-tab" type="button" role="tab" aria-selected="false" aria-controls="attack-panel" data-tool-tab="attack">MITRE ATT&amp;CK y Sigma</button>
+        <button class="tools-tab" id="threat-map-tab" type="button" role="tab" aria-selected="false" aria-controls="threat-map-panel" data-tool-tab="threat-map">Mapa de contexto</button>
       </div>
 
       <section id="cvss-panel" class="tool-panel" role="tabpanel" aria-labelledby="cvss-tab" data-tool-panel="cvss">
@@ -67,6 +68,67 @@
         <form id="attack-search-form" class="attack-search-form"><label>Dominio <select id="attack-domain"><option value="enterprise">Enterprise</option><option value="mobile">Mobile</option><option value="ics">ICS</option></select></label><label class="attack-query">Técnica, sub-técnica o nombre<input id="attack-query" type="search" maxlength="80" placeholder="T1059.001 o PowerShell" /></label><button class="btn btn-filled" type="submit">Buscar</button></form>
         <p id="attack-status" class="tool-status" role="status"></p>
         <div id="attack-results" class="attack-results"></div>
+      </section>
+
+      <section id="threat-map-panel" class="tool-panel" role="tabpanel" aria-labelledby="threat-map-tab" data-tool-panel="threat-map" hidden>
+        <div class="threat-map-header">
+          <div>
+            <span class="course-overview-kicker">Snapshot local · versión inicial</span>
+            <h2>Mapa de contexto de amenazas</h2>
+          </div>
+          <span class="badge badge-signal">Sin servicios de terceros</span>
+        </div>
+        <p class="tools-intro">Visualización local de escenarios ATT&amp;CK para orientar el análisis. Los marcadores son anclajes geográficos de lectura: no indican origen, víctima, atribución ni volumen de ataques.</p>
+        <div class="threat-map-filters" role="group" aria-label="Filtrar escenarios del mapa">
+          <button class="threat-map-filter active" type="button" data-threat-filter="all" aria-pressed="true">Todos</button>
+          <button class="threat-map-filter" type="button" data-threat-filter="exposure" aria-pressed="false">Exposición</button>
+          <button class="threat-map-filter" type="button" data-threat-filter="identity" aria-pressed="false">Identidad</button>
+          <button class="threat-map-filter" type="button" data-threat-filter="supply" aria-pressed="false">Cadena de suministro</button>
+          <button class="threat-map-filter" type="button" data-threat-filter="impact" aria-pressed="false">Impacto</button>
+        </div>
+        <div class="threat-map-layout">
+          <div class="threat-map-canvas" role="group" aria-label="Escenarios de ciberamenazas por contexto geográfico">
+            <svg class="threat-map-grid" viewBox="0 0 1000 480" aria-hidden="true" focusable="false">
+              <path d="M0 80H1000M0 160H1000M0 240H1000M0 320H1000M0 400H1000M125 0V480M250 0V480M375 0V480M500 0V480M625 0V480M750 0V480M875 0V480" />
+              <path class="threat-map-equator" d="M0 240H1000" />
+              <path class="threat-map-route" d="M250 180C410 70 620 110 770 210" />
+              <path class="threat-map-route" d="M285 315C445 375 635 355 755 245" />
+            </svg>
+            <span class="threat-map-region region-na">NORTEAMÉRICA</span>
+            <span class="threat-map-region region-eu">EUROPA</span>
+            <span class="threat-map-region region-latam">LATINOAMÉRICA</span>
+            <span class="threat-map-region region-apac">ASIA-PACÍFICO</span>
+            <button class="threat-map-node is-active node-na" type="button" data-threat-node data-threat-category="identity" data-threat-title="Uso de cuentas válidas" data-threat-technique="T1078 · Valid Accounts" data-threat-summary="Las identidades, privilegios y señales de autenticación son una superficie de control prioritaria cuando el acceso parece legítimo." data-threat-source="MITRE ATT&amp;CK" data-threat-url="https://attack.mitre.org/techniques/T1078/" aria-pressed="true"><span>01</span><strong>Identidad</strong></button>
+            <button class="threat-map-node node-eu" type="button" data-threat-node data-threat-category="exposure" data-threat-title="Aplicaciones expuestas" data-threat-technique="T1190 · Exploit Public-Facing Application" data-threat-summary="La exposición de servicios públicos conecta la gestión de vulnerabilidades, el endurecimiento y la protección de aplicaciones." data-threat-source="MITRE ATT&amp;CK" data-threat-url="https://attack.mitre.org/techniques/T1190/" aria-pressed="false"><span>02</span><strong>Exposición</strong></button>
+            <button class="threat-map-node node-latam" type="button" data-threat-node data-threat-category="supply" data-threat-title="Compromiso de la cadena de suministro" data-threat-technique="T1195.002 · Compromise Software Supply Chain" data-threat-summary="La confianza en dependencias y proveedores exige trazabilidad, SBOM y validación de artefactos antes de su despliegue." data-threat-source="MITRE ATT&amp;CK" data-threat-url="https://attack.mitre.org/techniques/T1195/002/" aria-pressed="false"><span>03</span><strong>Supply chain</strong></button>
+            <button class="threat-map-node node-apac" type="button" data-threat-node data-threat-category="impact" data-threat-title="Cifrado para impacto" data-threat-technique="T1486 · Data Encrypted for Impact" data-threat-summary="La continuidad operativa depende de copias verificadas, segmentación y procedimientos de recuperación practicados." data-threat-source="MITRE ATT&amp;CK" data-threat-url="https://attack.mitre.org/techniques/T1486/" aria-pressed="false"><span>04</span><strong>Impacto</strong></button>
+          </div>
+          <aside class="threat-map-detail" aria-live="polite">
+            <p id="threat-map-detail-code" class="attack-result-type">01 / IDENTIDAD</p>
+            <h3 id="threat-map-detail-title">Uso de cuentas válidas</h3>
+            <p id="threat-map-detail-summary">Las identidades, privilegios y señales de autenticación son una superficie de control prioritaria cuando el acceso parece legítimo.</p>
+            <span id="threat-map-detail-technique" class="badge">T1078 · Valid Accounts</span>
+            <a id="threat-map-detail-source" class="attack-source-link" href="https://attack.mitre.org/techniques/T1078/" target="_blank" rel="noopener noreferrer">Consultar MITRE ATT&amp;CK ↗</a>
+          </aside>
+        </div>
+        <p id="threat-map-status" class="tool-status" role="status">4 escenarios locales disponibles · actualizado 2026-10-10.</p>
+        <div class="threat-map-sources">
+          <span>Fuentes abiertas de referencia:</span>
+          <a href="https://attack.mitre.org/" target="_blank" rel="noopener noreferrer">MITRE ATT&amp;CK ↗</a>
+          <a href="https://www.cisa.gov/known-exploited-vulnerabilities-catalog" target="_blank" rel="noopener noreferrer">CISA KEV ↗</a>
+        </div>
+        <section class="kev-explorer" aria-labelledby="kev-explorer-title">
+          <div>
+            <span class="course-overview-kicker">Catálogo local CISA KEV</span>
+            <h3 id="kev-explorer-title">Buscar CVEs con explotación conocida</h3>
+          </div>
+          <p>Busca por CVE, proveedor o producto. KEV indica explotación conocida, no confirma que una vulnerabilidad afecte a tus activos, versiones o configuración.</p>
+          <label class="kev-search-label" for="kev-search">CVE, proveedor o producto
+            <input id="kev-search" type="search" minlength="3" autocomplete="off" placeholder="CVE-2021-44228, Microsoft o VMware" />
+          </label>
+          <p id="kev-status" class="tool-status" role="status">Abre esta pestaña para cargar el snapshot local.</p>
+          <div id="kev-results" class="kev-results"></div>
+        </section>
       </section>
     </main>
     <footer id="main-footer"></footer>

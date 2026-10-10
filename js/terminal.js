@@ -24,7 +24,7 @@
         <div id="term-output"></div>
         <div class="terminal-input-area">
             <span class="prompt">visitor@rafael.sec:~$</span>
-            <input type="text" id="term-input" autocomplete="off">
+            <input type="text" id="term-input" aria-label="Entrada de terminal" autocomplete="off">
         </div>
     `;
 
@@ -32,7 +32,7 @@
         terminalDiv.innerHTML = DOMPurify.sanitize(terminalHtml, { 
             USE_PROFILES: { html: true, svg: true },
             ADD_TAGS: ['use', 'svg'],
-            ADD_ATTR: ['id', 'autocomplete', 'href', 'xlink:href'] 
+            ADD_ATTR: ['id', 'aria-label', 'autocomplete', 'href', 'xlink:href']
         });
     } else {
         terminalDiv.innerHTML = terminalHtml;

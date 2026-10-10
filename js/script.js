@@ -183,4 +183,36 @@ window.initApp = function() {
 
     const revealElements = document.querySelectorAll('.reveal');
     revealElements.forEach(el => observer.observe(el));
+
+    // Cyber resilience explorer: one selected stage and its explanatory panel.
+    const resilienceExplorer = document.getElementById('resilience-explorer');
+    if (resilienceExplorer) {
+        const stages = Array.from(resilienceExplorer.querySelectorAll('[data-resilience-stage]'));
+        const panels = Array.from(resilienceExplorer.querySelectorAll('[data-resilience-panel]'));
+
+        const selectStage = (stage) => {
+            const selected = stage.dataset.resilienceStage;
+            stages.forEach(item => {
+                const isSelected = item === stage;
+                item.classList.toggle('is-active', isSelected);
+                item.setAttribute('aria-selected', String(isSelected));
+                item.tabIndex = isSelected ? 0 : -1;
+            });
+            panels.forEach(panel => {
+                panel.hidden = panel.dataset.resiliencePanel !== selected;
+            });
+        };
+
+        stages.forEach((stage, index) => {
+            stage.addEventListener('click', () => selectStage(stage));
+            stage.addEventListener('keydown', (event) => {
+                if (!['ArrowDown', 'ArrowRight', 'ArrowUp', 'ArrowLeft', 'Home', 'End'].includes(event.key)) return;
+                event.preventDefault();
+                const nextIndex = event.key === 'Home' ? 0 : event.key === 'End' ? stages.length - 1 :
+                    (index + (event.key === 'ArrowDown' || event.key === 'ArrowRight' ? 1 : -1) + stages.length) % stages.length;
+                stages[nextIndex].focus();
+                selectStage(stages[nextIndex]);
+            });
+        });
+    }
 };
