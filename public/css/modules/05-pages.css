@@ -893,6 +893,13 @@
   border-color: var(--brand-signal);
 }
 
+.editorial-search-status {
+  color: var(--text-muted);
+  font: 0.75rem/1.4 var(--font-mono);
+  margin: 10px 0 0;
+  min-height: 1.2em;
+}
+
 .editorial-posts-ledger {
   align-items: start;
   display: grid;

@@ -393,6 +393,10 @@ document.addEventListener('DOMContentLoaded', async () => {
             rows = `<div class="py-4"><p class="text-muted">No se encontraron publicaciones que coincidan con "${safeTerm}".</p></div>`;
         }
 
+        const resultStatus = filteredPosts.length === 1
+            ? '1 publicación encontrada.'
+            : `${filteredPosts.length} publicaciones encontradas.`;
+
         const placeholderText = 'Buscar por tema, tecnología o marco (ej. Wazuh, NIST, Python)...';
         const cleanSearchTerm = DOMPurify.sanitize(searchTerm);
 
@@ -406,6 +410,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                 
                 <div class="articles-search-bar">
                     <input type="text" id="article-search" class="editorial-search-input" aria-label="Buscar publicaciones" placeholder="${placeholderText}" value="${cleanSearchTerm}" autocomplete="off">
+                    <p id="article-search-status" class="editorial-search-status" role="status" aria-live="polite">${resultStatus}</p>
                 </div>
 
                 <div id="posts-list" class="editorial-posts-ledger">${rows}</div>

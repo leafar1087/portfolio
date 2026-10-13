@@ -15,6 +15,8 @@ class CourseOverviewTests(unittest.TestCase):
         source = SOURCE.read_text(encoding='utf-8')
         self.assertIn('id="article-search"', source)
         self.assertIn('aria-label="Buscar publicaciones"', source)
+        self.assertIn('id="article-search-status"', source)
+        self.assertIn('aria-live="polite"', source)
         self.assertIn("'aria-label'", source)
 
     def test_article_states_are_explicit_and_announceable(self):
