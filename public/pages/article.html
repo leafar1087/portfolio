@@ -62,7 +62,7 @@
     
     <!-- Article Loader Script -->
     <script src="../js/academy-seo.js?v=20260929" defer></script>
-    <script src="../js/article-loader.js?v=20261013a" defer></script>
+    <script src="../js/article-loader.js?v=20261013b" defer></script>
   </head>
   <body class="site-page">
     <a class="skip-link" href="#main-content">Saltar al contenido principal</a>
@@ -70,8 +70,8 @@
 
      <main id="main-content" class="site-main">
        <!-- Container for the dynamic article content -->
-       <article class="article-container container section-padding" id="article-container" aria-busy="false">
-           <div class="loading-state">
+       <article class="article-container container section-padding" id="article-container" data-state="loading" aria-busy="true">
+           <div class="loading-state" role="status" aria-live="polite">
                <span class="glowing-dot loading-dot"></span>
                <p class="font-mono mt-1">Cargando artículo...</p>
            </div>
