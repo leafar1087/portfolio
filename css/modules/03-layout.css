@@ -100,12 +100,12 @@
 
 [data-theme='light'] .logo-svg-wrap,
 [data-theme='light'] .logo-svg {
-  color: #0f172a;
+  color: var(--text-primary);
 }
 
 [data-theme='dark'] .logo-svg-wrap,
 [data-theme='dark'] .logo-svg {
-  color: #f8fafc;
+  color: var(--text-primary);
 }
 
 /* Footer logo wrapper */

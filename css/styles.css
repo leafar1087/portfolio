@@ -722,12 +722,12 @@ img, svg, picture {
 
 [data-theme='light'] .logo-svg-wrap,
 [data-theme='light'] .logo-svg {
-  color: #0f172a;
+  color: var(--text-primary);
 }
 
 [data-theme='dark'] .logo-svg-wrap,
 [data-theme='dark'] .logo-svg {
-  color: #f8fafc;
+  color: var(--text-primary);
 }
 
 /* Footer logo wrapper */
@@ -1167,9 +1167,9 @@ img, svg, picture {
 }
 
 [data-theme='light'] .case-study-card {
-  background-color: #ffffff;
-  border-color: #cbd5e1;
-  border-left-color: #0052cc;
+  background-color: var(--surface-primary);
+  border-color: var(--border-medium);
+  border-left-color: var(--brand-primary);
   box-shadow: 0 10px 30px -10px rgba(10, 37, 64, 0.08);
 }
 
@@ -1178,7 +1178,7 @@ img, svg, picture {
 }
 
 [data-theme='light'] .case-study-card:hover {
-  border-color: #0052cc;
+  border-color: var(--brand-primary);
 }
 
 .badge-engineering {
@@ -1193,7 +1193,7 @@ img, svg, picture {
 }
 
 [data-theme='light'] .badge-engineering {
-  color: #0052cc;
+  color: var(--brand-primary);
 }
 
 .case-study-title {
@@ -1231,8 +1231,8 @@ img, svg, picture {
 }
 
 [data-theme='light'] .cs-metric-box {
-  background-color: #f8fafc;
-  border-color: #e2e8f0;
+  background-color: var(--surface-canvas);
+  border-color: var(--border-subtle);
 }
 
 .cs-metric-box:hover {
@@ -1241,7 +1241,7 @@ img, svg, picture {
 }
 
 [data-theme='light'] .cs-metric-box:hover {
-  border-color: #0052cc;
+  border-color: var(--brand-primary);
 }
 
 .cs-metric-num {
@@ -1254,7 +1254,7 @@ img, svg, picture {
 }
 
 [data-theme='light'] .cs-metric-num {
-  color: #0052cc;
+  color: var(--brand-primary);
 }
 
 .cs-metric-label {
@@ -3324,7 +3324,7 @@ img, svg, picture {
 }
 
 .article-content a.btn-filled:hover {
-  color: #ffffff;
+  color: var(--text-on-brand);
 }
 
 .course-content-wrapper .article-content {

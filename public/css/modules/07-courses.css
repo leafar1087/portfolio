@@ -823,7 +823,7 @@
 }
 
 .article-content a.btn-filled:hover {
-  color: #ffffff;
+  color: var(--text-on-brand);
 }
 
 .course-content-wrapper .article-content {
