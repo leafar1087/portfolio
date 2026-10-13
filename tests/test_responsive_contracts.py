@@ -47,7 +47,7 @@ class ResponsiveContractTests(unittest.TestCase):
         for page in [ROOT / 'index.html', *sorted((ROOT / 'pages').glob('*.html'))]:
             source = page.read_text(encoding='utf-8')
             if 'styles.css' in source:
-                self.assertIn('styles.css?v=20261013k', source, str(page))
+                self.assertIn('styles.css?v=20261013l', source, str(page))
 
     def test_hero_evidence_field_has_reduced_motion_contract(self):
         source = (ROOT / 'index.html').read_text(encoding='utf-8')
