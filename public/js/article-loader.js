@@ -8,7 +8,13 @@ document.addEventListener('DOMContentLoaded', async () => {
     const currentLang = 'es';
     let allPosts = [];
 
-    await loadContent();
+    try {
+        await loadContent();
+    } finally {
+        // Every terminal path, including an unexpected loader error, must stop
+        // announcing the article as busy once rendering has settled.
+        container.setAttribute('aria-busy', 'false');
+    }
 
 
     async function loadContent() {
