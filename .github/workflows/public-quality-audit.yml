@@ -17,8 +17,12 @@ jobs:
         shell: bash
         run: |
           npx --yes browser-driver-manager@2.0.1 install chrome > driver.env
-          grep '^CHROME_TEST_PATH=' driver.env >> "$GITHUB_ENV"
-          grep '^CHROMEDRIVER_TEST_PATH=' driver.env >> "$GITHUB_ENV"
+          chrome_path="$(find "$HOME/.browser-driver-manager" -type f -name chrome -print -quit)"
+          chromedriver_path="$(find "$HOME/.browser-driver-manager" -type f -name chromedriver -print -quit)"
+          test -x "$chrome_path"
+          test -x "$chromedriver_path"
+          printf 'CHROME_TEST_PATH=%s\n' "$chrome_path" >> "$GITHUB_ENV"
+          printf 'CHROMEDRIVER_TEST_PATH=%s\n' "$chromedriver_path" >> "$GITHUB_ENV"
 
       - name: Run axe WCAG audit
         shell: bash
