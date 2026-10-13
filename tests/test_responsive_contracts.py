@@ -43,6 +43,5 @@ class ResponsiveContractTests(unittest.TestCase):
         self.assertNotIn('transition: all', self.courses)
         self.assertNotIn('course-overview-start:hover { color: #ffffff', self.courses)
 
-
 if __name__ == '__main__':
     unittest.main()
