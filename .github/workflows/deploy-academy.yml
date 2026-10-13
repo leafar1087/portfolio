@@ -97,3 +97,18 @@ jobs:
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           command: pages deploy public --project-name=${{ vars.CLOUDFLARE_PAGES_PROJECT }} --branch=main
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Purge published HTML from Cloudflare cache
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+        run: |
+          zone_id="$(curl --fail-with-body --silent --show-error \
+            --header "Authorization: Bearer $CLOUDFLARE_API_TOKEN" \
+            'https://api.cloudflare.com/client/v4/zones?name=rafaelperezllorca.com&status=active' \
+            | jq -r '.result[0].id')"
+          test -n "$zone_id" && test "$zone_id" != "null"
+          curl --fail-with-body --silent --show-error --request POST \
+            --header "Authorization: Bearer $CLOUDFLARE_API_TOKEN" \
+            --header 'Content-Type: application/json' \
+            "https://api.cloudflare.com/client/v4/zones/$zone_id/purge_cache" \
+            --data '{"files":["https://rafaelperezllorca.com/","https://rafaelperezllorca.com/index.html","https://www.rafaelperezllorca.com/","https://www.rafaelperezllorca.com/index.html"]}'
