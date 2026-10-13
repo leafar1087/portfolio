@@ -32,7 +32,6 @@ document.addEventListener('DOMContentLoaded', async () => {
             } catch (error) {
                 renderTerminalState({
                     status: "FALLO_DE_INDICE",
-                    color: "#ff6b6b",
                     lines: ["ERROR AL RECUPERAR EL REGISTRO: 503", "No fue posible verificar la integridad del índice oficial de publicaciones.", error.message],
                     actions: [{ text: "REINTENTAR", href: "article.html", primary: true }]
                 });
@@ -53,7 +52,6 @@ document.addEventListener('DOMContentLoaded', async () => {
             if (!ARTICLE_ID_PATTERN.test(articleId)) {
                 renderTerminalState({
                     status: "ACCESO_INVALIDO",
-                    color: "#ff6b6b",
                     lines: ["IDENTIFICADOR NO VÁLIDO: 400", "El identificador del recurso contiene caracteres o patrones no permitidos."],
                     actions: [{ text: "VOLVER AL ÍNDICE", href: "article.html", primary: true }]
                 });
@@ -65,7 +63,6 @@ document.addEventListener('DOMContentLoaded', async () => {
             if (!existsInIndex) {
                 renderTerminalState({
                     status: "RECURSO_NO_REGISTRADO",
-                    color: "#ff6b6b",
                     lines: ["CÓDIGO DE ERROR: 404", "El artículo solicitado no figura en el registro oficial."],
                     actions: [{ text: "VOLVER AL ÍNDICE", href: "article.html", primary: true }]
                 });
@@ -312,7 +309,6 @@ document.addEventListener('DOMContentLoaded', async () => {
         } catch (error) {
             renderTerminalState({
                 status: "FALLO_DE_TRANSMISION",
-                color: "#ff6b6b",
                 lines: ["CÓDIGO DE ERROR: 404", `DETALLES: ${error.message}`, "No se pudo cargar el artículo o módulo solicitado."],
                 actions: [{ text: "VOLVER AL ÍNDICE", href: "article.html", primary: true }]
             });
@@ -436,9 +432,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
     }
 
-    function renderTerminalState({ status, color, lines, actions }) {
-        // Note: 'color' param is kept for status text to maintain dynamic error coloring if needed, 
-        // but container uses class.
+    function renderTerminalState({ status, lines, actions }) {
         let linesHtml = lines.map(line => `<p class="mb-1 font-mono">> ${line}</p>`).join('');
         let actionsHtml = actions.map(action => 
             `<a href="${action.href}" class="${action.primary ? 'btn btn-filled' : 'btn btn-outline'} mr-1 mt-1">
@@ -447,15 +441,15 @@ document.addEventListener('DOMContentLoaded', async () => {
         ).join('');
 
         const errorHtml = `
-            <div class="error-box" style="border-color: ${color}">
-                <div class="error-header" style="border-color: ${color}">
-                     <span class="error-title" style="color: ${color}">${status}</span>
+            <div class="error-box">
+                <div class="error-header">
+                     <span class="error-title">${status}</span>
                 </div>
                 <div class="text-light-slate mb-3">${linesHtml}</div>
                 <div class="d-flex flex-wrap">${actionsHtml}</div>
             </div>
         `;
-        container.innerHTML = DOMPurify.sanitize(errorHtml, { ADD_ATTR: ['style'] });
+        container.innerHTML = DOMPurify.sanitize(errorHtml);
         container.querySelector('.error-box')?.setAttribute('role', 'alert');
         container.dataset.state = 'error';
         container.setAttribute('aria-busy', 'false');
