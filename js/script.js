@@ -219,7 +219,13 @@ window.initApp = function() {
                 item.tabIndex = isSelected ? 0 : -1;
             });
             panels.forEach(panel => {
-                panel.hidden = panel.dataset.resiliencePanel !== selected;
+                const isSelected = panel.dataset.resiliencePanel === selected;
+                panel.hidden = !isSelected;
+                panel.classList.remove('is-entering');
+                if (isSelected && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                    void panel.offsetWidth;
+                    panel.classList.add('is-entering');
+                }
             });
         };
 
