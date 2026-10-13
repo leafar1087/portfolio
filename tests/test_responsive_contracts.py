@@ -47,7 +47,7 @@ class ResponsiveContractTests(unittest.TestCase):
         for page in [ROOT / 'index.html', *sorted((ROOT / 'pages').glob('*.html'))]:
             source = page.read_text(encoding='utf-8')
             if 'styles.css' in source:
-                self.assertIn('styles.css?v=20261013i', source, str(page))
+                self.assertIn('styles.css?v=20261013j', source, str(page))
 
 if __name__ == '__main__':
     unittest.main()
