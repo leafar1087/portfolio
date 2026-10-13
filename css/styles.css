@@ -1348,11 +1348,11 @@ img, svg, picture {
 .hero-evidence-field {
   position: absolute;
   z-index: 0;
-  top: 50%;
-  right: 12px;
-  width: min(60vw, 640px);
+  top: 55%;
+  right: 28px;
+  width: min(42vw, 480px);
   pointer-events: none;
-  opacity: 0.88;
+  opacity: 0.58;
   transform: translateY(-50%);
 }
 
@@ -1378,7 +1378,7 @@ img, svg, picture {
 .hero-evidence-route {
   fill: none;
   stroke: var(--brand-signal);
-  stroke-width: 2;
+  stroke-width: 1.5;
   stroke-linecap: round;
   stroke-dasharray: 1;
   stroke-dashoffset: 1;
@@ -1396,7 +1396,7 @@ img, svg, picture {
 .hero-evidence-node text {
   fill: var(--text-muted);
   font-family: var(--font-mono);
-  font-size: 9px;
+  font-size: 8px;
   font-weight: 600;
   letter-spacing: 0.12em;
 }
@@ -1518,12 +1518,12 @@ img, svg, picture {
   .hero-layout { grid-template-columns: 1fr; gap: 40px; }
   .hero-profile { flex-direction: row; align-items: flex-start; flex-wrap: wrap; }
   .hero-photo { width: 200px; }
-  .hero-evidence-field { top: 72%; right: -150px; width: min(90vw, 620px); opacity: 0.68; }
+  .hero-evidence-field { top: 66%; right: -100px; width: min(74vw, 500px); opacity: 0.46; }
 }
 
 @media (max-width: 640px) {
   .hero-photo { width: 160px; }
-  .hero-evidence-field { top: 66%; right: -230px; width: 560px; opacity: 0.46; }
+  .hero-evidence-field { top: 67%; right: -180px; width: 440px; opacity: 0.34; }
   .hero-evidence-node--risk,
   .hero-evidence-node--control { display: none; }
 }
