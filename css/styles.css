@@ -1345,93 +1345,6 @@ img, svg, picture {
   align-items: center;
 }
 
-.hero-evidence-field {
-  position: absolute;
-  z-index: 0;
-  top: 55%;
-  right: 28px;
-  width: min(42vw, 480px);
-  pointer-events: none;
-  opacity: 0.58;
-  transform: translateY(-50%);
-}
-
-.hero-evidence-svg {
-  display: block;
-  width: 100%;
-  height: auto;
-  overflow: visible;
-}
-
-.hero-evidence-grid,
-.hero-evidence-route-trace {
-  fill: none;
-  stroke: var(--border-subtle);
-  stroke-width: 1;
-  vector-effect: non-scaling-stroke;
-}
-
-.hero-evidence-route-trace {
-  opacity: 0.32;
-}
-
-.hero-evidence-route {
-  fill: none;
-  stroke: var(--brand-signal);
-  stroke-width: 1.5;
-  stroke-linecap: round;
-  stroke-dasharray: 1;
-  stroke-dashoffset: 1;
-  vector-effect: non-scaling-stroke;
-  animation: evidence-route 1100ms cubic-bezier(0.16, 1, 0.3, 1) 250ms forwards;
-}
-
-.hero-evidence-node circle {
-  fill: var(--surface-primary);
-  stroke: var(--brand-signal);
-  stroke-width: 2;
-  vector-effect: non-scaling-stroke;
-}
-
-.hero-evidence-node text {
-  fill: var(--text-muted);
-  font-family: var(--font-mono);
-  font-size: 8px;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-}
-
-.hero-evidence-node {
-  transform-box: fill-box;
-  transform-origin: center;
-  animation: evidence-node 360ms cubic-bezier(0.16, 1, 0.3, 1) both;
-}
-
-.hero-evidence-node--asset { animation-delay: 300ms; }
-.hero-evidence-node--risk { animation-delay: 520ms; }
-.hero-evidence-node--control { animation-delay: 720ms; }
-.hero-evidence-node--evidence { animation-delay: 1050ms; }
-
-@keyframes evidence-route {
-  to { stroke-dashoffset: 0; }
-}
-
-@keyframes evidence-node {
-  from { opacity: 0; transform: scale(0.6); }
-  to { opacity: 1; transform: scale(1); }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .hero-evidence-route {
-    animation: none;
-    stroke-dashoffset: 0;
-  }
-
-  .hero-evidence-node {
-    animation: none;
-  }
-}
-
 .hero-profile {
   display: flex;
   flex-direction: column;
@@ -1518,14 +1431,10 @@ img, svg, picture {
   .hero-layout { grid-template-columns: 1fr; gap: 40px; }
   .hero-profile { flex-direction: row; align-items: flex-start; flex-wrap: wrap; }
   .hero-photo { width: 200px; }
-  .hero-evidence-field { top: 66%; right: -100px; width: min(74vw, 500px); opacity: 0.46; }
 }
 
 @media (max-width: 640px) {
   .hero-photo { width: 160px; }
-  .hero-evidence-field { top: 67%; right: -180px; width: 440px; opacity: 0.34; }
-  .hero-evidence-node--risk,
-  .hero-evidence-node--control { display: none; }
 }
 
 /* ─── Sistema de secciones // NN ────────────────────────────── */
