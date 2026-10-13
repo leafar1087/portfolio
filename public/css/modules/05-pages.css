@@ -1040,6 +1040,10 @@
   padding: 14px;
 }
 
+@media (min-width: 1025px) {
+  .hero-photo { align-self: center; }
+}
+
 .hero-photo picture,
 .hero-photo img {
   border: 1px solid var(--border-medium);
