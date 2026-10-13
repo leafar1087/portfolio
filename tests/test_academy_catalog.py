@@ -22,7 +22,10 @@ class AcademyCatalogContractTests(unittest.TestCase):
         template = (ROOT / 'pages' / 'academy.html').read_text(encoding='utf-8')
         loader = (ROOT / 'js' / 'academy-loader.js').read_text(encoding='utf-8')
         self.assertIn('data-state="loading"', template)
+        self.assertIn('id="academy-results-status"', template)
+        self.assertIn('aria-live="polite"', template)
         self.assertIn("catalog.dataset.state = 'success'", loader)
+        self.assertIn('visible.length === 1', loader)
         self.assertIn("state === 'error' ? 'alert' : 'status'", loader)
         self.assertIn("renderState('El catálogo no está disponible ahora.', 'error')", loader)
 
