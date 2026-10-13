@@ -65,14 +65,14 @@ const Components = {
         const logoHref   = isHome ? '#' : '../index.html';
 
         const html = `
-      <nav class="nav container">
+      <nav class="nav container" aria-label="Navegación principal">
         <div class="logo">
           <a href="${logoHref}" aria-label="RPLL Inicio" class="logo-link">
             <div class="logo-svg-wrap" id="logo-svg-header"></div>
           </a>
         </div>
 
-        <ul class="nav-links">
+        <ul id="site-navigation" class="nav-links">
           <li><a href="${getLink('#research')}"><span>Investigación</span></a></li>
           <li><a href="${getLink('#experience')}"><span>Experiencia</span></a></li>
           <li><a href="${getLink('#practice')}"><span>Especialidad</span></a></li>
@@ -95,8 +95,8 @@ const Components = {
           </button>
         </div>
 
-        <button class="hamburger" aria-label="Abrir menú de navegación">
-          <svg width="22" height="22"><use href="/assets/images/tech-icons.svg#icon-menu"></use></svg>
+        <button class="hamburger" type="button" aria-label="Abrir menú de navegación" aria-controls="site-navigation" aria-expanded="false">
+          <svg width="22" height="22" aria-hidden="true"><use href="${assetsPath}images/tech-icons.svg#icon-menu"></use></svg>
         </button>
       </nav>`;
 
@@ -108,6 +108,7 @@ const Components = {
                 ADD_TAGS: ['use', 'svg'],
                 ADD_ATTR: ['href', 'xlink:href', 'width', 'height', 'viewBox',
                            'aria-label', 'target', 'rel', 'class', 'id',
+                           'aria-controls', 'aria-expanded',
                            'data-i18n', 'style'],
             });
         } else {
