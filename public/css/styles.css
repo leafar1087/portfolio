@@ -401,9 +401,11 @@
   /* Brand Palette (RPLL) */
   --brand-navy: #0a2540;
   --brand-primary: #0052cc;
+  --brand-primary-hover: #0043a8;
   --brand-signal: #00e5ff;
   --brand-signal-rgb: 0, 229, 255;
   --brand-signal-subtle: rgba(0, 229, 255, 0.08);
+  --text-on-brand: #ffffff;
   --teal: var(--brand-signal);
   --teal-rgb: 0, 229, 255;
 
@@ -423,6 +425,10 @@
   --glass-bg: rgba(6, 9, 14, 0.88);
   --glass-border: var(--border-subtle);
   --glass-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+  --shadow-nav: -10px 0 30px rgba(0, 0, 0, 0.5);
+  --shadow-card: 0 18px 42px -36px rgba(0, 0, 0, 0.9);
+  --shadow-signal: 0 18px 36px -28px rgba(0, 229, 255, 0.85);
+  --overlay-scrim: rgba(6, 9, 14, 0.55);
 
   /* Transitions */
   --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
@@ -463,9 +469,11 @@
   /* Brand Palette */
   --brand-navy: #0a2540;
   --brand-primary: #0052cc;
+  --brand-primary-hover: #0043a8;
   --brand-signal: #0284c7;
   --brand-signal-rgb: 2, 132, 199;
   --brand-signal-subtle: rgba(2, 132, 199, 0.08);
+  --text-on-brand: #ffffff;
   --teal: var(--brand-signal);
   --teal-rgb: 2, 132, 199;
 
@@ -473,6 +481,10 @@
   --glass-bg: rgba(255, 255, 255, 0.92);
   --glass-border: var(--border-subtle);
   --glass-shadow: 0 10px 30px -10px rgba(15, 23, 42, 0.08);
+  --shadow-nav: -10px 0 30px rgba(15, 23, 42, 0.18);
+  --shadow-card: 0 18px 42px -36px rgba(15, 23, 42, 0.2);
+  --shadow-signal: 0 18px 36px -28px rgba(2, 132, 199, 0.45);
+  --overlay-scrim: rgba(15, 23, 42, 0.18);
 }
 *, *::before, *::after {
   margin: 0;
@@ -863,11 +875,11 @@ img, svg, picture {
 
   .nav-links.nav-active {
     transform: translateX(0%);
-    box-shadow: -10px 0 30px rgba(0,0,0,0.5);
+    box-shadow: var(--shadow-nav);
   }
 
   .nav-links.nav-active::before {
-    background: rgba(6, 9, 14, 0.55);
+    background: var(--overlay-scrim);
     content: '';
     inset: 0 280px 0 -100vw;
     pointer-events: none;
@@ -991,14 +1003,14 @@ img, svg, picture {
 
 .btn-primary {
   background-color: var(--brand-primary);
-  color: #ffffff;
+  color: var(--text-on-brand);
   border-color: var(--brand-primary);
 }
 
 .btn-primary:hover {
-  background-color: #0043a8;
-  border-color: #0043a8;
-  color: #ffffff;
+  background-color: var(--brand-primary-hover);
+  border-color: var(--brand-primary-hover);
+  color: var(--text-on-brand);
 }
 
 .btn-filled {
@@ -1010,7 +1022,7 @@ img, svg, picture {
 .btn-filled:hover {
   background-color: var(--brand-primary);
   border-color: var(--brand-primary);
-  color: #ffffff;
+  color: var(--text-on-brand);
 }
 
 .btn-outline {
@@ -2505,13 +2517,13 @@ img, svg, picture {
 
 .course-card:hover {
   border-color: var(--brand-signal);
-  box-shadow: 0 18px 36px -28px rgba(0, 229, 255, 0.85);
+  box-shadow: var(--shadow-signal);
   transform: translateY(-3px);
 }
 
 .course-card,
 .editorial-post-item {
-  box-shadow: 0 18px 42px -36px rgba(0, 0, 0, 0.9);
+  box-shadow: var(--shadow-card);
 }
 
 .course-thumb {
