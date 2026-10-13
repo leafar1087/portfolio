@@ -75,6 +75,14 @@ class RuntimeContractTests(unittest.TestCase):
         self.assertEqual(source.count('role="tabpanel"'), len(stages))
         self.assertIn("const selectStage", (ROOT / 'js' / 'script.js').read_text(encoding='utf-8'))
 
+    def test_resilience_panel_transition_has_reduced_motion_contract(self):
+        script = (ROOT / 'js' / 'script.js').read_text(encoding='utf-8')
+        styles = (ROOT / 'css' / 'modules' / '05-pages.css').read_text(encoding='utf-8')
+        self.assertIn("panel.classList.add('is-entering')", script)
+        self.assertIn("matchMedia('(prefers-reduced-motion: reduce)')", script)
+        self.assertIn('.resilience-panel.is-entering', styles)
+        self.assertIn('@media (prefers-reduced-motion: reduce)', styles)
+
     def test_threat_context_map_is_local_and_has_disclosed_sources(self):
         template = (ROOT / 'pages' / 'tools.html').read_text(encoding='utf-8')
         source = (ROOT / 'js' / 'tools.js').read_text(encoding='utf-8')

@@ -349,6 +349,29 @@
   padding: clamp(24px, 4vw, 42px);
 }
 
+.resilience-panel.is-entering {
+  animation: resilience-panel-enter 260ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes resilience-panel-enter {
+  from {
+    filter: blur(3px);
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    filter: blur(0);
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .resilience-panel.is-entering {
+    animation: none;
+  }
+}
+
 .resilience-panel h3 {
   font-size: clamp(1.55rem, 2.8vw, 2.3rem);
   letter-spacing: -0.035em;
