@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', async () => {
     const catalog = document.getElementById('academy-catalog');
     const searchInput = document.getElementById('academy-search');
+    const resultsStatus = document.getElementById('academy-results-status');
     const filters = [...document.querySelectorAll('.academy-filter')];
     const idPattern = /^[a-z0-9][a-z0-9_-]*(?:\/[a-z0-9][a-z0-9_-]*)*$/i;
     const allowedStatuses = new Set(['reviewed', 'canonical']);
@@ -21,6 +22,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         catalog.replaceChildren(empty);
         catalog.dataset.state = state;
         catalog.setAttribute('aria-busy', 'false');
+        if (resultsStatus) resultsStatus.textContent = message;
     }
 
     function compareCourses(a, b) {
@@ -93,6 +95,11 @@ document.addEventListener('DOMContentLoaded', async () => {
         catalog.replaceChildren(fragment);
         catalog.dataset.state = 'success';
         catalog.setAttribute('aria-busy', 'false');
+        if (resultsStatus) {
+            resultsStatus.textContent = visible.length === 1
+                ? '1 curso encontrado.'
+                : `${visible.length} cursos encontrados.`;
+        }
     }
 
     try {

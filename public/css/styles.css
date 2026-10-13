@@ -2645,6 +2645,13 @@ img, svg, picture {
   box-shadow: 0 0 0 3px var(--brand-signal-subtle);
 }
 
+.academy-results-status {
+  color: var(--text-muted);
+  font: 0.75rem/1.4 var(--font-mono);
+  margin: 10px 0 0;
+  min-height: 1.2em;
+}
+
 .academy-filters {
   display: flex;
   flex-wrap: wrap;
