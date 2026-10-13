@@ -33,6 +33,7 @@ jobs:
             https://rafaelperezllorca.com/pages/article.html \
             https://rafaelperezllorca.com/pages/tools.html \
             --tags wcag2a,wcag2aa \
+            --disable meta-refresh \
             --load-delay 1500 \
             --chromedriver-path "$CHROMEDRIVER_TEST_PATH" \
             --chrome-path "$CHROME_TEST_PATH" \

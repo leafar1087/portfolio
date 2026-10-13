@@ -55,6 +55,11 @@ class RuntimeContractTests(unittest.TestCase):
                 )
                 self.assertTrue(named, f'{source}: {tag} sin nombre accesible')
 
+    def test_static_html_does_not_use_meta_refresh(self):
+        pages = sorted(ROOT.glob('*.html')) + sorted((ROOT / 'pages').glob('*.html'))
+        for source in pages:
+            self.assertNotRegex(source.read_text(encoding='utf-8'), r'<meta[^>]+http-equiv=["\']refresh', str(source))
+
     def test_dynamic_terminal_input_preserves_accessible_name(self):
         source = (ROOT / 'js' / 'terminal.js').read_text(encoding='utf-8')
         self.assertIn('id="term-input" aria-label="Entrada de terminal"', source)
