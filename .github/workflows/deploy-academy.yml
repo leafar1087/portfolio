@@ -67,6 +67,7 @@ jobs:
             --output posts/academy
           python3 -m unittest discover -s tests -v
           python3 tools/build_css.py --check
+          python3 tools/asset_versions.py
           python3 build_index.py
           if [ -n "${GOOGLE_ANALYTICS_MEASUREMENT_ID:-}" ]; then
             if [[ ! "$GOOGLE_ANALYTICS_MEASUREMENT_ID" =~ ^G-[A-Z0-9]+$ ]]; then

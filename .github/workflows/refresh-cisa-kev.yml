@@ -41,6 +41,7 @@ jobs:
           python3 build_index.py
           python3 -m unittest discover -s tests -v
           python3 tools/build_css.py --check
+          python3 tools/asset_versions.py
           node --check js/tools.js
           git diff --check
       - name: Create or refresh the review PR
