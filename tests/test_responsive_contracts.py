@@ -42,7 +42,6 @@ class ResponsiveContractTests(unittest.TestCase):
         self.assertNotIn('transition: all', components)
         self.assertNotIn('transition: all', self.courses)
         self.assertNotIn('course-overview-start:hover { color: #ffffff', self.courses)
-
     def test_pages_reference_current_stylesheet_revision(self):
         for page in [ROOT / 'index.html', *sorted((ROOT / 'pages').glob('*.html'))]:
             source = page.read_text(encoding='utf-8')
