@@ -69,3 +69,21 @@ jobs:
             ' "audit-results/${page}.json" >/dev/null
             jq -r '[.requestedUrl, (.categories|to_entries[]|"\(.key)=\(.value.score*100|round)")] | @tsv' "audit-results/${page}.json"
           done
+
+      - name: Capture responsive Playwright smoke views
+        shell: bash
+        run: |
+          python3 -m http.server 4173 --directory . >/tmp/portfolio-playwright.log 2>&1 &
+          server_pid=$!
+          trap 'kill "$server_pid"' EXIT
+          mkdir -p audit-results/responsive
+          for viewport in 375,900 768,900 1440,900; do
+            filename="audit-results/responsive/home-${viewport%,*}.png"
+            npx --yes playwright@1.55.0 screenshot \
+              --channel=chrome \
+              --viewport-size="$viewport" \
+              --wait-for-timeout=1500 \
+              "http://127.0.0.1:4173/index.html" \
+              "$filename"
+            test -s "$filename"
+          done
