@@ -989,7 +989,7 @@ img, svg, picture {
   cursor: pointer;
   line-height: 1.2;
   white-space: nowrap;
-  transition: all var(--transition-fast);
+  transition: background-color var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
   border: 1px solid transparent;
   text-decoration: none;
 }
@@ -1072,7 +1072,7 @@ img, svg, picture {
   border: 1px solid var(--border-medium) !important;
   color: var(--text-primary) !important;
   cursor: pointer;
-  transition: all var(--transition-fast);
+  transition: background-color var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast), transform var(--transition-fast);
   flex-shrink: 0;
 }
 
@@ -2921,7 +2921,7 @@ img, svg, picture {
   padding: 10px 14px;
   border-radius: var(--radius-sm);
   border-left: 3px solid transparent;
-  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: background-color var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast), transform var(--transition-fast);
   display: block;
   line-height: 1.4;
 }
@@ -3164,7 +3164,7 @@ img, svg, picture {
   color: var(--text-inverted) !important;
   text-decoration: none !important;
 }
-.course-overview-start:hover { color: #ffffff !important; }
+.course-overview-start:hover { color: var(--text-on-brand) !important; }
 .course-module-directory { margin: 2.5rem 0; }
 .course-module-directory h2 { margin-top: 8px; }
 .course-module-grid {

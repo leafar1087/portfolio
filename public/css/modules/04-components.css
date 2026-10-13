@@ -12,7 +12,7 @@
   cursor: pointer;
   line-height: 1.2;
   white-space: nowrap;
-  transition: all var(--transition-fast);
+  transition: background-color var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
   border: 1px solid transparent;
   text-decoration: none;
 }
@@ -95,7 +95,7 @@
   border: 1px solid var(--border-medium) !important;
   color: var(--text-primary) !important;
   cursor: pointer;
-  transition: all var(--transition-fast);
+  transition: background-color var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast), transform var(--transition-fast);
   flex-shrink: 0;
 }
 
