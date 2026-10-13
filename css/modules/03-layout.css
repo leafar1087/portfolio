@@ -253,11 +253,11 @@
 
   .nav-links.nav-active {
     transform: translateX(0%);
-    box-shadow: -10px 0 30px rgba(0,0,0,0.5);
+    box-shadow: var(--shadow-nav);
   }
 
   .nav-links.nav-active::before {
-    background: rgba(6, 9, 14, 0.55);
+    background: var(--overlay-scrim);
     content: '';
     inset: 0 280px 0 -100vw;
     pointer-events: none;

@@ -26,14 +26,14 @@
 
 .btn-primary {
   background-color: var(--brand-primary);
-  color: #ffffff;
+  color: var(--text-on-brand);
   border-color: var(--brand-primary);
 }
 
 .btn-primary:hover {
-  background-color: #0043a8;
-  border-color: #0043a8;
-  color: #ffffff;
+  background-color: var(--brand-primary-hover);
+  border-color: var(--brand-primary-hover);
+  color: var(--text-on-brand);
 }
 
 .btn-filled {
@@ -45,7 +45,7 @@
 .btn-filled:hover {
   background-color: var(--brand-primary);
   border-color: var(--brand-primary);
-  color: #ffffff;
+  color: var(--text-on-brand);
 }
 
 .btn-outline {
