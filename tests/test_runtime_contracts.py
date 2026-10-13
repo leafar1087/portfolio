@@ -80,6 +80,12 @@ class RuntimeContractTests(unittest.TestCase):
         self.assertEqual(template.count('data-threat-node'), 4)
         self.assertIn('function initThreatMap()', source)
 
+    def test_tools_tabs_have_keyboard_navigation_contract(self):
+        source = (ROOT / 'js' / 'tools.js').read_text(encoding='utf-8')
+        self.assertIn("['ArrowLeft', 'ArrowRight', 'Home', 'End']", source)
+        self.assertIn('item.tabIndex = active ? 0 : -1', source)
+        self.assertIn('toolTabs[next].focus()', source)
+
     def test_kev_snapshot_contract_is_publishable_and_searchable(self):
         import json
         snapshot = json.loads((ROOT / 'data' / 'cisa-kev.json').read_text(encoding='utf-8'))
