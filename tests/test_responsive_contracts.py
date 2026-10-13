@@ -47,14 +47,14 @@ class ResponsiveContractTests(unittest.TestCase):
         for page in [ROOT / 'index.html', *sorted((ROOT / 'pages').glob('*.html'))]:
             source = page.read_text(encoding='utf-8')
             if 'styles.css' in source:
-                self.assertIn('styles.css?v=20261013l', source, str(page))
+                self.assertIn('styles.css?v=20261013m', source, str(page))
 
-    def test_hero_evidence_field_has_reduced_motion_contract(self):
+    def test_hero_prioritizes_content_over_decorative_overlay(self):
         source = (ROOT / 'index.html').read_text(encoding='utf-8')
-        self.assertIn('class="hero-evidence-field" aria-hidden="true"', source)
-        self.assertIn('class="hero-evidence-route" pathLength="1"', source)
-        self.assertIn('@media (prefers-reduced-motion: reduce)', self.pages)
-        self.assertIn('stroke-dashoffset: 0;', self.pages)
+        self.assertNotIn('hero-evidence-field', source)
+        self.assertIn('class="hero-layout"', source)
+        self.assertIn('class="hero-profile"', source)
+        self.assertNotIn('.hero-evidence-field', self.pages)
 
 if __name__ == '__main__':
     unittest.main()
