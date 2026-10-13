@@ -1,0 +1,29 @@
+{
+  "northStar": "Panel de evidencia",
+  "source": "Scanned from css/modules/01-variables.css, 02-base.css, 03-layout.css, 04-components.css, 05-pages.css and 07-courses.css.",
+  "breakpoints": {
+    "hero-tablet": "1024px",
+    "wide-content": "900px",
+    "tools-tablet": "780px",
+    "content-tablet": "768px",
+    "mobile": "640px",
+    "narrow": "520px"
+  },
+  "motion": {
+    "fast": "150ms cubic-bezier(0.4, 0, 0.2, 1)",
+    "normal": "240ms cubic-bezier(0.4, 0, 0.2, 1)",
+    "reducedMotion": "Disable non-essential transitions and animations."
+  },
+  "elevation": {
+    "nav": "var(--shadow-nav)",
+    "card": "var(--shadow-card)",
+    "signal": "var(--shadow-signal)",
+    "glass": "var(--glass-shadow)"
+  },
+  "rules": [
+    "Use the cian signal color for focus, active state and evidence; keep it scarce.",
+    "Prefer semantic tokens over direct color literals.",
+    "Declare explicit transition properties.",
+    "Keep technical content ahead of decorative effects."
+  ]
+}
