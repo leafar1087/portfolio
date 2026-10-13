@@ -37,6 +37,12 @@ class ResponsiveContractTests(unittest.TestCase):
         assert_media_rule(self, self.courses, 640, '.attack-search-form { grid-template-columns: 1fr;')
         assert_media_rule(self, self.courses, 640, '.academy-toolbar { align-items: stretch; flex-direction: column;')
 
+    def test_interactive_transitions_are_explicit_and_tokenized(self):
+        components = (ROOT / 'css' / 'modules' / '04-components.css').read_text(encoding='utf-8')
+        self.assertNotIn('transition: all', components)
+        self.assertNotIn('transition: all', self.courses)
+        self.assertNotIn('course-overview-start:hover { color: #ffffff', self.courses)
+
 
 if __name__ == '__main__':
     unittest.main()
