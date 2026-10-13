@@ -23,6 +23,7 @@ class ResponsiveContractTests(unittest.TestCase):
         assert_media_rule(self, self.pages, 640, '.hero-photo { width: 160px; }')
         self.assertIn('@media (min-width: 1025px)', self.pages)
         self.assertIn('.hero-photo { align-self: center; }', self.pages)
+        self.assertIn('width: 141px;', (ROOT / 'css' / 'modules' / '03-layout.css').read_text(encoding='utf-8'))
 
     def test_reading_and_catalog_surfaces_collapse_before_tablet(self):
         assert_media_rule(self, self.pages, 768, '.editorial-posts-ledger { grid-template-columns: minmax(0, 1fr); }')
@@ -46,7 +47,7 @@ class ResponsiveContractTests(unittest.TestCase):
         for page in [ROOT / 'index.html', *sorted((ROOT / 'pages').glob('*.html'))]:
             source = page.read_text(encoding='utf-8')
             if 'styles.css' in source:
-                self.assertIn('styles.css?v=20261013h', source, str(page))
+                self.assertIn('styles.css?v=20261013i', source, str(page))
 
 if __name__ == '__main__':
     unittest.main()
