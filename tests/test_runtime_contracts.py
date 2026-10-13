@@ -83,6 +83,16 @@ class RuntimeContractTests(unittest.TestCase):
         self.assertIn('.resilience-panel.is-entering', styles)
         self.assertIn('@media (prefers-reduced-motion: reduce)', styles)
 
+    def test_catalog_and_tools_transitions_have_reduced_motion_contract(self):
+        loader = (ROOT / 'js' / 'academy-loader.js').read_text(encoding='utf-8')
+        tools = (ROOT / 'js' / 'tools.js').read_text(encoding='utf-8')
+        styles = (ROOT / 'css' / 'modules' / '07-courses.css').read_text(encoding='utf-8')
+        self.assertIn("catalog.classList.add('is-refreshing')", loader)
+        self.assertIn("panel.classList.add('is-entering')", tools)
+        self.assertIn('.academy-grid.is-refreshing', styles)
+        self.assertIn('.tool-panel.is-entering', styles)
+        self.assertIn('@media (prefers-reduced-motion: reduce)', styles)
+
     def test_threat_context_map_is_local_and_has_disclosed_sources(self):
         template = (ROOT / 'pages' / 'tools.html').read_text(encoding='utf-8')
         source = (ROOT / 'js' / 'tools.js').read_text(encoding='utf-8')

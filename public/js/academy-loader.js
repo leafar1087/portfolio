@@ -93,6 +93,11 @@ document.addEventListener('DOMContentLoaded', async () => {
             fragment.appendChild(card);
         });
         catalog.replaceChildren(fragment);
+        catalog.classList.remove('is-refreshing');
+        if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            void catalog.offsetWidth;
+            catalog.classList.add('is-refreshing');
+        }
         catalog.dataset.state = 'success';
         catalog.setAttribute('aria-busy', 'false');
         if (resultsStatus) {

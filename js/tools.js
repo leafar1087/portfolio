@@ -340,7 +340,13 @@
                 item.tabIndex = active ? 0 : -1;
             });
             document.querySelectorAll('[data-tool-panel]').forEach(panel => {
-                panel.hidden = panel.dataset.toolPanel !== selected;
+                const isSelected = panel.dataset.toolPanel === selected;
+                panel.hidden = !isSelected;
+                panel.classList.remove('is-entering');
+                if (isSelected && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                    void panel.offsetWidth;
+                    panel.classList.add('is-entering');
+                }
             });
         };
         toolTabs.forEach(button => {
