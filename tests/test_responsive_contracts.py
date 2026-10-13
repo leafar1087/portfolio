@@ -43,6 +43,18 @@ class ResponsiveContractTests(unittest.TestCase):
         self.assertNotIn('transition: all', components)
         self.assertNotIn('transition: all', self.courses)
         self.assertNotIn('course-overview-start:hover { color: #ffffff', self.courses)
+
+    def test_infinite_motion_is_reserved_for_loading_feedback(self):
+        stylesheets = [
+            (ROOT / 'css' / 'modules' / name).read_text(encoding='utf-8')
+            for name in ('02-base.css', '03-layout.css', '04-components.css', '05-pages.css', '07-courses.css')
+        ]
+        selectors = []
+        for stylesheet in stylesheets:
+            selectors.extend(re.findall(r'([^{}]+)\{[^{}]*animation:[^{}]*infinite', stylesheet))
+        self.assertTrue(selectors)
+        self.assertTrue(all('glowing-dot' in selector or 'loading' in selector for selector in selectors), selectors)
+
     def test_pages_reference_current_stylesheet_revision(self):
         for page in [ROOT / 'index.html', *sorted((ROOT / 'pages').glob('*.html'))]:
             source = page.read_text(encoding='utf-8')
