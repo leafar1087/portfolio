@@ -17,6 +17,15 @@ class CourseOverviewTests(unittest.TestCase):
         self.assertIn('aria-label="Buscar publicaciones"', source)
         self.assertIn("'aria-label'", source)
 
+    def test_article_states_are_explicit_and_announceable(self):
+        template = (SOURCE.parents[1] / 'pages' / 'article.html').read_text(encoding='utf-8')
+        source = SOURCE.read_text(encoding='utf-8')
+        self.assertIn('data-state="loading"', template)
+        self.assertIn('class="loading-state" role="status"', template)
+        self.assertIn("container.dataset.state = 'success'", source)
+        self.assertIn("container.dataset.state = 'error'", source)
+        self.assertIn("setAttribute('role', 'alert')", source)
+
 
 if __name__ == '__main__':
     unittest.main()

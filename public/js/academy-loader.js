@@ -13,11 +13,13 @@ document.addEventListener('DOMContentLoaded', async () => {
         parent.appendChild(element);
     }
 
-    function renderEmpty(message) {
+    function renderState(message, state = 'empty') {
         const empty = document.createElement('p');
-        empty.className = 'text-muted';
+        empty.className = `academy-state academy-state--${state}`;
+        empty.setAttribute('role', state === 'error' ? 'alert' : 'status');
         empty.textContent = message;
         catalog.replaceChildren(empty);
+        catalog.dataset.state = state;
         catalog.setAttribute('aria-busy', 'false');
     }
 
@@ -50,7 +52,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             && (stage === 'all' || courseStages(course).includes(stage))
         );
         if (!visible.length) {
-            renderEmpty(`No hay cursos que coincidan con “${term.trim()}”.`);
+            renderState(`No hay cursos que coincidan con “${term.trim()}”.`);
             return;
         }
         const fragment = document.createDocumentFragment();
@@ -89,6 +91,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             fragment.appendChild(card);
         });
         catalog.replaceChildren(fragment);
+        catalog.dataset.state = 'success';
         catalog.setAttribute('aria-busy', 'false');
     }
 
@@ -109,7 +112,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                 courseMap.set(slug, course);
             });
         const courses = [...courseMap.values()].sort(compareCourses);
-        if (!courses.length) return renderEmpty('No hay cursos publicados en este momento.');
+        if (!courses.length) return renderState('No hay cursos publicados en este momento.');
         window.academySeo?.catalog(courseMap);
         let selectedStage = 'all';
         const render = () => renderCourses(courses, searchInput?.value || '', selectedStage);
@@ -125,6 +128,6 @@ document.addEventListener('DOMContentLoaded', async () => {
             render();
         }));
     } catch (error) {
-        renderEmpty('El catálogo no está disponible ahora.');
+        renderState('El catálogo no está disponible ahora.', 'error');
     }
 });

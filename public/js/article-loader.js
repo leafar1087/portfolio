@@ -13,11 +13,13 @@ document.addEventListener('DOMContentLoaded', async () => {
     } finally {
         // Every terminal path, including an unexpected loader error, must stop
         // announcing the article as busy once rendering has settled.
+        if (container.dataset.state === 'loading') container.dataset.state = 'error';
         container.setAttribute('aria-busy', 'false');
     }
 
 
     async function loadContent() {
+        container.dataset.state = 'loading';
         container.setAttribute('aria-busy', 'true');
 
         // Always fetch posts index if missing, needed for sidebars
@@ -268,6 +270,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                 ADD_ATTR: ['target'],
                 ADD_TAGS: ['use', 'svg'], // Support for icons if needed
             });
+            container.dataset.state = 'success';
             container.setAttribute('aria-busy', 'false');
 
             // Update Page Title dynamically
@@ -409,6 +412,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             </div>
         `;
         container.innerHTML = DOMPurify.sanitize(finalContent, { ADD_ATTR: ['id', 'value', 'placeholder', 'autocomplete', 'aria-label'] });
+        container.dataset.state = 'success';
         container.setAttribute('aria-busy', 'false');
 
         const searchInput = document.getElementById('article-search');
@@ -447,6 +451,8 @@ document.addEventListener('DOMContentLoaded', async () => {
             </div>
         `;
         container.innerHTML = DOMPurify.sanitize(errorHtml, { ADD_ATTR: ['style'] });
+        container.querySelector('.error-box')?.setAttribute('role', 'alert');
+        container.dataset.state = 'error';
         container.setAttribute('aria-busy', 'false');
     }
 });

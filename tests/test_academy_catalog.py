@@ -18,6 +18,14 @@ class AcademyCatalogContractTests(unittest.TestCase):
         self.assertIn("modules.slice(0, 3)", loader)
         self.assertIn("item.textContent", loader)
 
+    def test_academy_states_are_explicit_and_announceable(self):
+        template = (ROOT / 'pages' / 'academy.html').read_text(encoding='utf-8')
+        loader = (ROOT / 'js' / 'academy-loader.js').read_text(encoding='utf-8')
+        self.assertIn('data-state="loading"', template)
+        self.assertIn("catalog.dataset.state = 'success'", loader)
+        self.assertIn("state === 'error' ? 'alert' : 'status'", loader)
+        self.assertIn("renderState('El catálogo no está disponible ahora.', 'error')", loader)
+
     def test_cvss_calculators_match_minimum_verified_vectors(self):
         result = subprocess.run(
             ['node', 'tests/test_tools.js'], cwd=ROOT, text=True, capture_output=True, check=False
