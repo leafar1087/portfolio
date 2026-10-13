@@ -894,6 +894,7 @@
 }
 
 .editorial-posts-ledger {
+  align-items: start;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 20px;
@@ -907,7 +908,7 @@
   padding: 28px;
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-md);
-  background: linear-gradient(145deg, var(--surface-primary), var(--surface-secondary));
+  background: var(--surface-primary);
   transition: border-color var(--transition-fast), transform var(--transition-fast);
 }
 

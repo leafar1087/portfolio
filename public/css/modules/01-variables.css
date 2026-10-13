@@ -36,7 +36,7 @@
   /* Layout */
   --layout-wide: 1280px;
   --layout-reading: 760px;
-  --section-pad: clamp(64px, 7.5vw, 115px);
+  --section-pad: clamp(56px, 5.5vw, 88px);
 
   /* Brand Palette (RPLL) */
   --brand-navy: #0a2540;
