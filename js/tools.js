@@ -330,17 +330,34 @@
             render();
         }));
 
-        document.querySelectorAll('[data-tool-tab]').forEach(button => button.addEventListener('click', () => {
+        const toolTabs = [...document.querySelectorAll('[data-tool-tab]')];
+        const selectToolTab = button => {
             const selected = button.dataset.toolTab;
-            document.querySelectorAll('[data-tool-tab]').forEach(item => {
+            toolTabs.forEach(item => {
                 const active = item === button;
                 item.classList.toggle('active', active);
                 item.setAttribute('aria-selected', String(active));
+                item.tabIndex = active ? 0 : -1;
             });
             document.querySelectorAll('[data-tool-panel]').forEach(panel => {
                 panel.hidden = panel.dataset.toolPanel !== selected;
             });
-        }));
+        };
+        toolTabs.forEach(button => {
+            button.addEventListener('click', () => selectToolTab(button));
+            button.addEventListener('keydown', event => {
+                const current = toolTabs.indexOf(button);
+                if (!['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(event.key)) return;
+                event.preventDefault();
+                const next = event.key === 'Home' ? 0
+                    : event.key === 'End' ? toolTabs.length - 1
+                    : (current + (event.key === 'ArrowRight' ? 1 : -1) + toolTabs.length) % toolTabs.length;
+                selectToolTab(toolTabs[next]);
+                toolTabs[next].focus();
+            });
+        });
+        const initialToolTab = toolTabs.find(button => button.getAttribute('aria-selected') === 'true') || toolTabs[0];
+        if (initialToolTab) selectToolTab(initialToolTab);
 
         document.getElementById('copy-cvss-vector')?.addEventListener('click', async () => {
             try {
