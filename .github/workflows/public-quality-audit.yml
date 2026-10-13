@@ -42,12 +42,15 @@ jobs:
       - name: Run Lighthouse audits
         shell: bash
         run: |
+          python3 -m http.server 4173 --directory . >/tmp/portfolio-http.log 2>&1 &
+          server_pid=$!
+          trap 'kill "$server_pid"' EXIT
           mkdir -p audit-results
           for page in index academy article tools; do
             if [ "$page" = "index" ]; then
-              url="https://rafaelperezllorca.com/index.html"
+              url="http://127.0.0.1:4173/index.html"
             else
-              url="https://rafaelperezllorca.com/pages/${page}.html"
+              url="http://127.0.0.1:4173/pages/${page}.html"
             fi
             npx --yes lighthouse@12.6.1 "$url" \
               --only-categories=accessibility,performance,seo \
