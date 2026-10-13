@@ -47,7 +47,14 @@ class ResponsiveContractTests(unittest.TestCase):
         for page in [ROOT / 'index.html', *sorted((ROOT / 'pages').glob('*.html'))]:
             source = page.read_text(encoding='utf-8')
             if 'styles.css' in source:
-                self.assertIn('styles.css?v=20261013j', source, str(page))
+                self.assertIn('styles.css?v=20261013k', source, str(page))
+
+    def test_hero_evidence_field_has_reduced_motion_contract(self):
+        source = (ROOT / 'index.html').read_text(encoding='utf-8')
+        self.assertIn('class="hero-evidence-field" aria-hidden="true"', source)
+        self.assertIn('class="hero-evidence-route" pathLength="1"', source)
+        self.assertIn('@media (prefers-reduced-motion: reduce)', self.pages)
+        self.assertIn('stroke-dashoffset: 0;', self.pages)
 
 if __name__ == '__main__':
     unittest.main()
