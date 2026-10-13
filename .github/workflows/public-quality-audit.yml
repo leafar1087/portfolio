@@ -1,0 +1,60 @@
+name: Public quality audit
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '23 6 * * 1'
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Install matching Chrome and driver
+        shell: bash
+        run: |
+          npx --yes browser-driver-manager@2.0.1 install chrome > driver.env
+          grep '^CHROME_TEST_PATH=' driver.env >> "$GITHUB_ENV"
+          grep '^CHROMEDRIVER_TEST_PATH=' driver.env >> "$GITHUB_ENV"
+
+      - name: Run axe WCAG audit
+        shell: bash
+        run: |
+          npx --yes @axe-core/cli@4.10.2 \
+            https://rafaelperezllorca.com/index.html \
+            https://rafaelperezllorca.com/pages/academy.html \
+            https://rafaelperezllorca.com/pages/article.html \
+            https://rafaelperezllorca.com/pages/tools.html \
+            --tags wcag2a,wcag2aa \
+            --load-delay 1500 \
+            --chromedriver-path "$CHROMEDRIVER_TEST_PATH" \
+            --chrome-path "$CHROME_TEST_PATH" \
+            --exit
+
+      - name: Run Lighthouse audits
+        shell: bash
+        run: |
+          mkdir -p audit-results
+          for page in index academy article tools; do
+            if [ "$page" = "index" ]; then
+              url="https://rafaelperezllorca.com/index.html"
+            else
+              url="https://rafaelperezllorca.com/pages/${page}.html"
+            fi
+            npx --yes lighthouse@12.6.1 "$url" \
+              --only-categories=accessibility,performance,seo \
+              --output=json \
+              --output-path="audit-results/${page}.json" \
+              --preset=desktop \
+              --chrome-flags="--headless --no-sandbox" \
+              --quiet
+            jq -e '
+              .categories.accessibility.score >= 0.95 and
+              .categories.performance.score >= 0.90 and
+              .categories.seo.score >= 0.95
+            ' "audit-results/${page}.json" >/dev/null
+            jq -r '[.requestedUrl, (.categories|to_entries[]|"\(.key)=\(.value.score*100|round)")] | @tsv' "audit-results/${page}.json"
+          done
