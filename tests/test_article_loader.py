@@ -27,6 +27,8 @@ class CourseOverviewTests(unittest.TestCase):
         self.assertIn("container.dataset.state = 'success'", source)
         self.assertIn("container.dataset.state = 'error'", source)
         self.assertIn("setAttribute('role', 'alert')", source)
+        self.assertIn('class="error-box"', source)
+        self.assertNotIn("ADD_ATTR: ['style']", source)
 
 
 if __name__ == '__main__':
