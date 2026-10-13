@@ -12,8 +12,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 
     async function loadContent() {
-        // Clear container mostly for re-renders on lang switch
-        container.innerHTML = ''; 
+        container.setAttribute('aria-busy', 'true');
 
         // Always fetch posts index if missing, needed for sidebars
         if (allPosts.length === 0) {
@@ -65,13 +64,8 @@ document.addEventListener('DOMContentLoaded', async () => {
                 return;
             }
 
-            const loadingDiv = document.createElement('div');
-            loadingDiv.style.cssText = "display: flex; justify-content: center; align-items: center; height: 300px; color: var(--brand-signal);";
-            const loadingP = document.createElement('p');
-            loadingP.style.fontFamily = "'IBM Plex Mono', monospace";
-            loadingP.textContent = `Cargando contenido [${articleId}]...`;
-            loadingDiv.appendChild(loadingP);
-            container.appendChild(loadingDiv);
+            const loadingP = container.querySelector('.loading-state p');
+            if (loadingP) loadingP.textContent = `Verificando contenido [${articleId}]...`;
 
             const safePath = articleId.split('/').map(encodeURIComponent).join('/');
             const fetchUrl = `../posts/${safePath}.md`;
@@ -268,6 +262,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                 ADD_ATTR: ['target'],
                 ADD_TAGS: ['use', 'svg'], // Support for icons if needed
             });
+            container.setAttribute('aria-busy', 'false');
 
             // Update Page Title dynamically
             let docTitle = "";
@@ -408,6 +403,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             </div>
         `;
         container.innerHTML = DOMPurify.sanitize(finalContent, { ADD_ATTR: ['id', 'value', 'placeholder', 'autocomplete', 'aria-label'] });
+        container.setAttribute('aria-busy', 'false');
 
         const searchInput = document.getElementById('article-search');
         if (searchInput) {
@@ -445,5 +441,6 @@ document.addEventListener('DOMContentLoaded', async () => {
             </div>
         `;
         container.innerHTML = DOMPurify.sanitize(errorHtml, { ADD_ATTR: ['style'] });
+        container.setAttribute('aria-busy', 'false');
     }
 });

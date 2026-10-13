@@ -18,6 +18,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         empty.className = 'text-muted';
         empty.textContent = message;
         catalog.replaceChildren(empty);
+        catalog.setAttribute('aria-busy', 'false');
     }
 
     function compareCourses(a, b) {
@@ -88,6 +89,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             fragment.appendChild(card);
         });
         catalog.replaceChildren(fragment);
+        catalog.setAttribute('aria-busy', 'false');
     }
 
     try {

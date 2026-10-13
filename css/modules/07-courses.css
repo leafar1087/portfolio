@@ -7,6 +7,25 @@
   gap: 20px;
 }
 
+.academy-loading {
+  align-items: center;
+  border: 1px solid var(--border-subtle);
+  color: var(--text-secondary);
+  display: flex;
+  font: 600 0.8rem var(--font-mono);
+  gap: 12px;
+  grid-column: 1 / -1;
+  min-height: 112px;
+  padding: 24px;
+}
+
+.academy-loading-signal {
+  background: var(--brand-signal);
+  box-shadow: 0 0 14px rgba(var(--brand-signal-rgb), 0.7);
+  height: 8px;
+  width: 8px;
+}
+
 .course-card {
   background: linear-gradient(150deg, var(--surface-primary), var(--surface-secondary));
   border: 1px solid var(--border-subtle);

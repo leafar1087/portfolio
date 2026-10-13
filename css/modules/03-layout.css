@@ -256,6 +256,15 @@
     box-shadow: -10px 0 30px rgba(0,0,0,0.5);
   }
 
+  .nav-links.nav-active::before {
+    background: rgba(6, 9, 14, 0.55);
+    content: '';
+    inset: 0 280px 0 -100vw;
+    pointer-events: none;
+    position: fixed;
+    top: var(--nav-height);
+  }
+
   .nav-links a {
     width: 100%;
     padding: 12px 16px;
