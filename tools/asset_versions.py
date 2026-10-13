@@ -9,8 +9,8 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 ASSET_VERSIONS = {
-    "styles.css": "20261013o",
-    "article-loader.js": "20261013d",
+    "styles.css": "20261013p",
+    "article-loader.js": "20261013e",
     "academy-loader.js": "20261013d",
     "tools.js": "20261013b",
 }

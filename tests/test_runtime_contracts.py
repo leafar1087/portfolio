@@ -93,6 +93,14 @@ class RuntimeContractTests(unittest.TestCase):
         self.assertIn('.tool-panel.is-entering', styles)
         self.assertIn('@media (prefers-reduced-motion: reduce)', styles)
 
+    def test_article_reading_progress_is_visual_only_and_throttled(self):
+        script = (ROOT / 'js' / 'article-loader.js').read_text(encoding='utf-8')
+        styles = (ROOT / 'css' / 'modules' / '07-courses.css').read_text(encoding='utf-8')
+        self.assertIn('article-reading-progress', script)
+        self.assertIn('requestAnimationFrame(updateProgress)', script)
+        self.assertIn("progress.setAttribute('aria-hidden', 'true')", script)
+        self.assertIn('.article-reading-progress', styles)
+
     def test_threat_context_map_is_local_and_has_disclosed_sources(self):
         template = (ROOT / 'pages' / 'tools.html').read_text(encoding='utf-8')
         source = (ROOT / 'js' / 'tools.js').read_text(encoding='utf-8')

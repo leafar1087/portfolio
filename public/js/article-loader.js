@@ -270,6 +270,28 @@ document.addEventListener('DOMContentLoaded', async () => {
             container.dataset.state = 'success';
             container.setAttribute('aria-busy', 'false');
 
+            if (articleId) {
+                const progress = document.createElement('div');
+                progress.className = 'article-reading-progress';
+                progress.setAttribute('aria-hidden', 'true');
+                progress.innerHTML = '<span></span>';
+                document.body.appendChild(progress);
+                const fill = progress.firstElementChild;
+                let framePending = false;
+                const updateProgress = () => {
+                    const range = document.documentElement.scrollHeight - window.innerHeight;
+                    const ratio = range > 0 ? Math.min(window.scrollY / range, 1) : 0;
+                    fill.style.transform = `scaleX(${ratio})`;
+                    framePending = false;
+                };
+                window.addEventListener('scroll', () => {
+                    if (framePending) return;
+                    framePending = true;
+                    window.requestAnimationFrame(updateProgress);
+                }, { passive: true });
+                updateProgress();
+            }
+
             // Update Page Title dynamically
             let docTitle = "";
             if (currentLang === 'es' && metadata.title_es) {

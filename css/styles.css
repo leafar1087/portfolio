@@ -3285,6 +3285,26 @@ img, svg, picture {
 .article-back-link { margin-bottom: 30px; }
 .article-back-link .btn { font-family: var(--font-mono); font-size: 12px; }
 
+.article-reading-progress {
+  background: var(--border-subtle);
+  height: 2px;
+  left: 0;
+  pointer-events: none;
+  position: fixed;
+  right: 0;
+  top: var(--nav-height);
+  z-index: 20;
+}
+
+.article-reading-progress span {
+  background: var(--brand-signal);
+  display: block;
+  height: 100%;
+  transform: scaleX(0);
+  transform-origin: left center;
+  width: 100%;
+}
+
 .article-back-link::after {
   display: block;
   height: 1px;
@@ -3303,10 +3323,17 @@ img, svg, picture {
 }
 
 .article-container {
+  padding-left: 40px;
+  padding-right: 40px;
   padding-top: calc(var(--nav-height) + 32px);
 }
 
 @media (max-width: 768px) {
+  .article-container {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
   .article-content {
     font-size: 1rem;
     line-height: 1.6;
